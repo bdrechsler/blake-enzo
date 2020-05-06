@@ -249,7 +249,7 @@ const field_type
   N2HIIDensity = 171,
   O2HIIDensity = 172,
 
-  FieldUndefined  = 172;
+  FieldUndefined  = 173;
 
 /*
 enum field_type {Density, TotalEnergy, InternalEnergy, Pressure,

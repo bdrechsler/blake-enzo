@@ -1952,7 +1952,9 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
   case 1:  NSpecies = 5;  break;
   case 2:  NSpecies = 8;  break;
   case 3:  NSpecies = 11; break;
-  case 4:  NSpecies = 92; break;
+#ifdef USE_KROME
+  case KROMESPECIES:  NSpecies = NKROMESPECIES; break;
+#endif
   default: NSpecies = 0;  break;
   }
 
