@@ -126,8 +126,11 @@ extern "C" void FORTRAN_NAME(krome_driver)(
 int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 {
   /* Return if this doesn't concern us. */
+#ifdef USE_KROME
+  if (!use_krome) return SUCCESS;
+#else
   if (!(MultiSpecies && RadiativeCooling)) return SUCCESS;
-
+#endif
   /* Return if this doesn't concern us. */
   
   if (ProcessorNumber != MyProcessorNumber)

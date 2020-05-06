@@ -1384,6 +1384,15 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     ret += sscanf(line,"MagneticSupernovaEnergy = %"FSYM, &MagneticSupernovaEnergy);
     ret += sscanf(line,"MagneticSupernovaDuration = %"FSYM, &MagneticSupernovaDuration);
 
+#ifdef USE_KROME
+    // Parameters for krome
+    ret += sscanf(line, "use_krome       = %"ISYM, &use_krome);
+    //ret += sscanf(line, "krometiny       = %"FSYM, &krometiny);
+    //ret += sscanf(line, "kromeload       = %"FSYM, &kromeload);
+    //ret += sscanf(line, "krome_fixedtgas = %"FSYM, &krome_fixedtgas);
+    //ret += sscanf(line, "krome_crrate    = %"FSYM, &krome_crrate);
+#endif
+
     /* If the dummy char space was used, then make another. */
  
     if (*dummy != 0) {

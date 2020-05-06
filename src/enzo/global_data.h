@@ -1204,4 +1204,12 @@ EXTERN float MagneticSupernovaRadius;
 EXTERN float MagneticSupernovaDuration;
 EXTERN float MagneticSupernovaEnergy;
 
+#ifdef USE_KROME
+EXTERN int use_krome;
+//EXTERN float krometiny;
+//EXTERN float kromeload;
+//EXTERN float krome_fixedtgas;
+//EXTERN float krome_crrate;
+#endif
+
 #endif

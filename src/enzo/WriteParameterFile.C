@@ -1173,6 +1173,14 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
   fprintf(fptr, "ShearingVelocityDirection    = %"ISYM"\n",ShearingVelocityDirection);
   fprintf(fptr, "ShearingBoxProblemType    = %"ISYM"\n\n", ShearingBoxProblemType);
 
+#ifdef USE_KROME
+  fprintf(fptr, "use_krome       = %"ISYM"\n", use_krome);
+  //fprintf(fptr, "krometiny       = %"GSYM"\n", krometiny);
+  //fprintf(fptr, "kromeload       = %"GSYM"\n", kromeload);
+  //fprintf(fptr, "krome_fixedtgas = %"GSYM"\n", krome_fixedtgas);
+  //fprintf(fptr, "krome_crrate    = %"GSYM"\n", krome_crrate   );
+#endif
+
   /* write data which defines the boundary conditions */
  
   fprintf(fptr, "LeftFaceBoundaryCondition  = ");
