@@ -1,7 +1,8 @@
-subroutine krome_initab()
+subroutine krome_initab(gama, mu)
    use krome_main
    use krome_user
    implicit none
+   real*8::gama, mu
 
    call krome_init()
    call krome_set_user_Av(2.9644d0)                                                    
@@ -15,5 +16,7 @@ subroutine krome_initab()
    call krome_set_user_h2desorb(1.d0)
    call krome_set_user_crdesorb(1.d0)
    call krome_set_user_uvcr(1.d0)
+   call krome_set_gamma(gama)
+   call krome_set_mu(mu)
 
 end subroutine krome_initab
