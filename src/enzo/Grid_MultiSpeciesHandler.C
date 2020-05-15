@@ -48,7 +48,11 @@ int grid::MultiSpeciesHandler()
 //#else
 //  if (MultiSpecies && RadiativeCooling ) {
 //#endif
+#ifdef USE_KROME
   if ((MultiSpecies && RadiativeCooling) || use_krome ) {
+#else
+  if (MultiSpecies && RadiativeCooling) {
+#endif
     int RTCoupledSolverIntermediateStep = FALSE;
     this->SolveRateAndCoolEquations(RTCoupledSolverIntermediateStep);
   } 

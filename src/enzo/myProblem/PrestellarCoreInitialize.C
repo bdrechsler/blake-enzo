@@ -69,6 +69,7 @@ int PrestellarCoreInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
   const char *DIIName   = "DII_Density";
   const char *HDIName   = "HDI_Density";
 
+#ifdef USE_KROME
   /* Additional species in deuterium network*/
   const char *CHIName          = "CHI_Density";
   const char *OIName           = "OI_Density";
@@ -152,6 +153,7 @@ int PrestellarCoreInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
   const char *N2HIIName        = "N2HII_Density";
   const char *O2HIIName        = "O2HII_Density";
 
+#endif
 
   /* parameter declarations */
 
@@ -248,6 +250,21 @@ int PrestellarCoreInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
     PrestellarCoreInitAbundance[i] = 0.0;
     PrestellarCoreMoleMass[i] = 0.0;
   }
+  // if (PrestellarCoreOPR > 999.0){
+  // if (MultiSpecies == KROMESPECIES) {
+  //   int i = 0;
+  //   char *dummy;
+  //   FILE *abfp = fopen("PrestellarCoreInitAbundance.dat", "r");
+  //   while (fgets(line, MAX_LINE_LENGTH, abfp) != NULL) {
+  //     if (line[0] != '#'){
+  //       ret += sscanf( line, "%lf %lf %s", &PrestellarCoreInitAbundance[i], &PrestellarCoreMoleMass[i], dummy);
+  //       // if (MyProcessorNumber == ROOT_PROCESSOR)
+  //       //   printf("%13.7e %lf\n", PrestellarCoreInitAbundance[i], PrestellarCoreMoleMass[i]);
+  //       i++;
+  //     }
+  //   }
+  //   fclose(abfp);
+  // }
   float PrestellarCoreInternalEnergy;
   PrestellarCoreInternalEnergy = PrestellarCoreTemperature * gasConst
                             / (Gamma - 1.0) / Mu;
@@ -602,7 +619,8 @@ int PrestellarCoreInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
       DataLabel[count++] = (char*) DIIName;
       DataLabel[count++] = (char*) HDIName;
     }
- 
+
+#ifdef USE_KROME 
     if (MultiSpecies == KROMESPECIES) {
       DataLabel[count++] = (char*) CHIName;
       DataLabel[count++] = (char*) OIName;
@@ -687,6 +705,7 @@ int PrestellarCoreInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
       DataLabel[count++] = (char*) O2HIIName;
 
     }
+#endif
   }  // if Multispecies
 
 

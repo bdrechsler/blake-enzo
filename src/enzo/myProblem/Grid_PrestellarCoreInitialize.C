@@ -80,6 +80,7 @@ int grid::PrestellarCoreInitializeGrid(
   int B1Num, B2Num, B3Num, PhiNum;
   int DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum, HMNum, H2INum, H2IINum,
       DINum, DIINum, HDINum;
+#ifdef USE_KROME
   int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
  OHINum, O2INum, CH2INum, H2COINum, HCOINum,
  MGINum, NH3INum, NOINum, CNINum, COINum,
@@ -99,6 +100,10 @@ int grid::PrestellarCoreInitializeGrid(
  HNOIINum, H2NOIINum, H3IINum, H3COIINum,
  H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
  N2HIINum, O2HIINum;
+#endif
+
+  int *speciesMap = new int [NSpecies+1];
+  for (int i=0; i<NSpecies+1; i++) speciesMap[i] = -1;
 
   NumberOfBaryonFields = 0;
   FieldType[DensNum = NumberOfBaryonFields++] = Density;
@@ -146,6 +151,7 @@ int grid::PrestellarCoreInitializeGrid(
       FieldType[HDINum  = NumberOfBaryonFields++] = HDIDensity;
     }
 
+#ifdef USE_KROME
     if (MultiSpecies == KROMESPECIES) {
       FieldType[CHINum          = NumberOfBaryonFields++] = CHIDensity;
       FieldType[OINum           = NumberOfBaryonFields++] = OIDensity;
@@ -229,7 +235,98 @@ int grid::PrestellarCoreInitializeGrid(
       FieldType[N2HIINum        = NumberOfBaryonFields++] = N2HIIDensity;
       FieldType[O2HIINum        = NumberOfBaryonFields++] = O2HIIDensity;
 
+
+      speciesMap[0] = DeNum;
+      speciesMap[1] = CHINum;
+      speciesMap[2] = OINum;
+      speciesMap[3] = HNCINum;
+      speciesMap[4] = HCNINum;
+      speciesMap[5] = H2INum;
+      speciesMap[6] = CINum;
+      speciesMap[7] = HINum;
+      speciesMap[8] = H2OINum;
+      speciesMap[9] = OHINum;
+      speciesMap[10] = O2INum;
+      speciesMap[11] = CH2INum;
+      speciesMap[12] = H2COINum;
+      speciesMap[13] = HCOINum;
+      speciesMap[14] = MGINum;
+      speciesMap[15] = NH3INum;
+      speciesMap[16] = NOINum;
+      speciesMap[17] = CNINum;
+      speciesMap[18] = COINum;
+      speciesMap[19] = N2INum;
+      speciesMap[20] = NH2INum;
+      speciesMap[21] = CH3INum;
+      speciesMap[22] = CH4INum;
+      speciesMap[23] = NINum;
+      speciesMap[24] = NHINum;
+      speciesMap[25] = HeINum;
+      speciesMap[26] = HNOINum;
+      speciesMap[27] = CH3OHINum;
+      speciesMap[28] = CO2INum;
+      speciesMap[29] = H2CNINum;
+      speciesMap[30] = HNCOINum;
+      speciesMap[31] = NO2INum;
+      speciesMap[32] = O2HINum;
+      speciesMap[33] = OCNINum;
+      speciesMap[34] = CH3OH_DUSTINum;
+      speciesMap[35] = HNCO_DUSTINum;
+      speciesMap[36] = H2CO_DUSTINum;
+      speciesMap[37] = CH4_DUSTINum;
+      speciesMap[38] = CO_DUSTINum;
+      speciesMap[39] = H2O_DUSTINum;
+      speciesMap[40] = NO_DUSTINum;
+      speciesMap[41] = CO2_DUSTINum;
+      speciesMap[42] = N2_DUSTINum;
+      speciesMap[43] = HCN_DUSTINum;
+      speciesMap[44] = NH3_DUSTINum;
+      speciesMap[45] = O2_DUSTINum;
+      speciesMap[46] = NO2_DUSTINum;
+      speciesMap[47] = HNO_DUSTINum;
+      speciesMap[48] = O2H_DUSTINum;
+      speciesMap[49] = H2CN_DUSTINum;
+      speciesMap[50] = MG_DUSTINum;
+      speciesMap[51] = HNC_DUSTINum;
+      speciesMap[52] = E_DUSTINum;
+      speciesMap[53] = HCOIINum;
+      speciesMap[54] = HIINum;
+      speciesMap[55] = HOCIINum;
+      speciesMap[56] = CIINum;
+      speciesMap[57] = CH2IINum;
+      speciesMap[58] = CHIINum;
+      speciesMap[59] = H2COIINum;
+      speciesMap[60] = MGIINum;
+      speciesMap[61] = NH3IINum;
+      speciesMap[62] = NOIINum;
+      speciesMap[63] = CNIINum;
+      speciesMap[64] = COIINum;
+      speciesMap[65] = N2IINum;
+      speciesMap[66] = O2IINum;
+      speciesMap[67] = H2OIINum;
+      speciesMap[68] = NH2IINum;
+      speciesMap[69] = OIINum;
+      speciesMap[70] = OHIINum;
+      speciesMap[71] = CH3IINum;
+      speciesMap[72] = CH4IINum;
+      speciesMap[73] = NIINum;
+      speciesMap[74] = HCNIINum;
+      speciesMap[75] = NHIINum;
+      speciesMap[76] = H2IINum;
+      speciesMap[77] = HeIINum;
+      speciesMap[78] = HNOIINum;
+      speciesMap[79] = H2NOIINum;
+      speciesMap[80] = H3IINum;
+      speciesMap[81] = H3COIINum;
+      speciesMap[82] = H3OIINum;
+      speciesMap[83] = HCNHIINum;
+      speciesMap[84] = HCO2IINum;
+      speciesMap[85] = HeHIINum;
+      speciesMap[86] = N2HIINum;
+      speciesMap[87] = O2HIINum;
+
     }
+#endif
   }
 
   if (ProcessorNumber != MyProcessorNumber)
@@ -309,19 +406,18 @@ int grid::PrestellarCoreInitializeGrid(
       // printf("zonex: %13.7e, zoney: %13.7e, zonez: %13.7e, Bz: %13.7e \n", zonex, zoney, zonez, BaryonField[B3Num][i]);
     }
 
+#ifdef USE_KROME
     if (MultiSpecies == KROMESPECIES) {
-      //for (int abNum=0; abNum<NSpecies+1; abNum++) {
-      //  int speciesNum = speciesMap[abNum];
-      //  if (speciesNum != -1) {
-      //    BaryonField[speciesNum][i] = 1.0e-20 * PrestellarCoreMoleMass[abNum] 
-      //                               * BaryonField[0][i] / 1.40045;
-      //  }
-      //}
-      for (int speciesNum = DeNum; speciesNum <= O2HIINum; speciesNum ++) {
-        BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
-        // if (MyProcessorNumber == ROOT_PROCESSOR && i==0)
-        //   printf("species num:%d\n", speciesNum);
+      for (int abNum=0; abNum<NSpecies+1; abNum++) {
+        int speciesNum = speciesMap[abNum];
+        if (speciesNum != -1) {
+          BaryonField[speciesNum][i] = 1.0e-20 * PrestellarCoreMoleMass[abNum] 
+                                     * BaryonField[0][i] / 1.40045;
+        }
       }
+      // for (int speciesNum = DeNum; speciesNum <= D3OIINum; speciesNum ++) {
+      //   BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+      // }
       if (PrestellarCoreOPR < 999.0){
         /* set your preferable initial abundances */
         BaryonField[H2INum][i]          = 5.00e-1*BaryonField[0][i] / 1.412;
@@ -334,17 +430,27 @@ int grid::PrestellarCoreInitializeGrid(
       }
       else {
         // read in table
-        //for (int abNum=0; abNum<NSpecies+1; abNum++) {
-        //  int speciesNum = speciesMap[abNum];
-        //  if (speciesNum != -1) {
-        //    BaryonField[speciesNum][i] = PrestellarCoreInitAbundance[abNum] 
-        //                               * PrestellarCoreMoleMass[abNum] 
-        //                               * BaryonField[0][i] / 1.40045;
-        //  }
-        //}
+        for (int abNum=0; abNum<NSpecies+1; abNum++) {
+          int speciesNum = speciesMap[abNum];
+          if (speciesNum != -1) {
+            BaryonField[speciesNum][i] = PrestellarCoreInitAbundance[abNum] 
+                                       * PrestellarCoreMoleMass[abNum] 
+                                       * BaryonField[0][i] / 1.40045;
+          }
+        }
       }
-
     }
+#else
+    if (MultiSpecies) {
+      for (int speciesNum = DeNum; speciesNum <= HeIIINum; speciesNum ++) {
+        BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+      }
+      BaryonField[H2INum][i]          = 5.00e-1*BaryonField[0][i] / 1.412;
+      BaryonField[HINum][i]           = 5.00e-1*BaryonField[0][i] / 1.412;
+      BaryonField[HeINum][i]          = 4.00e-1*BaryonField[0][i] / 1.412;
+    }
+#endif
+
 
     // if (count < 1){
     //     printf("zonex: %13.7e, zoney: %13.7e\n", zonex, zoney);
@@ -447,6 +553,8 @@ int grid::PrestellarCoreInitializeGrid(
 
   } // if (k1 < k2), set turbulence
  
+  delete [] speciesMap;
+
   return SUCCESS;
 }
 

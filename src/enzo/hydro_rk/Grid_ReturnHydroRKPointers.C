@@ -38,6 +38,7 @@ int grid::ReturnHydroRKPointers(float **Prim, bool ReturnMassFractions)
   int B1Num, B2Num, B3Num, PhiNum;
   int DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum, HMNum, H2INum, H2IINum,
       DINum, DIINum, HDINum;
+#ifdef USE_KROME
 int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
  OHINum, O2INum, CH2INum, H2COINum, HCOINum,
  MGINum, NH3INum, NOINum, CNINum, COINum,
@@ -57,6 +58,7 @@ int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
  HNOIINum, H2NOIINum, H3IINum, H3COIINum,
  H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
  N2HIINum, O2HIINum;
+#endif
 
   /* Add the physical quantities */
 
@@ -99,6 +101,7 @@ int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
     this->IdentifySpeciesFields(DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum, 
 				HMNum, H2INum, H2IINum, DINum, DIINum, HDINum);
 
+#ifdef USE_KROME
     if (MultiSpecies == KROMESPECIES)
       if (IdentifySpeciesFieldsKrome(
 DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
@@ -124,7 +127,7 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
           ) == FAIL) {
         ENZO_FAIL("Error in grid->IdentifySpeciesFields.");
       }
-
+#endif
 
     //Prim[nfield++] = BaryonField[DeNum];
     Prim[nfield++] = BaryonField[HINum];
@@ -145,6 +148,7 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] = BaryonField[HDINum];
     }
 
+#ifdef USE_KROME
     if (MultiSpecies == KROMESPECIES) {
       Prim[nfield++] =  BaryonField[CHINum];
       Prim[nfield++] =  BaryonField[OINum];
@@ -229,6 +233,7 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[O2HIINum];
 
     }
+#endif
 
   } // ENDIF MultiSpecies
 
