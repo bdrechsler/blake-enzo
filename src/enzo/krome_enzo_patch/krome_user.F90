@@ -5,7 +5,7 @@ module krome_user
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2019-12-02 01:47:36
+  !  KROME 14.08.dev on 2020-05-15 00:05:01
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -923,7 +923,28 @@ contains
     n(1:nmols) = x(:)
     n(idx_Tgas) = Tgas
     krome_get_gamma = gamma_index(n(:))
+    if (hydro_gamma > 0.0) krome_get_gamma = hydro_gamma
   end function krome_get_gamma
+
+  !**********************
+  !set the gamma value from hydro code
+  subroutine krome_set_gamma(gamma)
+    use krome_commons
+    implicit none
+    real*8::gamma
+
+    hydro_gamma = gamma
+  end subroutine krome_set_gamma
+
+  !**********************
+  !set the mean molecular weight value from hydro code
+  subroutine krome_set_mu(mu)
+    use krome_commons
+    implicit none
+    real*8::mu
+
+    hydro_mu = mu
+  end subroutine krome_set_mu
 
   !***************************
   !get an integer array containing the atomic numbers Z
@@ -956,6 +977,7 @@ contains
     n(:) = 0d0
     n(1:nmols) = x(:)
     krome_get_mu = get_mu(n(:))
+    if (hydro_mu > 0.0) krome_get_mu = hydro_mu
   end function krome_get_mu
 
   !***************************

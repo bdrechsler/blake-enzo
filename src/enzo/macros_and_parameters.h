@@ -25,6 +25,10 @@
 #endif
 #endif
 
+#ifdef USE_KROME
+#include "krome_enzo_patch/krome.h"
+#endif
+
 #ifdef USE_MPI
 #include "mpi.h"
 #endif

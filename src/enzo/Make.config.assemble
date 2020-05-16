@@ -944,6 +944,35 @@
 	$(error Illegal value '$(CONFIG_GRACKLE)' for $$(CONFIG_GRACKLE))
     endif
 
+#-----------------------------------------------------------------------
+# DETERMINE USE KROME
+#-----------------------------------------------------------------------
+
+    ERROR_KROME = 1
+
+    # compilers and settings if KROME is yes
+
+    ifeq ($(CONFIG_KROME),yes)
+        ERROR_KROME = 0
+        ASSEMBLE_KROME_DEFINES     = -DUSE_KROME
+        #ASSEMBLE_KROME_INCLUDES    = $(MACH_INCLUDES_KROME)
+        #ASSEMBLE_KROME_LIBS        = $(MACH_LIBS_KROME)
+    endif
+
+    # compilers and settings if GRAVITY_4S is no
+
+    ifeq ($(CONFIG_KROME),no)
+        ERROR_KROME = 0
+        ASSEMBLE_KROME_DEFINES =
+    endif
+
+    # error if CONFIG_KROME is incorrect
+
+    ifeq ($(ERROR_KROME),1)
+       .PHONY: error_compilers
+       error_compilers:
+	$(error Illegal value '$(CONFIG_KROME)' for $$(CONFIG_KROME))
+    endif
 
 #-----------------------------------------------------------------------
 # DETERMINE LOG2ALLOC SETTINGS
@@ -1059,6 +1088,7 @@
               $(ASSEMBLE_GRAVITY_4S_DEFINES) \
               $(ASSEMBLE_ENZO_PERFORMANCE_DEFINES) \
               $(ASSEMBLE_GRACKLE_DEFINES) \
+              $(ASSEMBLE_KROME_DEFINES) \
               $(ASSEMBLE_LOG2ALLOC_DEFINES) \
               $(ASSEMBLE_ACCELERATION_BOUNDARY_DEFINES)
 
@@ -1071,6 +1101,7 @@
                $(ASSEMBLE_NEW_PROBLEM_TYPES_INCLUDES) \
                $(ASSEMBLE_PAPI_INCLUDES) \
                $(ASSEMBLE_GRACKLE_INCLUDES) \
+               $(ASSEMBLE_FFTW_INCLUDES) \
                $(MAKEFILE_INCLUDES)   -I.
 
     OBJS_LIB = $(OBJS_CONFIG_LIB) \

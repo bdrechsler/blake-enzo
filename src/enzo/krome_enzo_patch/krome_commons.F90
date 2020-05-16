@@ -5,7 +5,7 @@ module krome_commons
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2019-12-02 01:47:36
+  !  KROME 14.08.dev on 2020-05-15 00:05:01
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -192,6 +192,10 @@ module krome_commons
   !commons for reduction
   integer::arr_u(nrea)
   real*8::arr_flux(nrea)
+
+  !synchronize the gamma and mu from hydro code
+  real*8::hydro_gamma, hydro_mu
+  !$omp threadprivate(hydro_gamma,hydro_mu)
 
   !commons for frequency bins
 

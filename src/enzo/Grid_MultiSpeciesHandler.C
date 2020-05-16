@@ -36,14 +36,32 @@ int grid::MultiSpeciesHandler()
     if (this->GrackleWrapper() == FAIL) {
       ENZO_FAIL("Error in GrackleWrapper.\n");
     }
+#ifdef USE_KROME
+    // In case of using krome and grackle at the same time.
+    if (!use_krome) return SUCCESS;
+#else
     return SUCCESS;
+#endif
   }
 #endif
 
-  if (MultiSpecies && RadiativeCooling ) {
+//#ifdef USE_KROME
+//  if (use_krome) {
+//    KromeSolver();
+//  }
+//  else if (MultiSpecies && RadiativeCooling ) {
+//#else
+//  if (MultiSpecies && RadiativeCooling ) {
+//#endif
+#ifdef USE_KROME
+  if ((MultiSpecies && RadiativeCooling) || use_krome ) {
+#else
+  if (MultiSpecies && RadiativeCooling) {
+#endif
     int RTCoupledSolverIntermediateStep = FALSE;
     this->SolveRateAndCoolEquations(RTCoupledSolverIntermediateStep);
-  } else {
+  } 
+  else {
     if (MultiSpecies)
       this->SolveRateEquations();
     if (RadiativeCooling)

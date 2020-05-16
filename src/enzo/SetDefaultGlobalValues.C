@@ -1091,5 +1091,15 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
   MagneticSupernovaDuration = 5e4  ;    // Total duration of magnetic feedback in years
   MagneticSupernovaEnergy = 1.0e51;    // Total energy (ergs) injected per star particle (supernova)
 
+#ifdef USE_KROME
+  use_krome = 0;
+  p_chemistry = 0;
+  //krometiny = 1.0e-40;
+  //kromeload = 1.0;
+  //krome_fixedtgas = -1.0;
+  //krome_crrate = 2.5e-17;
+#endif
+
+
   return SUCCESS;
 }

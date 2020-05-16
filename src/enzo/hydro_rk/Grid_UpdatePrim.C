@@ -84,7 +84,9 @@ int grid::UpdatePrim(float **dU, float c1, float c2)
     case 1:  NSpecies_renorm = 5;  break;
     case 2:  NSpecies_renorm = 8;  break;
     case 3:  NSpecies_renorm = 11; break;
-    case 4:  NSpecies_renorm = 92; break;
+#ifdef USE_KROME
+    case KROMESPECIES:  NSpecies_renorm = NKROMESPECIES; break;
+#endif
     default: NSpecies_renorm = 0;  break;
     }
 
@@ -330,7 +332,9 @@ int grid::UpdatePrim(float **dU, float c1, float c2)
       for (n = 0; n < size; n++) 
 	Prim[field][n] *= Prim[iden][n];
   
+#ifndef USE_KROME
   this->UpdateElectronDensity();
+#endif
   
   if ( (NSpecies+NColor) > 0) {
     delete [] D;

@@ -1400,6 +1400,16 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     ret += sscanf(line,"MagneticSupernovaEnergy = %"FSYM, &MagneticSupernovaEnergy);
     ret += sscanf(line,"MagneticSupernovaDuration = %"FSYM, &MagneticSupernovaDuration);
 
+#ifdef USE_KROME
+    // Parameters for krome
+    ret += sscanf(line, "use_krome       = %"ISYM, &use_krome);
+    ret += sscanf(line, "p_chemistry     = %"ISYM, &p_chemistry);
+    //ret += sscanf(line, "krometiny       = %"FSYM, &krometiny);
+    //ret += sscanf(line, "kromeload       = %"FSYM, &kromeload);
+    //ret += sscanf(line, "krome_fixedtgas = %"FSYM, &krome_fixedtgas);
+    //ret += sscanf(line, "krome_crrate    = %"FSYM, &krome_crrate);
+#endif
+
     /* If the dummy char space was used, then make another. */
  
     if (*dummy != 0) {
@@ -1784,7 +1794,11 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     // grackle_data->LWbackground_sawtooth_suppression already set
     grackle_data->use_grackle                    = (Eint32) use_grackle;
     grackle_data->Gamma                          = (double) Gamma;
+#ifdef USE_KROME
+    grackle_data->primordial_chemistry           = use_krome? (Eint32) p_chemistry:MultiSpecies;
+#else
     grackle_data->primordial_chemistry           = (Eint32) MultiSpecies;
+#endif
     grackle_data->metal_cooling                  = (Eint32) MetalCooling;
     grackle_data->h2_on_dust                     = (Eint32) H2FormationOnDust;
     grackle_data->cmb_temperature_floor          = (Eint32) CloudyCoolingData.CMBTemperatureFloor;
@@ -1976,7 +1990,9 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
   case 1:  NSpecies = 5;  break;
   case 2:  NSpecies = 8;  break;
   case 3:  NSpecies = 11; break;
-  case 4:  NSpecies = 92; break;
+#ifdef USE_KROME
+  case KROMESPECIES:  NSpecies = NKROMESPECIES; break;
+#endif
   default: NSpecies = 0;  break;
   }
 
