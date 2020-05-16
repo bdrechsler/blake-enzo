@@ -1387,6 +1387,7 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
 #ifdef USE_KROME
     // Parameters for krome
     ret += sscanf(line, "use_krome       = %"ISYM, &use_krome);
+    ret += sscanf(line, "p_chemistry     = %"ISYM, &p_chemistry);
     //ret += sscanf(line, "krometiny       = %"FSYM, &krometiny);
     //ret += sscanf(line, "kromeload       = %"FSYM, &kromeload);
     //ret += sscanf(line, "krome_fixedtgas = %"FSYM, &krome_fixedtgas);
@@ -1760,7 +1761,11 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     // grackle_data->LWbackground_sawtooth_suppression already set
     grackle_data->use_grackle                    = (Eint32) use_grackle;
     grackle_data->Gamma                          = (double) Gamma;
+#ifdef USE_KROME
+    grackle_data->primordial_chemistry           = use_krome? (Eint32) p_chemistry:MultiSpecies;
+#else
     grackle_data->primordial_chemistry           = (Eint32) MultiSpecies;
+#endif
     grackle_data->metal_cooling                  = (Eint32) MetalCooling;
     grackle_data->h2_on_dust                     = (Eint32) H2FormationOnDust;
     grackle_data->cmb_temperature_floor          = (Eint32) CloudyCoolingData.CMBTemperatureFloor;

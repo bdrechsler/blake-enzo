@@ -1175,6 +1175,7 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
 
 #ifdef USE_KROME
   fprintf(fptr, "use_krome       = %"ISYM"\n", use_krome);
+  fprintf(fptr, "p_chemistry     = %"ISYM"\n", p_chemistry);
   //fprintf(fptr, "krometiny       = %"GSYM"\n", krometiny);
   //fprintf(fptr, "kromeload       = %"GSYM"\n", kromeload);
   //fprintf(fptr, "krome_fixedtgas = %"GSYM"\n", krome_fixedtgas);

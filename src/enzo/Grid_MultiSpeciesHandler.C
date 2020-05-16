@@ -36,7 +36,12 @@ int grid::MultiSpeciesHandler()
     if (this->GrackleWrapper() == FAIL) {
       ENZO_FAIL("Error in GrackleWrapper.\n");
     }
+#ifdef USE_KROME
+    // In case of using krome and grackle at the same time.
+    if (!use_krome) return SUCCESS;
+#else
     return SUCCESS;
+#endif
   }
 #endif
 

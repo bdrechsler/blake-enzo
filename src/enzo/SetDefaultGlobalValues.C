@@ -1081,6 +1081,7 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
 
 #ifdef USE_KROME
   use_krome = 0;
+  p_chemistry = 0;
   //krometiny = 1.0e-40;
   //kromeload = 1.0;
   //krome_fixedtgas = -1.0;
