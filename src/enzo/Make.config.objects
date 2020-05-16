@@ -1246,6 +1246,8 @@ OBJS_ECUDA_ALL = \
 OBJS_MY_PROBLEM = \
     myProblem/PrestellarCoreInitialize.o \
     myProblem/Grid_PrestellarCoreInitialize.o \
+    myProblem/CollidingCloudInitialize.o \
+    myProblem/Grid_CollidingCloudInitializeGrid.o \
     myProblem/TurbulenceGenerator.o
 
 OBJS_KROME = \
