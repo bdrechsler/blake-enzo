@@ -62,11 +62,6 @@ extern "C" void FORTRAN_NAME(calc_rates)(
 // character strings
 EXTERN char outfilename[];
 
-#ifdef USE_KROME
-/* THIS IS WHAT YOU NEED YOU WANT TO USE RATE TABLES FROM KROME */
-extern "C" void FORTRAN_NAME(krome_initab)(float *gamma, float *mu);
-#endif 
-
 int InitializeRateData(FLOAT Time)
 {
  
@@ -221,11 +216,6 @@ int InitializeRateData(FLOAT Time)
      &RateData.NumberOfDustTemperatureBins, &RateData.DustTemperatureStart, 
      &RateData.DustTemperatureEnd, RateData.h2dust, 
      RateData.n_cr_n, RateData.n_cr_d1, RateData.n_cr_d2, &ioutput);
-
-#ifdef USE_KROME
-  /* Call FORTRAN routine to prepare tables: KROME 2013 */
-    FORTRAN_NAME(krome_initab)(&Gamma, &Mu);
-#endif
 
   /* If using tabulated J21 values for Lyman-Werner, initialize. */
   if (TabulatedLWBackground) {

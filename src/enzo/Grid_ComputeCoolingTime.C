@@ -94,6 +94,7 @@ extern "C" void FORTRAN_NAME(cool_time)(
 int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
 {
  
+  DebugCheck("ComputeCoolingTime start\n");
   /* Return if this doesn't concern us. */
 
   if (RadiativeCooling == 0) return SUCCESS;
@@ -123,12 +124,7 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
   DeNum = HINum = HIINum = HeINum = HeIINum = HeIIINum = HMNum = H2INum = 
     H2IINum = DINum = DIINum = HDINum = 0;
  
-  if (MultiSpecies)
-    if (IdentifySpeciesFields(DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum,
-		      HMNum, H2INum, H2IINum, DINum, DIINum, HDINum) == FAIL) {
-      ENZO_FAIL("Error in grid->IdentifySpeciesFields.\n");
-    }
- 
+
   /* Find photo-ionization fields */
 
   int kphHINum, kphHeINum, kphHeIINum, kdissH2INum, kphHMNum, kdissH2IINum;
@@ -207,6 +203,12 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
 #ifdef USE_GRACKLE
   if (grackle_data->use_grackle == TRUE) {
 
+    if (grackle_data->primordial_chemistry)
+      if (IdentifySpeciesFields(DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum,
+  		      HMNum, H2INum, H2IINum, DINum, DIINum, HDINum) == FAIL) {
+        ENZO_FAIL("Error in grid->IdentifySpeciesFields.\n");
+      }
+ 
     Eint32 *g_grid_dimension, *g_grid_start, *g_grid_end;
     g_grid_dimension = new Eint32[GridRank];
     g_grid_start = new Eint32[GridRank];
@@ -311,7 +313,7 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
         my_fields.RT_HeII_ionization_rate = BaryonField[kphHeIINum];
       }
 
-      if (MultiSpecies > 1)
+      if (grackle_data->primordial_chemistry > 1)
         my_fields.RT_H2_dissociation_rate = BaryonField[kdissH2INum];
 
       /* need to convert to CGS units */
@@ -351,6 +353,12 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
   }
 #endif // USE_GRACKLE
 
+  if (MultiSpecies)
+    if (IdentifySpeciesFields(DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum,
+		      HMNum, H2INum, H2IINum, DINum, DIINum, HDINum) == FAIL) {
+      ENZO_FAIL("Error in grid->IdentifySpeciesFields.\n");
+    }
+ 
   /* Calculate the rates due to the radiation field. */
  
   if (RadiationFieldCalculateRates(Time+0.5*dtFixed) == FAIL) {
@@ -524,6 +532,6 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
   }
 
   delete [] TotalMetals;
- 
+
   return SUCCESS;
 }

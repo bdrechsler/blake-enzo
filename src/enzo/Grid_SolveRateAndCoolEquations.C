@@ -128,6 +128,11 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
   /* Return if this doesn't concern us. */
 #ifdef USE_KROME
   if (!use_krome) return SUCCESS;
+
+  if (MultiSpecies != KROMESPECIES) {
+    DebugCheck("Warning: species don't match with krome patches. Skip solving chemistry.\n");
+    return SUCCESS;
+  }
 #else
   if (!(MultiSpecies && RadiativeCooling)) return SUCCESS;
 #endif

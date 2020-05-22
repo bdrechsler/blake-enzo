@@ -83,6 +83,11 @@ int RadiativeTransferReadParameters(FILE *fptr)
   if (MultiSpecies == 0)
     RadiativeTransferOpticallyThinH2 = FALSE;
 
+#ifdef USE_GRACKLE
+  if (use_grackle && grackle_data->primordial_chemistry==0)
+    RadiativeTransferOpticallyThinH2 = FALSE;
+#endif
+
   /* read input from file */
 
   while (fgets(line, MAX_LINE_LENGTH, fptr) != NULL) {

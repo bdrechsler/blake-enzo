@@ -294,6 +294,7 @@ int PrestellarCoreInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
 
   if (MyProcessorNumber == ROOT_PROCESSOR) {
     printf ("Mass Unit: %13.7e\n", MassUnits);
+    printf ("Temperature Unit %13.7e\n", TemperatureUnits);
     printf ("G: %13.7e\n", GravitationalConstant);
     printf ("Internal energy: %13.7e\n", PrestellarCoreInternalEnergy);
     printf ("Energy Unit %13.7e\n", pow(LengthUnits, 2)/pow(TimeUnits,2));

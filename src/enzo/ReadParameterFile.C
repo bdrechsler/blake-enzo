@@ -63,6 +63,11 @@ int ReadEvolveRefineFile(void);
 int CheckShearingBoundaryConsistency(TopGridData &MetaData); 
 void get_uuid(char *buffer);
 
+#ifdef USE_KROME
+/* THIS IS WHAT YOU NEED YOU WANT TO USE RATE TABLES FROM KROME */
+extern "C" void FORTRAN_NAME(krome_initab)(float *gamma, float *mu);
+#endif
+
 int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
 {
 
@@ -1924,6 +1929,12 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
  
 #ifdef USE_GRACKLE
   } // else (if Grackle == TRUE)
+#endif
+
+#ifdef USE_KROME
+  /* Call FORTRAN routine to prepare tables: KROME 2013 */
+  if (use_krome)
+    FORTRAN_NAME(krome_initab)(&Gamma, &Mu);
 #endif
 
   /* If using MBHFeedback = 2 to 5 (Star->FeedbackFlag = MBH_JETS), 

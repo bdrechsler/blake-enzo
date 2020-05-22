@@ -349,11 +349,11 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
   if (UsePhysicalUnit)
     GetUnits(&DensityUnits, &LengthUnits, &TemperatureUnits, &TimeUnits, &VelocityUnits, Time);
   double MassUnits = DensityUnits*pow(LengthUnits,3);
-  if (MyProcessorNumber == ROOT_PROCESSOR) {
-    printf("Mass Units = %"GSYM" \n",MassUnits);
-    printf("Time Units = %"GSYM" \n",TimeUnits);
-    printf("Density Units = %"GSYM" \n",DensityUnits);
-  }
+  // if (MyProcessorNumber == ROOT_PROCESSOR) {
+  //   printf("Mass Units = %"GSYM" \n",MassUnits);
+  //   printf("Time Units = %"GSYM" \n",TimeUnits);
+  //   printf("Density Units = %"GSYM" \n",DensityUnits);
+  // }
 
   GravitationalConstant = 4.0*pi*GravConst*MassUnits*pow(TimeUnits,2)/pow(LengthUnits,3);
 
@@ -706,16 +706,16 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
         }
  #ifdef USE_KROME
         if (MultiSpecies == KROMESPECIES) {
-          for (int abNum=0; abNum<NKROMESPECIES; abNum++) {
-            int speciesNum = speciesMap[abNum];
-            if (speciesNum != -1) {
-              BaryonField[speciesNum][i] = 1.0e-20 //* PrestellarCoreMoleMass[abNum] 
-                                         * BaryonField[0][i] / 1.40045;
-            }
-          }
-          // for (int speciesNum = DeNum; speciesNum <= D3OIINum; speciesNum ++) {
-          //   BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+          // for (int abNum=0; abNum<NKROMESPECIES; abNum++) {
+          //   int speciesNum = speciesMap[abNum];
+          //   if (speciesNum != -1) {
+          //     BaryonField[speciesNum][i] = 1.0e-20 //* PrestellarCoreMoleMass[abNum] 
+          //                                * BaryonField[0][i] / 1.40045;
+          //   }
           // }
+          for (int speciesNum = DeNum; speciesNum <= O2HIINum; speciesNum ++) {
+            BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+          }
           if (1){
             /* set your preferable initial abundances */
             BaryonField[H2INum][i]          = 5.00e-1*BaryonField[0][i] / 1.412;

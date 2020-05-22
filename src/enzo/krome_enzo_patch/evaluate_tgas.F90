@@ -38,6 +38,6 @@
 
     !compute temperature
     tgas = p2d * utem * kmu
-    !print *,"evaluate tgas=", tgas
+    !print *,"evaluate tgas=", tgas, kgamma, kmu, utem
 
   end subroutine evaluate_tgas

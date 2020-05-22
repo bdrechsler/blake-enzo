@@ -31,7 +31,8 @@ LOCAL_MPI_INSTALL    =
 LOCAL_FC_INSTALL     = 
 LOCAL_HDF5_INSTALL   = $(HOME)/usr/hdf5
 LOCAL_HYPRE_INSTALL  = $(HOME)
-LOCAL_GRACKLE_INSTALL= $(HOME)/usr/grackle-3.1
+LOCAL_GRACKLE_INSTALL= $(HOME)/usr/2019a/grackle-3.2
+#LOCAL_GRACKLE_INSTALL= $(HOME)/usr/2019a/grackle-3.1.1
 LOCAL_FFTW_INSTALL   = 
 
 #-----------------------------------------------------------------------
