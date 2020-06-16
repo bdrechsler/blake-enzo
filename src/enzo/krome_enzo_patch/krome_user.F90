@@ -5,7 +5,7 @@ module krome_user
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-05-15 00:05:01
+  !  KROME 14.08.dev on 2020-06-16 23:04:50
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -329,6 +329,22 @@ contains
     real*8 :: krome_get_user_fr
     krome_get_user_fr = user_fr
   end function krome_get_user_fr
+
+  !*******************
+  subroutine krome_set_user_therm(argset)
+    use krome_commons
+    implicit none
+    real*8 :: argset
+    user_therm = argset
+  end subroutine krome_set_user_therm
+
+  !*******************
+  function krome_get_user_therm()
+    use krome_commons
+    implicit none
+    real*8 :: krome_get_user_therm
+    krome_get_user_therm = user_therm
+  end function krome_get_user_therm
 
   !*******************
   subroutine krome_set_user_desorb(argset)
