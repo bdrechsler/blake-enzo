@@ -408,25 +408,25 @@ int grid::PrestellarCoreInitializeGrid(
 
 #ifdef USE_KROME
     if (MultiSpecies == KROMESPECIES) {
-      for (int abNum=0; abNum<NSpecies+1; abNum++) {
-        int speciesNum = speciesMap[abNum];
-        if (speciesNum != -1) {
-          BaryonField[speciesNum][i] = 1.0e-20 * PrestellarCoreMoleMass[abNum] 
-                                     * BaryonField[0][i] / 1.40045;
-        }
-      }
-      // for (int speciesNum = DeNum; speciesNum <= D3OIINum; speciesNum ++) {
-      //   BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+      // for (int abNum=0; abNum<NSpecies+1; abNum++) {
+      //   int speciesNum = speciesMap[abNum];
+      //   if (speciesNum != -1) {
+      //     BaryonField[speciesNum][i] = 1.0e-20 * PrestellarCoreMoleMass[abNum] 
+      //                                * BaryonField[0][i] / 1.40045;
+      //   }
       // }
+      for (int speciesNum = DeNum; speciesNum <= O2HIINum; speciesNum ++) {
+        BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+      }
       if (PrestellarCoreOPR < 999.0){
         /* set your preferable initial abundances */
-        BaryonField[H2INum][i]          = 5.00e-1*BaryonField[0][i] / 1.412;
-        BaryonField[HINum][i]           = 5.00e-1*BaryonField[0][i] / 1.412;
-        BaryonField[HeINum][i]          = 4.00e-1*BaryonField[0][i] / 1.412;
-        BaryonField[NINum][i]           = 14.0*6.1e-5*BaryonField[0][i] / 1.412;
-        BaryonField[OINum][i]           = 16.0*4.6e-4*BaryonField[0][i] / 1.412;
-        BaryonField[CIINum][i]          = 12.0*2.6e-4*BaryonField[0][i] / 1.412;
-        BaryonField[MGINum][i]          = 24.0*3.981e-5*BaryonField[0][i] / 1.412;
+        BaryonField[H2INum][i]          = 1.00e+0*BaryonField[0][i] / 1.4;
+        BaryonField[HINum][i]           = 5.00e-5*BaryonField[0][i] / 1.4;
+        BaryonField[HeINum][i]          = 3.90e-1*BaryonField[0][i] / 1.4;
+        BaryonField[NINum][i]           = 14.0*7.5e-5*BaryonField[0][i] / 1.4;
+        BaryonField[OINum][i]           = 16.0*1.8e-4*BaryonField[0][i] / 1.4;
+        BaryonField[COINum][i]          = 28.0*1.4e-4*BaryonField[0][i] / 1.4;
+        BaryonField[MGINum][i]          = 24.0*7.0e-9*BaryonField[0][i] / 1.4;
       }
       else {
         // read in table
