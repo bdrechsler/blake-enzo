@@ -5,7 +5,7 @@ module krome_commons
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-05-15 00:05:01
+  !  KROME 14.08.dev on 2020-06-16 23:04:49
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -223,8 +223,8 @@ module krome_commons
   !$omp threadprivate(krome_omp_thread)
 
   !user-defined commons variables from the reaction file
-  real*8::user_Av,user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_desorb,user_h2desorb,user_crdesorb,user_uvcr
-  !$omp threadprivate(user_Av,user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_desorb,user_h2desorb,user_crdesorb,user_uvcr)
+  real*8::user_Av,user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_therm,user_desorb,user_h2desorb,user_crdesorb,user_uvcr
+  !$omp threadprivate(user_Av,user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_therm,user_desorb,user_h2desorb,user_crdesorb,user_uvcr)
 
   !commons for anytab
 
