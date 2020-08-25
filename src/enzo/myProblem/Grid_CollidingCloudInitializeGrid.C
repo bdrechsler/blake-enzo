@@ -70,6 +70,27 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
  H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
  N2HIINum, O2HIINum;
   int speciesMap[NKROMESPECIES] = {-1};
+
+  float specMass[NKROMESPECIES] = {
+    0.000e+00, 1.300e+01, 1.600e+01, 2.700e+01, 2.700e+01, 
+    2.000e+00, 1.200e+01, 1.000e+00, 1.800e+01, 1.700e+01, 
+    3.200e+01, 1.400e+01, 3.000e+01, 2.900e+01, 2.400e+01, 
+    1.700e+01, 3.000e+01, 2.600e+01, 2.800e+01, 2.800e+01, 
+    1.600e+01, 1.500e+01, 1.600e+01, 1.400e+01, 1.500e+01, 
+    4.000e+00, 3.100e+01, 3.200e+01, 4.400e+01, 2.800e+01, 
+    4.300e+01, 4.600e+01, 3.300e+01, 4.200e+01, 3.200e+01, 
+    4.300e+01, 3.000e+01, 1.600e+01, 2.800e+01, 1.800e+01, 
+    3.000e+01, 4.400e+01, 2.800e+01, 2.700e+01, 1.700e+01, 
+    3.200e+01, 4.600e+01, 3.100e+01, 3.300e+01, 2.800e+01, 
+    2.400e+01, 2.700e+01, 0.000e+00, 2.900e+01, 1.000e+00, 
+    2.900e+01, 1.200e+01, 1.400e+01, 1.300e+01, 3.000e+01, 
+    2.400e+01, 1.700e+01, 3.000e+01, 2.600e+01, 2.800e+01, 
+    2.800e+01, 3.200e+01, 1.800e+01, 1.600e+01, 1.600e+01, 
+    1.700e+01, 1.500e+01, 1.600e+01, 1.400e+01, 2.700e+01, 
+    1.500e+01, 2.000e+00, 4.000e+00, 3.100e+01, 3.200e+01, 
+    3.000e+00, 3.100e+01, 1.900e+01, 2.800e+01, 4.500e+01, 
+    5.000e+00, 2.900e+01, 3.300e+01, 0.000e+00, 0.000e+00, 
+    0.000e+00, 0.000e+00 };
 #endif
 
 
@@ -288,6 +309,12 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
       speciesMap[85] = HeHIINum;
       speciesMap[86] = N2HIINum;
       speciesMap[87] = O2HIINum;
+
+      // additional species in ENZO
+      speciesMap[88] = HeIIINum;
+      speciesMap[89] = DINum;
+      speciesMap[90] = DIINum;
+      speciesMap[91] = HDINum;
 
     }
 #endif
@@ -704,27 +731,27 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
           BaryonField[idrivey][n] = 0.0;
           BaryonField[idrivez][n] = 0.0;
         }
- #ifdef USE_KROME
+#ifdef USE_KROME
         if (MultiSpecies == KROMESPECIES) {
-          // for (int abNum=0; abNum<NKROMESPECIES; abNum++) {
-          //   int speciesNum = speciesMap[abNum];
-          //   if (speciesNum != -1) {
-          //     BaryonField[speciesNum][i] = 1.0e-20 //* PrestellarCoreMoleMass[abNum] 
-          //                                * BaryonField[0][i] / 1.40045;
-          //   }
-          // }
-          for (int speciesNum = DeNum; speciesNum <= O2HIINum; speciesNum ++) {
-            BaryonField[speciesNum][i] = 1e-20*BaryonField[0][i];
+          for (int abNum=0; abNum<NKROMESPECIES; abNum++) {
+            int speciesNum = speciesMap[abNum];
+            // if (speciesNum != -1) {
+              BaryonField[speciesNum][n] = 1.0e-20 * specMass[abNum] * BaryonField[0][n] / 1.4;
+            // }
           }
+          // for (int speciesNum = DeNum; speciesNum <= O2HIINum; speciesNum ++) {
+          //   // BaryonField[speciesNum][n] = 1e-18*BaryonField[0][n];
+          //   BaryonField[speciesNum][n] = 0.0;
+          // }
           if (1){
             /* set your preferable initial abundances */
-            BaryonField[H2INum][i]          = 5.00e-1*BaryonField[0][i] / 1.412;
-            BaryonField[HINum][i]           = 5.00e-1*BaryonField[0][i] / 1.412;
-            BaryonField[HeINum][i]          = 4.00e-1*BaryonField[0][i] / 1.412;
-            BaryonField[NINum][i]           = 14.0*6.1e-5*BaryonField[0][i] / 1.412;
-            BaryonField[OINum][i]           = 16.0*4.6e-4*BaryonField[0][i] / 1.412;
-            BaryonField[CIINum][i]          = 12.0*2.6e-4*BaryonField[0][i] / 1.412;
-            BaryonField[MGINum][i]          = 24.0*3.981e-5*BaryonField[0][i] / 1.412;
+            BaryonField[H2INum][n]          = 1.00e+0*BaryonField[0][n] / 1.4;
+            BaryonField[HINum][n]           = 5.00e-5*BaryonField[0][n] / 1.4;
+            BaryonField[HeINum][n]          = 3.90e-1*BaryonField[0][n] / 1.4;
+            BaryonField[NINum][n]           = 14.0*7.5e-5*BaryonField[0][n] / 1.4;
+            BaryonField[OINum][n]           = 16.0*1.8e-4*BaryonField[0][n] / 1.4;
+            BaryonField[COINum][n]          = 28.0*1.4e-4*BaryonField[0][n] / 1.4;
+            BaryonField[MGINum][n]          = 24.0*7.0e-9*BaryonField[0][n] / 1.4;
           }
           else {
             ENZO_FAIL("Error in CollidingCloudInitialize[Sub]Grid: species table is not implemented.");
@@ -732,13 +759,14 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
             // for (int abNum=0; abNum<NSpecies+1; abNum++) {
             //   int speciesNum = speciesMap[abNum];
             //   if (speciesNum != -1) {
-            //     BaryonField[speciesNum][i] = PrestellarCoreInitAbundance[abNum] 
+            //     BaryonField[speciesNum][n] = PrestellarCoreInitAbundance[abNum] 
             //                                * PrestellarCoreMoleMass[abNum] 
-            //                                * BaryonField[0][i] / 1.40045;
+            //                                * BaryonField[0][n] / 1.40045;
             //   }
             // }
           }
         }
+        printf("CollidingCloudInitialize, H2O_DUST abund %10.7e\n", BaryonField[H2O_DUSTINum][n]);
 #else
         if (MultiSpecies) {
           BaryonField[HIINum][n] = InitialFractionHII *

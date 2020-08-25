@@ -1852,6 +1852,8 @@ int TransferSubgridActiveParticles(grid* Subgrids[], int NumberOfSubgrids,
     int &HCNHIINum, int &HCO2IINum, int &HeHIINum,
     int &N2HIINum, int &O2HIINum);
 
+  void printSpeciesCube(const field_type);
+
   /* Identify shock fields. */
   int IdentifyShockSpeciesFields(int &MachNum,int &PSTempNum, int &PSDenNum);
 

@@ -218,3 +218,16 @@ int grid::IdentifySpeciesFieldsKrome(
  
   return SUCCESS;
 }
+
+void grid::printSpeciesCube(const field_type specDensity){ 
+  int specNum = FindField(specDensity, FieldType, NumberOfBaryonFields);
+
+  int size = 1, dim;
+  for (dim = 0; dim < GridRank; dim++)
+    size *= GridDimension[dim];
+
+  for (int i = 0; i < size; i++) {
+    printf("%d, %13.7e\n", specNum, BaryonField[specNum][i]);
+  }
+}
+
