@@ -215,8 +215,19 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
     g_grid_end = new Eint32[GridRank];
     for (i = 0; i < GridRank; i++) {
       g_grid_dimension[i] = (Eint32) GridDimension[i];
-      g_grid_start[i] = 0;
-      g_grid_end[i] = (Eint32) GridDimension[i]-1;
+      g_grid_start[i] = (Eint32) GridStartIndex[i];
+      g_grid_end[i] = (Eint32) GridEndIndex[i];
+      // commit 51a24405: cooling time in ghost zone is necessary if 
+      // refined by cooling time 
+      // Note: turn on WriteGhostZone and ReadGhostZone to prevent 
+      // complaining from grackle when restarting
+      for (int method = 0; method < MAX_FLAGGING_METHODS; method++) {
+        if (CellFlaggingMethod[method] == 7) {
+          g_grid_start[i] = 0;
+          g_grid_end[i] = (Eint32) GridDimension[i]-1;
+          break;
+        }
+      }
     }
 
     /* Update units. */
@@ -324,6 +335,11 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
     }
 #endif // TRANSFER
 
+    // for (i=0; i<size; i++) {
+    //     if (density[i] <= 0.0)
+    //         printf("ComputeCoolingTime - Density < 0.0\n");
+    // }
+
     if (calculate_cooling_time(&grackle_units, &my_fields, cooling_time) == FAIL) {
       ENZO_FAIL("Error in Grackle calculate_cooling_time.\n");
     }
@@ -385,16 +401,24 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
      in the ghost zones.  Note that we calculate these numbers as unique variables 
      and feed them into the various routines for clarity!  */
     
-  int GridStartIndexX,GridStartIndexY,GridStartIndexZ,
-    GridEndIndexX,GridEndIndexY,GridEndIndexZ;
+  int *GridStartIndexX = GridStartIndex,
+      *GridStartIndexY = GridStartIndex+1,
+      *GridStartIndexZ = GridStartIndex+2,
+      *GridEndIndexX = GridEndIndex,
+      *GridEndIndexY = GridEndIndex+1,
+      *GridEndIndexZ = GridEndIndex+2;
 
-  GridStartIndexX = 0;
-  GridStartIndexY = 0;
-  GridStartIndexZ = 0;
-
-  GridEndIndexX=GridDimension[0]-1;  
-  GridEndIndexY=GridDimension[1]-1;
-  GridEndIndexZ=GridDimension[2]-1;
+  for (int method = 0; method < MAX_FLAGGING_METHODS; method++) {
+    if (CellFlaggingMethod[method] == 7) {
+      *GridStartIndexX = 0;
+      *GridStartIndexY = 0;
+      *GridStartIndexZ = 0;
+      *GridEndIndexX=GridDimension[0]-1;  
+      *GridEndIndexY=GridDimension[1]-1;
+      *GridEndIndexZ=GridDimension[2]-1;
+      break;
+    }
+  }
 
   /* Call the appropriate FORTRAN routine to do the work. */
 
@@ -451,8 +475,8 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
        &HydroMethod,
        &DualEnergyFormalism, &MultiSpecies, &MetalFieldPresent, &MetalCooling, 
        &H2FormationOnDust,
-       &GridRank, &GridStartIndexX, &GridStartIndexY, &GridStartIndexZ,
-       &GridEndIndexX, &GridEndIndexY, &GridEndIndexZ,
+       &GridRank, GridStartIndexX, GridStartIndexY, GridStartIndexZ,
+       GridEndIndexX, GridEndIndexY, GridEndIndexZ,
        &CoolData.ih2co, &CoolData.ipiht, &PhotoelectricHeating,
        &dtFixed, &afloat, &RadiationFieldRedshift,
        &CoolData.TemperatureStart, &CoolData.TemperatureEnd,
@@ -504,8 +528,8 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
        GridDimension,GridDimension+1,
        GridDimension+2, &ComovingCoordinates, &HydroMethod,
        &DualEnergyFormalism, &GridRank,
-       &GridStartIndexX, &GridStartIndexY, &GridStartIndexZ,
-       &GridEndIndexX, &GridEndIndexY, &GridEndIndexZ,&dtFixed,
+       GridStartIndexX, GridStartIndexY, GridStartIndexZ,
+       GridEndIndexX, GridEndIndexY, GridEndIndexZ,&dtFixed,
        &afloat,&CoolData.HydrogenFractionByMass,
        &TemperatureUnits,&LengthUnits,
        &aUnits,&DensityUnits,&TimeUnits,&Gamma);
@@ -522,8 +546,8 @@ int grid::ComputeCoolingTime(float *cooling_time, int CoolingTimeOnly)
           &CoolData.NumberOfTemperatureBins, &ComovingCoordinates,
           &HydroMethod,
        &DualEnergyFormalism, &GridRank, &PhotoelectricHeating,
-       &GridStartIndexX, &GridStartIndexY, &GridStartIndexZ,
-       &GridEndIndexX, &GridEndIndexY, &GridEndIndexZ,
+       GridStartIndexX, GridStartIndexY, GridStartIndexZ,
+       GridEndIndexX, GridEndIndexY, GridEndIndexZ,
        &dtFixed, &afloat, &CoolData.TemperatureStart,
           &CoolData.TemperatureEnd, &CoolData.HydrogenFractionByMass,
        &TemperatureUnits, &DensityUnits,
