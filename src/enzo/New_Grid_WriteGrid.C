@@ -188,11 +188,14 @@ int grid::Group_WriteGrid(FILE *fptr, char *base_name, int grid_id, HDF5_hid_t f
 
     if(WriteEverything == TRUE)
     fprintf(fptr, "OldTime           = %"GOUTSYM"\n", OldTime);
+
+    fprintf(fptr, "KromeTime = %"GOUTSYM"\n", KromeTime);
+    fprintf(fptr, "KromeDt   = %"GOUTSYM"\n", KromeDt);
  
     fprintf(fptr, "SubgridsAreStatic = %"ISYM"\n", SubgridsAreStatic);
  
     fprintf(fptr, "NumberOfBaryonFields = %"ISYM"\n", NumberOfBaryonFields);
- 
+
     if (NumberOfBaryonFields > 0) {
       fprintf(fptr, "FieldType = ");
 

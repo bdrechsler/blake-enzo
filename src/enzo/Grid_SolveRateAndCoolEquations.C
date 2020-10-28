@@ -133,6 +133,9 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
     DebugCheck("Warning: species don't match with krome patches. Skip solving chemistry.\n");
     return SUCCESS;
   }
+  if (debug && MyProcessorNumber == ROOT_PROCESSOR)
+    if (Time > KromeTime + KromeDt)
+      printf("SolveRateAndCool, KromeTime:%lf, KromeDt: %lf\n", KromeTime, KromeDt);
 #else
   if (!(MultiSpecies && RadiativeCooling)) return SUCCESS;
 #endif
@@ -338,7 +341,11 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 
   /* Call the fortran routine to solve cooling equations. */
 
+#ifdef USE_KROME
 
+  if (KromeDt > 0.0) dtCool = KromeDt;
+
+  if (Time > KromeTime + KromeDt)
   FORTRAN_NAME(krome_driver)(
     density, totalenergy, gasenergy, velocity1, velocity2, velocity3,
     BaryonField[DeNum], BaryonField[CHINum], BaryonField[OINum],
@@ -394,6 +401,8 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
     &TemperatureUnits, &LengthUnits, &aUnits, &DensityUnits, &TimeUnits,
     &Gamma,
     &CoolData.HydrogenFractionByMass, &CoolData.DeuteriumToHydrogenRatio);
+
+#endif // USE_KROME
 
 /*
   int ierr = 0;

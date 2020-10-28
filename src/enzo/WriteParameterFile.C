@@ -144,6 +144,8 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
 	  MetaData.TimeLastInterpolatedDataDump);
   fprintf(fptr, "dtInterpolatedDataDump          = %"GOUTSYM"\n", 
 	  MetaData.dtInterpolatedDataDump);
+  fprintf(fptr, "KromeTime = %"GOUTSYM"\n", MetaData.KromeTime);
+  fprintf(fptr, "KromeDt   = %"GOUTSYM"\n", MetaData.KromeDt);
  
   fprintf(fptr, "NewMovieLeftEdge     = ");
   WriteListOfFloats(fptr, MetaData.TopGridRank, MetaData.NewMovieLeftEdge);

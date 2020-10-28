@@ -159,7 +159,14 @@ int grid::Group_ReadGrid(FILE *fptr, int GridID, HDF5_hid_t file_id,
        (fscanf(fptr, "OldTime = %"PSYM"\n", &OldTime) != 1)) {
             ENZO_FAIL("Error reading OldTime.");
     }
- 
+
+    if (fscanf(fptr, "KromeTime = %"PSYM"\n", &KromeTime) != 1) {
+            ENZO_FAIL("Error reading KromeTime.");
+    }
+    if (fscanf(fptr, "KromeDt = %"PSYM"\n", &KromeDt) != 1) {
+            ENZO_FAIL("Error reading KromeDt.");
+    }
+
     if (fscanf(fptr, "SubgridsAreStatic = %"ISYM"\n", &SubgridsAreStatic) != 1) {
             ENZO_FAIL("Error reading SubgridsAreStatic.");
     }
@@ -170,6 +177,7 @@ int grid::Group_ReadGrid(FILE *fptr, int GridID, HDF5_hid_t file_id,
 	       &NumberOfBaryonFields) != 1) {
             ENZO_FAIL("Error reading NumberOfBaryonFields.");
     }
+
     if (NumberOfBaryonFields > 0) {
  
       fscanf(fptr, "FieldType = ");

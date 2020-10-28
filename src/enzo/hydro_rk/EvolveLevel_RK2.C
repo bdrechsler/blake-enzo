@@ -272,6 +272,14 @@ int EvolveLevel_RK2(TopGridData *MetaData, LevelHierarchyEntry *LevelArray[],
 			MetaData,Exterior, LevelArray[level]);
 #endif
  
+  if (debug) {
+    fprintf(stdout, "EvolveLevel_RK2: level = %"ISYM", GridTime = %"FSYM", TopGridTime = %"FSYM"\n",
+            level, Grids[0]->GridData->ReturnTime(), MetaData->Time);
+    fprintf(stdout, "GridTimeKrome = %"FSYM", GridDtKrome = %"FSYM", TopGridTimeKrome = %"FSYM", TopGridDtKrome = %"FSYM"\n",
+            Grids[0]->GridData->GetKromeTime(), Grids[0]->GridData->GetKromeDt(),
+            MetaData->KromeTime, MetaData->KromeDt);
+  }
+
   /* Count the number of colours in the first grid (to define NColor) */
 
   Grids[0]->GridData->SetNumberOfColours();
@@ -513,6 +521,10 @@ int EvolveLevel_RK2(TopGridData *MetaData, LevelHierarchyEntry *LevelArray[],
       /* Solve the cooling and species rate equations. */
  
       Grids[grid1]->GridData->MultiSpeciesHandler();
+
+      Grids[grid1]->GridData->SetNextKromeTime();
+      if (MetaData->KromeTime != Grids[grid1]->GridData->GetKromeTime())
+        MetaData->KromeTime = Grids[grid1]->GridData->GetKromeTime();
 
       /* Update particle positions (if present). */
 

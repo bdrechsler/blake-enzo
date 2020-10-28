@@ -766,7 +766,7 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
             // }
           }
         }
-        printf("CollidingCloudInitialize, H2O_DUST abund %10.7e\n", BaryonField[H2O_DUSTINum][n]);
+        // printf("CollidingCloudInitialize, H2O_DUST abund %10.7e\n", BaryonField[H2O_DUSTINum][n]);
 #else
         if (MultiSpecies) {
           BaryonField[HIINum][n] = InitialFractionHII *

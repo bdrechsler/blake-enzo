@@ -214,6 +214,10 @@ class grid
   float **freefall_density;
   float **freefall_pressure;
 
+  // Record chemistry timestep of krome separately if needed
+  FLOAT KromeTime;
+  FLOAT KromeDt;
+
 //
 // Friends
 //
@@ -404,6 +408,19 @@ public:
    FLOAT ReturnTime() {return Time;};
    FLOAT ReturnOldTime() {return OldTime;};
    float ReturnTimeStep() {return dtFixed;};
+
+   void SetKromeTime(FLOAT NewTime) { KromeTime = NewTime; };
+   void SetKromeDt(FLOAT TimeStep) { KromeDt = TimeStep; };
+   void SetNextKromeTime(){
+     if (debug) printf("SetNextKromeTime - Time: %10.7e, KromeTime: %10.7e, KromeDt: %10.7e\n",
+         Time, KromeTime, KromeDt);
+     if (Time > KromeTime + KromeDt) {
+       if (debug) printf("krome goes next step.\n");
+       KromeTime += KromeDt;
+     }
+   };
+   FLOAT GetKromeTime() { return KromeTime; };
+   FLOAT GetKromeDt() { return KromeDt; };
 
   /* Return, set grid ID */
 

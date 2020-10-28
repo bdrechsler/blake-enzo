@@ -159,6 +159,10 @@ struct TopGridData
   int MovieTimestepCounter;
   float GlobalMaximumkphIfront;
 
+  // current chemical time and timestep of krome
+  FLOAT KromeTime;
+  FLOAT KromeDt;
+
 };
 
 #endif

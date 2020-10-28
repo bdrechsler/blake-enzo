@@ -83,6 +83,9 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
   MetaData.TimeLastInterpolatedDataDump    = FLOAT_UNDEFINED;
   MetaData.dtInterpolatedDataDump          = 0.0;
   MetaData.WroteData           = FALSE;
+
+  MetaData.KromeTime = 0.0;
+  MetaData.KromeDt = 0.0;
  
   MetaData.CycleLastRestartDump = 0;
   MetaData.CycleSkipRestartDump = 0;

@@ -360,6 +360,9 @@ int InitializeNew(char *filename, HierarchyEntry &TopGrid,
 				  DomainLeftEdge, DomainRightEdge,
 				  MetaData.NumberOfParticles);
     TopGrid.GridData->SetTime(MetaData.Time);
+    // In the beginnning, KromeTime and Time should be synchronized
+    TopGrid.GridData->SetKromeTime(MetaData.Time);
+    TopGrid.GridData->SetKromeDt(MetaData.KromeDt);
     TopGrid.GridData->SetHydroParameters(MetaData.CourantSafetyNumber,
 					 MetaData.PPMFlatteningParameter,
 					 MetaData.PPMDiffusionParameter,

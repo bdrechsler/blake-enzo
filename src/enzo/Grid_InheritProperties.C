@@ -33,6 +33,10 @@ void grid::InheritProperties(grid *ParentGrid)
  
   GridRank = ParentGrid->GridRank;
   Time     = ParentGrid->Time;
+
+  // set current chemical time of krome
+  KromeTime = ParentGrid->KromeTime;
+  KromeDt = ParentGrid->KromeDt;
  
   /*  Baryons only: set up field quantities and allocate fields
        (we assume here the grid is uniform in each dimension) */
