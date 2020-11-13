@@ -160,6 +160,9 @@ struct TopGridData
   float GlobalMaximumkphIfront;
 
   // current chemical time and timestep of krome
+  int KromeCycle;
+  int KromeCycleSkip;
+  FLOAT LastCycleKromeTime;
   FLOAT KromeTime;
   FLOAT KromeDt;
 

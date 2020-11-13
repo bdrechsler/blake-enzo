@@ -345,7 +345,9 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 
   if (KromeDt > 0.0) dtCool = KromeDt;
 
-  if (Time > KromeTime + KromeDt)
+  if ( use_kromestep == 0 || use_kromestep == 2 || 
+      (use_kromestep == 1 && Time > KromeTime + KromeDt)
+     )
   FORTRAN_NAME(krome_driver)(
     density, totalenergy, gasenergy, velocity1, velocity2, velocity3,
     BaryonField[DeNum], BaryonField[CHINum], BaryonField[OINum],

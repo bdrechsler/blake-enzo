@@ -146,6 +146,7 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
 	  MetaData.dtInterpolatedDataDump);
   fprintf(fptr, "KromeTime = %"GOUTSYM"\n", MetaData.KromeTime);
   fprintf(fptr, "KromeDt   = %"GOUTSYM"\n", MetaData.KromeDt);
+  fprintf(fptr, "KromeCycleSkip   = %"ISYM"\n", MetaData.KromeCycleSkip);
  
   fprintf(fptr, "NewMovieLeftEdge     = ");
   WriteListOfFloats(fptr, MetaData.TopGridRank, MetaData.NewMovieLeftEdge);
@@ -1190,6 +1191,7 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
 
 #ifdef USE_KROME
   fprintf(fptr, "use_krome       = %"ISYM"\n", use_krome);
+  fprintf(fptr, "use_krome       = %"ISYM"\n", use_kromestep);
   fprintf(fptr, "p_chemistry     = %"ISYM"\n", p_chemistry);
   //fprintf(fptr, "krometiny       = %"GSYM"\n", krometiny);
   //fprintf(fptr, "kromeload       = %"GSYM"\n", kromeload);

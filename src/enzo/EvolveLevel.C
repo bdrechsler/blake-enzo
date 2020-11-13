@@ -668,9 +668,11 @@ int EvolveLevel(TopGridData *MetaData, LevelHierarchyEntry *LevelArray[],
       Grids[grid1]->GridData->MultiSpeciesHandler();
 
 #ifdef USE_KROME
-      Grids[grid1]->GridData->SetNextKromeTime();
-      if (MetaData->KromeTime != Grids[grid1]->GridData->GetKromeTime())
-        MetaData->KromeTime = Grids[grid1]->GridData->GetKromeTime();
+      if (use_kromestep == 1) {
+        Grids[grid1]->GridData->SetNextKromeTime();
+        if (MetaData->KromeTime != Grids[grid1]->GridData->GetKromeTime())
+          MetaData->KromeTime = Grids[grid1]->GridData->GetKromeTime();
+      }
 #endif
 
       /* Update particle positions (if present). */

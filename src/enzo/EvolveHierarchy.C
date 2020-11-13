@@ -540,6 +540,23 @@ int EvolveHierarchy(HierarchyEntry &TopGrid, TopGridData &MetaData,
     MetaData.CPUTime += MetaData.LastCycleCPUTime;
     LastCPUTime = ReturnWallTime();
 
+#ifdef USE_KROME
+    if (use_kromestep == 2 && MetaData.CycleNumber % MetaData.KromeCycleSkip == 0) {
+      FLOAT kromedt = MetaData.Time - MetaData.LastCycleKromeTime;
+      for (int level = 0; level < MaximumRefinementLevel; level++) {
+        Temp = LevelArray[level];
+        if (Temp == NULL) break;
+
+        while(Temp != NULL){
+          Temp->GridData->SetKromeDt(kromedt);
+          Temp->GridData->SolveRateAndCoolEquations(FALSE);
+          Temp->GridData->SetKromeDt(0.0);
+          Temp = Temp->NextGridThisLevel;
+        }
+      }
+    }
+#endif
+
     if (MyProcessorNumber == ROOT_PROCESSOR) {
 	
     if (MetaData.Time >= MetaData.StopTime) {

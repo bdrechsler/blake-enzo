@@ -86,6 +86,7 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
 
   MetaData.KromeTime = 0.0;
   MetaData.KromeDt = 0.0;
+  MetaData.KromeCycleSkip = 0;
  
   MetaData.CycleLastRestartDump = 0;
   MetaData.CycleSkipRestartDump = 0;
@@ -1096,6 +1097,7 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
 
 #ifdef USE_KROME
   use_krome = 0;
+  use_kromestep = 0;
   p_chemistry = 0;
   //krometiny = 1.0e-40;
   //kromeload = 1.0;
