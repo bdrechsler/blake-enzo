@@ -140,6 +140,7 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     ret += sscanf(line, "KromeTime    = %"PSYM, &MetaData.KromeTime);
     ret += sscanf(line, "KromeDt      = %"PSYM, &MetaData.KromeDt);
     ret += sscanf(line, "KromeCycleSkip = %"ISYM, &MetaData.KromeCycleSkip);
+    ret += sscanf(line, "LastCycleKromeTime = %"PSYM, &MetaData.LastCycleKromeTime);
  
     ret += sscanf(line, "NewMovieLeftEdge  = %"PSYM" %"PSYM" %"PSYM, 
 		  MetaData.NewMovieLeftEdge,

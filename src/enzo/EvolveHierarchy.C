@@ -543,6 +543,11 @@ int EvolveHierarchy(HierarchyEntry &TopGrid, TopGridData &MetaData,
 #ifdef USE_KROME
     if (use_kromestep == 2 && MetaData.CycleNumber % MetaData.KromeCycleSkip == 0) {
       FLOAT kromedt = MetaData.Time - MetaData.LastCycleKromeTime;
+
+      if (debug)
+          printf("Call krome solver after cycle %d, evolving chemistry time %10.7e \n",
+                 MetaData.CycleNumber, kromedt);
+
       for (int level = 0; level < MaximumRefinementLevel; level++) {
         Temp = LevelArray[level];
         if (Temp == NULL) break;
@@ -550,11 +555,18 @@ int EvolveHierarchy(HierarchyEntry &TopGrid, TopGridData &MetaData,
         while(Temp != NULL){
           Temp->GridData->SetKromeDt(kromedt);
           Temp->GridData->SolveRateAndCoolEquations(FALSE);
+          Temp->GridData->SetKromeTime(MetaData.Time);
           Temp->GridData->SetKromeDt(0.0);
           Temp = Temp->NextGridThisLevel;
         }
       }
+      MetaData.LastCycleKromeTime = MetaData.Time;
     }
+
+#ifdef USE_MPI 
+    CommunicationBarrier();
+#endif
+ 
 #endif
 
     if (MyProcessorNumber == ROOT_PROCESSOR) {

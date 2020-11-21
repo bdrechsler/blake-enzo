@@ -147,6 +147,7 @@ int WriteParameterFile(FILE *fptr, TopGridData &MetaData, char *name = NULL)
   fprintf(fptr, "KromeTime = %"GOUTSYM"\n", MetaData.KromeTime);
   fprintf(fptr, "KromeDt   = %"GOUTSYM"\n", MetaData.KromeDt);
   fprintf(fptr, "KromeCycleSkip   = %"ISYM"\n", MetaData.KromeCycleSkip);
+  fprintf(fptr, "LastCycleKromeTime = %"ISYM"\n", MetaData.LastCycleKromeTime);
  
   fprintf(fptr, "NewMovieLeftEdge     = ");
   WriteListOfFloats(fptr, MetaData.TopGridRank, MetaData.NewMovieLeftEdge);

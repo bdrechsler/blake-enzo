@@ -55,6 +55,7 @@ int grid::MultiSpeciesHandler()
 //#endif
 #ifdef USE_KROME
   if ((MultiSpecies && RadiativeCooling) || use_krome ) {
+    if (use_krome && use_kromestep == 2) return SUCCESS;
 #else
   if (MultiSpecies && RadiativeCooling) {
 #endif

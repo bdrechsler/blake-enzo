@@ -86,6 +86,7 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
 
   MetaData.KromeTime = 0.0;
   MetaData.KromeDt = 0.0;
+  MetaData.LastCycleKromeTime = 0.0;
   MetaData.KromeCycleSkip = 0;
  
   MetaData.CycleLastRestartDump = 0;
