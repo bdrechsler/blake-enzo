@@ -9,7 +9,7 @@ contains
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2019-12-02 01:47:36
+  !  KROME 14.08.dev on 2020-11-24 11:54:35
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -141,6 +141,8 @@ contains
       n(i) = max(n(i),0d0)
     end do
 
+    n(:) = conserve(n(:),ni(:))
+
     !returns to user array
     x(:) = n(1:nmols)
 
@@ -246,6 +248,7 @@ contains
         n(i) = max(n(i),0d0)
       end do
 
+      n(:) = conserve(n(:),ni(:))
       ! check if we have converged by comparing the error in any species with an relative abundance above eatol
       converged = maxval(abs(n(1:nmols) - ni(1:nmols)) / max(n(1:nmols),eatol*sum(n(1:nmols)))) .lt. ertol &
           .or. t_tot .gt. max_time

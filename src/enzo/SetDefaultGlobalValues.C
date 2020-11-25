@@ -1100,6 +1100,7 @@ int SetDefaultGlobalValues(TopGridData &MetaData)
   use_krome = 0;
   use_kromestep = 0;
   p_chemistry = 0;
+  atomabund[NKROMEATOMS] = {0.0};
   //krometiny = 1.0e-40;
   //kromeload = 1.0;
   //krome_fixedtgas = -1.0;

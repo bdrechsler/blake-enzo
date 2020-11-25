@@ -1225,6 +1225,7 @@ EXTERN float MagneticSupernovaEnergy;
 EXTERN int use_krome;
 EXTERN int use_kromestep;
 EXTERN int p_chemistry;
+EXTERN float atomabund[NKROMEATOMS];
 //EXTERN float krometiny;
 //EXTERN float kromeload;
 //EXTERN float krome_fixedtgas;

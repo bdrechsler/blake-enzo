@@ -25,6 +25,8 @@
 #include "Grid.h"
 #include "EOS.h"
 
+extern "C" void FORTRAN_NAME(krome_renormref)(float* specabund, float* ref);
+
 int grid::UpdatePrim(float **dU, float c1, float c2)
 {
 
@@ -332,7 +334,20 @@ int grid::UpdatePrim(float **dU, float c1, float c2)
       for (n = 0; n < size; n++) 
 	Prim[field][n] *= Prim[iden][n];
   
-#ifndef USE_KROME
+#ifdef USE_KROME
+  for (k = GridStartIndex[2]; k <= GridEndIndex[2]; k++) {
+    for (j = GridStartIndex[1]; j <= GridEndIndex[1]; j++) {
+      igrid = (k * GridDimension[1] + j) * GridDimension[0] + GridStartIndex[0];
+      for (i = GridStartIndex[0]; i <= GridEndIndex[0]; i++, igrid++) {
+        float specabund[NKROMESPECIES];
+        for (field = NEQ_HYDRO; field < NEQ_HYDRO+NSpecies_renorm; field++) {
+          specabund[field-NEQ_HYDRO] = Prim[field][igrid];
+          FORTRAN_NAME(krome_renormref)(specabund, atomabund);
+        }
+      }
+    }
+  }
+#else
   this->UpdateElectronDensity();
 #endif
   

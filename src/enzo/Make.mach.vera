@@ -76,7 +76,7 @@ MACH_CFLAGS   =
 MACH_CXXFLAGS =
 MACH_FFLAGS   = -132
 MACH_F90FLAGS = 
-MACH_LDFLAGS  = 
+MACH_LDFLAGS  = -mkl
 
 #-----------------------------------------------------------------------
 # Optimization flags

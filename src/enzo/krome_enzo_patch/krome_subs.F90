@@ -5,7 +5,7 @@ contains
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-06-16 23:04:50
+  !  KROME 14.08.dev on 2020-11-24 11:54:35
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -7188,6 +7188,44 @@ contains
 
     no(:) = n(:)
 
+    !********** E **********
+    no(idx_E) = max( &
+        +n(idx_HCOj) &
+        +n(idx_Hj) &
+        +n(idx_HOCj) &
+        +n(idx_Cj) &
+        +n(idx_CH2j) &
+        +n(idx_CHj) &
+        +n(idx_H2COj) &
+        +n(idx_MGj) &
+        +n(idx_NH3j) &
+        +n(idx_NOj) &
+        +n(idx_CNj) &
+        +n(idx_COj) &
+        +n(idx_N2j) &
+        +n(idx_O2j) &
+        +n(idx_H2Oj) &
+        +n(idx_NH2j) &
+        +n(idx_Oj) &
+        +n(idx_OHj) &
+        +n(idx_CH3j) &
+        +n(idx_CH4j) &
+        +n(idx_Nj) &
+        +n(idx_HCNj) &
+        +n(idx_NHj) &
+        +n(idx_H2j) &
+        +n(idx_HEj) &
+        +n(idx_HNOj) &
+        +n(idx_H2NOj) &
+        +n(idx_H3j) &
+        +n(idx_H3COj) &
+        +n(idx_H3Oj) &
+        +n(idx_HCNHj) &
+        +n(idx_HCO2j) &
+        +n(idx_HEHj) &
+        +n(idx_N2Hj) &
+        +n(idx_O2Hj), 1d-40)
+
     conserve(:) = 0d0
     conserve(:) = no(:)
 
@@ -7205,7 +7243,607 @@ contains
 
     m(:) = get_mass()
     A(:,:) = 0d0
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH) * m(idx_C) * m(idx_C) / m(idx_CH)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HNC) * m(idx_C) * m(idx_C) / m(idx_HNC)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCN) * m(idx_C) * m(idx_C) / m(idx_HCN)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_C) * m(idx_C) * m(idx_C) / m(idx_C)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH2) * m(idx_C) * m(idx_C) / m(idx_CH2)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2CO) * m(idx_C) * m(idx_C) / m(idx_H2CO)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCO) * m(idx_C) * m(idx_C) / m(idx_HCO)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CN) * m(idx_C) * m(idx_C) / m(idx_CN)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO) * m(idx_C) * m(idx_C) / m(idx_CO)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3) * m(idx_C) * m(idx_C) / m(idx_CH3)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH4) * m(idx_C) * m(idx_C) / m(idx_CH4)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3OH) * m(idx_C) * m(idx_C) / m(idx_CH3OH)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO2) * m(idx_C) * m(idx_C) / m(idx_CO2)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2CN) * m(idx_C) * m(idx_C) / m(idx_H2CN)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HNCO) * m(idx_C) * m(idx_C) / m(idx_HNCO)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_OCN) * m(idx_C) * m(idx_C) / m(idx_OCN)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3OH_DUST) * m(idx_C) * m(idx_C) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HNCO_DUST) * m(idx_C) * m(idx_C) / m(idx_HNCO_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2CO_DUST) * m(idx_C) * m(idx_C) / m(idx_H2CO_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH4_DUST) * m(idx_C) * m(idx_C) / m(idx_CH4_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO_DUST) * m(idx_C) * m(idx_C) / m(idx_CO_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO2_DUST) * m(idx_C) * m(idx_C) / m(idx_CO2_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCN_DUST) * m(idx_C) * m(idx_C) / m(idx_HCN_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2CN_DUST) * m(idx_C) * m(idx_C) / m(idx_H2CN_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HNC_DUST) * m(idx_C) * m(idx_C) / m(idx_HNC_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCOj) * m(idx_C) * m(idx_C) / m(idx_HCOj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HOCj) * m(idx_C) * m(idx_C) / m(idx_HOCj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_Cj) * m(idx_C) * m(idx_C) / m(idx_Cj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH2j) * m(idx_C) * m(idx_C) / m(idx_CH2j)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CHj) * m(idx_C) * m(idx_C) / m(idx_CHj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2COj) * m(idx_C) * m(idx_C) / m(idx_H2COj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CNj) * m(idx_C) * m(idx_C) / m(idx_CNj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_COj) * m(idx_C) * m(idx_C) / m(idx_COj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3j) * m(idx_C) * m(idx_C) / m(idx_CH3j)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH4j) * m(idx_C) * m(idx_C) / m(idx_CH4j)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCNj) * m(idx_C) * m(idx_C) / m(idx_HCNj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H3COj) * m(idx_C) * m(idx_C) / m(idx_H3COj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCNHj) * m(idx_C) * m(idx_C) / m(idx_HCNHj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCO2j) * m(idx_C) * m(idx_C) / m(idx_HCO2j)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_CH) * m(idx_C) * m(idx_H) / m(idx_CH)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HNC) * m(idx_C) * m(idx_H) / m(idx_HNC)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HCN) * m(idx_C) * m(idx_H) / m(idx_HCN)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_CH2) * m(idx_C) * m(idx_H) / m(idx_CH2)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_H2CO) * m(idx_C) * m(idx_H) / m(idx_H2CO)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HCO) * m(idx_C) * m(idx_H) / m(idx_HCO)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 3d0 * x(idx_CH3) * m(idx_C) * m(idx_H) / m(idx_CH3)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 4d0 * x(idx_CH4) * m(idx_C) * m(idx_H) / m(idx_CH4)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 4d0 * x(idx_CH3OH) * m(idx_C) * m(idx_H) / m(idx_CH3OH)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_H2CN) * m(idx_C) * m(idx_H) / m(idx_H2CN)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HNCO) * m(idx_C) * m(idx_H) / m(idx_HNCO)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 4d0 * x(idx_CH3OH_DUST) * m(idx_C) * m(idx_H) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HNCO_DUST) * m(idx_C) * m(idx_H) / m(idx_HNCO_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_H2CO_DUST) * m(idx_C) * m(idx_H) / m(idx_H2CO_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 4d0 * x(idx_CH4_DUST) * m(idx_C) * m(idx_H) / m(idx_CH4_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HCN_DUST) * m(idx_C) * m(idx_H) / m(idx_HCN_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_H2CN_DUST) * m(idx_C) * m(idx_H) / m(idx_H2CN_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HNC_DUST) * m(idx_C) * m(idx_H) / m(idx_HNC_DUST)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HCOj) * m(idx_C) * m(idx_H) / m(idx_HCOj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HOCj) * m(idx_C) * m(idx_H) / m(idx_HOCj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_CH2j) * m(idx_C) * m(idx_H) / m(idx_CH2j)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_CHj) * m(idx_C) * m(idx_H) / m(idx_CHj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_H2COj) * m(idx_C) * m(idx_H) / m(idx_H2COj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 3d0 * x(idx_CH3j) * m(idx_C) * m(idx_H) / m(idx_CH3j)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 4d0 * x(idx_CH4j) * m(idx_C) * m(idx_H) / m(idx_CH4j)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HCNj) * m(idx_C) * m(idx_H) / m(idx_HCNj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 3d0 * x(idx_H3COj) * m(idx_C) * m(idx_H) / m(idx_H3COj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) + 2d0 * x(idx_HCNHj) * m(idx_C) * m(idx_H) / m(idx_HCNHj)**2
+    A(idx_atom_C, idx_atom_H) = A(idx_atom_C, idx_atom_H) +  x(idx_HCO2j) * m(idx_C) * m(idx_H) / m(idx_HCO2j)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_H2CO) * m(idx_C) * m(idx_O) / m(idx_H2CO)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_HCO) * m(idx_C) * m(idx_O) / m(idx_HCO)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_CO) * m(idx_C) * m(idx_O) / m(idx_CO)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_CH3OH) * m(idx_C) * m(idx_O) / m(idx_CH3OH)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) + 2d0 * x(idx_CO2) * m(idx_C) * m(idx_O) / m(idx_CO2)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_HNCO) * m(idx_C) * m(idx_O) / m(idx_HNCO)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_OCN) * m(idx_C) * m(idx_O) / m(idx_OCN)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_CH3OH_DUST) * m(idx_C) * m(idx_O) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_HNCO_DUST) * m(idx_C) * m(idx_O) / m(idx_HNCO_DUST)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_H2CO_DUST) * m(idx_C) * m(idx_O) / m(idx_H2CO_DUST)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_CO_DUST) * m(idx_C) * m(idx_O) / m(idx_CO_DUST)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) + 2d0 * x(idx_CO2_DUST) * m(idx_C) * m(idx_O) / m(idx_CO2_DUST)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_HCOj) * m(idx_C) * m(idx_O) / m(idx_HCOj)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_HOCj) * m(idx_C) * m(idx_O) / m(idx_HOCj)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_H2COj) * m(idx_C) * m(idx_O) / m(idx_H2COj)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_COj) * m(idx_C) * m(idx_O) / m(idx_COj)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) +  x(idx_H3COj) * m(idx_C) * m(idx_O) / m(idx_H3COj)**2
+    A(idx_atom_C, idx_atom_O) = A(idx_atom_C, idx_atom_O) + 2d0 * x(idx_HCO2j) * m(idx_C) * m(idx_O) / m(idx_HCO2j)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HNC) * m(idx_C) * m(idx_N) / m(idx_HNC)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCN) * m(idx_C) * m(idx_N) / m(idx_HCN)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_CN) * m(idx_C) * m(idx_N) / m(idx_CN)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_H2CN) * m(idx_C) * m(idx_N) / m(idx_H2CN)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HNCO) * m(idx_C) * m(idx_N) / m(idx_HNCO)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_OCN) * m(idx_C) * m(idx_N) / m(idx_OCN)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HNCO_DUST) * m(idx_C) * m(idx_N) / m(idx_HNCO_DUST)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCN_DUST) * m(idx_C) * m(idx_N) / m(idx_HCN_DUST)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_H2CN_DUST) * m(idx_C) * m(idx_N) / m(idx_H2CN_DUST)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HNC_DUST) * m(idx_C) * m(idx_N) / m(idx_HNC_DUST)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_CNj) * m(idx_C) * m(idx_N) / m(idx_CNj)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCNj) * m(idx_C) * m(idx_N) / m(idx_HCNj)**2
+    A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCNHj) * m(idx_C) * m(idx_N) / m(idx_HCNHj)**2
+    A(idx_atom_E, idx_atom_E) = A(idx_atom_E, idx_atom_E) +  x(idx_E) * m(idx_E) * m(idx_E) / m(idx_E)**2
+    A(idx_atom_E, idx_atom_E) = A(idx_atom_E, idx_atom_E) +  x(idx_E_DUST) * m(idx_E) * m(idx_E) / m(idx_E_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_CH) * m(idx_H) * m(idx_C) / m(idx_CH)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HNC) * m(idx_H) * m(idx_C) / m(idx_HNC)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCN) * m(idx_H) * m(idx_C) / m(idx_HCN)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_CH2) * m(idx_H) * m(idx_C) / m(idx_CH2)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_H2CO) * m(idx_H) * m(idx_C) / m(idx_H2CO)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCO) * m(idx_H) * m(idx_C) / m(idx_HCO)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 3d0 * x(idx_CH3) * m(idx_H) * m(idx_C) / m(idx_CH3)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 4d0 * x(idx_CH4) * m(idx_H) * m(idx_C) / m(idx_CH4)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 4d0 * x(idx_CH3OH) * m(idx_H) * m(idx_C) / m(idx_CH3OH)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_H2CN) * m(idx_H) * m(idx_C) / m(idx_H2CN)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HNCO) * m(idx_H) * m(idx_C) / m(idx_HNCO)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 4d0 * x(idx_CH3OH_DUST) * m(idx_H) * m(idx_C) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HNCO_DUST) * m(idx_H) * m(idx_C) / m(idx_HNCO_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_H2CO_DUST) * m(idx_H) * m(idx_C) / m(idx_H2CO_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 4d0 * x(idx_CH4_DUST) * m(idx_H) * m(idx_C) / m(idx_CH4_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCN_DUST) * m(idx_H) * m(idx_C) / m(idx_HCN_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_H2CN_DUST) * m(idx_H) * m(idx_C) / m(idx_H2CN_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HNC_DUST) * m(idx_H) * m(idx_C) / m(idx_HNC_DUST)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCOj) * m(idx_H) * m(idx_C) / m(idx_HCOj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HOCj) * m(idx_H) * m(idx_C) / m(idx_HOCj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_CH2j) * m(idx_H) * m(idx_C) / m(idx_CH2j)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_CHj) * m(idx_H) * m(idx_C) / m(idx_CHj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_H2COj) * m(idx_H) * m(idx_C) / m(idx_H2COj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 3d0 * x(idx_CH3j) * m(idx_H) * m(idx_C) / m(idx_CH3j)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 4d0 * x(idx_CH4j) * m(idx_H) * m(idx_C) / m(idx_CH4j)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCNj) * m(idx_H) * m(idx_C) / m(idx_HCNj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 3d0 * x(idx_H3COj) * m(idx_H) * m(idx_C) / m(idx_H3COj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) + 2d0 * x(idx_HCNHj) * m(idx_H) * m(idx_C) / m(idx_HCNHj)**2
+    A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCO2j) * m(idx_H) * m(idx_C) / m(idx_HCO2j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_CH) * m(idx_H) * m(idx_H) / m(idx_CH)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNC) * m(idx_H) * m(idx_H) / m(idx_HNC)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCN) * m(idx_H) * m(idx_H) / m(idx_HCN)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2) * m(idx_H) * m(idx_H) / m(idx_H2)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_H) * m(idx_H) * m(idx_H) / m(idx_H)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2O) * m(idx_H) * m(idx_H) / m(idx_H2O)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_OH) * m(idx_H) * m(idx_H) / m(idx_OH)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_CH2) * m(idx_H) * m(idx_H) / m(idx_CH2)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CO) * m(idx_H) * m(idx_H) / m(idx_H2CO)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCO) * m(idx_H) * m(idx_H) / m(idx_HCO)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_NH3) * m(idx_H) * m(idx_H) / m(idx_NH3)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_NH2) * m(idx_H) * m(idx_H) / m(idx_NH2)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_CH3) * m(idx_H) * m(idx_H) / m(idx_CH3)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH4) * m(idx_H) * m(idx_H) / m(idx_CH4)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_NH) * m(idx_H) * m(idx_H) / m(idx_NH)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNO) * m(idx_H) * m(idx_H) / m(idx_HNO)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH3OH) * m(idx_H) * m(idx_H) / m(idx_CH3OH)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CN) * m(idx_H) * m(idx_H) / m(idx_H2CN)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNCO) * m(idx_H) * m(idx_H) / m(idx_HNCO)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_O2H) * m(idx_H) * m(idx_H) / m(idx_O2H)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH3OH_DUST) * m(idx_H) * m(idx_H) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNCO_DUST) * m(idx_H) * m(idx_H) / m(idx_HNCO_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CO_DUST) * m(idx_H) * m(idx_H) / m(idx_H2CO_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH4_DUST) * m(idx_H) * m(idx_H) / m(idx_CH4_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2O_DUST) * m(idx_H) * m(idx_H) / m(idx_H2O_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCN_DUST) * m(idx_H) * m(idx_H) / m(idx_HCN_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_NH3_DUST) * m(idx_H) * m(idx_H) / m(idx_NH3_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNO_DUST) * m(idx_H) * m(idx_H) / m(idx_HNO_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_O2H_DUST) * m(idx_H) * m(idx_H) / m(idx_O2H_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CN_DUST) * m(idx_H) * m(idx_H) / m(idx_H2CN_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNC_DUST) * m(idx_H) * m(idx_H) / m(idx_HNC_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCOj) * m(idx_H) * m(idx_H) / m(idx_HCOj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_Hj) * m(idx_H) * m(idx_H) / m(idx_Hj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HOCj) * m(idx_H) * m(idx_H) / m(idx_HOCj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_CH2j) * m(idx_H) * m(idx_H) / m(idx_CH2j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_CHj) * m(idx_H) * m(idx_H) / m(idx_CHj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2COj) * m(idx_H) * m(idx_H) / m(idx_H2COj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_NH3j) * m(idx_H) * m(idx_H) / m(idx_NH3j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2Oj) * m(idx_H) * m(idx_H) / m(idx_H2Oj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_NH2j) * m(idx_H) * m(idx_H) / m(idx_NH2j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_OHj) * m(idx_H) * m(idx_H) / m(idx_OHj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_CH3j) * m(idx_H) * m(idx_H) / m(idx_CH3j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH4j) * m(idx_H) * m(idx_H) / m(idx_CH4j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCNj) * m(idx_H) * m(idx_H) / m(idx_HCNj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_NHj) * m(idx_H) * m(idx_H) / m(idx_NHj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2j) * m(idx_H) * m(idx_H) / m(idx_H2j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNOj) * m(idx_H) * m(idx_H) / m(idx_HNOj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2NOj) * m(idx_H) * m(idx_H) / m(idx_H2NOj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_H3j) * m(idx_H) * m(idx_H) / m(idx_H3j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_H3COj) * m(idx_H) * m(idx_H) / m(idx_H3COj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_H3Oj) * m(idx_H) * m(idx_H) / m(idx_H3Oj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_HCNHj) * m(idx_H) * m(idx_H) / m(idx_HCNHj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCO2j) * m(idx_H) * m(idx_H) / m(idx_HCO2j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HEHj) * m(idx_H) * m(idx_H) / m(idx_HEHj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_N2Hj) * m(idx_H) * m(idx_H) / m(idx_N2Hj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_O2Hj) * m(idx_H) * m(idx_H) / m(idx_O2Hj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2O) * m(idx_H) * m(idx_O) / m(idx_H2O)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_OH) * m(idx_H) * m(idx_O) / m(idx_OH)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2CO) * m(idx_H) * m(idx_O) / m(idx_H2CO)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HCO) * m(idx_H) * m(idx_O) / m(idx_HCO)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNO) * m(idx_H) * m(idx_O) / m(idx_HNO)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 4d0 * x(idx_CH3OH) * m(idx_H) * m(idx_O) / m(idx_CH3OH)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNCO) * m(idx_H) * m(idx_O) / m(idx_HNCO)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_O2H) * m(idx_H) * m(idx_O) / m(idx_O2H)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 4d0 * x(idx_CH3OH_DUST) * m(idx_H) * m(idx_O) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNCO_DUST) * m(idx_H) * m(idx_O) / m(idx_HNCO_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2CO_DUST) * m(idx_H) * m(idx_O) / m(idx_H2CO_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2O_DUST) * m(idx_H) * m(idx_O) / m(idx_H2O_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNO_DUST) * m(idx_H) * m(idx_O) / m(idx_HNO_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_O2H_DUST) * m(idx_H) * m(idx_O) / m(idx_O2H_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HCOj) * m(idx_H) * m(idx_O) / m(idx_HCOj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HOCj) * m(idx_H) * m(idx_O) / m(idx_HOCj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2COj) * m(idx_H) * m(idx_O) / m(idx_H2COj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2Oj) * m(idx_H) * m(idx_O) / m(idx_H2Oj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_OHj) * m(idx_H) * m(idx_O) / m(idx_OHj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNOj) * m(idx_H) * m(idx_O) / m(idx_HNOj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2NOj) * m(idx_H) * m(idx_O) / m(idx_H2NOj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 3d0 * x(idx_H3COj) * m(idx_H) * m(idx_O) / m(idx_H3COj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 3d0 * x(idx_H3Oj) * m(idx_H) * m(idx_O) / m(idx_H3Oj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_HCO2j) * m(idx_H) * m(idx_O) / m(idx_HCO2j)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_O2Hj) * m(idx_H) * m(idx_O) / m(idx_O2Hj)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNC) * m(idx_H) * m(idx_N) / m(idx_HNC)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HCN) * m(idx_H) * m(idx_N) / m(idx_HCN)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 3d0 * x(idx_NH3) * m(idx_H) * m(idx_N) / m(idx_NH3)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_NH2) * m(idx_H) * m(idx_N) / m(idx_NH2)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_NH) * m(idx_H) * m(idx_N) / m(idx_NH)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNO) * m(idx_H) * m(idx_N) / m(idx_HNO)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_H2CN) * m(idx_H) * m(idx_N) / m(idx_H2CN)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNCO) * m(idx_H) * m(idx_N) / m(idx_HNCO)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNCO_DUST) * m(idx_H) * m(idx_N) / m(idx_HNCO_DUST)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HCN_DUST) * m(idx_H) * m(idx_N) / m(idx_HCN_DUST)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 3d0 * x(idx_NH3_DUST) * m(idx_H) * m(idx_N) / m(idx_NH3_DUST)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNO_DUST) * m(idx_H) * m(idx_N) / m(idx_HNO_DUST)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_H2CN_DUST) * m(idx_H) * m(idx_N) / m(idx_H2CN_DUST)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNC_DUST) * m(idx_H) * m(idx_N) / m(idx_HNC_DUST)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 3d0 * x(idx_NH3j) * m(idx_H) * m(idx_N) / m(idx_NH3j)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_NH2j) * m(idx_H) * m(idx_N) / m(idx_NH2j)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HCNj) * m(idx_H) * m(idx_N) / m(idx_HCNj)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_NHj) * m(idx_H) * m(idx_N) / m(idx_NHj)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNOj) * m(idx_H) * m(idx_N) / m(idx_HNOj)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_H2NOj) * m(idx_H) * m(idx_N) / m(idx_H2NOj)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_HCNHj) * m(idx_H) * m(idx_N) / m(idx_HCNHj)**2
+    A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_N2Hj) * m(idx_H) * m(idx_N) / m(idx_N2Hj)**2
+    A(idx_atom_H, idx_atom_He) = A(idx_atom_H, idx_atom_He) +  x(idx_HEHj) * m(idx_H) * m(idx_He) / m(idx_HEHj)**2
+    A(idx_atom_Mg, idx_atom_Mg) = A(idx_atom_Mg, idx_atom_Mg) +  x(idx_MG) * m(idx_Mg) * m(idx_Mg) / m(idx_MG)**2
+    A(idx_atom_Mg, idx_atom_Mg) = A(idx_atom_Mg, idx_atom_Mg) +  x(idx_MG_DUST) * m(idx_Mg) * m(idx_Mg) / m(idx_MG_DUST)**2
+    A(idx_atom_Mg, idx_atom_Mg) = A(idx_atom_Mg, idx_atom_Mg) +  x(idx_MGj) * m(idx_Mg) * m(idx_Mg) / m(idx_MGj)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_H2CO) * m(idx_O) * m(idx_C) / m(idx_H2CO)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_HCO) * m(idx_O) * m(idx_C) / m(idx_HCO)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_CO) * m(idx_O) * m(idx_C) / m(idx_CO)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_CH3OH) * m(idx_O) * m(idx_C) / m(idx_CH3OH)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) + 2d0 * x(idx_CO2) * m(idx_O) * m(idx_C) / m(idx_CO2)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_HNCO) * m(idx_O) * m(idx_C) / m(idx_HNCO)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_OCN) * m(idx_O) * m(idx_C) / m(idx_OCN)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_CH3OH_DUST) * m(idx_O) * m(idx_C) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_HNCO_DUST) * m(idx_O) * m(idx_C) / m(idx_HNCO_DUST)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_H2CO_DUST) * m(idx_O) * m(idx_C) / m(idx_H2CO_DUST)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_CO_DUST) * m(idx_O) * m(idx_C) / m(idx_CO_DUST)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) + 2d0 * x(idx_CO2_DUST) * m(idx_O) * m(idx_C) / m(idx_CO2_DUST)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_HCOj) * m(idx_O) * m(idx_C) / m(idx_HCOj)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_HOCj) * m(idx_O) * m(idx_C) / m(idx_HOCj)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_H2COj) * m(idx_O) * m(idx_C) / m(idx_H2COj)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_COj) * m(idx_O) * m(idx_C) / m(idx_COj)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) +  x(idx_H3COj) * m(idx_O) * m(idx_C) / m(idx_H3COj)**2
+    A(idx_atom_O, idx_atom_C) = A(idx_atom_O, idx_atom_C) + 2d0 * x(idx_HCO2j) * m(idx_O) * m(idx_C) / m(idx_HCO2j)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2O) * m(idx_O) * m(idx_H) / m(idx_H2O)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_OH) * m(idx_O) * m(idx_H) / m(idx_OH)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2CO) * m(idx_O) * m(idx_H) / m(idx_H2CO)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HCO) * m(idx_O) * m(idx_H) / m(idx_HCO)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNO) * m(idx_O) * m(idx_H) / m(idx_HNO)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 4d0 * x(idx_CH3OH) * m(idx_O) * m(idx_H) / m(idx_CH3OH)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNCO) * m(idx_O) * m(idx_H) / m(idx_HNCO)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_O2H) * m(idx_O) * m(idx_H) / m(idx_O2H)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 4d0 * x(idx_CH3OH_DUST) * m(idx_O) * m(idx_H) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNCO_DUST) * m(idx_O) * m(idx_H) / m(idx_HNCO_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2CO_DUST) * m(idx_O) * m(idx_H) / m(idx_H2CO_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2O_DUST) * m(idx_O) * m(idx_H) / m(idx_H2O_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNO_DUST) * m(idx_O) * m(idx_H) / m(idx_HNO_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_O2H_DUST) * m(idx_O) * m(idx_H) / m(idx_O2H_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HCOj) * m(idx_O) * m(idx_H) / m(idx_HCOj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HOCj) * m(idx_O) * m(idx_H) / m(idx_HOCj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2COj) * m(idx_O) * m(idx_H) / m(idx_H2COj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2Oj) * m(idx_O) * m(idx_H) / m(idx_H2Oj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_OHj) * m(idx_O) * m(idx_H) / m(idx_OHj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNOj) * m(idx_O) * m(idx_H) / m(idx_HNOj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2NOj) * m(idx_O) * m(idx_H) / m(idx_H2NOj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 3d0 * x(idx_H3COj) * m(idx_O) * m(idx_H) / m(idx_H3COj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 3d0 * x(idx_H3Oj) * m(idx_O) * m(idx_H) / m(idx_H3Oj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_HCO2j) * m(idx_O) * m(idx_H) / m(idx_HCO2j)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_O2Hj) * m(idx_O) * m(idx_H) / m(idx_O2Hj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_O) * m(idx_O) * m(idx_O) / m(idx_O)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2O) * m(idx_O) * m(idx_O) / m(idx_H2O)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_OH) * m(idx_O) * m(idx_O) / m(idx_OH)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2) * m(idx_O) * m(idx_O) / m(idx_O2)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2CO) * m(idx_O) * m(idx_O) / m(idx_H2CO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HCO) * m(idx_O) * m(idx_O) / m(idx_HCO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_NO) * m(idx_O) * m(idx_O) / m(idx_NO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CO) * m(idx_O) * m(idx_O) / m(idx_CO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNO) * m(idx_O) * m(idx_O) / m(idx_HNO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CH3OH) * m(idx_O) * m(idx_O) / m(idx_CH3OH)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_CO2) * m(idx_O) * m(idx_O) / m(idx_CO2)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNCO) * m(idx_O) * m(idx_O) / m(idx_HNCO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_NO2) * m(idx_O) * m(idx_O) / m(idx_NO2)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2H) * m(idx_O) * m(idx_O) / m(idx_O2H)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_OCN) * m(idx_O) * m(idx_O) / m(idx_OCN)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CH3OH_DUST) * m(idx_O) * m(idx_O) / m(idx_CH3OH_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNCO_DUST) * m(idx_O) * m(idx_O) / m(idx_HNCO_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2CO_DUST) * m(idx_O) * m(idx_O) / m(idx_H2CO_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CO_DUST) * m(idx_O) * m(idx_O) / m(idx_CO_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2O_DUST) * m(idx_O) * m(idx_O) / m(idx_H2O_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_NO_DUST) * m(idx_O) * m(idx_O) / m(idx_NO_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_CO2_DUST) * m(idx_O) * m(idx_O) / m(idx_CO2_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2_DUST) * m(idx_O) * m(idx_O) / m(idx_O2_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_NO2_DUST) * m(idx_O) * m(idx_O) / m(idx_NO2_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNO_DUST) * m(idx_O) * m(idx_O) / m(idx_HNO_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2H_DUST) * m(idx_O) * m(idx_O) / m(idx_O2H_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HCOj) * m(idx_O) * m(idx_O) / m(idx_HCOj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HOCj) * m(idx_O) * m(idx_O) / m(idx_HOCj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2COj) * m(idx_O) * m(idx_O) / m(idx_H2COj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_NOj) * m(idx_O) * m(idx_O) / m(idx_NOj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_COj) * m(idx_O) * m(idx_O) / m(idx_COj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2j) * m(idx_O) * m(idx_O) / m(idx_O2j)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2Oj) * m(idx_O) * m(idx_O) / m(idx_H2Oj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_Oj) * m(idx_O) * m(idx_O) / m(idx_Oj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_OHj) * m(idx_O) * m(idx_O) / m(idx_OHj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNOj) * m(idx_O) * m(idx_O) / m(idx_HNOj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2NOj) * m(idx_O) * m(idx_O) / m(idx_H2NOj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H3COj) * m(idx_O) * m(idx_O) / m(idx_H3COj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H3Oj) * m(idx_O) * m(idx_O) / m(idx_H3Oj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_HCO2j) * m(idx_O) * m(idx_O) / m(idx_HCO2j)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2Hj) * m(idx_O) * m(idx_O) / m(idx_O2Hj)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_NO) * m(idx_O) * m(idx_N) / m(idx_NO)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNO) * m(idx_O) * m(idx_N) / m(idx_HNO)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNCO) * m(idx_O) * m(idx_N) / m(idx_HNCO)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) + 2d0 * x(idx_NO2) * m(idx_O) * m(idx_N) / m(idx_NO2)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_OCN) * m(idx_O) * m(idx_N) / m(idx_OCN)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNCO_DUST) * m(idx_O) * m(idx_N) / m(idx_HNCO_DUST)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_NO_DUST) * m(idx_O) * m(idx_N) / m(idx_NO_DUST)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) + 2d0 * x(idx_NO2_DUST) * m(idx_O) * m(idx_N) / m(idx_NO2_DUST)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNO_DUST) * m(idx_O) * m(idx_N) / m(idx_HNO_DUST)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_NOj) * m(idx_O) * m(idx_N) / m(idx_NOj)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNOj) * m(idx_O) * m(idx_N) / m(idx_HNOj)**2
+    A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_H2NOj) * m(idx_O) * m(idx_N) / m(idx_H2NOj)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HNC) * m(idx_N) * m(idx_C) / m(idx_HNC)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HCN) * m(idx_N) * m(idx_C) / m(idx_HCN)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_CN) * m(idx_N) * m(idx_C) / m(idx_CN)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_H2CN) * m(idx_N) * m(idx_C) / m(idx_H2CN)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HNCO) * m(idx_N) * m(idx_C) / m(idx_HNCO)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_OCN) * m(idx_N) * m(idx_C) / m(idx_OCN)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HNCO_DUST) * m(idx_N) * m(idx_C) / m(idx_HNCO_DUST)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HCN_DUST) * m(idx_N) * m(idx_C) / m(idx_HCN_DUST)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_H2CN_DUST) * m(idx_N) * m(idx_C) / m(idx_H2CN_DUST)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HNC_DUST) * m(idx_N) * m(idx_C) / m(idx_HNC_DUST)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_CNj) * m(idx_N) * m(idx_C) / m(idx_CNj)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HCNj) * m(idx_N) * m(idx_C) / m(idx_HCNj)**2
+    A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HCNHj) * m(idx_N) * m(idx_C) / m(idx_HCNHj)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNC) * m(idx_N) * m(idx_H) / m(idx_HNC)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HCN) * m(idx_N) * m(idx_H) / m(idx_HCN)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 3d0 * x(idx_NH3) * m(idx_N) * m(idx_H) / m(idx_NH3)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_NH2) * m(idx_N) * m(idx_H) / m(idx_NH2)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_NH) * m(idx_N) * m(idx_H) / m(idx_NH)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNO) * m(idx_N) * m(idx_H) / m(idx_HNO)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_H2CN) * m(idx_N) * m(idx_H) / m(idx_H2CN)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNCO) * m(idx_N) * m(idx_H) / m(idx_HNCO)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNCO_DUST) * m(idx_N) * m(idx_H) / m(idx_HNCO_DUST)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HCN_DUST) * m(idx_N) * m(idx_H) / m(idx_HCN_DUST)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 3d0 * x(idx_NH3_DUST) * m(idx_N) * m(idx_H) / m(idx_NH3_DUST)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNO_DUST) * m(idx_N) * m(idx_H) / m(idx_HNO_DUST)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_H2CN_DUST) * m(idx_N) * m(idx_H) / m(idx_H2CN_DUST)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNC_DUST) * m(idx_N) * m(idx_H) / m(idx_HNC_DUST)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 3d0 * x(idx_NH3j) * m(idx_N) * m(idx_H) / m(idx_NH3j)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_NH2j) * m(idx_N) * m(idx_H) / m(idx_NH2j)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HCNj) * m(idx_N) * m(idx_H) / m(idx_HCNj)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_NHj) * m(idx_N) * m(idx_H) / m(idx_NHj)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) +  x(idx_HNOj) * m(idx_N) * m(idx_H) / m(idx_HNOj)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_H2NOj) * m(idx_N) * m(idx_H) / m(idx_H2NOj)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_HCNHj) * m(idx_N) * m(idx_H) / m(idx_HCNHj)**2
+    A(idx_atom_N, idx_atom_H) = A(idx_atom_N, idx_atom_H) + 2d0 * x(idx_N2Hj) * m(idx_N) * m(idx_H) / m(idx_N2Hj)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_NO) * m(idx_N) * m(idx_O) / m(idx_NO)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_HNO) * m(idx_N) * m(idx_O) / m(idx_HNO)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_HNCO) * m(idx_N) * m(idx_O) / m(idx_HNCO)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) + 2d0 * x(idx_NO2) * m(idx_N) * m(idx_O) / m(idx_NO2)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_OCN) * m(idx_N) * m(idx_O) / m(idx_OCN)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_HNCO_DUST) * m(idx_N) * m(idx_O) / m(idx_HNCO_DUST)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_NO_DUST) * m(idx_N) * m(idx_O) / m(idx_NO_DUST)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) + 2d0 * x(idx_NO2_DUST) * m(idx_N) * m(idx_O) / m(idx_NO2_DUST)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_HNO_DUST) * m(idx_N) * m(idx_O) / m(idx_HNO_DUST)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_NOj) * m(idx_N) * m(idx_O) / m(idx_NOj)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_HNOj) * m(idx_N) * m(idx_O) / m(idx_HNOj)**2
+    A(idx_atom_N, idx_atom_O) = A(idx_atom_N, idx_atom_O) +  x(idx_H2NOj) * m(idx_N) * m(idx_O) / m(idx_H2NOj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNC) * m(idx_N) * m(idx_N) / m(idx_HNC)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HCN) * m(idx_N) * m(idx_N) / m(idx_HCN)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NH3) * m(idx_N) * m(idx_N) / m(idx_NH3)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NO) * m(idx_N) * m(idx_N) / m(idx_NO)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_CN) * m(idx_N) * m(idx_N) / m(idx_CN)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) + 4d0 * x(idx_N2) * m(idx_N) * m(idx_N) / m(idx_N2)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NH2) * m(idx_N) * m(idx_N) / m(idx_NH2)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_N) * m(idx_N) * m(idx_N) / m(idx_N)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NH) * m(idx_N) * m(idx_N) / m(idx_NH)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNO) * m(idx_N) * m(idx_N) / m(idx_HNO)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_H2CN) * m(idx_N) * m(idx_N) / m(idx_H2CN)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNCO) * m(idx_N) * m(idx_N) / m(idx_HNCO)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NO2) * m(idx_N) * m(idx_N) / m(idx_NO2)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_OCN) * m(idx_N) * m(idx_N) / m(idx_OCN)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNCO_DUST) * m(idx_N) * m(idx_N) / m(idx_HNCO_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NO_DUST) * m(idx_N) * m(idx_N) / m(idx_NO_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) + 4d0 * x(idx_N2_DUST) * m(idx_N) * m(idx_N) / m(idx_N2_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HCN_DUST) * m(idx_N) * m(idx_N) / m(idx_HCN_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NH3_DUST) * m(idx_N) * m(idx_N) / m(idx_NH3_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NO2_DUST) * m(idx_N) * m(idx_N) / m(idx_NO2_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNO_DUST) * m(idx_N) * m(idx_N) / m(idx_HNO_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_H2CN_DUST) * m(idx_N) * m(idx_N) / m(idx_H2CN_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNC_DUST) * m(idx_N) * m(idx_N) / m(idx_HNC_DUST)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NH3j) * m(idx_N) * m(idx_N) / m(idx_NH3j)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NOj) * m(idx_N) * m(idx_N) / m(idx_NOj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_CNj) * m(idx_N) * m(idx_N) / m(idx_CNj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) + 4d0 * x(idx_N2j) * m(idx_N) * m(idx_N) / m(idx_N2j)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NH2j) * m(idx_N) * m(idx_N) / m(idx_NH2j)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_Nj) * m(idx_N) * m(idx_N) / m(idx_Nj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HCNj) * m(idx_N) * m(idx_N) / m(idx_HCNj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_NHj) * m(idx_N) * m(idx_N) / m(idx_NHj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HNOj) * m(idx_N) * m(idx_N) / m(idx_HNOj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_H2NOj) * m(idx_N) * m(idx_N) / m(idx_H2NOj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HCNHj) * m(idx_N) * m(idx_N) / m(idx_HCNHj)**2
+    A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) + 4d0 * x(idx_N2Hj) * m(idx_N) * m(idx_N) / m(idx_N2Hj)**2
+    A(idx_atom_He, idx_atom_H) = A(idx_atom_He, idx_atom_H) +  x(idx_HEHj) * m(idx_He) * m(idx_H) / m(idx_HEHj)**2
+    A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HE) * m(idx_He) * m(idx_He) / m(idx_HE)**2
+    A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HEj) * m(idx_He) * m(idx_He) / m(idx_HEj)**2
+    A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HEHj) * m(idx_He) * m(idx_He) / m(idx_HEHj)**2
+
     B(:) = ref(:)
+
+    call mydgesv(natoms,A(:,:),B(:), "conserveLin_x")
+
+    x(idx_CH) = x(idx_CH) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH)
+    x(idx_O) = x(idx_O) * (m(idx_O) * B(idx_atom_O))/m(idx_O)
+    x(idx_HNC) = x(idx_HNC) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNC)
+    x(idx_HCN) = x(idx_HCN) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HCN)
+    x(idx_H2) = x(idx_H2) * (2d0*m(idx_H) * B(idx_atom_H))/m(idx_H2)
+    x(idx_C) = x(idx_C) * (m(idx_C) * B(idx_atom_C))/m(idx_C)
+    x(idx_H) = x(idx_H) * (m(idx_H) * B(idx_atom_H))/m(idx_H)
+    x(idx_H2O) = x(idx_H2O) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2O)
+    x(idx_OH) = x(idx_OH) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_OH)
+    x(idx_O2) = x(idx_O2) * (2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2)
+    x(idx_CH2) = x(idx_CH2) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH2)
+    x(idx_H2CO) = x(idx_H2CO) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2CO)
+    x(idx_HCO) = x(idx_HCO) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_HCO)
+    x(idx_MG) = x(idx_MG) * (m(idx_Mg) * B(idx_atom_Mg))/m(idx_MG)
+    x(idx_NH3) = x(idx_NH3) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NH3)
+    x(idx_NO) = x(idx_NO) * (m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NO)
+    x(idx_CN) = x(idx_CN) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_CN)
+    x(idx_CO) = x(idx_CO) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_CO)
+    x(idx_N2) = x(idx_N2) * (2d0*m(idx_N) * B(idx_atom_N))/m(idx_N2)
+    x(idx_NH2) = x(idx_NH2) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NH2)
+    x(idx_CH3) = x(idx_CH3) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH3)
+    x(idx_CH4) = x(idx_CH4) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH4)
+    x(idx_N) = x(idx_N) * (m(idx_N) * B(idx_atom_N))/m(idx_N)
+    x(idx_NH) = x(idx_NH) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NH)
+    x(idx_HE) = x(idx_HE) * (m(idx_He) * B(idx_atom_He))/m(idx_HE)
+    x(idx_HNO) = x(idx_HNO) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNO)
+    x(idx_CH3OH) = x(idx_CH3OH) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_CH3OH)
+    x(idx_CO2) = x(idx_CO2) * (m(idx_C) * B(idx_atom_C) + &
+        2d0*m(idx_O) * B(idx_atom_O))/m(idx_CO2)
+    x(idx_H2CN) = x(idx_H2CN) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_H2CN)
+    x(idx_HNCO) = x(idx_HNCO) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNCO)
+    x(idx_NO2) = x(idx_NO2) * (2d0*m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NO2)
+    x(idx_O2H) = x(idx_O2H) * (m(idx_H) * B(idx_atom_H) + &
+        2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2H)
+    x(idx_OCN) = x(idx_OCN) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_OCN)
+    x(idx_CH3OH_DUST) = x(idx_CH3OH_DUST) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_CH3OH_DUST)
+    x(idx_HNCO_DUST) = x(idx_HNCO_DUST) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNCO_DUST)
+    x(idx_H2CO_DUST) = x(idx_H2CO_DUST) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2CO_DUST)
+    x(idx_CH4_DUST) = x(idx_CH4_DUST) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH4_DUST)
+    x(idx_CO_DUST) = x(idx_CO_DUST) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_CO_DUST)
+    x(idx_H2O_DUST) = x(idx_H2O_DUST) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2O_DUST)
+    x(idx_NO_DUST) = x(idx_NO_DUST) * (m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NO_DUST)
+    x(idx_CO2_DUST) = x(idx_CO2_DUST) * (m(idx_C) * B(idx_atom_C) + &
+        2d0*m(idx_O) * B(idx_atom_O))/m(idx_CO2_DUST)
+    x(idx_N2_DUST) = x(idx_N2_DUST) * (2d0*m(idx_N) * B(idx_atom_N))/m(idx_N2_DUST)
+    x(idx_HCN_DUST) = x(idx_HCN_DUST) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HCN_DUST)
+    x(idx_NH3_DUST) = x(idx_NH3_DUST) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NH3_DUST)
+    x(idx_O2_DUST) = x(idx_O2_DUST) * (2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2_DUST)
+    x(idx_NO2_DUST) = x(idx_NO2_DUST) * (2d0*m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NO2_DUST)
+    x(idx_HNO_DUST) = x(idx_HNO_DUST) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNO_DUST)
+    x(idx_O2H_DUST) = x(idx_O2H_DUST) * (m(idx_H) * B(idx_atom_H) + &
+        2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2H_DUST)
+    x(idx_H2CN_DUST) = x(idx_H2CN_DUST) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_H2CN_DUST)
+    x(idx_MG_DUST) = x(idx_MG_DUST) * (m(idx_Mg) * B(idx_atom_Mg))/m(idx_MG_DUST)
+    x(idx_HNC_DUST) = x(idx_HNC_DUST) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNC_DUST)
+    x(idx_HCOj) = x(idx_HCOj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_HCOj)
+    x(idx_Hj) = x(idx_Hj) * (m(idx_H) * B(idx_atom_H))/m(idx_Hj)
+    x(idx_HOCj) = x(idx_HOCj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_HOCj)
+    x(idx_Cj) = x(idx_Cj) * (m(idx_C) * B(idx_atom_C))/m(idx_Cj)
+    x(idx_CH2j) = x(idx_CH2j) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH2j)
+    x(idx_CHj) = x(idx_CHj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CHj)
+    x(idx_H2COj) = x(idx_H2COj) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2COj)
+    x(idx_MGj) = x(idx_MGj) * (m(idx_Mg) * B(idx_atom_Mg))/m(idx_MGj)
+    x(idx_NH3j) = x(idx_NH3j) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NH3j)
+    x(idx_NOj) = x(idx_NOj) * (m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NOj)
+    x(idx_CNj) = x(idx_CNj) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_CNj)
+    x(idx_COj) = x(idx_COj) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_COj)
+    x(idx_N2j) = x(idx_N2j) * (2d0*m(idx_N) * B(idx_atom_N))/m(idx_N2j)
+    x(idx_O2j) = x(idx_O2j) * (2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2j)
+    x(idx_H2Oj) = x(idx_H2Oj) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2Oj)
+    x(idx_NH2j) = x(idx_NH2j) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NH2j)
+    x(idx_Oj) = x(idx_Oj) * (m(idx_O) * B(idx_atom_O))/m(idx_Oj)
+    x(idx_OHj) = x(idx_OHj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_OHj)
+    x(idx_CH3j) = x(idx_CH3j) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH3j)
+    x(idx_CH4j) = x(idx_CH4j) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_CH4j)
+    x(idx_Nj) = x(idx_Nj) * (m(idx_N) * B(idx_atom_N))/m(idx_Nj)
+    x(idx_HCNj) = x(idx_HCNj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HCNj)
+    x(idx_NHj) = x(idx_NHj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_NHj)
+    x(idx_H2j) = x(idx_H2j) * (2d0*m(idx_H) * B(idx_atom_H))/m(idx_H2j)
+    x(idx_HEj) = x(idx_HEj) * (m(idx_He) * B(idx_atom_He))/m(idx_HEj)
+    x(idx_HNOj) = x(idx_HNOj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HNOj)
+    x(idx_H2NOj) = x(idx_H2NOj) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_H2NOj)
+    x(idx_H3j) = x(idx_H3j) * (3d0*m(idx_H) * B(idx_atom_H))/m(idx_H3j)
+    x(idx_H3COj) = x(idx_H3COj) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H3COj)
+    x(idx_H3Oj) = x(idx_H3Oj) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H3Oj)
+    x(idx_HCNHj) = x(idx_HCNHj) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        m(idx_N) * B(idx_atom_N))/m(idx_HCNHj)
+    x(idx_HCO2j) = x(idx_HCO2j) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_C) * B(idx_atom_C) + &
+        2d0*m(idx_O) * B(idx_atom_O))/m(idx_HCO2j)
+    x(idx_HEHj) = x(idx_HEHj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_He) * B(idx_atom_He))/m(idx_HEHj)
+    x(idx_N2Hj) = x(idx_N2Hj) * (m(idx_H) * B(idx_atom_H) + &
+        2d0*m(idx_N) * B(idx_atom_N))/m(idx_N2Hj)
+    x(idx_O2Hj) = x(idx_O2Hj) * (m(idx_H) * B(idx_atom_H) + &
+        2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2Hj)
 
     !charge conservation
     x(idx_E) = m(idx_E)*(+ 1d0*x(idx_HCOj) / m(idx_HCOj) &
@@ -7262,6 +7900,184 @@ contains
 
     m(:) = get_mass()
     conserveLinGetRef_x(:) = 0d0
+
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_CH)/m(idx_CH)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH)/m(idx_CH)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_O)/m(idx_O)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNC)/m(idx_HNC)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HNC)/m(idx_HNC)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNC)/m(idx_HNC)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCN)/m(idx_HCN)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCN)/m(idx_HCN)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HCN)/m(idx_HCN)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2)/m(idx_H2)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_C)/m(idx_C)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_H)/m(idx_H)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2O)/m(idx_H2O)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2O)/m(idx_H2O)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_OH)/m(idx_OH)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_OH)/m(idx_OH)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2)/m(idx_O2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_CH2)/m(idx_CH2)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH2)/m(idx_CH2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2CO)/m(idx_H2CO)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2CO)/m(idx_H2CO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2CO)/m(idx_H2CO)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCO)/m(idx_HCO)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCO)/m(idx_HCO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HCO)/m(idx_HCO)
+    conserveLinGetRef_x(idx_atom_Mg) = conserveLinGetRef_x(idx_atom_Mg) + m(idx_Mg)*x(idx_MG)/m(idx_MG)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_NH3)/m(idx_NH3)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH3)/m(idx_NH3)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_NO)/m(idx_NO)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NO)/m(idx_NO)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CN)/m(idx_CN)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_CN)/m(idx_CN)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CO)/m(idx_CO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_CO)/m(idx_CO)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + 2d0*m(idx_N)*x(idx_N2)/m(idx_N2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_NH2)/m(idx_NH2)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH2)/m(idx_NH2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_CH3)/m(idx_CH3)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH3)/m(idx_CH3)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_CH4)/m(idx_CH4)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH4)/m(idx_CH4)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_N)/m(idx_N)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_NH)/m(idx_NH)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH)/m(idx_NH)
+    conserveLinGetRef_x(idx_atom_He) = conserveLinGetRef_x(idx_atom_He) + m(idx_He)*x(idx_HE)/m(idx_HE)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNO)/m(idx_HNO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNO)/m(idx_HNO)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNO)/m(idx_HNO)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_CH3OH)/m(idx_CH3OH)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH3OH)/m(idx_CH3OH)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_CH3OH)/m(idx_CH3OH)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CO2)/m(idx_CO2)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_CO2)/m(idx_CO2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2CN)/m(idx_H2CN)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2CN)/m(idx_H2CN)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_H2CN)/m(idx_H2CN)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNCO)/m(idx_HNCO)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HNCO)/m(idx_HNCO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNCO)/m(idx_HNCO)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNCO)/m(idx_HNCO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_NO2)/m(idx_NO2)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NO2)/m(idx_NO2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_O2H)/m(idx_O2H)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2H)/m(idx_O2H)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_OCN)/m(idx_OCN)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_OCN)/m(idx_OCN)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_OCN)/m(idx_OCN)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_CH3OH_DUST)/m(idx_CH3OH_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH3OH_DUST)/m(idx_CH3OH_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_CH3OH_DUST)/m(idx_CH3OH_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNCO_DUST)/m(idx_HNCO_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HNCO_DUST)/m(idx_HNCO_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNCO_DUST)/m(idx_HNCO_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNCO_DUST)/m(idx_HNCO_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2CO_DUST)/m(idx_H2CO_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2CO_DUST)/m(idx_H2CO_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2CO_DUST)/m(idx_H2CO_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_CH4_DUST)/m(idx_CH4_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH4_DUST)/m(idx_CH4_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CO_DUST)/m(idx_CO_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_CO_DUST)/m(idx_CO_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2O_DUST)/m(idx_H2O_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2O_DUST)/m(idx_H2O_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_NO_DUST)/m(idx_NO_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NO_DUST)/m(idx_NO_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CO2_DUST)/m(idx_CO2_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_CO2_DUST)/m(idx_CO2_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + 2d0*m(idx_N)*x(idx_N2_DUST)/m(idx_N2_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCN_DUST)/m(idx_HCN_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCN_DUST)/m(idx_HCN_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HCN_DUST)/m(idx_HCN_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_NH3_DUST)/m(idx_NH3_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH3_DUST)/m(idx_NH3_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2_DUST)/m(idx_O2_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_NO2_DUST)/m(idx_NO2_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NO2_DUST)/m(idx_NO2_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNO_DUST)/m(idx_HNO_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNO_DUST)/m(idx_HNO_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNO_DUST)/m(idx_HNO_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_O2H_DUST)/m(idx_O2H_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2H_DUST)/m(idx_O2H_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2CN_DUST)/m(idx_H2CN_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2CN_DUST)/m(idx_H2CN_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_H2CN_DUST)/m(idx_H2CN_DUST)
+    conserveLinGetRef_x(idx_atom_Mg) = conserveLinGetRef_x(idx_atom_Mg) + m(idx_Mg)*x(idx_MG_DUST)/m(idx_MG_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNC_DUST)/m(idx_HNC_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HNC_DUST)/m(idx_HNC_DUST)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNC_DUST)/m(idx_HNC_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCOj)/m(idx_HCOj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCOj)/m(idx_HCOj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HCOj)/m(idx_HCOj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_Hj)/m(idx_Hj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HOCj)/m(idx_HOCj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HOCj)/m(idx_HOCj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HOCj)/m(idx_HOCj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_Cj)/m(idx_Cj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_CH2j)/m(idx_CH2j)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH2j)/m(idx_CH2j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_CHj)/m(idx_CHj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CHj)/m(idx_CHj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2COj)/m(idx_H2COj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2COj)/m(idx_H2COj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2COj)/m(idx_H2COj)
+    conserveLinGetRef_x(idx_atom_Mg) = conserveLinGetRef_x(idx_atom_Mg) + m(idx_Mg)*x(idx_MGj)/m(idx_MGj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_NH3j)/m(idx_NH3j)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH3j)/m(idx_NH3j)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_NOj)/m(idx_NOj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NOj)/m(idx_NOj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CNj)/m(idx_CNj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_CNj)/m(idx_CNj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_COj)/m(idx_COj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_COj)/m(idx_COj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + 2d0*m(idx_N)*x(idx_N2j)/m(idx_N2j)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2j)/m(idx_O2j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2Oj)/m(idx_H2Oj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2Oj)/m(idx_H2Oj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_NH2j)/m(idx_NH2j)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH2j)/m(idx_NH2j)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_Oj)/m(idx_Oj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_OHj)/m(idx_OHj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_OHj)/m(idx_OHj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_CH3j)/m(idx_CH3j)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH3j)/m(idx_CH3j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_CH4j)/m(idx_CH4j)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH4j)/m(idx_CH4j)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_Nj)/m(idx_Nj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCNj)/m(idx_HCNj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCNj)/m(idx_HCNj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HCNj)/m(idx_HCNj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_NHj)/m(idx_NHj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NHj)/m(idx_NHj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2j)/m(idx_H2j)
+    conserveLinGetRef_x(idx_atom_He) = conserveLinGetRef_x(idx_atom_He) + m(idx_He)*x(idx_HEj)/m(idx_HEj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNOj)/m(idx_HNOj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNOj)/m(idx_HNOj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNOj)/m(idx_HNOj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2NOj)/m(idx_H2NOj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2NOj)/m(idx_H2NOj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_H2NOj)/m(idx_H2NOj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_H3j)/m(idx_H3j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_H3COj)/m(idx_H3COj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H3COj)/m(idx_H3COj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H3COj)/m(idx_H3COj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_H3Oj)/m(idx_H3Oj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H3Oj)/m(idx_H3Oj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_HCNHj)/m(idx_HCNHj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCNHj)/m(idx_HCNHj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HCNHj)/m(idx_HCNHj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCO2j)/m(idx_HCO2j)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCO2j)/m(idx_HCO2j)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_HCO2j)/m(idx_HCO2j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HEHj)/m(idx_HEHj)
+    conserveLinGetRef_x(idx_atom_He) = conserveLinGetRef_x(idx_atom_He) + m(idx_He)*x(idx_HEHj)/m(idx_HEHj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_N2Hj)/m(idx_N2Hj)
+    conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + 2d0*m(idx_N)*x(idx_N2Hj)/m(idx_N2Hj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_O2Hj)/m(idx_O2Hj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2Hj)/m(idx_O2Hj)
 
   end function conserveLinGetRef_x
 
@@ -8758,6 +9574,88 @@ contains
         ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92/)
 
   end subroutine load_arrays
+
+  !*********************************
+  subroutine mydgesv(n,Ain,Bin, parent_name)
+    !driver for LAPACK dgesv
+    integer::n,info,i,ipiv(n)
+    real*8,allocatable::tmp(:)
+    real*8::A(n,n),B(n),Ain(:,:),Bin(:),suml,sumr,tmpn(n)
+    character(len=*)::parent_name
+    A(:,:) = Ain(1:n,1:n)
+    B(:) = Bin(1:n)
+    call dgesv(n,1,A,n,ipiv,B,n,info)
+    Bin(1:n) = B(:)
+
+    !write some info about the error and stop
+    if(info > 0) then
+      allocate(tmp(size(Bin)))
+      print *,"ERROR: matrix exactly singular, U(i,i) where i=",info
+      print *,' (called by "'//trim(parent_name)//'" function)'
+
+      !dump the input matrix to a file
+      open(97,file="ERROR_dump_dgesv.dat",status="replace")
+      !dump size of the problem
+      write(97,*) "size of the problem:",n
+      write(97,*)
+
+      !dump matrix A
+      write(97,*) "Input matrix A line by line:"
+      do i=1,size(Ain,1)
+        tmp(:) = Ain(i,:)
+        write(97,'(I5,999E17.8e3)') i,tmp(:)
+      end do
+
+      !dump matrix A
+      write(97,*)
+      write(97,*) "Workin matrix A line by line:"
+      do i=1,n
+        tmpn(:) = Ain(i,1:n)
+        write(97,'(I5,999E17.8e3)') i,tmpn(:)
+      end do
+
+      !dump matrix B
+      write(97,*)
+      write(97,*) "Input/output vector B element by element"
+      do i=1,n
+        write(97,*) i, Bin(i),B(i)
+      end do
+
+      !dump info on matrix A rows
+      write(97,*)
+      write(97,*) "Info on matrix A rows"
+      write(97,'(a5,99a17)') "idx","minval","maxval"
+      do i=1,size(Ain,1)
+        write(97,'(I5,999E17.8e3)') i, minval(Ain(i,:)), &
+            maxval(Ain(i,:))
+      end do
+
+      !dump info on matrix sum left and right
+      write(97,*)
+      write(97,*) "Info on matrix A, sum left/right"
+      write(97,'(a5,99a17)') "idx","left","right"
+      suml = 0d0
+      sumr = 0d0
+      do i=1,size(Ain,1)
+        if(i>1) suml = sum(Ain(i,:i-1))
+        if(i<n) sumr = sum(Ain(i,i+1:))
+        write(97,'(I5,999E17.8e3)') i, suml, sumr
+      end do
+      close(97)
+
+      print *,"Input A and B dumped in ERROR_dump_dgesv.dat"
+
+      stop
+    end if
+
+    !if error print some info and stop
+    if(info<0) then
+      print *,"ERROR: input error position ",info
+      print *,' (called by "'//trim(parent_name)//'" function)'
+      stop
+    end if
+
+  end subroutine mydgesv
 
   ! ************************************
   ! solves linear least squares
