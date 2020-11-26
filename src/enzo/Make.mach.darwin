@@ -80,7 +80,7 @@ MACH_LD_NOMPI  = g++ # Linker when not using MPI
 # compile HDF5 with --with-default-api-version=v16, or Enzo with
 # -DH5_USE_16_API.
 
-MACH_DEFINES   = -DLINUX -DH5_USE_16_API 
+MACH_DEFINES   = -DLINUX -DH5_USE_16_API -DHAVE_UNISTD_H -DHAVE_STDLIB_H
 
 #-----------------------------------------------------------------------
 # Compiler flag settings
@@ -89,9 +89,9 @@ MACH_DEFINES   = -DLINUX -DH5_USE_16_API
 MACH_CPPFLAGS = -P -traditional 
 MACH_CFLAGS   =
 MACH_CXXFLAGS =
-MACH_FFLAGS   = -fno-second-underscore -m64 -ffree-line-length-none
-MACH_F90FLAGS = -fno-second-underscore -m64 -ffree-line-length-none
-MACH_LDFLAGS  = 
+MACH_FFLAGS   = -fno-second-underscore -m64 -ffree-line-length-none -fallow-argument-mismatch
+MACH_F90FLAGS = -fno-second-underscore -m64 -ffree-line-length-none -fallow-argument-mismatch
+MACH_LDFLAGS  = -llapack -lblas
 MACH_SHARED_FLAGS = -dynamiclib -Wl,-headerpad_max_install_names,-undefined,dynamic_lookup
 MACH_SHARED_EXT   = dylib
 

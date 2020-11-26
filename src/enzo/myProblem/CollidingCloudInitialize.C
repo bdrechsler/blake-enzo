@@ -37,8 +37,6 @@ int GetUnits(float *DensityUnits, float *LengthUnits, float *TemperatureUnits,
              float *TimeUnits, float *VelocityUnits, FLOAT Time);
 void MHDCTSetupFieldLabels();
 
-extern "C" void FORTRAN_NAME(krome_initref)(float* specabund, float* atomabund);
-
 int CollidingCloudInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid, 
         TopGridData &MetaData, int SetBaryonFields)
 {
@@ -360,25 +358,6 @@ int CollidingCloudInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
     }
 
   } // end: if (RefineAtStart)
-
-  // set up the elemental abundance reference
-  // global variable, initialize
-  for(int atNum; atNum<NKROMEATOMS; atNum++)
-    atomabund[atNum] = 0.0;
-
-  float specabund[NKROMESPECIES];
-  for (int abNum=0; abNum<NKROMESPECIES; abNum++) {
-    specabund[abNum] = 1.0e-20;
-  }
-  specabund[krome_cidx_H2] = 1.0;
-  specabund[krome_cidx_H]  = 5.0e-5;
-  specabund[krome_cidx_HE] = 9.75e-2;
-  specabund[krome_cidx_N]  = 7.5e-5;
-  specabund[krome_cidx_O]  = 1.8e-4;
-  specabund[krome_cidx_CO] = 1.4e-4;
-  specabund[krome_cidx_MG] = 7.0e-9;
-
-  FORTRAN_NAME(krome_initref)(specabund, atomabund);
 
   /* set up field names and units */
 
