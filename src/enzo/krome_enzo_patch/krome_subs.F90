@@ -7663,6 +7663,8 @@ contains
     A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HEj) * m(idx_He) * m(idx_He) / m(idx_HEj)**2
     A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HEHj) * m(idx_He) * m(idx_He) / m(idx_HEHj)**2
 
+    ! A(idx_atom_E, idx_atom_E) = max(A(idx_atom_E, idx_atom_E), 1.d-40)
+    A(idx_atom_E, idx_atom_E) = 1.d0
     B(:) = ref(:)
 
     call mydgesv(natoms,A(:,:),B(:), "conserveLin_x")

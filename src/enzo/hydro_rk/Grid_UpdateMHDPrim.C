@@ -144,34 +144,36 @@ int grid::UpdateMHDPrim(float **dU, float c1, float c2)
 #endif
     default: NSpecies_renorm = 0;  break;
     }
-  
-      float *atomabund[NKROMEATOMS];
-    for (i=0; i<NKROMEATOMS; i++) {
-      atomabund[i] = new float[size];
-    }
 
-    int DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum, HMNum, H2INum, H2IINum,
-      DINum, DIINum, HDINum;
-    int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
-      OHINum, O2INum, CH2INum, H2COINum, HCOINum,
-      MGINum, NH3INum, NOINum, CNINum, COINum,
-      N2INum, NH2INum, CH3INum, CH4INum, NINum,
-      NHINum, HNOINum, CH3OHINum, CO2INum, H2CNINum,
-      HNCOINum, NO2INum, O2HINum, OCNINum, CH3OH_DUSTINum,
-      HNCO_DUSTINum, H2CO_DUSTINum, CH4_DUSTINum,
-      CO_DUSTINum, H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
-      N2_DUSTINum, HCN_DUSTINum, NH3_DUSTINum,
-      O2_DUSTINum, NO2_DUSTINum, HNO_DUSTINum,
-      O2H_DUSTINum, H2CN_DUSTINum, MG_DUSTINum,
-      HNC_DUSTINum, E_DUSTINum, HCOIINum, HOCIINum,
-      CIINum, CH2IINum, CHIINum, H2COIINum, MGIINum,
-      NH3IINum, NOIINum, CNIINum, COIINum, N2IINum,
-      O2IINum, H2OIINum, NH2IINum, OIINum, OHIINum,
-      CH3IINum, CH4IINum, NIINum, HCNIINum, NHIINum,
-      HNOIINum, H2NOIINum, H3IINum, H3COIINum,
-      H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
-      N2HIINum, O2HIINum;
+#ifdef USE_KROME
+  float *atomabund[NKROMEATOMS];
+  for (i=0; i<NKROMEATOMS; i++) {
+    atomabund[i] = new float[size];
+  }
 
+  int DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum, HMNum, H2INum, H2IINum,
+    DINum, DIINum, HDINum;
+  int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
+    OHINum, O2INum, CH2INum, H2COINum, HCOINum,
+    MGINum, NH3INum, NOINum, CNINum, COINum,
+    N2INum, NH2INum, CH3INum, CH4INum, NINum,
+    NHINum, HNOINum, CH3OHINum, CO2INum, H2CNINum,
+    HNCOINum, NO2INum, O2HINum, OCNINum, CH3OH_DUSTINum,
+    HNCO_DUSTINum, H2CO_DUSTINum, CH4_DUSTINum,
+    CO_DUSTINum, H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
+    N2_DUSTINum, HCN_DUSTINum, NH3_DUSTINum,
+    O2_DUSTINum, NO2_DUSTINum, HNO_DUSTINum,
+    O2H_DUSTINum, H2CN_DUSTINum, MG_DUSTINum,
+    HNC_DUSTINum, E_DUSTINum, HCOIINum, HOCIINum,
+    CIINum, CH2IINum, CHIINum, H2COIINum, MGIINum,
+    NH3IINum, NOIINum, CNIINum, COIINum, N2IINum,
+    O2IINum, H2OIINum, NH2IINum, OIINum, OHIINum,
+    CH3IINum, CH4IINum, NIINum, HCNIINum, NHIINum,
+    HNOIINum, H2NOIINum, H3IINum, H3COIINum,
+    H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
+    N2HIINum, O2HIINum;
+
+  if (use_kromeconserve) {
     if (IdentifySpeciesFieldsKrome(
       DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       CINum, HINum, H2OINum, OHINum, O2INum, CH2INum,
@@ -248,6 +250,8 @@ int grid::UpdateMHDPrim(float **dU, float c1, float c2)
       GridEndIndex, GridEndIndex+1, GridEndIndex+2,
       atomabund[0], atomabund[1], atomabund[2], atomabund[3],
       atomabund[4], atomabund[5], atomabund[6]);
+  }
+#endif
 
   // update species
   for (field = NEQ_MHD; field < NEQ_MHD+NSpecies_renorm; field++) {  
@@ -265,57 +269,61 @@ int grid::UpdateMHDPrim(float **dU, float c1, float c2)
     }
   }
 
-  FORTRAN_NAME(krome_renormref)(
-    BaryonField[iden], 
-    BaryonField[DeNum], BaryonField[CHINum], BaryonField[OINum],
-    BaryonField[HNCINum], BaryonField[HCNINum],
-    BaryonField[H2INum], BaryonField[CINum],
-    BaryonField[HINum], BaryonField[H2OINum],
-    BaryonField[OHINum], BaryonField[O2INum],
-    BaryonField[CH2INum], BaryonField[H2COINum],
-    BaryonField[HCOINum], BaryonField[MGINum],
-    BaryonField[NH3INum], BaryonField[NOINum],
-    BaryonField[CNINum], BaryonField[COINum],
-    BaryonField[N2INum], BaryonField[NH2INum],
-    BaryonField[CH3INum], BaryonField[CH4INum],
-    BaryonField[NINum], BaryonField[NHINum],
-    BaryonField[HeINum], BaryonField[HNOINum],
-    BaryonField[CH3OHINum], BaryonField[CO2INum],
-    BaryonField[H2CNINum], BaryonField[HNCOINum],
-    BaryonField[NO2INum], BaryonField[O2HINum],
-    BaryonField[OCNINum], BaryonField[CH3OH_DUSTINum],
-    BaryonField[HNCO_DUSTINum], BaryonField[H2CO_DUSTINum],
-    BaryonField[CH4_DUSTINum], BaryonField[CO_DUSTINum],
-    BaryonField[H2O_DUSTINum], BaryonField[NO_DUSTINum],
-    BaryonField[CO2_DUSTINum], BaryonField[N2_DUSTINum],
-    BaryonField[HCN_DUSTINum], BaryonField[NH3_DUSTINum],
-    BaryonField[O2_DUSTINum], BaryonField[NO2_DUSTINum],
-    BaryonField[HNO_DUSTINum], BaryonField[O2H_DUSTINum],
-    BaryonField[H2CN_DUSTINum], BaryonField[MG_DUSTINum],
-    BaryonField[HNC_DUSTINum], BaryonField[E_DUSTINum],
-    BaryonField[HCOIINum], BaryonField[HIINum],
-    BaryonField[HOCIINum], BaryonField[CIINum],
-    BaryonField[CH2IINum], BaryonField[CHIINum],
-    BaryonField[H2COIINum], BaryonField[MGIINum],
-    BaryonField[NH3IINum], BaryonField[NOIINum],
-    BaryonField[CNIINum], BaryonField[COIINum],
-    BaryonField[N2IINum], BaryonField[O2IINum],
-    BaryonField[H2OIINum], BaryonField[NH2IINum],
-    BaryonField[OIINum], BaryonField[OHIINum],
-    BaryonField[CH3IINum], BaryonField[CH4IINum],
-    BaryonField[NIINum], BaryonField[HCNIINum],
-    BaryonField[NHIINum], BaryonField[H2IINum],
-    BaryonField[HeIINum], BaryonField[HNOIINum],
-    BaryonField[H2NOIINum], BaryonField[H3IINum],
-    BaryonField[H3COIINum], BaryonField[H3OIINum],
-    BaryonField[HCNHIINum], BaryonField[HCO2IINum],
-    BaryonField[HeHIINum], BaryonField[N2HIINum],
-    BaryonField[O2HIINum], 
-    GridDimension, GridDimension+1, GridDimension+2, 
-    &GridRank, GridStartIndex, GridStartIndex+1, GridStartIndex+2, 
-    GridEndIndex, GridEndIndex+1, GridEndIndex+2,
-    atomabund[0], atomabund[1], atomabund[2], atomabund[3],
-    atomabund[4], atomabund[5], atomabund[6]);
+#ifdef USE_KROME
+  if (use_kromeconserve) {
+    FORTRAN_NAME(krome_renormref)(
+      BaryonField[iden], 
+      BaryonField[DeNum], BaryonField[CHINum], BaryonField[OINum],
+      BaryonField[HNCINum], BaryonField[HCNINum],
+      BaryonField[H2INum], BaryonField[CINum],
+      BaryonField[HINum], BaryonField[H2OINum],
+      BaryonField[OHINum], BaryonField[O2INum],
+      BaryonField[CH2INum], BaryonField[H2COINum],
+      BaryonField[HCOINum], BaryonField[MGINum],
+      BaryonField[NH3INum], BaryonField[NOINum],
+      BaryonField[CNINum], BaryonField[COINum],
+      BaryonField[N2INum], BaryonField[NH2INum],
+      BaryonField[CH3INum], BaryonField[CH4INum],
+      BaryonField[NINum], BaryonField[NHINum],
+      BaryonField[HeINum], BaryonField[HNOINum],
+      BaryonField[CH3OHINum], BaryonField[CO2INum],
+      BaryonField[H2CNINum], BaryonField[HNCOINum],
+      BaryonField[NO2INum], BaryonField[O2HINum],
+      BaryonField[OCNINum], BaryonField[CH3OH_DUSTINum],
+      BaryonField[HNCO_DUSTINum], BaryonField[H2CO_DUSTINum],
+      BaryonField[CH4_DUSTINum], BaryonField[CO_DUSTINum],
+      BaryonField[H2O_DUSTINum], BaryonField[NO_DUSTINum],
+      BaryonField[CO2_DUSTINum], BaryonField[N2_DUSTINum],
+      BaryonField[HCN_DUSTINum], BaryonField[NH3_DUSTINum],
+      BaryonField[O2_DUSTINum], BaryonField[NO2_DUSTINum],
+      BaryonField[HNO_DUSTINum], BaryonField[O2H_DUSTINum],
+      BaryonField[H2CN_DUSTINum], BaryonField[MG_DUSTINum],
+      BaryonField[HNC_DUSTINum], BaryonField[E_DUSTINum],
+      BaryonField[HCOIINum], BaryonField[HIINum],
+      BaryonField[HOCIINum], BaryonField[CIINum],
+      BaryonField[CH2IINum], BaryonField[CHIINum],
+      BaryonField[H2COIINum], BaryonField[MGIINum],
+      BaryonField[NH3IINum], BaryonField[NOIINum],
+      BaryonField[CNIINum], BaryonField[COIINum],
+      BaryonField[N2IINum], BaryonField[O2IINum],
+      BaryonField[H2OIINum], BaryonField[NH2IINum],
+      BaryonField[OIINum], BaryonField[OHIINum],
+      BaryonField[CH3IINum], BaryonField[CH4IINum],
+      BaryonField[NIINum], BaryonField[HCNIINum],
+      BaryonField[NHIINum], BaryonField[H2IINum],
+      BaryonField[HeIINum], BaryonField[HNOIINum],
+      BaryonField[H2NOIINum], BaryonField[H3IINum],
+      BaryonField[H3COIINum], BaryonField[H3OIINum],
+      BaryonField[HCNHIINum], BaryonField[HCO2IINum],
+      BaryonField[HeHIINum], BaryonField[N2HIINum],
+      BaryonField[O2HIINum], 
+      GridDimension, GridDimension+1, GridDimension+2, 
+      &GridRank, GridStartIndex, GridStartIndex+1, GridStartIndex+2, 
+      GridEndIndex, GridEndIndex+1, GridEndIndex+2,
+      atomabund[0], atomabund[1], atomabund[2], atomabund[3],
+      atomabund[4], atomabund[5], atomabund[6]);
+  }
+#endif
 
   // renormalize species 
   if (NoMultiSpeciesButColors != 1) {
@@ -495,7 +503,11 @@ int grid::UpdateMHDPrim(float **dU, float c1, float c2)
       for (n = 0; n < size; n++) 
         Prim[field][n] *= Prim[iden][n];
 
-#ifndef USE_KROME
+#ifdef USE_KROME
+  for (i=0; i<NKROMEATOMS; i++) {
+    delete [] atomabund[i];
+  }
+#else
   this->UpdateElectronDensity();
 #endif
 

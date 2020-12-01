@@ -1414,6 +1414,7 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     // Parameters for krome
     ret += sscanf(line, "use_krome       = %"ISYM, &use_krome);
     ret += sscanf(line, "use_kromestep   = %"ISYM, &use_kromestep);
+    ret += sscanf(line, "use_kromeconserve = %"ISYM, &use_kromeconserve);
     ret += sscanf(line, "p_chemistry     = %"ISYM, &p_chemistry);
     //ret += sscanf(line, "krometiny       = %"FSYM, &krometiny);
     //ret += sscanf(line, "kromeload       = %"FSYM, &kromeload);

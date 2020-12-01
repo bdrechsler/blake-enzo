@@ -1224,6 +1224,7 @@ EXTERN float MagneticSupernovaEnergy;
 #ifdef USE_KROME
 EXTERN int use_krome;
 EXTERN int use_kromestep;
+EXTERN int use_kromeconserve;
 EXTERN int p_chemistry;
 //EXTERN float krometiny;
 //EXTERN float kromeload;
