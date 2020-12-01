@@ -5,7 +5,7 @@ subroutine krome_initab(gama, mu)
   real*8::gama, mu
 
   call krome_init()
-  call krome_set_user_Av(1.d2)
+  ! call krome_set_user_Av(1.d2)
   call krome_set_user_dgomega(5.d-1)
   call krome_set_user_zeta(7.6923d0)
   call krome_set_user_rad(1.d0)

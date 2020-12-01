@@ -5,7 +5,7 @@ module krome_user
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-06-16 23:04:50
+  !  KROME 14.08.dev on 2020-12-01 02:52:07
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -201,22 +201,6 @@ module krome_user
   real*8,parameter::krome_Hubble0 = 1.d2*krome_hubble*krome_km_to_cm*krome_cm_to_Mpc !1/s
 
 contains
-
-  !*******************
-  subroutine krome_set_user_Av(argset)
-    use krome_commons
-    implicit none
-    real*8 :: argset
-    user_Av = argset
-  end subroutine krome_set_user_Av
-
-  !*******************
-  function krome_get_user_Av()
-    use krome_commons
-    implicit none
-    real*8 :: krome_get_user_Av
-    krome_get_user_Av = user_Av
-  end function krome_get_user_Av
 
   !*******************
   subroutine krome_set_user_crflux(argset)

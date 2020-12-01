@@ -5,7 +5,7 @@ contains
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-11-24 11:54:35
+  !  KROME 14.08.dev on 2020-12-01 02:52:07
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -35,11 +35,12 @@ contains
     real*8::sqrTgas
     real*8::small,nmax
     integer::i
-    real*8::n_surface_sites !preproc from coevar
     real*8::mantle  !preproc from coevar
-    real*8::Hnuclei  !preproc from coevar
     real*8::mantleabund  !preproc from coevar
     real*8::vdiff_factor  !preproc from coevar
+    real*8::Hnuclei  !preproc from coevar
+    real*8::n_surface_sites !preproc from coevar
+    real*8::Av  !preproc from coevar
     !Tgas is in K
     Tgas = max(n(idx_Tgas), phys_Tcmb)
     Tgas = min(Tgas,1d9)
@@ -56,6 +57,7 @@ contains
     Hnuclei = get_Hnuclei(n(:))
     mantle = get_mantle(n(:))
     mantleabund = mantle/Hnuclei
+    Av = get_Av(Hnuclei)
     n_surface_sites = 1.5d15
     vdiff_factor = 2.0*boltzmann_erg*n_surface_sites/pi/pi/p_mass
 
@@ -5632,469 +5634,469 @@ contains
     !C -> C+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(973) = small + (3.1e-10&
-          *exp(-3.3*user_Av)*user_rad&
+          *exp(-3.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH+ -> C + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(974) = small + (3.3e-10&
-          *exp(-2.9*user_Av)*user_rad&
+          *exp(-2.9*Av)*user_rad&
           /1.7)
     end if
 
     !CH2+ -> C+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(975) = small + (4.67e-11&
-          *exp(-2.2*user_Av)*user_rad&
+          *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !CH2+ -> CH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(976) = small + (4.67e-11&
-          *exp(-2.2*user_Av)*user_rad&
+          *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !CH2+ -> CH + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(977) = small + (4.67e-11&
-          *exp(-2.2*user_Av)*user_rad&
+          *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !CH2 -> CH2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(978) = small + (1e-09&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH2 -> CH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(979) = small + (5.8e-10&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !CH3+ -> CH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(980) = small + (1e-09&
-          *exp(-1.7*user_Av)*user_rad&
+          *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH3+ -> CH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(981) = small + (1e-09&
-          *exp(-1.7*user_Av)*user_rad&
+          *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH3 -> CH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(982) = small + (1.35e-10&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH3 -> CH3+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(983) = small + (1e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !CH3 -> CH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(984) = small + (1.35e-10&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH3OH -> H2CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(985) = small + (7e-10&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH3OH -> H3CO+ + H + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(986) = small + (1.3e-10&
-          *exp(-2.6*user_Av)*user_rad&
+          *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH3OH -> OH + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(987) = small + (7e-10&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH4+ -> CH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(988) = small + (2.27e-10&
-          *exp(-2.7*user_Av)*user_rad&
+          *exp(-2.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH4+ -> CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(989) = small + (5.33e-11&
-          *exp(-2.7*user_Av)*user_rad&
+          *exp(-2.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(990) = small + (9.8e-10&
-          *exp(-2.6*user_Av)*user_rad&
+          *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH3 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(991) = small + (2.2e-10&
-          *exp(-2.6*user_Av)*user_rad&
+          *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH4+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(992) = small + (6.8e-12&
-          *exp(-3.9*user_Av)*user_rad&
+          *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(993) = small + (2.2e-10&
-          *exp(-2.6*user_Av)*user_rad&
+          *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH -> C + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(994) = small + (9.2e-10&
-          *exp(-1.7*user_Av)*user_rad&
+          *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH -> CH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(995) = small + (7.6e-10&
-          *exp(-3.3*user_Av)*user_rad&
+          *exp(-3.3*Av)*user_rad&
           /1.7)
     end if
 
     !CN -> N + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(996) = small + (2.9e-10&
-          *exp(-3.5*user_Av)*user_rad&
+          *exp(-3.5*Av)*user_rad&
           /1.7)
     end if
 
     !CO+ -> C+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(997) = small + (1e-10&
-          *exp(-2.5*user_Av)*user_rad&
+          *exp(-2.5*Av)*user_rad&
           /1.7)
     end if
 
     !CO2 -> CO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(998) = small + (8.9e-10&
-          *exp(-3.0*user_Av)*user_rad&
+          *exp(-3.0*Av)*user_rad&
           /1.7)
     end if
 
     !CO -> O + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(999) = small + (2e-10&
-          *exp(-3.5*user_Av)*user_rad&
+          *exp(-3.5*Av)*user_rad&
           /1.7)
     end if
 
     !H2+ -> H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1000) = small + (5.7e-10&
-          *exp(-2.4*user_Av)*user_rad&
+          *exp(-2.4*Av)*user_rad&
           /1.7)
     end if
 
     !H2CN -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1001) = small + (5.48e-10&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1002) = small + (1e-09&
-          *exp(-2.2*user_Av)*user_rad&
+          *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> CO + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1003) = small + (7e-10&
-          *exp(-1.7*user_Av)*user_rad&
+          *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> H2CO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1004) = small + (4.7e-10&
-          *exp(-2.8*user_Av)*user_rad&
+          *exp(-2.8*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> HCO+ + H + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1005) = small + (1.4e-11&
-          *exp(-3.1*user_Av)*user_rad&
+          *exp(-3.1*Av)*user_rad&
           /1.7)
     end if
 
     !H2O+ -> OH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1006) = small + (1e-12&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !H2O -> H2O+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1007) = small + (3.1e-11&
-          *exp(-3.9*user_Av)*user_rad&
+          *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !H2O -> OH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1008) = small + (8e-10&
-          *exp(-2.2*user_Av)*user_rad&
+          *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !H3+ -> H2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1009) = small + (5e-15&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !H3+ -> H2 + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1010) = small + (5e-15&
-          *exp(-1.8*user_Av)*user_rad&
+          *exp(-1.8*Av)*user_rad&
           /1.7)
     end if
 
     !HCN -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1011) = small + (1.6e-09&
-          *exp(-2.7*user_Av)*user_rad&
+          *exp(-2.7*Av)*user_rad&
           /1.7)
     end if
 
     !HCO+ -> CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1012) = small + (5.4e-12&
-          *exp(-3.3*user_Av)*user_rad&
+          *exp(-3.3*Av)*user_rad&
           /1.7)
     end if
 
     !HCO -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1013) = small + (1.1e-09&
-          *exp(-1.1*user_Av)*user_rad&
+          *exp(-1.1*Av)*user_rad&
           /1.7)
     end if
 
     !HCO -> HCO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1014) = small + (5.6e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !HNC -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1015) = small + (1.5e-09&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !HNCO -> NH + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1016) = small + (1e-09&
-          *exp(-1.7*user_Av)*user_rad&
+          *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !HNO -> NO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1017) = small + (1.7e-10&
-          *exp(-0.5*user_Av)*user_rad&
+          *exp(-0.5*Av)*user_rad&
           /1.7)
     end if
 
     !MG -> MG+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1018) = small + (7.9e-11&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !N2 -> N + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1019) = small + (2.3e-10&
-          *exp(-3.9*user_Av)*user_rad&
+          *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !NH+ -> N + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1020) = small + (5.4e-11&
-          *exp(-1.6*user_Av)*user_rad&
+          *exp(-1.6*Av)*user_rad&
           /1.7)
     end if
 
     !NH2 -> NH2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1021) = small + (1.73e-10&
-          *exp(-2.6*user_Av)*user_rad&
+          *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !NH2 -> NH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1022) = small + (7.5e-10&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !NH3 -> NH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1023) = small + (9.23e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !NH3 -> NH3+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1024) = small + (2.8e-10&
-          *exp(-3.1*user_Av)*user_rad&
+          *exp(-3.1*Av)*user_rad&
           /1.7)
     end if
 
     !NH3 -> NH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1025) = small + (2.76e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !NH -> N + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1026) = small + (5e-10&
-          *exp(-2.3*user_Av)*user_rad&
+          *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !NH -> NH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1027) = small + (1e-11&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !NO2 -> NO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1028) = small + (1.4e-09&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !NO -> NO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1029) = small + (2.6e-10&
-          *exp(-2.9*user_Av)*user_rad&
+          *exp(-2.9*Av)*user_rad&
           /1.7)
     end if
 
     !NO -> O + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1030) = small + (4.7e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !O2+ -> O+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1031) = small + (3.5e-11&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !O2 -> O2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1032) = small + (7.6e-11&
-          *exp(-3.9*user_Av)*user_rad&
+          *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !O2 -> O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1033) = small + (7.9e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !O2H -> O2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1034) = small + (3.35e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !O2H -> OH + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1035) = small + (3.35e-10&
-          *exp(-2.1*user_Av)*user_rad&
+          *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !OCN -> CN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1036) = small + (1e-11&
-          *exp(-2.0*user_Av)*user_rad&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !OH+ -> O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1037) = small + (1.1e-11&
-          *exp(-3.5*user_Av)*user_rad&
+          *exp(-3.5*Av)*user_rad&
           /1.7)
     end if
 
     !OH -> O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1038) = small + (3.9e-10&
-          *exp(-2.2*user_Av)*user_rad&
+          *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !OH -> OH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
       k(1039) = small + (1.6e-12&
-          *exp(-3.1*user_Av)*user_rad&
+          *exp(-3.1*Av)*user_rad&
           /1.7)
     end if
 
@@ -6719,7 +6721,7 @@ contains
           *exp(-1090.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(1090.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1090.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1090.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6734,7 +6736,7 @@ contains
           *exp(-3130.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(3130.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3130.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3130.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6749,7 +6751,7 @@ contains
           *exp(-5770.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(5770.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.3e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.3e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(5770.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(5770.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6764,7 +6766,7 @@ contains
           *exp(-5300.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(5300.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(5300.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(5300.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6779,7 +6781,7 @@ contains
           *exp(-3610.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(3610.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3610.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3610.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6794,7 +6796,7 @@ contains
           *exp(-2050.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2050.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2050.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2050.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6809,7 +6811,7 @@ contains
           *exp(-855.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(855.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*2.7e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*2.7e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(855.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(855.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6824,7 +6826,7 @@ contains
           *exp(-790.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(790.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.8e-04*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.8e-04*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(790.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(790.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6839,7 +6841,7 @@ contains
           *exp(-2400.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2400.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2400.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2400.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6854,7 +6856,7 @@ contains
           *exp(-1600.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(1600.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1600.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1600.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6869,7 +6871,7 @@ contains
           *exp(-2050.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2050.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2050.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2050.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6884,7 +6886,7 @@ contains
           *exp(-2050.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2050.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2050.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2050.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6899,7 +6901,7 @@ contains
           *exp(-1000.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(1000.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1000.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1000.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6914,7 +6916,7 @@ contains
           *exp(-4930.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(4930.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*2.1e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*2.1e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(4930.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(4930.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6929,7 +6931,7 @@ contains
           *exp(-3650.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(3650.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3650.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3650.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6944,7 +6946,7 @@ contains
           *exp(-2850.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2850.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2850.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2850.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6959,7 +6961,7 @@ contains
           *exp(-2990.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2990.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*2.3e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*2.3e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2990.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2990.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -6974,7 +6976,7 @@ contains
           *exp(-2400.0&
           /Tgas)*user_therm&
           *Hnuclei + deuvcr(2400.d0,mantleabund)*(1.d8*exp(-3.02&
-          *user_Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2400.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2400.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
@@ -7342,8 +7344,6 @@ contains
     A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_CNj) * m(idx_C) * m(idx_N) / m(idx_CNj)**2
     A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCNj) * m(idx_C) * m(idx_N) / m(idx_HCNj)**2
     A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCNHj) * m(idx_C) * m(idx_N) / m(idx_HCNHj)**2
-    A(idx_atom_E, idx_atom_E) = A(idx_atom_E, idx_atom_E) +  x(idx_E) * m(idx_E) * m(idx_E) / m(idx_E)**2
-    A(idx_atom_E, idx_atom_E) = A(idx_atom_E, idx_atom_E) +  x(idx_E_DUST) * m(idx_E) * m(idx_E) / m(idx_E_DUST)**2
     A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_CH) * m(idx_H) * m(idx_C) / m(idx_CH)**2
     A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HNC) * m(idx_H) * m(idx_C) / m(idx_HNC)**2
     A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCN) * m(idx_H) * m(idx_C) / m(idx_HCN)**2

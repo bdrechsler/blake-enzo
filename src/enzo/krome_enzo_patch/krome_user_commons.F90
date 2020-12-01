@@ -5,7 +5,7 @@ module krome_user_commons
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2019-12-02 01:47:36
+  !  KROME 14.08.dev on 2020-12-01 02:52:07
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -46,6 +46,33 @@ module krome_user_commons
       &16.0d+00, 17.0d+00, 18.0d+00 /)
   real*8 :: nh2gr(dimh2)=(/18.0d+00, 19.0d+00, 20.0d+00, 21.0d+00,&
       &22.0d+00, 23.0d+00 /)
+  real*8 :: nHAv(91,2) = reshape( (/ &
+      -3.0d0, -2.9d0, -2.8d0, -2.7d0, -2.6d0, -2.5d0, -2.4d0, &
+      -2.3d0, -2.2d0, -2.1d0, -2.0d0, -1.9d0, -1.8d0, -1.7d0, &
+      -1.6d0, -1.5d0, -1.4d0, -1.3d0, -1.2d0, -1.1d0, -1.0d0, &
+      -0.9d0, -0.8d0, -0.7d0, -0.6d0, -0.5d0, -0.4d0, -0.3d0, &
+      -0.2d0, -0.1d0,  0.0d0,  0.1d0,  0.2d0,  0.3d0,  0.4d0, &
+      0.5d0,  0.6d0,  0.7d0,  0.8d0,  0.9d0,  1.0d0,  1.1d0, &
+      1.2d0,  1.3d0,  1.4d0,  1.5d0,  1.6d0,  1.7d0,  1.8d0, &
+      1.9d0,  2.0d0,  2.1d0,  2.2d0,  2.3d0,  2.4d0,  2.5d0, &
+      2.6d0,  2.7d0,  2.8d0,  2.9d0,  3.0d0,  3.1d0,  3.2d0, &
+      3.3d0,  3.4d0,  3.5d0,  3.6d0,  3.7d0,  3.8d0,  3.9d0, &
+      4.0d0,  4.1d0,  4.2d0,  4.3d0,  4.4d0,  4.5d0,  4.6d0, &
+      4.7d0,  4.8d0,  4.9d0,  5.0d0,  5.1d0,  5.2d0,  5.3d0, &
+      5.4d0,  5.5d0,  5.6d0,  5.7d0,  5.8d0,  5.9d0,  6.0d0, &
+      3.85d-03, 3.90d-03, 3.97d-03, 4.06d-03, 4.18d-03, 4.32d-03, 4.48d-03, 4.69d-03, &
+      4.96d-03, 5.29d-03, 5.71d-03, 6.22d-03, 6.85d-03, 7.65d-03, 8.65d-03, 9.91d-03, &
+      1.13d-02, 1.30d-02, 1.51d-02, 1.78d-02, 2.12d-02, 2.33d-02, 2.60d-02, 2.93d-02, &
+      3.36d-02, 3.89d-02, 4.41d-02, 5.07d-02, 5.90d-02, 6.95d-02, 8.27d-02, 9.47d-02, &
+      1.10d-01, 1.29d-01, 1.53d-01, 1.83d-01, 2.02d-01, 2.25d-01, 2.55d-01, 2.92d-01, &
+      3.39d-01, 3.76d-01, 4.22d-01, 4.81d-01, 5.55d-01, 6.48d-01, 7.06d-01, 7.78d-01, &
+      8.68d-01, 9.83d-01, 1.13d+00, 1.21d+00, 1.31d+00, 1.44d+00, 1.60d+00, 1.80d+00, &
+      1.93d+00, 2.08d+00, 2.28d+00, 2.54d+00, 2.85d+00, 3.04d+00, 3.28d+00, 3.58d+00, &
+      3.95d+00, 4.42d+00, 4.70d+00, 5.05d+00, 5.48d+00, 6.03d+00, 6.72d+00, 7.12d+00, &
+      7.61d+00, 8.24d+00, 9.03d+00, 1.00d+01, 1.06d+01, 1.13d+01, 1.22d+01, 1.33d+01, &
+      1.47d+01, 1.54d+01, 1.64d+01, 1.76d+01, 1.92d+01, 2.11d+01, 2.22d+01, 2.35d+01, &
+      2.52d+01, 2.73d+01, 3.00d+01 &
+      /), shape(array))
 
   ! reference: definition of h2col/ch2 and cocol
   ! h2col=0.5*abund(nh2,dstep)*density(dstep)*(cloudSize/real(points))
@@ -83,6 +110,33 @@ contains
     fxinterp = energy**2
 
   end function fxinterp
+
+  ! The following functions must be included for uclchem network
+  function get_Av(Hnuclei)
+    implicit none
+    real*8, intent(in) :: Hnuclei
+    real*8 :: logH, get_Av
+
+    logH = log10(Hnuclei)
+    if (logH >= 6.0d0) then
+      get_Av = nHAv(91,2)
+      return
+    end if
+
+    if (logH <= -3.0d0) then
+      get_Av = nHAv(1,2)
+      return
+    end if
+
+    do i = 1, 90
+      if (nHAv(i,1) < logH .and. nHAv(i+1,1) >= logH) then
+        get_Av = ( nHAv(i+1,2)*(logH-nHAv(i,1)) + nHAv(i,2)*(nHAv(i+1,1)-logH) ) &
+            / ( nHAv(i+1,1) - nHAv(i,1) )
+        return
+      end if
+    end do
+
+  end function
 
   ! The following functions are copied from UCLCHEM v1.3
 
