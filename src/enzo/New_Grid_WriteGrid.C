@@ -190,7 +190,14 @@ int grid::Group_WriteGrid(FILE *fptr, char *base_name, int grid_id, HDF5_hid_t f
     fprintf(fptr, "OldTime           = %"GOUTSYM"\n", OldTime);
 
     fprintf(fptr, "KromeTime = %"GOUTSYM"\n", KromeTime);
+
     fprintf(fptr, "KromeDt   = %"GOUTSYM"\n", KromeDt);
+
+    fprintf(fptr, "TopGridCycle = %"ISYM"\n", TopGridCycle);
+
+    fprintf(fptr, "KromeCycle = %"ISYM"\n", KromeCycle);
+
+    fprintf(fptr, "KromeCycleSkip = %"ISYM"\n", KromeCycleSkip);
  
     fprintf(fptr, "SubgridsAreStatic = %"ISYM"\n", SubgridsAreStatic);
  

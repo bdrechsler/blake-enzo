@@ -662,9 +662,16 @@ int EvolveLevel(TopGridData *MetaData, LevelHierarchyEntry *LevelArray[],
         }//grid
     }//RK hydro
     
-      /* Solve the cooling and species rate equations. */
- 
     for (grid1 = 0; grid1 < NumberOfGrids; grid1++) {
+
+      /* Solve the cooling and species rate equations. */
+#ifdef USE_KROME
+      if (use_kromestep == 3) {
+        Grids[grid1]->GridData->SyncTopGridCycle(MetaData->CycleNumber);
+        Grids[grid1]->GridData->SyncKromeCycle(MetaData->KromeCycle);
+      }
+#endif
+ 
       Grids[grid1]->GridData->MultiSpeciesHandler();
 
 #ifdef USE_KROME
@@ -672,6 +679,10 @@ int EvolveLevel(TopGridData *MetaData, LevelHierarchyEntry *LevelArray[],
         Grids[grid1]->GridData->SetNextKromeTime();
         if (MetaData->KromeTime != Grids[grid1]->GridData->GetKromeTime())
           MetaData->KromeTime = Grids[grid1]->GridData->GetKromeTime();
+      }
+      else if (use_kromestep == 3) {
+        Grids[grid1]->GridData->SyncKromeTime();
+        // Grids[grid1]->GridData->SetKromeNextCycle();
       }
 #endif
 

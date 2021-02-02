@@ -534,6 +534,13 @@ int EvolveHierarchy(HierarchyEntry &TopGrid, TopGridData &MetaData,
        (note the topgrid is also keeping its own time but this statement will
        keep the two in synch). */
  
+#ifdef USE_KROME
+    if (use_kromestep == 3) {
+      if (MetaData.CycleNumber == MetaData.KromeCycle)
+        MetaData.KromeCycle += MetaData.KromeCycleSkip;
+    }
+#endif
+
     MetaData.Time += dt;
     MetaData.CycleNumber++;
     MetaData.LastCycleCPUTime = ReturnWallTime() - LastCPUTime;

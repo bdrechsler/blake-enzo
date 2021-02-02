@@ -217,6 +217,9 @@ class grid
   // Record chemistry timestep of krome separately if needed
   FLOAT KromeTime;
   FLOAT KromeDt;
+  int TopGridCycle;
+  int KromeCycle;
+  int KromeCycleSkip;
 
 //
 // Friends
@@ -419,8 +422,24 @@ public:
        KromeTime += KromeDt;
      }
    };
+   void SyncTopGridCycle(int NewCycle) { TopGridCycle = NewCycle; };
+   void SyncKromeCycle(int NewCycle) { KromeCycle = NewCycle; };
+   void SyncKromeTime() {
+     if (TopGridCycle == KromeCycle) {
+       KromeTime = Time;
+     }
+   };
+   void SetKromeCycle(int NewCycle) { KromeCycle = NewCycle; };
+   void SetKromeCycleSkip(int CycleSkip) { KromeCycleSkip = CycleSkip; };
+   // void SetKromeNextCycle() {
+   //   if (TopGridCycle == KromeCycle) {
+   //     KromeCycle += KromeCycleSkip;
+   //   }
+   // };
    FLOAT GetKromeTime() { return KromeTime; };
    FLOAT GetKromeDt() { return KromeDt; };
+   int GetKromeCycle() { return KromeCycle; };
+   int GetKromeCycleSkip() { return KromeCycleSkip; };
 
   /* Return, set grid ID */
 

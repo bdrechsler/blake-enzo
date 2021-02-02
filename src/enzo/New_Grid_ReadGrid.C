@@ -167,6 +167,18 @@ int grid::Group_ReadGrid(FILE *fptr, int GridID, HDF5_hid_t file_id,
             ENZO_FAIL("Error reading KromeDt.");
     }
 
+    if (fscanf(fptr, "TopGridCycle      = %"ISYM"\n", &TopGridCycle) != 1) {
+            ENZO_FAIL("Error reading TopGridCycle.");
+    }
+
+    if (fscanf(fptr, "KromeCycle        = %"ISYM"\n", &KromeCycle) != 1) {
+            ENZO_FAIL("Error reading KromeCycle.");
+    }
+
+    if (fscanf(fptr, "KromeCycleSkip    = %"ISYM"\n", &KromeCycleSkip) != 1) {
+            ENZO_FAIL("Error reading KromeCycleSkip.");
+    }
+
     if (fscanf(fptr, "SubgridsAreStatic = %"ISYM"\n", &SubgridsAreStatic) != 1) {
             ENZO_FAIL("Error reading SubgridsAreStatic.");
     }

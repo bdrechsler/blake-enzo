@@ -129,15 +129,23 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 #ifdef USE_KROME
   if (!use_krome) return SUCCESS;
 
+  // Nothing to do in the first step if use_kromestep == 3
+  if (use_krome && use_kromestep==3 && TopGridCycle==0)
+      return SUCCESS;
+
   if (MultiSpecies != KROMESPECIES) {
     DebugCheck("Warning: species don't match with krome patches. Skip solving chemistry.\n");
     return SUCCESS;
   }
-  if (debug && MyProcessorNumber == ROOT_PROCESSOR)
+  if (debug && MyProcessorNumber == ROOT_PROCESSOR) {
     if (use_kromestep == 1 && Time > KromeTime + KromeDt)
       printf("SolveRateAndCool, KromeTime:%lf, KromeDt: %lf\n", KromeTime, KromeDt);
-    else if(use_kromestep == 2)
+    else if( use_kromestep == 2)
       printf("SolveRateAndCool: use kromecycle\n");
+    else if (use_kromestep == 3 && TopGridCycle == KromeCycle)
+      printf("SolveRateAndCool: use kromestep == 3, TopGridCycle:%d, KromeCycle:%d, KromeCycleSkip:%d\n",
+              TopGridCycle, KromeCycle, KromeCycleSkip);
+  }
 #else
   if (!(MultiSpecies && RadiativeCooling)) return SUCCESS;
 #endif
@@ -347,7 +355,10 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 
   if (KromeDt > 0.0) dtCool = KromeDt;
 
+  if (use_kromestep == 3) dtCool = Time - KromeTime;
+
   if ( use_kromestep == 0 || use_kromestep == 2 || 
+      (use_kromestep == 3 && TopGridCycle == KromeCycle) ||
       (use_kromestep == 1 && Time > KromeTime + KromeDt)
      )
   {
