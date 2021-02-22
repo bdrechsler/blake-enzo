@@ -55,7 +55,7 @@ extern "C" void FORTRAN_NAME(krome_initref)(float* d,
    float* HCO2II, float* HeHII, float* N2HII, float* O2HII, 
    int* in, int* jn, int* kn, int* idim, 
    int* is, int* js, int* ks, int* ie, int* je, int* ke, 
-   float* ATOM_C, float* ATOM_E, float* ATOM_H, float* ATOM_MG,
+   float* ATOM_C, float* ATOM_H, float* ATOM_MG,
    float* ATOM_O, float* ATOM_N, float* ATOM_HE);
 
 extern "C" void FORTRAN_NAME(krome_renormref)(float* d,
@@ -83,7 +83,7 @@ extern "C" void FORTRAN_NAME(krome_renormref)(float* d,
    float* HCO2II, float* HeHII, float* N2HII, float* O2HII, 
    int* in, int* jn, int* kn, int* idim, 
    int* is, int* js, int* ks, int* ie, int* je, int* ke, 
-   float* ATOM_C, float* ATOM_E, float* ATOM_H, float* ATOM_MG,
+   float* ATOM_C, float* ATOM_H, float* ATOM_MG,
    float* ATOM_O, float* ATOM_N, float* ATOM_HE);
 
 int grid::UpdateMHDPrim(float **dU, float c1, float c2)
@@ -249,7 +249,7 @@ int grid::UpdateMHDPrim(float **dU, float c1, float c2)
       &GridRank, GridStartIndex, GridStartIndex+1, GridStartIndex+2, 
       GridEndIndex, GridEndIndex+1, GridEndIndex+2,
       atomabund[0], atomabund[1], atomabund[2], atomabund[3],
-      atomabund[4], atomabund[5], atomabund[6]);
+      atomabund[4], atomabund[5]);
   }
 #endif
 
@@ -321,7 +321,7 @@ int grid::UpdateMHDPrim(float **dU, float c1, float c2)
       &GridRank, GridStartIndex, GridStartIndex+1, GridStartIndex+2, 
       GridEndIndex, GridEndIndex+1, GridEndIndex+2,
       atomabund[0], atomabund[1], atomabund[2], atomabund[3],
-      atomabund[4], atomabund[5], atomabund[6]);
+      atomabund[4], atomabund[5]);
   }
 #endif
 

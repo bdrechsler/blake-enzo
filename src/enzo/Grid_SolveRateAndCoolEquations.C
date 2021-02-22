@@ -120,11 +120,19 @@ extern "C" void FORTRAN_NAME(krome_driver)(
 	int *is, int *js, int *ks, int *ie, int *je, int *ke, 
 	float *dt, float *aye,  
 	float *utem, float *uxyz, float *uaye, float *urho, float *utim,
-	float *gamma, float *fh, float *dtoh);
+	float *gamma, float *fh, float *dtoh, float *gridsize);
 
 
 int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 {
+  /* Return if this doesn't concern us. */
+  
+  if (ProcessorNumber != MyProcessorNumber)
+    return SUCCESS;
+
+  if (NumberOfBaryonFields == 0)
+    return SUCCESS;
+
   /* Return if this doesn't concern us. */
 #ifdef USE_KROME
   if (!use_krome) return SUCCESS;
@@ -142,21 +150,13 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
       printf("SolveRateAndCool, KromeTime:%lf, KromeDt: %lf\n", KromeTime, KromeDt);
     else if( use_kromestep == 2)
       printf("SolveRateAndCool: use kromecycle\n");
-    else if (use_kromestep == 3 && TopGridCycle == KromeCycle)
-      printf("SolveRateAndCool: use kromestep == 3, TopGridCycle:%d, KromeCycle:%d, KromeCycleSkip:%d\n",
-              TopGridCycle, KromeCycle, KromeCycleSkip);
+    // else if (use_kromestep == 3 && TopGridCycle == KromeCycle)
+    //   printf("SolveRateAndCool: use kromestep == 3, TopGridCycle:%d, KromeCycle:%d, KromeCycleSkip:%d\n",
+    //           TopGridCycle, KromeCycle, KromeCycleSkip);
   }
 #else
   if (!(MultiSpecies && RadiativeCooling)) return SUCCESS;
 #endif
-
-  /* Return if this doesn't concern us. */
-  
-  if (ProcessorNumber != MyProcessorNumber)
-    return SUCCESS;
-
-  if (NumberOfBaryonFields == 0)
-    return SUCCESS;
 
   this->DebugCheck("SolveRadiativeCooling");
 
@@ -355,7 +355,13 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 
   if (KromeDt > 0.0) dtCool = KromeDt;
 
-  if (use_kromestep == 3) dtCool = Time - KromeTime;
+  if (use_kromestep == 3) 
+  {
+    dtCool = Time - KromeTime;
+    if (debug && MyProcessorNumber == ROOT_PROCESSOR) {
+      printf("SolveRateAndCool, KromeDt = %13.7e\n", dtCool*TimeUnits);
+    }
+  }
 
   if ( use_kromestep == 0 || use_kromestep == 2 || 
       (use_kromestep == 3 && TopGridCycle == KromeCycle) ||
@@ -416,7 +422,8 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
       &dtCool, &afloat, 
       &TemperatureUnits, &LengthUnits, &aUnits, &DensityUnits, &TimeUnits,
       &Gamma,
-      &CoolData.HydrogenFractionByMass, &CoolData.DeuteriumToHydrogenRatio);
+      &CoolData.HydrogenFractionByMass, &CoolData.DeuteriumToHydrogenRatio,
+      CellWidth[0]);
   }
 
 #endif // USE_KROME

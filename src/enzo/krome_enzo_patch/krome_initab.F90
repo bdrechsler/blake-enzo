@@ -70,7 +70,7 @@ subroutine krome_initref(d, &
    HCO2II, HeHII, N2HII, O2HII, &
    in, jn, kn, idim, &
    is, js, ks, ie, je, ke, &
-   ATOM_C, ATOM_E, ATOM_H, ATOM_MG, &
+   ATOM_C, ATOM_H, ATOM_MG, &
    ATOM_O, ATOM_N, ATOM_HE)
 
 !     SOLVE MULTI-SPECIES RATE EQUATIONS AND RADIATIVE COOLING
@@ -199,7 +199,6 @@ real*8::N2HII(in,jn,kn)
 real*8::O2HII(in,jn,kn)
 
 real*8::ATOM_H(in,jn,kn)
-real*8::ATOM_E(in,jn,kn)
 real*8::ATOM_HE(in,jn,kn)
 real*8::ATOM_C(in,jn,kn)
 real*8::ATOM_N(in,jn,kn)
@@ -313,7 +312,6 @@ do k = ks+1, ke+1
       ATOM_N(i,j,k) = ref(idx_atom_N)
       ATOM_O(i,j,k) = ref(idx_atom_O)
       ATOM_MG(i,j,k) = ref(idx_atom_MG)
-      ATOM_E(i,j,k) = ref(idx_atom_E)
 
     end do
   end do
@@ -346,7 +344,7 @@ subroutine krome_renormref(d, &
    HCO2II, HeHII, N2HII, O2HII, &
    in, jn, kn, idim, &
    is, js, ks, ie, je, ke, &
-   ATOM_C, ATOM_E, ATOM_H, ATOM_MG, &
+   ATOM_C, ATOM_H, ATOM_MG, &
    ATOM_O, ATOM_N, ATOM_HE)
 
 !     SOLVE MULTI-SPECIES RATE EQUATIONS AND RADIATIVE COOLING
@@ -475,7 +473,6 @@ real*8::N2HII(in,jn,kn)
 real*8::O2HII(in,jn,kn)
 
 real*8::ATOM_H(in,jn,kn)
-real*8::ATOM_E(in,jn,kn)
 real*8::ATOM_HE(in,jn,kn)
 real*8::ATOM_C(in,jn,kn)
 real*8::ATOM_N(in,jn,kn)
@@ -498,7 +495,6 @@ do k = ks+1, ke+1
       ref(idx_atom_N) = ATOM_N(i,j,k)
       ref(idx_atom_O) = ATOM_O(i,j,k)
       ref(idx_atom_MG) = ATOM_MG(i,j,k)
-      ref(idx_atom_E) = ATOM_E(i,j,k)
 
       krome_x(krome_idx_E) = De(i,j,k)
       krome_x(krome_idx_CH) = CHI(i,j,k)

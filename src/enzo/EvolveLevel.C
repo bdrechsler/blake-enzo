@@ -670,6 +670,14 @@ int EvolveLevel(TopGridData *MetaData, LevelHierarchyEntry *LevelArray[],
         Grids[grid1]->GridData->SyncTopGridCycle(MetaData->CycleNumber);
         Grids[grid1]->GridData->SyncKromeCycle(MetaData->KromeCycle);
       }
+
+      // if (debug && grid1 == 0 && MyProcessorNumber == Grids[grid1]->GridData->ReturnProcessorNumber())
+      // {
+      //   if (use_kromestep == 3 && MetaData->CycleNumber == MetaData->KromeCycle){
+      //     printf("EvolveLevel: use kromestep == 3, TopGridCycle:%d, KromeCycle:%d, KromeCycleSkip:%d\n",
+      //             MetaData->CycleNumber, MetaData->KromeCycle, MetaData->KromeCycleSkip);
+      //   }
+      // }
 #endif
  
       Grids[grid1]->GridData->MultiSpeciesHandler();

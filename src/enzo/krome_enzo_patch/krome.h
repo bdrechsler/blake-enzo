@@ -2,7 +2,7 @@
 #define __KROME__
 
 #define KROMESPECIES 4
-#define NKROMEATOMS 7
+#define NKROMEATOMS 6
 #define NKROMESPECIES 92
 
 const int krome_cidx_E = 1 - 1;
@@ -95,11 +95,10 @@ const int krome_cidx_N2Hj = 87 - 1;
 const int krome_cidx_O2Hj = 88 - 1;
 
 const int krome_cidx_atom_C = 1 - 1;
-const int krome_cidx_atom_E = 2 - 1;
-const int krome_cidx_atom_H = 3 - 1;
-const int krome_cidx_atom_Mg = 4 - 1;
-const int krome_cidx_atom_O = 5 - 1;
-const int krome_cidx_atom_N = 6 - 1;
-const int krome_cidx_atom_He = 7 - 1;
+const int krome_cidx_atom_H = 2 - 1;
+const int krome_cidx_atom_Mg = 3 - 1;
+const int krome_cidx_atom_O = 4 - 1;
+const int krome_cidx_atom_N = 5 - 1;
+const int krome_cidx_atom_He = 6 - 1;
 
 #endif

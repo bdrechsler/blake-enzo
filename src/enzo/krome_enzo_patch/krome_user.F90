@@ -157,7 +157,7 @@ module krome_user
   integer,parameter::krome_nrea=1144
   integer,parameter::krome_nmols=88
   integer,parameter::krome_nspec=92
-  integer,parameter::krome_natoms=7
+  integer,parameter::krome_natoms=6
   integer,parameter::krome_ndust=0
   integer,parameter::krome_ndustTypes=0
   integer,parameter::krome_nPhotoBins=0

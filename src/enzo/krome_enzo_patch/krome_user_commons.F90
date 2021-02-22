@@ -5,7 +5,7 @@ module krome_user_commons
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-12-01 02:52:07
+  !  KROME 14.08.dev on 2021-02-02 01:45:04
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -19,7 +19,7 @@ module krome_user_commons
   ! *************************************************************
 
   ! mock parameters, only for single grid model, change it!!
-  real*8 :: gridsize = 0.05 * 3.086d18
+  real*8 :: gridsize
   logical :: startr = .true.
   real*8 :: ebmaxh2=1.21d3,epsilon=0.01,ebmaxcrf=1.21d3,uvcreff=1.0d-3, &
       &  ebmaxcr=1.21d3,phi=1.0d5,ebmaxuvcr=1.0d4,uvy=0.1,h2form=0.0
@@ -46,33 +46,33 @@ module krome_user_commons
       &16.0d+00, 17.0d+00, 18.0d+00 /)
   real*8 :: nh2gr(dimh2)=(/18.0d+00, 19.0d+00, 20.0d+00, 21.0d+00,&
       &22.0d+00, 23.0d+00 /)
-  real*8 :: nHAv(91,2)=reshape( (/ &
-      & -3.0d0, -2.9d0, -2.8d0, -2.7d0, -2.6d0, -2.5d0, -2.4d0, &
-      & -2.3d0, -2.2d0, -2.1d0, -2.0d0, -1.9d0, -1.8d0, -1.7d0, &
-      & -1.6d0, -1.5d0, -1.4d0, -1.3d0, -1.2d0, -1.1d0, -1.0d0, &
-      & -0.9d0, -0.8d0, -0.7d0, -0.6d0, -0.5d0, -0.4d0, -0.3d0, &
-      & -0.2d0, -0.1d0,  0.0d0,  0.1d0,  0.2d0,  0.3d0,  0.4d0, &
-      & 0.5d0,  0.6d0,  0.7d0,  0.8d0,  0.9d0,  1.0d0,  1.1d0, &
-      & 1.2d0,  1.3d0,  1.4d0,  1.5d0,  1.6d0,  1.7d0,  1.8d0, &
-      & 1.9d0,  2.0d0,  2.1d0,  2.2d0,  2.3d0,  2.4d0,  2.5d0, &
-      & 2.6d0,  2.7d0,  2.8d0,  2.9d0,  3.0d0,  3.1d0,  3.2d0, &
-      & 3.3d0,  3.4d0,  3.5d0,  3.6d0,  3.7d0,  3.8d0,  3.9d0, &
-      & 4.0d0,  4.1d0,  4.2d0,  4.3d0,  4.4d0,  4.5d0,  4.6d0, &
-      & 4.7d0,  4.8d0,  4.9d0,  5.0d0,  5.1d0,  5.2d0,  5.3d0, &
-      & 5.4d0,  5.5d0,  5.6d0,  5.7d0,  5.8d0,  5.9d0,  6.0d0, &
-      & 3.85d-03, 3.90d-03, 3.97d-03, 4.06d-03, 4.18d-03, 4.32d-03, 4.48d-03, 4.69d-03, &
-      & 4.96d-03, 5.29d-03, 5.71d-03, 6.22d-03, 6.85d-03, 7.65d-03, 8.65d-03, 9.91d-03, &
-      & 1.13d-02, 1.30d-02, 1.51d-02, 1.78d-02, 2.12d-02, 2.33d-02, 2.60d-02, 2.93d-02, &
-      & 3.36d-02, 3.89d-02, 4.41d-02, 5.07d-02, 5.90d-02, 6.95d-02, 8.27d-02, 9.47d-02, &
-      & 1.10d-01, 1.29d-01, 1.53d-01, 1.83d-01, 2.02d-01, 2.25d-01, 2.55d-01, 2.92d-01, &
-      & 3.39d-01, 3.76d-01, 4.22d-01, 4.81d-01, 5.55d-01, 6.48d-01, 7.06d-01, 7.78d-01, &
-      & 8.68d-01, 9.83d-01, 1.13d+00, 1.21d+00, 1.31d+00, 1.44d+00, 1.60d+00, 1.80d+00, &
-      & 1.93d+00, 2.08d+00, 2.28d+00, 2.54d+00, 2.85d+00, 3.04d+00, 3.28d+00, 3.58d+00, &
-      & 3.95d+00, 4.42d+00, 4.70d+00, 5.05d+00, 5.48d+00, 6.03d+00, 6.72d+00, 7.12d+00, &
-      & 7.61d+00, 8.24d+00, 9.03d+00, 1.00d+01, 1.06d+01, 1.13d+01, 1.22d+01, 1.33d+01, &
-      & 1.47d+01, 1.54d+01, 1.64d+01, 1.76d+01, 1.92d+01, 2.11d+01, 2.22d+01, 2.35d+01, &
-      & 2.52d+01, 2.73d+01, 3.00d+01 &
-      & /), shape(nHAv))
+  real*8 :: nHAv(91,2) = reshape( (/ &
+      -3.0d0, -2.9d0, -2.8d0, -2.7d0, -2.6d0, -2.5d0, -2.4d0, &
+      -2.3d0, -2.2d0, -2.1d0, -2.0d0, -1.9d0, -1.8d0, -1.7d0, &
+      -1.6d0, -1.5d0, -1.4d0, -1.3d0, -1.2d0, -1.1d0, -1.0d0, &
+      -0.9d0, -0.8d0, -0.7d0, -0.6d0, -0.5d0, -0.4d0, -0.3d0, &
+      -0.2d0, -0.1d0,  0.0d0,  0.1d0,  0.2d0,  0.3d0,  0.4d0, &
+      0.5d0,  0.6d0,  0.7d0,  0.8d0,  0.9d0,  1.0d0,  1.1d0, &
+      1.2d0,  1.3d0,  1.4d0,  1.5d0,  1.6d0,  1.7d0,  1.8d0, &
+      1.9d0,  2.0d0,  2.1d0,  2.2d0,  2.3d0,  2.4d0,  2.5d0, &
+      2.6d0,  2.7d0,  2.8d0,  2.9d0,  3.0d0,  3.1d0,  3.2d0, &
+      3.3d0,  3.4d0,  3.5d0,  3.6d0,  3.7d0,  3.8d0,  3.9d0, &
+      4.0d0,  4.1d0,  4.2d0,  4.3d0,  4.4d0,  4.5d0,  4.6d0, &
+      4.7d0,  4.8d0,  4.9d0,  5.0d0,  5.1d0,  5.2d0,  5.3d0, &
+      5.4d0,  5.5d0,  5.6d0,  5.7d0,  5.8d0,  5.9d0,  6.0d0, &
+      3.85d-03, 3.90d-03, 3.97d-03, 4.06d-03, 4.18d-03, 4.32d-03, 4.48d-03, 4.69d-03, &
+      4.96d-03, 5.29d-03, 5.71d-03, 6.22d-03, 6.85d-03, 7.65d-03, 8.65d-03, 9.91d-03, &
+      1.13d-02, 1.30d-02, 1.51d-02, 1.78d-02, 2.12d-02, 2.33d-02, 2.60d-02, 2.93d-02, &
+      3.36d-02, 3.89d-02, 4.41d-02, 5.07d-02, 5.90d-02, 6.95d-02, 8.27d-02, 9.47d-02, &
+      1.10d-01, 1.29d-01, 1.53d-01, 1.83d-01, 2.02d-01, 2.25d-01, 2.55d-01, 2.92d-01, &
+      3.39d-01, 3.76d-01, 4.22d-01, 4.81d-01, 5.55d-01, 6.48d-01, 7.06d-01, 7.78d-01, &
+      8.68d-01, 9.83d-01, 1.13d+00, 1.21d+00, 1.31d+00, 1.44d+00, 1.60d+00, 1.80d+00, &
+      1.93d+00, 2.08d+00, 2.28d+00, 2.54d+00, 2.85d+00, 3.04d+00, 3.28d+00, 3.58d+00, &
+      3.95d+00, 4.42d+00, 4.70d+00, 5.05d+00, 5.48d+00, 6.03d+00, 6.72d+00, 7.12d+00, &
+      7.61d+00, 8.24d+00, 9.03d+00, 1.00d+01, 1.06d+01, 1.13d+01, 1.22d+01, 1.33d+01, &
+      1.47d+01, 1.54d+01, 1.64d+01, 1.76d+01, 1.92d+01, 2.11d+01, 2.22d+01, 2.35d+01, &
+      2.52d+01, 2.73d+01, 3.00d+01 &
+      /), shape(nHAv))
 
   ! reference: definition of h2col/ch2 and cocol
   ! h2col=0.5*abund(nh2,dstep)*density(dstep)*(cloudSize/real(points))
@@ -88,6 +88,18 @@ module krome_user_commons
   !$omp threadprivate(user_tff,krome_invdvdz)
 
 contains
+
+  subroutine set_gridsize(cellsize)
+    implicit none
+    real*8, intent(in) :: cellsize
+    gridsize = cellsize
+  end subroutine set_gridsize
+
+  function get_gridsize
+    implicit none
+    real*8 :: get_gridsize
+    get_gridsize = gridsize
+  end function get_gridsize
 
   !**********************
   !user can add here the functions he/she needs for
@@ -114,9 +126,9 @@ contains
   ! The following functions must be included for uclchem network
   function get_Av(Hnuclei)
     implicit none
-    integer :: i
     real*8, intent(in) :: Hnuclei
     real*8 :: logH, get_Av
+    integer :: i
 
     logH = log10(Hnuclei)
     if (logH >= 6.0d0) then
@@ -152,7 +164,7 @@ contains
     use krome_commons
     use krome_getphys
     implicit none
-    real*8 :: n(:),ch2, taud, h2d
+    real*8 :: n(:),ch2, taud, h2d, Hnuclei, av
 
     !h2col is h2 column density. Half total column density for uniform sphere.
     !Sum of shells for multidepth point (worked out in chem.f90.updateChemistry)
@@ -162,17 +174,19 @@ contains
     ! ch2 = 0.5*n(idx_H2)*get_Hnuclei(n(:))*gridsize
     ch2 = 0.5*n(idx_H2)*gridsize
     taud  = 0.5 * ch2 * 1.5e-2 * fosc / dopw
+    Hnuclei = get_Hnuclei(n(:))
+    av  = get_Av(Hnuclei)
 
     !c Here, the constant 5.1e-11 is by assuming rad is in Habing [double check]
-    h2d = 5.1d-11 * user_rad * scat(xl) * fgk(taud)
+    h2d = 5.1d-11 * user_rad * scat(xl, av) * fgk(taud)
   end function h2d
 
   function knrco(n)
     use krome_commons
     use krome_getphys
     implicit none
-    real*8 :: n(:),ch2,ssf,lba,sca,chtot,knrco
-    real*8 :: h2col,cocol
+    real*8 :: n(:),ch2,ssf,lba,av,sca,chtot,knrco
+    real*8 :: Hnuclei,h2col,cocol
     !double precision :: ssfco,lbar,scat,chtot
 
     ! h2col = 0.5*n(idx_H2)*get_Hnuclei(n(:))*gridsize
@@ -186,7 +200,9 @@ contains
     !to the habing field
     ssf = ssfco(n)
     lba = lbar(cocol,h2col)
-    sca = scat(lba)
+    Hnuclei = get_Hnuclei(n(:))
+    av  = get_Av(Hnuclei)
+    sca = scat(lba, av)
 
     !The reason why rad is divided by 1.7 is that the alphas are for Draine and the rad is in
     !Habing units
@@ -255,7 +271,7 @@ contains
     fgk = sj + sr
   end function fgk
 
-  function scat(x1)
+  function scat(x1, av)
     use krome_commons
     implicit none
     !calculate the influence of dust extinction (g=0.8, omega=0.3)
@@ -292,8 +308,8 @@ contains
 
     integer :: i
     !   i/o variables type declaration
-    real*8 :: cdntot,x1
-    intent(in) :: x1
+    real*8 :: cdntot,x1,av
+    intent(in) :: x1, av
     !program variables type declaration
     real*8, dimension(6) :: c=(/1.0d0,2.006d0,-1.438d0,7.364d-01,-5.076d-01,-5.920d-02/)
     real*8, dimension(6) ::  k1=(/7.514d-01,8.490d-01,1.013d0,1.282d0,2.005d0,5.832d0/)
@@ -305,7 +321,7 @@ contains
     !for lambda**-1 scattering : r = av / e(b-v) = 3.6 .
 
     !optical depth in the visual
-    tv = user_Av/ 1.086d0
+    tv = av/ 1.086d0
 
     !make correction for the wavelength considered
     tl = tv * xlamda(x1)

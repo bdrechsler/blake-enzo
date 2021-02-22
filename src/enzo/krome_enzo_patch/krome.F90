@@ -25,8 +25,9 @@ contains
   !********************************
   !KROME main (interface to the solver library)
 
-  subroutine krome(x,Tgas,dt  )
+  subroutine krome(x,Tgas,dt,cellsize)
     use krome_commons
+    use krome_user_commons
     use krome_subs
     use krome_ode
     use krome_reduction
@@ -37,6 +38,7 @@ contains
     real*8 :: Tgas,dt
     real*8 :: x(nmols)
     real*8 :: rhogas
+    real*8 :: cellsize
 
     real*8::mass(nspec),n(nspec),tloc,xin
     real*8::rrmax,totmass,n_old(nspec),ni(nspec),invTdust(ndust)
@@ -50,6 +52,9 @@ contains
     real*8::atol(nspec),rtol(nspec)
     real*8::rwork(19792)
     logical::got_error,equil
+
+    ! init parameters for calculating
+    call set_gridsize(cellsize)
 
     !****************************
     !init DLSODES (see DLSODES manual)

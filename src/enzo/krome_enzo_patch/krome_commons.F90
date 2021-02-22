@@ -112,19 +112,18 @@ module krome_commons
   integer,parameter::nrea=1144
   integer,parameter::nmols=88
   integer,parameter::nspec=92
-  integer,parameter::natoms=7
+  integer,parameter::natoms=6
   integer,parameter::ndust=0
   integer,parameter::ndustTypes=0
   integer,parameter::nPhotoBins=0
   integer,parameter::nPhotoRea=0
 
   integer,parameter::idx_atom_C=1
-  integer,parameter::idx_atom_E=2
-  integer,parameter::idx_atom_H=3
-  integer,parameter::idx_atom_Mg=4
-  integer,parameter::idx_atom_O=5
-  integer,parameter::idx_atom_N=6
-  integer,parameter::idx_atom_He=7
+  integer,parameter::idx_atom_H=2
+  integer,parameter::idx_atom_Mg=3
+  integer,parameter::idx_atom_O=4
+  integer,parameter::idx_atom_N=5
+  integer,parameter::idx_atom_He=6
 
   !cooling index
   integer,parameter::idx_cool_h2 = 1

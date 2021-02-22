@@ -139,6 +139,7 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
 
     ret += sscanf(line, "KromeTime    = %"PSYM, &MetaData.KromeTime);
     ret += sscanf(line, "KromeDt      = %"PSYM, &MetaData.KromeDt);
+    ret += sscanf(line, "KromeCycle   = %"ISYM, &MetaData.KromeCycle);
     ret += sscanf(line, "KromeCycleSkip = %"ISYM, &MetaData.KromeCycleSkip);
     ret += sscanf(line, "LastCycleKromeTime = %"PSYM, &MetaData.LastCycleKromeTime);
  
@@ -1807,7 +1808,7 @@ int ReadParameterFile(FILE *fptr, TopGridData &MetaData, float *Initialdt)
     grackle_data->use_grackle                    = (Eint32) use_grackle;
     grackle_data->Gamma                          = (double) Gamma;
 #ifdef USE_KROME
-    grackle_data->primordial_chemistry           = use_krome? (Eint32) p_chemistry:MultiSpecies;
+    grackle_data->primordial_chemistry           = p_chemistry;
 #else
     grackle_data->primordial_chemistry           = (Eint32) MultiSpecies;
 #endif

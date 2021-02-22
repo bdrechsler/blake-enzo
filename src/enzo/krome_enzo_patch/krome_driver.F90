@@ -28,7 +28,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
       is, js, ks, ie, je, ke, &
       dt, aye, &
       utem, uxyz, uaye, urho, utim, &
-      gamma, fh, dtoh)
+      gamma, fh, dtoh, cellsize)
 
   !     SOLVE MULTI-SPECIES RATE EQUATIONS AND RADIATIVE COOLING
   !
@@ -68,6 +68,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   !     USE KROME
   use krome_main
   use krome_user
+  use krome_user_commons
   use krome_constants
 
   implicit none
@@ -78,6 +79,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::d(in,jn,kn),e(in,jn,kn),ge(in,jn,kn)
   real*8::u(in,jn,kn),v(in,jn,kn),w(in,jn,kn)
   real*8::aye,utem,uxyz,uaye,urho,utim,gamma,fh,dtoh
+  real*8::cellsize
   integer::in,jn,kn,imethod,idual,is,js,ks,ie,je,ke,idim
   integer::i,j,k
 
@@ -476,7 +478,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         dt_hydro = utim*dt !dt*time_conversion
 
         !call KROME solver
-        call krome(krome_x(:),tgas,dt_hydro)
+        call krome(krome_x(:),tgas,dt_hydro,cellsize*uxyz)
 
         idom = 1.d0/dom
         !convert back to code units
