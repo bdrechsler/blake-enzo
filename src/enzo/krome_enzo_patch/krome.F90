@@ -67,7 +67,7 @@ contains
     rwork(:) = 0d0
     itol = 4 !both tolerances are scalar
     rtol(:) = 1.000000d-04 !relative tolerance
-    atol(:) = 1.000000d-20 !absolute tolerance
+    atol(:) = 1.000000d-25 !absolute tolerance
     icount_max = 100 !maximum number of iterations
 
     itask = 1

@@ -95,7 +95,7 @@ contains
     gridsize = cellsize
   end subroutine set_gridsize
 
-  function get_gridsize
+  function get_gridsize()
     implicit none
     real*8 :: get_gridsize
     get_gridsize = gridsize
