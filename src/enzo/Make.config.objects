@@ -1248,6 +1248,7 @@ OBJS_MY_PROBLEM = \
     myProblem/Grid_PrestellarCoreInitialize.o \
     myProblem/CollidingCloudInitialize.o \
     myProblem/Grid_CollidingCloudInitializeGrid.o \
+    myProblem/Grid_SetBulkVelocities.o \
     myProblem/TurbulenceGenerator.o
 
 OBJS_KROME = \

@@ -285,6 +285,10 @@ int CollidingCloudInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
           fprintf(stderr, "Error in grid::NormalizeVelocities.\n");
           return FAIL;
         }
+        if (CurrentGrid->GridData->SetBulkVelocities(RelativeVelocity) == FAIL) {
+          fprintf(stderr, "Error in grid::SetBulkVelocities.\n");
+          return FAIL;
+        }
         CurrentGrid = CurrentGrid->NextGridThisLevel;
       }
     }
@@ -633,6 +637,10 @@ int CollidingCloudInitialize(FILE *fptr, FILE *Outfptr, HierarchyEntry &TopGrid,
 //   } /* ENDIF Movie */
 
   } // endif SetBaryonFields
+
+  if (MyProcessorNumber == ROOT_PROCESSOR) {
+    printf("RelativeVelocity          = %"FSYM"\n", RelativeVelocity);
+  }
 
   return SUCCESS;
 
