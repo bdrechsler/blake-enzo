@@ -76,7 +76,10 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
       H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
       N2HIINum, O2HIINum, SIH5IINum, SIOHIINum;
 
-  int speciesMap[NKROMESPECIES] = {-1};
+  int speciesMap[NKROMESPECIES];
+  for (int i=0; i<NKROMESPECIES; i++){
+    speciesMap[i] = -1;
+  }
 
   float specMass[NKROMESPECIES] = {
       0.000e+00, 1.300e+01, 1.600e+01, 2.700e+01, 2.700e+01,
@@ -848,9 +851,9 @@ int grid::CollidingCloudInitializeGrid(float CloudDensity, float CloudSoundSpeed
           for (int abNum = 0; abNum < NKROMESPECIES; abNum++)
           {
             int speciesNum = speciesMap[abNum];
-            // if (speciesNum != -1) {
-            BaryonField[speciesNum][n] = 1.0e-20 * specMass[abNum] * BaryonField[0][n] / 1.4;
-            // }
+            if (speciesNum != -1) {
+              BaryonField[speciesNum][n] = 1.0e-20 * specMass[abNum] * BaryonField[0][n] / 1.4;
+            }
           }
           // for (int speciesNum = DeNum; speciesNum <= O2HIINum; speciesNum ++) {
           //   // BaryonField[speciesNum][n] = 1e-18*BaryonField[0][n];
