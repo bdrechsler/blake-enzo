@@ -5,24 +5,31 @@ subroutine krome_driver(d, e, ge, u, v, w, &
       HCNI, H2I, CI, HI, &
       H2OI, OHI, O2I, CH2I, &
       H2COI, HCOI, MGI, NH3I, &
-      NOI, CNI, COI, N2I, &
-      NH2I, CH3I, CH4I, NI, &
-      NHI, HeI, HNOI, CH3OHI, &
-      CO2I, H2CNI, HNCOI, NO2I, &
-      O2HI, OCNI, CH3OH_DUSTI, HNCO_DUSTI, &
-      H2CO_DUSTI, CH4_DUSTI, CO_DUSTI, H2O_DUSTI, &
-      NO_DUSTI, CO2_DUSTI, N2_DUSTI, HCN_DUSTI, &
-      NH3_DUSTI, O2_DUSTI, NO2_DUSTI, HNO_DUSTI, &
-      O2H_DUSTI, H2CN_DUSTI, MG_DUSTI, HNC_DUSTI, &
-      E_DUSTI, HCOII, HII, HOCII, &
+      NOI, SII, SIC2I, SIC3I, &
+      SICI, SIH2I, SIH3I, CNI, &
+      COI, N2I, NH2I, CH3I, &
+      CH4I, NI, NHI, SIH4I, &
+      SIHI, SIOI, HeI, HNOI, &
+      CH3OHI, CO2I, H2CNI, H2SIOI, &
+      HNCOI, NO2I, O2HI, OCNI, &
+      CH3OH_DUSTI, HNCO_DUSTI, H2CO_DUSTI, SIH4_DUSTI, &
+      H2SIO_DUSTI, SIC_DUSTI, SIC2_DUSTI, SIC3_DUSTI, &
+      CH4_DUSTI, CO_DUSTI, H2O_DUSTI, NO_DUSTI, &
+      CO2_DUSTI, N2_DUSTI, HCN_DUSTI, NH3_DUSTI, &
+      O2_DUSTI, NO2_DUSTI, HNO_DUSTI, O2H_DUSTI, &
+      H2CN_DUSTI, MG_DUSTI, HNC_DUSTI, E_DUSTI, &
+      SIO_DUSTI, HCOII, HII, HOCII, &
       CII, CH2II, CHII, H2COII, &
-      MGII, NH3II, NOII, CNII, &
-      COII, N2II, O2II, H2OII, &
-      NH2II, OII, OHII, CH3II, &
-      CH4II, NII, HCNII, NHII, &
-      H2II, HeII, HNOII, H2NOII, &
-      H3II, H3COII, H3OII, HCNHII, &
-      HCO2II, HeHII, N2HII, O2HII, &
+      MGII, NH3II, NOII, SIII, &
+      SIC2II, SIC3II, SICII, SIH2II, &
+      SIH3II, CNII, COII, N2II, &
+      O2II, H2OII, NH2II, OII, &
+      OHII, CH3II, CH4II, NII, &
+      HCNII, NHII, SIH4II, SIHII, &
+      SIOII, H2II, HeII, HNOII, &
+      H2NOII, H3II, H3COII, H3OII, &
+      HCNHII, HCO2II, HeHII, N2HII, &
+      O2HII, SIH5II, SIOHII, &
       in, jn, kn, imethod, &
       idual, idim, &
       is, js, ks, ie, je, ke, &
@@ -100,6 +107,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::MGI(in,jn,kn)
   real*8::NH3I(in,jn,kn)
   real*8::NOI(in,jn,kn)
+  real*8::SII(in,jn,kn)
+  real*8::SIC2I(in,jn,kn)
+  real*8::SIC3I(in,jn,kn)
+  real*8::SICI(in,jn,kn)
+  real*8::SIH2I(in,jn,kn)
+  real*8::SIH3I(in,jn,kn)
   real*8::CNI(in,jn,kn)
   real*8::COI(in,jn,kn)
   real*8::N2I(in,jn,kn)
@@ -108,11 +121,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::CH4I(in,jn,kn)
   real*8::NI(in,jn,kn)
   real*8::NHI(in,jn,kn)
+  real*8::SIH4I(in,jn,kn)
+  real*8::SIHI(in,jn,kn)
+  real*8::SIOI(in,jn,kn)
   real*8::HeI(in,jn,kn)
   real*8::HNOI(in,jn,kn)
   real*8::CH3OHI(in,jn,kn)
   real*8::CO2I(in,jn,kn)
   real*8::H2CNI(in,jn,kn)
+  real*8::H2SIOI(in,jn,kn)
   real*8::HNCOI(in,jn,kn)
   real*8::NO2I(in,jn,kn)
   real*8::O2HI(in,jn,kn)
@@ -120,6 +137,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::CH3OH_DUSTI(in,jn,kn)
   real*8::HNCO_DUSTI(in,jn,kn)
   real*8::H2CO_DUSTI(in,jn,kn)
+  real*8::SIH4_DUSTI(in,jn,kn)
+  real*8::H2SIO_DUSTI(in,jn,kn)
+  real*8::SIC_DUSTI(in,jn,kn)
+  real*8::SIC2_DUSTI(in,jn,kn)
+  real*8::SIC3_DUSTI(in,jn,kn)
   real*8::CH4_DUSTI(in,jn,kn)
   real*8::CO_DUSTI(in,jn,kn)
   real*8::H2O_DUSTI(in,jn,kn)
@@ -136,6 +158,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::MG_DUSTI(in,jn,kn)
   real*8::HNC_DUSTI(in,jn,kn)
   real*8::E_DUSTI(in,jn,kn)
+  real*8::SIO_DUSTI(in,jn,kn)
   real*8::HCOII(in,jn,kn)
   real*8::HII(in,jn,kn)
   real*8::HOCII(in,jn,kn)
@@ -146,6 +169,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::MGII(in,jn,kn)
   real*8::NH3II(in,jn,kn)
   real*8::NOII(in,jn,kn)
+  real*8::SIII(in,jn,kn)
+  real*8::SIC2II(in,jn,kn)
+  real*8::SIC3II(in,jn,kn)
+  real*8::SICII(in,jn,kn)
+  real*8::SIH2II(in,jn,kn)
+  real*8::SIH3II(in,jn,kn)
   real*8::CNII(in,jn,kn)
   real*8::COII(in,jn,kn)
   real*8::N2II(in,jn,kn)
@@ -159,6 +188,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::NII(in,jn,kn)
   real*8::HCNII(in,jn,kn)
   real*8::NHII(in,jn,kn)
+  real*8::SIH4II(in,jn,kn)
+  real*8::SIHII(in,jn,kn)
+  real*8::SIOII(in,jn,kn)
   real*8::H2II(in,jn,kn)
   real*8::HeII(in,jn,kn)
   real*8::HNOII(in,jn,kn)
@@ -171,6 +203,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::HeHII(in,jn,kn)
   real*8::N2HII(in,jn,kn)
   real*8::O2HII(in,jn,kn)
+  real*8::SIH5II(in,jn,kn)
+  real*8::SIOHII(in,jn,kn)
 
   !******************************
 
@@ -204,6 +238,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGI(i,j,k) = MGI(i,j,k) * factor
         NH3I(i,j,k) = NH3I(i,j,k) * factor
         NOI(i,j,k) = NOI(i,j,k) * factor
+        SII(i,j,k) = SII(i,j,k) * factor
+        SIC2I(i,j,k) = SIC2I(i,j,k) * factor
+        SIC3I(i,j,k) = SIC3I(i,j,k) * factor
+        SICI(i,j,k) = SICI(i,j,k) * factor
+        SIH2I(i,j,k) = SIH2I(i,j,k) * factor
+        SIH3I(i,j,k) = SIH3I(i,j,k) * factor
         CNI(i,j,k) = CNI(i,j,k) * factor
         COI(i,j,k) = COI(i,j,k) * factor
         N2I(i,j,k) = N2I(i,j,k) * factor
@@ -212,11 +252,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH4I(i,j,k) = CH4I(i,j,k) * factor
         NI(i,j,k) = NI(i,j,k) * factor
         NHI(i,j,k) = NHI(i,j,k) * factor
+        SIH4I(i,j,k) = SIH4I(i,j,k) * factor
+        SIHI(i,j,k) = SIHI(i,j,k) * factor
+        SIOI(i,j,k) = SIOI(i,j,k) * factor
         HeI(i,j,k) = HeI(i,j,k) * factor
         HNOI(i,j,k) = HNOI(i,j,k) * factor
         CH3OHI(i,j,k) = CH3OHI(i,j,k) * factor
         CO2I(i,j,k) = CO2I(i,j,k) * factor
         H2CNI(i,j,k) = H2CNI(i,j,k) * factor
+        H2SIOI(i,j,k) = H2SIOI(i,j,k) * factor
         HNCOI(i,j,k) = HNCOI(i,j,k) * factor
         NO2I(i,j,k) = NO2I(i,j,k) * factor
         O2HI(i,j,k) = O2HI(i,j,k) * factor
@@ -224,6 +268,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH3OH_DUSTI(i,j,k) = CH3OH_DUSTI(i,j,k) * factor
         HNCO_DUSTI(i,j,k) = HNCO_DUSTI(i,j,k) * factor
         H2CO_DUSTI(i,j,k) = H2CO_DUSTI(i,j,k) * factor
+        SIH4_DUSTI(i,j,k) = SIH4_DUSTI(i,j,k) * factor
+        H2SIO_DUSTI(i,j,k) = H2SIO_DUSTI(i,j,k) * factor
+        SIC_DUSTI(i,j,k) = SIC_DUSTI(i,j,k) * factor
+        SIC2_DUSTI(i,j,k) = SIC2_DUSTI(i,j,k) * factor
+        SIC3_DUSTI(i,j,k) = SIC3_DUSTI(i,j,k) * factor
         CH4_DUSTI(i,j,k) = CH4_DUSTI(i,j,k) * factor
         CO_DUSTI(i,j,k) = CO_DUSTI(i,j,k) * factor
         H2O_DUSTI(i,j,k) = H2O_DUSTI(i,j,k) * factor
@@ -240,6 +289,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MG_DUSTI(i,j,k) = MG_DUSTI(i,j,k) * factor
         HNC_DUSTI(i,j,k) = HNC_DUSTI(i,j,k) * factor
         E_DUSTI(i,j,k) = E_DUSTI(i,j,k) * factor
+        SIO_DUSTI(i,j,k) = SIO_DUSTI(i,j,k) * factor
         HCOII(i,j,k) = HCOII(i,j,k) * factor
         HII(i,j,k) = HII(i,j,k) * factor
         HOCII(i,j,k) = HOCII(i,j,k) * factor
@@ -250,6 +300,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGII(i,j,k) = MGII(i,j,k) * factor
         NH3II(i,j,k) = NH3II(i,j,k) * factor
         NOII(i,j,k) = NOII(i,j,k) * factor
+        SIII(i,j,k) = SIII(i,j,k) * factor
+        SIC2II(i,j,k) = SIC2II(i,j,k) * factor
+        SIC3II(i,j,k) = SIC3II(i,j,k) * factor
+        SICII(i,j,k) = SICII(i,j,k) * factor
+        SIH2II(i,j,k) = SIH2II(i,j,k) * factor
+        SIH3II(i,j,k) = SIH3II(i,j,k) * factor
         CNII(i,j,k) = CNII(i,j,k) * factor
         COII(i,j,k) = COII(i,j,k) * factor
         N2II(i,j,k) = N2II(i,j,k) * factor
@@ -263,6 +319,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         NII(i,j,k) = NII(i,j,k) * factor
         HCNII(i,j,k) = HCNII(i,j,k) * factor
         NHII(i,j,k) = NHII(i,j,k) * factor
+        SIH4II(i,j,k) = SIH4II(i,j,k) * factor
+        SIHII(i,j,k) = SIHII(i,j,k) * factor
+        SIOII(i,j,k) = SIOII(i,j,k) * factor
         H2II(i,j,k) = H2II(i,j,k) * factor
         HeII(i,j,k) = HeII(i,j,k) * factor
         HNOII(i,j,k) = HNOII(i,j,k) * factor
@@ -275,6 +334,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         HeHII(i,j,k) = HeHII(i,j,k) * factor
         N2HII(i,j,k) = N2HII(i,j,k) * factor
         O2HII(i,j,k) = O2HII(i,j,k) * factor
+        SIH5II(i,j,k) = SIH5II(i,j,k) * factor
+        SIOHII(i,j,k) = SIOHII(i,j,k) * factor
 
         !mimimal value check
         De(i,j,k) = max(De(i,j,k), krome_tiny)
@@ -294,6 +355,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGI(i,j,k) = max(MGI(i,j,k), krome_tiny)
         NH3I(i,j,k) = max(NH3I(i,j,k), krome_tiny)
         NOI(i,j,k) = max(NOI(i,j,k), krome_tiny)
+        SII(i,j,k) = max(SII(i,j,k), krome_tiny)
+        SIC2I(i,j,k) = max(SIC2I(i,j,k), krome_tiny)
+        SIC3I(i,j,k) = max(SIC3I(i,j,k), krome_tiny)
+        SICI(i,j,k) = max(SICI(i,j,k), krome_tiny)
+        SIH2I(i,j,k) = max(SIH2I(i,j,k), krome_tiny)
+        SIH3I(i,j,k) = max(SIH3I(i,j,k), krome_tiny)
         CNI(i,j,k) = max(CNI(i,j,k), krome_tiny)
         COI(i,j,k) = max(COI(i,j,k), krome_tiny)
         N2I(i,j,k) = max(N2I(i,j,k), krome_tiny)
@@ -302,11 +369,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH4I(i,j,k) = max(CH4I(i,j,k), krome_tiny)
         NI(i,j,k) = max(NI(i,j,k), krome_tiny)
         NHI(i,j,k) = max(NHI(i,j,k), krome_tiny)
+        SIH4I(i,j,k) = max(SIH4I(i,j,k), krome_tiny)
+        SIHI(i,j,k) = max(SIHI(i,j,k), krome_tiny)
+        SIOI(i,j,k) = max(SIOI(i,j,k), krome_tiny)
         HeI(i,j,k) = max(HeI(i,j,k), krome_tiny)
         HNOI(i,j,k) = max(HNOI(i,j,k), krome_tiny)
         CH3OHI(i,j,k) = max(CH3OHI(i,j,k), krome_tiny)
         CO2I(i,j,k) = max(CO2I(i,j,k), krome_tiny)
         H2CNI(i,j,k) = max(H2CNI(i,j,k), krome_tiny)
+        H2SIOI(i,j,k) = max(H2SIOI(i,j,k), krome_tiny)
         HNCOI(i,j,k) = max(HNCOI(i,j,k), krome_tiny)
         NO2I(i,j,k) = max(NO2I(i,j,k), krome_tiny)
         O2HI(i,j,k) = max(O2HI(i,j,k), krome_tiny)
@@ -314,6 +385,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH3OH_DUSTI(i,j,k) = max(CH3OH_DUSTI(i,j,k), krome_tiny)
         HNCO_DUSTI(i,j,k) = max(HNCO_DUSTI(i,j,k), krome_tiny)
         H2CO_DUSTI(i,j,k) = max(H2CO_DUSTI(i,j,k), krome_tiny)
+        SIH4_DUSTI(i,j,k) = max(SIH4_DUSTI(i,j,k), krome_tiny)
+        H2SIO_DUSTI(i,j,k) = max(H2SIO_DUSTI(i,j,k), krome_tiny)
+        SIC_DUSTI(i,j,k) = max(SIC_DUSTI(i,j,k), krome_tiny)
+        SIC2_DUSTI(i,j,k) = max(SIC2_DUSTI(i,j,k), krome_tiny)
+        SIC3_DUSTI(i,j,k) = max(SIC3_DUSTI(i,j,k), krome_tiny)
         CH4_DUSTI(i,j,k) = max(CH4_DUSTI(i,j,k), krome_tiny)
         CO_DUSTI(i,j,k) = max(CO_DUSTI(i,j,k), krome_tiny)
         H2O_DUSTI(i,j,k) = max(H2O_DUSTI(i,j,k), krome_tiny)
@@ -330,6 +406,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MG_DUSTI(i,j,k) = max(MG_DUSTI(i,j,k), krome_tiny)
         HNC_DUSTI(i,j,k) = max(HNC_DUSTI(i,j,k), krome_tiny)
         E_DUSTI(i,j,k) = max(E_DUSTI(i,j,k), krome_tiny)
+        SIO_DUSTI(i,j,k) = max(SIO_DUSTI(i,j,k), krome_tiny)
         HCOII(i,j,k) = max(HCOII(i,j,k), krome_tiny)
         HII(i,j,k) = max(HII(i,j,k), krome_tiny)
         HOCII(i,j,k) = max(HOCII(i,j,k), krome_tiny)
@@ -340,6 +417,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGII(i,j,k) = max(MGII(i,j,k), krome_tiny)
         NH3II(i,j,k) = max(NH3II(i,j,k), krome_tiny)
         NOII(i,j,k) = max(NOII(i,j,k), krome_tiny)
+        SIII(i,j,k) = max(SIII(i,j,k), krome_tiny)
+        SIC2II(i,j,k) = max(SIC2II(i,j,k), krome_tiny)
+        SIC3II(i,j,k) = max(SIC3II(i,j,k), krome_tiny)
+        SICII(i,j,k) = max(SICII(i,j,k), krome_tiny)
+        SIH2II(i,j,k) = max(SIH2II(i,j,k), krome_tiny)
+        SIH3II(i,j,k) = max(SIH3II(i,j,k), krome_tiny)
         CNII(i,j,k) = max(CNII(i,j,k), krome_tiny)
         COII(i,j,k) = max(COII(i,j,k), krome_tiny)
         N2II(i,j,k) = max(N2II(i,j,k), krome_tiny)
@@ -353,6 +436,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         NII(i,j,k) = max(NII(i,j,k), krome_tiny)
         HCNII(i,j,k) = max(HCNII(i,j,k), krome_tiny)
         NHII(i,j,k) = max(NHII(i,j,k), krome_tiny)
+        SIH4II(i,j,k) = max(SIH4II(i,j,k), krome_tiny)
+        SIHII(i,j,k) = max(SIHII(i,j,k), krome_tiny)
+        SIOII(i,j,k) = max(SIOII(i,j,k), krome_tiny)
         H2II(i,j,k) = max(H2II(i,j,k), krome_tiny)
         HeII(i,j,k) = max(HeII(i,j,k), krome_tiny)
         HNOII(i,j,k) = max(HNOII(i,j,k), krome_tiny)
@@ -365,6 +451,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         HeHII(i,j,k) = max(HeHII(i,j,k), krome_tiny)
         N2HII(i,j,k) = max(N2HII(i,j,k), krome_tiny)
         O2HII(i,j,k) = max(O2HII(i,j,k), krome_tiny)
+        SIH5II(i,j,k) = max(SIH5II(i,j,k), krome_tiny)
+        SIOHII(i,j,k) = max(SIOHII(i,j,k), krome_tiny)
 
       end do
     end do
@@ -395,6 +483,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_MG) = MGI(i,j,k) * dom * 0.0416666666667d0
         krome_x(krome_idx_NH3) = NH3I(i,j,k) * dom * 0.0588235294118d0
         krome_x(krome_idx_NO) = NOI(i,j,k) * dom * 0.0333333333333d0
+        krome_x(krome_idx_SI) = SII(i,j,k) * dom * 0.0357142857143d0
+        krome_x(krome_idx_SIC2) = SIC2I(i,j,k) * dom * 0.0192307692308d0
+        krome_x(krome_idx_SIC3) = SIC3I(i,j,k) * dom * 0.015625d0
+        krome_x(krome_idx_SIC) = SICI(i,j,k) * dom * 0.025d0
+        krome_x(krome_idx_SIH2) = SIH2I(i,j,k) * dom * 0.0333333333333d0
+        krome_x(krome_idx_SIH3) = SIH3I(i,j,k) * dom * 0.0322580645161d0
         krome_x(krome_idx_CN) = CNI(i,j,k) * dom * 0.0384615384615d0
         krome_x(krome_idx_CO) = COI(i,j,k) * dom * 0.0357142857143d0
         krome_x(krome_idx_N2) = N2I(i,j,k) * dom * 0.0357142857143d0
@@ -403,11 +497,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_CH4) = CH4I(i,j,k) * dom * 0.0625d0
         krome_x(krome_idx_N) = NI(i,j,k) * dom * 0.0714285714286d0
         krome_x(krome_idx_NH) = NHI(i,j,k) * dom * 0.0666666666667d0
+        krome_x(krome_idx_SIH4) = SIH4I(i,j,k) * dom * 0.03125d0
+        krome_x(krome_idx_SIH) = SIHI(i,j,k) * dom * 0.0344827586207d0
+        krome_x(krome_idx_SIO) = SIOI(i,j,k) * dom * 0.0227272727273d0
         krome_x(krome_idx_HE) = HeI(i,j,k) * dom * 0.25d0
         krome_x(krome_idx_HNO) = HNOI(i,j,k) * dom * 0.0322580645161d0
         krome_x(krome_idx_CH3OH) = CH3OHI(i,j,k) * dom * 0.03125d0
         krome_x(krome_idx_CO2) = CO2I(i,j,k) * dom * 0.0227272727273d0
         krome_x(krome_idx_H2CN) = H2CNI(i,j,k) * dom * 0.0357142857143d0
+        krome_x(krome_idx_H2SIO) = H2SIOI(i,j,k) * dom * 0.0217391304348d0
         krome_x(krome_idx_HNCO) = HNCOI(i,j,k) * dom * 0.0232558139535d0
         krome_x(krome_idx_NO2) = NO2I(i,j,k) * dom * 0.0217391304348d0
         krome_x(krome_idx_O2H) = O2HI(i,j,k) * dom * 0.030303030303d0
@@ -415,6 +513,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_CH3OH_DUST) = CH3OH_DUSTI(i,j,k) * dom * 0.03125d0
         krome_x(krome_idx_HNCO_DUST) = HNCO_DUSTI(i,j,k) * dom * 0.0232558139535d0
         krome_x(krome_idx_H2CO_DUST) = H2CO_DUSTI(i,j,k) * dom * 0.0333333333333d0
+        krome_x(krome_idx_SIH4_DUST) = SIH4_DUSTI(i,j,k) * dom * 0.03125d0
+        krome_x(krome_idx_H2SIO_DUST) = H2SIO_DUSTI(i,j,k) * dom * 0.0217391304348d0
+        krome_x(krome_idx_SIC_DUST) = SIC_DUSTI(i,j,k) * dom * 0.025d0
+        krome_x(krome_idx_SIC2_DUST) = SIC2_DUSTI(i,j,k) * dom * 0.0192307692308d0
+        krome_x(krome_idx_SIC3_DUST) = SIC3_DUSTI(i,j,k) * dom * 0.015625d0
         krome_x(krome_idx_CH4_DUST) = CH4_DUSTI(i,j,k) * dom * 0.0625d0
         krome_x(krome_idx_CO_DUST) = CO_DUSTI(i,j,k) * dom * 0.0357142857143d0
         krome_x(krome_idx_H2O_DUST) = H2O_DUSTI(i,j,k) * dom * 0.0555555555556d0
@@ -431,6 +534,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_MG_DUST) = MG_DUSTI(i,j,k) * dom * 0.0416666666667d0
         krome_x(krome_idx_HNC_DUST) = HNC_DUSTI(i,j,k) * dom * 0.037037037037d0
         krome_x(krome_idx_E_DUST) = E_DUSTI(i,j,k) * dom
+        krome_x(krome_idx_SIO_DUST) = SIO_DUSTI(i,j,k) * dom * 0.0227272727273d0
         krome_x(krome_idx_HCOj) = HCOII(i,j,k) * dom * 0.0344827586207d0
         krome_x(krome_idx_Hj) = HII(i,j,k) * dom
         krome_x(krome_idx_HOCj) = HOCII(i,j,k) * dom * 0.0344827586207d0
@@ -441,6 +545,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_MGj) = MGII(i,j,k) * dom * 0.0416666666667d0
         krome_x(krome_idx_NH3j) = NH3II(i,j,k) * dom * 0.0588235294118d0
         krome_x(krome_idx_NOj) = NOII(i,j,k) * dom * 0.0333333333333d0
+        krome_x(krome_idx_SIj) = SIII(i,j,k) * dom * 0.0357142857143d0
+        krome_x(krome_idx_SIC2j) = SIC2II(i,j,k) * dom * 0.0192307692308d0
+        krome_x(krome_idx_SIC3j) = SIC3II(i,j,k) * dom * 0.015625d0
+        krome_x(krome_idx_SICj) = SICII(i,j,k) * dom * 0.025d0
+        krome_x(krome_idx_SIH2j) = SIH2II(i,j,k) * dom * 0.0333333333333d0
+        krome_x(krome_idx_SIH3j) = SIH3II(i,j,k) * dom * 0.0322580645161d0
         krome_x(krome_idx_CNj) = CNII(i,j,k) * dom * 0.0384615384615d0
         krome_x(krome_idx_COj) = COII(i,j,k) * dom * 0.0357142857143d0
         krome_x(krome_idx_N2j) = N2II(i,j,k) * dom * 0.0357142857143d0
@@ -454,6 +564,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_Nj) = NII(i,j,k) * dom * 0.0714285714286d0
         krome_x(krome_idx_HCNj) = HCNII(i,j,k) * dom * 0.037037037037d0
         krome_x(krome_idx_NHj) = NHII(i,j,k) * dom * 0.0666666666667d0
+        krome_x(krome_idx_SIH4j) = SIH4II(i,j,k) * dom * 0.03125d0
+        krome_x(krome_idx_SIHj) = SIHII(i,j,k) * dom * 0.0344827586207d0
+        krome_x(krome_idx_SIOj) = SIOII(i,j,k) * dom * 0.0227272727273d0
         krome_x(krome_idx_H2j) = H2II(i,j,k) * dom * 0.5d0
         krome_x(krome_idx_HEj) = HeII(i,j,k) * dom * 0.25d0
         krome_x(krome_idx_HNOj) = HNOII(i,j,k) * dom * 0.0322580645161d0
@@ -466,6 +579,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         krome_x(krome_idx_HEHj) = HeHII(i,j,k) * dom * 0.2d0
         krome_x(krome_idx_N2Hj) = N2HII(i,j,k) * dom * 0.0344827586207d0
         krome_x(krome_idx_O2Hj) = O2HII(i,j,k) * dom * 0.030303030303d0
+        krome_x(krome_idx_SIH5j) = SIH5II(i,j,k) * dom * 0.030303030303d0
+        krome_x(krome_idx_SIOHj) = SIOHII(i,j,k) * dom * 0.0222222222222d0
 
         call evaluate_tgas(d(i,j,k), e(i,j,k), ge(i,j,k),&
             u(i,j,k), v(i,j,k), w(i,j,k),&
@@ -499,6 +614,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGI(i,j,k) = krome_x(krome_idx_MG) * idom * 24d0
         NH3I(i,j,k) = krome_x(krome_idx_NH3) * idom * 17d0
         NOI(i,j,k) = krome_x(krome_idx_NO) * idom * 30d0
+        SII(i,j,k) = krome_x(krome_idx_SI) * idom * 28d0
+        SIC2I(i,j,k) = krome_x(krome_idx_SIC2) * idom * 52d0
+        SIC3I(i,j,k) = krome_x(krome_idx_SIC3) * idom * 64d0
+        SICI(i,j,k) = krome_x(krome_idx_SIC) * idom * 40d0
+        SIH2I(i,j,k) = krome_x(krome_idx_SIH2) * idom * 30d0
+        SIH3I(i,j,k) = krome_x(krome_idx_SIH3) * idom * 31d0
         CNI(i,j,k) = krome_x(krome_idx_CN) * idom * 26d0
         COI(i,j,k) = krome_x(krome_idx_CO) * idom * 28d0
         N2I(i,j,k) = krome_x(krome_idx_N2) * idom * 28d0
@@ -507,11 +628,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH4I(i,j,k) = krome_x(krome_idx_CH4) * idom * 16d0
         NI(i,j,k) = krome_x(krome_idx_N) * idom * 14d0
         NHI(i,j,k) = krome_x(krome_idx_NH) * idom * 15d0
+        SIH4I(i,j,k) = krome_x(krome_idx_SIH4) * idom * 32d0
+        SIHI(i,j,k) = krome_x(krome_idx_SIH) * idom * 29d0
+        SIOI(i,j,k) = krome_x(krome_idx_SIO) * idom * 44d0
         HeI(i,j,k) = krome_x(krome_idx_HE) * idom * 4d0
         HNOI(i,j,k) = krome_x(krome_idx_HNO) * idom * 31d0
         CH3OHI(i,j,k) = krome_x(krome_idx_CH3OH) * idom * 32d0
         CO2I(i,j,k) = krome_x(krome_idx_CO2) * idom * 44d0
         H2CNI(i,j,k) = krome_x(krome_idx_H2CN) * idom * 28d0
+        H2SIOI(i,j,k) = krome_x(krome_idx_H2SIO) * idom * 46d0
         HNCOI(i,j,k) = krome_x(krome_idx_HNCO) * idom * 43d0
         NO2I(i,j,k) = krome_x(krome_idx_NO2) * idom * 46d0
         O2HI(i,j,k) = krome_x(krome_idx_O2H) * idom * 33d0
@@ -519,6 +644,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH3OH_DUSTI(i,j,k) = krome_x(krome_idx_CH3OH_DUST) * idom * 32d0
         HNCO_DUSTI(i,j,k) = krome_x(krome_idx_HNCO_DUST) * idom * 43d0
         H2CO_DUSTI(i,j,k) = krome_x(krome_idx_H2CO_DUST) * idom * 30d0
+        SIH4_DUSTI(i,j,k) = krome_x(krome_idx_SIH4_DUST) * idom * 32d0
+        H2SIO_DUSTI(i,j,k) = krome_x(krome_idx_H2SIO_DUST) * idom * 46d0
+        SIC_DUSTI(i,j,k) = krome_x(krome_idx_SIC_DUST) * idom * 40d0
+        SIC2_DUSTI(i,j,k) = krome_x(krome_idx_SIC2_DUST) * idom * 52d0
+        SIC3_DUSTI(i,j,k) = krome_x(krome_idx_SIC3_DUST) * idom * 64d0
         CH4_DUSTI(i,j,k) = krome_x(krome_idx_CH4_DUST) * idom * 16d0
         CO_DUSTI(i,j,k) = krome_x(krome_idx_CO_DUST) * idom * 28d0
         H2O_DUSTI(i,j,k) = krome_x(krome_idx_H2O_DUST) * idom * 18d0
@@ -535,6 +665,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MG_DUSTI(i,j,k) = krome_x(krome_idx_MG_DUST) * idom * 24d0
         HNC_DUSTI(i,j,k) = krome_x(krome_idx_HNC_DUST) * idom * 27d0
         E_DUSTI(i,j,k) = krome_x(krome_idx_E_DUST) * idom
+        SIO_DUSTI(i,j,k) = krome_x(krome_idx_SIO_DUST) * idom * 44d0
         HCOII(i,j,k) = krome_x(krome_idx_HCOj) * idom * 29d0
         HII(i,j,k) = krome_x(krome_idx_Hj) * idom
         HOCII(i,j,k) = krome_x(krome_idx_HOCj) * idom * 29d0
@@ -545,6 +676,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGII(i,j,k) = krome_x(krome_idx_MGj) * idom * 24d0
         NH3II(i,j,k) = krome_x(krome_idx_NH3j) * idom * 17d0
         NOII(i,j,k) = krome_x(krome_idx_NOj) * idom * 30d0
+        SIII(i,j,k) = krome_x(krome_idx_SIj) * idom * 28d0
+        SIC2II(i,j,k) = krome_x(krome_idx_SIC2j) * idom * 52d0
+        SIC3II(i,j,k) = krome_x(krome_idx_SIC3j) * idom * 64d0
+        SICII(i,j,k) = krome_x(krome_idx_SICj) * idom * 40d0
+        SIH2II(i,j,k) = krome_x(krome_idx_SIH2j) * idom * 30d0
+        SIH3II(i,j,k) = krome_x(krome_idx_SIH3j) * idom * 31d0
         CNII(i,j,k) = krome_x(krome_idx_CNj) * idom * 26d0
         COII(i,j,k) = krome_x(krome_idx_COj) * idom * 28d0
         N2II(i,j,k) = krome_x(krome_idx_N2j) * idom * 28d0
@@ -558,6 +695,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         NII(i,j,k) = krome_x(krome_idx_Nj) * idom * 14d0
         HCNII(i,j,k) = krome_x(krome_idx_HCNj) * idom * 27d0
         NHII(i,j,k) = krome_x(krome_idx_NHj) * idom * 15d0
+        SIH4II(i,j,k) = krome_x(krome_idx_SIH4j) * idom * 32d0
+        SIHII(i,j,k) = krome_x(krome_idx_SIHj) * idom * 29d0
+        SIOII(i,j,k) = krome_x(krome_idx_SIOj) * idom * 44d0
         H2II(i,j,k) = krome_x(krome_idx_H2j) * idom * 2d0
         HeII(i,j,k) = krome_x(krome_idx_HEj) * idom * 4d0
         HNOII(i,j,k) = krome_x(krome_idx_HNOj) * idom * 31d0
@@ -570,6 +710,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         HeHII(i,j,k) = krome_x(krome_idx_HEHj) * idom * 5d0
         N2HII(i,j,k) = krome_x(krome_idx_N2Hj) * idom * 29d0
         O2HII(i,j,k) = krome_x(krome_idx_O2Hj) * idom * 33d0
+        SIH5II(i,j,k) = krome_x(krome_idx_SIH5j) * idom * 33d0
+        SIOHII(i,j,k) = krome_x(krome_idx_SIOHj) * idom * 45d0
 
         !evaluate energy from temperature difference
         edot = (tgas - tgasold) * d(i,j,k) &
@@ -607,6 +749,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGI(i,j,k) = MGI(i,j,k) * factor
         NH3I(i,j,k) = NH3I(i,j,k) * factor
         NOI(i,j,k) = NOI(i,j,k) * factor
+        SII(i,j,k) = SII(i,j,k) * factor
+        SIC2I(i,j,k) = SIC2I(i,j,k) * factor
+        SIC3I(i,j,k) = SIC3I(i,j,k) * factor
+        SICI(i,j,k) = SICI(i,j,k) * factor
+        SIH2I(i,j,k) = SIH2I(i,j,k) * factor
+        SIH3I(i,j,k) = SIH3I(i,j,k) * factor
         CNI(i,j,k) = CNI(i,j,k) * factor
         COI(i,j,k) = COI(i,j,k) * factor
         N2I(i,j,k) = N2I(i,j,k) * factor
@@ -615,11 +763,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH4I(i,j,k) = CH4I(i,j,k) * factor
         NI(i,j,k) = NI(i,j,k) * factor
         NHI(i,j,k) = NHI(i,j,k) * factor
+        SIH4I(i,j,k) = SIH4I(i,j,k) * factor
+        SIHI(i,j,k) = SIHI(i,j,k) * factor
+        SIOI(i,j,k) = SIOI(i,j,k) * factor
         HeI(i,j,k) = HeI(i,j,k) * factor
         HNOI(i,j,k) = HNOI(i,j,k) * factor
         CH3OHI(i,j,k) = CH3OHI(i,j,k) * factor
         CO2I(i,j,k) = CO2I(i,j,k) * factor
         H2CNI(i,j,k) = H2CNI(i,j,k) * factor
+        H2SIOI(i,j,k) = H2SIOI(i,j,k) * factor
         HNCOI(i,j,k) = HNCOI(i,j,k) * factor
         NO2I(i,j,k) = NO2I(i,j,k) * factor
         O2HI(i,j,k) = O2HI(i,j,k) * factor
@@ -627,6 +779,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH3OH_DUSTI(i,j,k) = CH3OH_DUSTI(i,j,k) * factor
         HNCO_DUSTI(i,j,k) = HNCO_DUSTI(i,j,k) * factor
         H2CO_DUSTI(i,j,k) = H2CO_DUSTI(i,j,k) * factor
+        SIH4_DUSTI(i,j,k) = SIH4_DUSTI(i,j,k) * factor
+        H2SIO_DUSTI(i,j,k) = H2SIO_DUSTI(i,j,k) * factor
+        SIC_DUSTI(i,j,k) = SIC_DUSTI(i,j,k) * factor
+        SIC2_DUSTI(i,j,k) = SIC2_DUSTI(i,j,k) * factor
+        SIC3_DUSTI(i,j,k) = SIC3_DUSTI(i,j,k) * factor
         CH4_DUSTI(i,j,k) = CH4_DUSTI(i,j,k) * factor
         CO_DUSTI(i,j,k) = CO_DUSTI(i,j,k) * factor
         H2O_DUSTI(i,j,k) = H2O_DUSTI(i,j,k) * factor
@@ -643,6 +800,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MG_DUSTI(i,j,k) = MG_DUSTI(i,j,k) * factor
         HNC_DUSTI(i,j,k) = HNC_DUSTI(i,j,k) * factor
         E_DUSTI(i,j,k) = E_DUSTI(i,j,k) * factor
+        SIO_DUSTI(i,j,k) = SIO_DUSTI(i,j,k) * factor
         HCOII(i,j,k) = HCOII(i,j,k) * factor
         HII(i,j,k) = HII(i,j,k) * factor
         HOCII(i,j,k) = HOCII(i,j,k) * factor
@@ -653,6 +811,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGII(i,j,k) = MGII(i,j,k) * factor
         NH3II(i,j,k) = NH3II(i,j,k) * factor
         NOII(i,j,k) = NOII(i,j,k) * factor
+        SIII(i,j,k) = SIII(i,j,k) * factor
+        SIC2II(i,j,k) = SIC2II(i,j,k) * factor
+        SIC3II(i,j,k) = SIC3II(i,j,k) * factor
+        SICII(i,j,k) = SICII(i,j,k) * factor
+        SIH2II(i,j,k) = SIH2II(i,j,k) * factor
+        SIH3II(i,j,k) = SIH3II(i,j,k) * factor
         CNII(i,j,k) = CNII(i,j,k) * factor
         COII(i,j,k) = COII(i,j,k) * factor
         N2II(i,j,k) = N2II(i,j,k) * factor
@@ -666,6 +830,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         NII(i,j,k) = NII(i,j,k) * factor
         HCNII(i,j,k) = HCNII(i,j,k) * factor
         NHII(i,j,k) = NHII(i,j,k) * factor
+        SIH4II(i,j,k) = SIH4II(i,j,k) * factor
+        SIHII(i,j,k) = SIHII(i,j,k) * factor
+        SIOII(i,j,k) = SIOII(i,j,k) * factor
         H2II(i,j,k) = H2II(i,j,k) * factor
         HeII(i,j,k) = HeII(i,j,k) * factor
         HNOII(i,j,k) = HNOII(i,j,k) * factor
@@ -678,6 +845,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         HeHII(i,j,k) = HeHII(i,j,k) * factor
         N2HII(i,j,k) = N2HII(i,j,k) * factor
         O2HII(i,j,k) = O2HII(i,j,k) * factor
+        SIH5II(i,j,k) = SIH5II(i,j,k) * factor
+        SIOHII(i,j,k) = SIOHII(i,j,k) * factor
 
         !mimimal value check
         De(i,j,k) = max(De(i,j,k), krome_tiny)
@@ -697,6 +866,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGI(i,j,k) = max(MGI(i,j,k), krome_tiny)
         NH3I(i,j,k) = max(NH3I(i,j,k), krome_tiny)
         NOI(i,j,k) = max(NOI(i,j,k), krome_tiny)
+        SII(i,j,k) = max(SII(i,j,k), krome_tiny)
+        SIC2I(i,j,k) = max(SIC2I(i,j,k), krome_tiny)
+        SIC3I(i,j,k) = max(SIC3I(i,j,k), krome_tiny)
+        SICI(i,j,k) = max(SICI(i,j,k), krome_tiny)
+        SIH2I(i,j,k) = max(SIH2I(i,j,k), krome_tiny)
+        SIH3I(i,j,k) = max(SIH3I(i,j,k), krome_tiny)
         CNI(i,j,k) = max(CNI(i,j,k), krome_tiny)
         COI(i,j,k) = max(COI(i,j,k), krome_tiny)
         N2I(i,j,k) = max(N2I(i,j,k), krome_tiny)
@@ -705,11 +880,15 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH4I(i,j,k) = max(CH4I(i,j,k), krome_tiny)
         NI(i,j,k) = max(NI(i,j,k), krome_tiny)
         NHI(i,j,k) = max(NHI(i,j,k), krome_tiny)
+        SIH4I(i,j,k) = max(SIH4I(i,j,k), krome_tiny)
+        SIHI(i,j,k) = max(SIHI(i,j,k), krome_tiny)
+        SIOI(i,j,k) = max(SIOI(i,j,k), krome_tiny)
         HeI(i,j,k) = max(HeI(i,j,k), krome_tiny)
         HNOI(i,j,k) = max(HNOI(i,j,k), krome_tiny)
         CH3OHI(i,j,k) = max(CH3OHI(i,j,k), krome_tiny)
         CO2I(i,j,k) = max(CO2I(i,j,k), krome_tiny)
         H2CNI(i,j,k) = max(H2CNI(i,j,k), krome_tiny)
+        H2SIOI(i,j,k) = max(H2SIOI(i,j,k), krome_tiny)
         HNCOI(i,j,k) = max(HNCOI(i,j,k), krome_tiny)
         NO2I(i,j,k) = max(NO2I(i,j,k), krome_tiny)
         O2HI(i,j,k) = max(O2HI(i,j,k), krome_tiny)
@@ -717,6 +896,11 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         CH3OH_DUSTI(i,j,k) = max(CH3OH_DUSTI(i,j,k), krome_tiny)
         HNCO_DUSTI(i,j,k) = max(HNCO_DUSTI(i,j,k), krome_tiny)
         H2CO_DUSTI(i,j,k) = max(H2CO_DUSTI(i,j,k), krome_tiny)
+        SIH4_DUSTI(i,j,k) = max(SIH4_DUSTI(i,j,k), krome_tiny)
+        H2SIO_DUSTI(i,j,k) = max(H2SIO_DUSTI(i,j,k), krome_tiny)
+        SIC_DUSTI(i,j,k) = max(SIC_DUSTI(i,j,k), krome_tiny)
+        SIC2_DUSTI(i,j,k) = max(SIC2_DUSTI(i,j,k), krome_tiny)
+        SIC3_DUSTI(i,j,k) = max(SIC3_DUSTI(i,j,k), krome_tiny)
         CH4_DUSTI(i,j,k) = max(CH4_DUSTI(i,j,k), krome_tiny)
         CO_DUSTI(i,j,k) = max(CO_DUSTI(i,j,k), krome_tiny)
         H2O_DUSTI(i,j,k) = max(H2O_DUSTI(i,j,k), krome_tiny)
@@ -733,6 +917,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MG_DUSTI(i,j,k) = max(MG_DUSTI(i,j,k), krome_tiny)
         HNC_DUSTI(i,j,k) = max(HNC_DUSTI(i,j,k), krome_tiny)
         E_DUSTI(i,j,k) = max(E_DUSTI(i,j,k), krome_tiny)
+        SIO_DUSTI(i,j,k) = max(SIO_DUSTI(i,j,k), krome_tiny)
         HCOII(i,j,k) = max(HCOII(i,j,k), krome_tiny)
         HII(i,j,k) = max(HII(i,j,k), krome_tiny)
         HOCII(i,j,k) = max(HOCII(i,j,k), krome_tiny)
@@ -743,6 +928,12 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         MGII(i,j,k) = max(MGII(i,j,k), krome_tiny)
         NH3II(i,j,k) = max(NH3II(i,j,k), krome_tiny)
         NOII(i,j,k) = max(NOII(i,j,k), krome_tiny)
+        SIII(i,j,k) = max(SIII(i,j,k), krome_tiny)
+        SIC2II(i,j,k) = max(SIC2II(i,j,k), krome_tiny)
+        SIC3II(i,j,k) = max(SIC3II(i,j,k), krome_tiny)
+        SICII(i,j,k) = max(SICII(i,j,k), krome_tiny)
+        SIH2II(i,j,k) = max(SIH2II(i,j,k), krome_tiny)
+        SIH3II(i,j,k) = max(SIH3II(i,j,k), krome_tiny)
         CNII(i,j,k) = max(CNII(i,j,k), krome_tiny)
         COII(i,j,k) = max(COII(i,j,k), krome_tiny)
         N2II(i,j,k) = max(N2II(i,j,k), krome_tiny)
@@ -756,6 +947,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         NII(i,j,k) = max(NII(i,j,k), krome_tiny)
         HCNII(i,j,k) = max(HCNII(i,j,k), krome_tiny)
         NHII(i,j,k) = max(NHII(i,j,k), krome_tiny)
+        SIH4II(i,j,k) = max(SIH4II(i,j,k), krome_tiny)
+        SIHII(i,j,k) = max(SIHII(i,j,k), krome_tiny)
+        SIOII(i,j,k) = max(SIOII(i,j,k), krome_tiny)
         H2II(i,j,k) = max(H2II(i,j,k), krome_tiny)
         HeII(i,j,k) = max(HeII(i,j,k), krome_tiny)
         HNOII(i,j,k) = max(HNOII(i,j,k), krome_tiny)
@@ -768,6 +962,8 @@ subroutine krome_driver(d, e, ge, u, v, w, &
         HeHII(i,j,k) = max(HeHII(i,j,k), krome_tiny)
         N2HII(i,j,k) = max(N2HII(i,j,k), krome_tiny)
         O2HII(i,j,k) = max(O2HII(i,j,k), krome_tiny)
+        SIH5II(i,j,k) = max(SIH5II(i,j,k), krome_tiny)
+        SIOHII(i,j,k) = max(SIOHII(i,j,k), krome_tiny)
 
       end do
     end do

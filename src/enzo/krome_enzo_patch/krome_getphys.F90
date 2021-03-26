@@ -58,81 +58,108 @@ contains
     get_mass(15) = 4.01523902183d-23	!MG
     get_mass(16) = 2.84428251819d-23	!NH3
     get_mass(17) = 5.01904877728d-23	!NO
-    get_mass(18) = 4.34984227364d-23	!CN
-    get_mass(19) = 4.68444552546d-23	!CO
-    get_mass(20) = 4.68444552546d-23	!N2
-    get_mass(21) = 2.67692926637d-23	!NH2
-    get_mass(22) = 2.50967926637d-23	!CH3
-    get_mass(23) = 2.67703251819d-23	!CH4
-    get_mass(24) = 2.34222276273d-23	!N
-    get_mass(25) = 2.50957601455d-23	!NH
-    get_mass(26) = 6.69206503638d-24	!HE
-    get_mass(27) = 5.1864020291d-23	!HNO
-    get_mass(28) = 5.35385853274d-23	!CH3OH
-    get_mass(29) = 7.36127154001d-23	!CO2
-    get_mass(30) = 4.68454877728d-23	!H2CN
-    get_mass(31) = 7.19402154001d-23	!HNCO
-    get_mass(32) = 7.69587479183d-23	!NO2
-    get_mass(33) = 5.52100528092d-23	!O2H
-    get_mass(34) = 7.02666828819d-23	!OCN
-    get_mass(35) = 5.35385853274d-23	!CH3OH_DUST
-    get_mass(36) = 7.19402154001d-23	!HNCO_DUST
-    get_mass(37) = 5.0191520291d-23	!H2CO_DUST
-    get_mass(38) = 2.67703251819d-23	!CH4_DUST
-    get_mass(39) = 4.68444552546d-23	!CO_DUST
-    get_mass(40) = 3.01153251819d-23	!H2O_DUST
-    get_mass(41) = 5.01904877728d-23	!NO_DUST
-    get_mass(42) = 7.36127154001d-23	!CO2_DUST
-    get_mass(43) = 4.68444552546d-23	!N2_DUST
-    get_mass(44) = 4.51719552546d-23	!HCN_DUST
-    get_mass(45) = 2.84428251819d-23	!NH3_DUST
-    get_mass(46) = 5.3536520291d-23	!O2_DUST
-    get_mass(47) = 7.69587479183d-23	!NO2_DUST
-    get_mass(48) = 5.1864020291d-23	!HNO_DUST
-    get_mass(49) = 5.52100528092d-23	!O2H_DUST
-    get_mass(50) = 4.68454877728d-23	!H2CN_DUST
-    get_mass(51) = 4.01523902183d-23	!MG_DUST
-    get_mass(52) = 4.51719552546d-23	!HNC_DUST
-    get_mass(53) = 9.10938188d-28	!E_DUST
-    get_mass(54) = 4.85170768346d-23	!HCO+
-    get_mass(55) = 1.67262158d-24	!H+
-    get_mass(56) = 4.85170768346d-23	!HOC+
-    get_mass(57) = 2.00752841709d-23	!C+
-    get_mass(58) = 2.34223492073d-23	!CH2+
-    get_mass(59) = 2.17488166891d-23	!CH+
-    get_mass(60) = 5.01906093528d-23	!H2CO+
-    get_mass(61) = 4.01514792801d-23	!MG+
-    get_mass(62) = 2.84419142437d-23	!NH3+
-    get_mass(63) = 5.01895768346d-23	!NO+
-    get_mass(64) = 4.34975117983d-23	!CN+
-    get_mass(65) = 4.68435443164d-23	!CO+
-    get_mass(66) = 4.68435443164d-23	!N2+
-    get_mass(67) = 5.35356093528d-23	!O2+
-    get_mass(68) = 3.01144142437d-23	!H2O+
-    get_mass(69) = 2.67683817255d-23	!NH2+
-    get_mass(70) = 2.67673492073d-23	!O+
-    get_mass(71) = 2.84408817255d-23	!OH+
-    get_mass(72) = 2.50958817255d-23	!CH3+
-    get_mass(73) = 2.67694142437d-23	!CH4+
-    get_mass(74) = 2.34213166891d-23	!N+
-    get_mass(75) = 4.51710443164d-23	!HCN+
-    get_mass(76) = 2.50948492073d-23	!NH+
-    get_mass(77) = 3.34615409819d-24	!H2+
-    get_mass(78) = 6.69115409819d-24	!HE+
-    get_mass(79) = 5.18631093528d-23	!HNO+
-    get_mass(80) = 5.3536641871d-23	!H2NO+
-    get_mass(81) = 5.01968661638d-24	!H3+
-    get_mass(82) = 5.1864141871d-23	!H3CO+
-    get_mass(83) = 3.17879467619d-23	!H3O+
-    get_mass(84) = 4.68445768346d-23	!HCNH+
-    get_mass(85) = 7.52853369801d-23	!HCO2+
-    get_mass(86) = 8.36468661638d-24	!HEH+
-    get_mass(87) = 4.85170768346d-23	!N2H+
-    get_mass(88) = 5.5209141871d-23	!O2H+
-    get_mass(89) = 0.d0	!CR
-    get_mass(90) = 0.d0	!g
-    get_mass(91) = 0.d0	!Tgas
-    get_mass(92) = 0.d0	!dummy
+    get_mass(18) = 4.68444552546d-23	!SI
+    get_mass(19) = 8.69968454729d-23	!SIC2
+    get_mass(20) = 1.07073040582d-22	!SIC3
+    get_mass(21) = 6.69206503638d-23	!SIC
+    get_mass(22) = 5.0191520291d-23	!SIH2
+    get_mass(23) = 5.18650528092d-23	!SIH3
+    get_mass(24) = 4.34984227364d-23	!CN
+    get_mass(25) = 4.68444552546d-23	!CO
+    get_mass(26) = 4.68444552546d-23	!N2
+    get_mass(27) = 2.67692926637d-23	!NH2
+    get_mass(28) = 2.50967926637d-23	!CH3
+    get_mass(29) = 2.67703251819d-23	!CH4
+    get_mass(30) = 2.34222276273d-23	!N
+    get_mass(31) = 2.50957601455d-23	!NH
+    get_mass(32) = 5.35385853274d-23	!SIH4
+    get_mass(33) = 4.85179877728d-23	!SIH
+    get_mass(34) = 7.36127154001d-23	!SIO
+    get_mass(35) = 6.69206503638d-24	!HE
+    get_mass(36) = 5.1864020291d-23	!HNO
+    get_mass(37) = 5.35385853274d-23	!CH3OH
+    get_mass(38) = 7.36127154001d-23	!CO2
+    get_mass(39) = 4.68454877728d-23	!H2CN
+    get_mass(40) = 7.69597804365d-23	!H2SIO
+    get_mass(41) = 7.19402154001d-23	!HNCO
+    get_mass(42) = 7.69587479183d-23	!NO2
+    get_mass(43) = 5.52100528092d-23	!O2H
+    get_mass(44) = 7.02666828819d-23	!OCN
+    get_mass(45) = 5.35385853274d-23	!CH3OH_DUST
+    get_mass(46) = 7.19402154001d-23	!HNCO_DUST
+    get_mass(47) = 5.0191520291d-23	!H2CO_DUST
+    get_mass(48) = 5.35385853274d-23	!SIH4_DUST
+    get_mass(49) = 7.69597804365d-23	!H2SIO_DUST
+    get_mass(50) = 6.69206503638d-23	!SIC_DUST
+    get_mass(51) = 8.69968454729d-23	!SIC2_DUST
+    get_mass(52) = 1.07073040582d-22	!SIC3_DUST
+    get_mass(53) = 2.67703251819d-23	!CH4_DUST
+    get_mass(54) = 4.68444552546d-23	!CO_DUST
+    get_mass(55) = 3.01153251819d-23	!H2O_DUST
+    get_mass(56) = 5.01904877728d-23	!NO_DUST
+    get_mass(57) = 7.36127154001d-23	!CO2_DUST
+    get_mass(58) = 4.68444552546d-23	!N2_DUST
+    get_mass(59) = 4.51719552546d-23	!HCN_DUST
+    get_mass(60) = 2.84428251819d-23	!NH3_DUST
+    get_mass(61) = 5.3536520291d-23	!O2_DUST
+    get_mass(62) = 7.69587479183d-23	!NO2_DUST
+    get_mass(63) = 5.1864020291d-23	!HNO_DUST
+    get_mass(64) = 5.52100528092d-23	!O2H_DUST
+    get_mass(65) = 4.68454877728d-23	!H2CN_DUST
+    get_mass(66) = 4.01523902183d-23	!MG_DUST
+    get_mass(67) = 4.51719552546d-23	!HNC_DUST
+    get_mass(68) = 9.10938188d-28	!E_DUST
+    get_mass(69) = 7.36127154001d-23	!SIO_DUST
+    get_mass(70) = 4.85170768346d-23	!HCO+
+    get_mass(71) = 1.67262158d-24	!H+
+    get_mass(72) = 4.85170768346d-23	!HOC+
+    get_mass(73) = 2.00752841709d-23	!C+
+    get_mass(74) = 2.34223492073d-23	!CH2+
+    get_mass(75) = 2.17488166891d-23	!CH+
+    get_mass(76) = 5.01906093528d-23	!H2CO+
+    get_mass(77) = 4.01514792801d-23	!MG+
+    get_mass(78) = 2.84419142437d-23	!NH3+
+    get_mass(79) = 5.01895768346d-23	!NO+
+    get_mass(80) = 4.68435443164d-23	!SI+
+    get_mass(81) = 8.69959345347d-23	!SIC2+
+    get_mass(82) = 1.07072129644d-22	!SIC3+
+    get_mass(83) = 6.69197394256d-23	!SIC+
+    get_mass(84) = 5.01906093528d-23	!SIH2+
+    get_mass(85) = 5.1864141871d-23	!SIH3+
+    get_mass(86) = 4.34975117983d-23	!CN+
+    get_mass(87) = 4.68435443164d-23	!CO+
+    get_mass(88) = 4.68435443164d-23	!N2+
+    get_mass(89) = 5.35356093528d-23	!O2+
+    get_mass(90) = 3.01144142437d-23	!H2O+
+    get_mass(91) = 2.67683817255d-23	!NH2+
+    get_mass(92) = 2.67673492073d-23	!O+
+    get_mass(93) = 2.84408817255d-23	!OH+
+    get_mass(94) = 2.50958817255d-23	!CH3+
+    get_mass(95) = 2.67694142437d-23	!CH4+
+    get_mass(96) = 2.34213166891d-23	!N+
+    get_mass(97) = 4.51710443164d-23	!HCN+
+    get_mass(98) = 2.50948492073d-23	!NH+
+    get_mass(99) = 5.35376743892d-23	!SIH4+
+    get_mass(100) = 4.85170768346d-23	!SIH+
+    get_mass(101) = 7.36118044619d-23	!SIO+
+    get_mass(102) = 3.34615409819d-24	!H2+
+    get_mass(103) = 6.69115409819d-24	!HE+
+    get_mass(104) = 5.18631093528d-23	!HNO+
+    get_mass(105) = 5.3536641871d-23	!H2NO+
+    get_mass(106) = 5.01968661638d-24	!H3+
+    get_mass(107) = 5.1864141871d-23	!H3CO+
+    get_mass(108) = 3.17879467619d-23	!H3O+
+    get_mass(109) = 4.68445768346d-23	!HCNH+
+    get_mass(110) = 7.52853369801d-23	!HCO2+
+    get_mass(111) = 8.36468661638d-24	!HEH+
+    get_mass(112) = 4.85170768346d-23	!N2H+
+    get_mass(113) = 5.5209141871d-23	!O2H+
+    get_mass(114) = 5.52112069074d-23	!SIH5+
+    get_mass(115) = 7.52853369801d-23	!SIOH+
+    get_mass(116) = 0.d0	!CR
+    get_mass(117) = 0.d0	!g
+    get_mass(118) = 0.d0	!Tgas
+    get_mass(119) = 0.d0	!dummy
 
   end function get_mass
 
@@ -160,81 +187,108 @@ contains
     get_imass_sqrt(15) = 1.57813553259d+11	!MG
     get_imass_sqrt(16) = 1.87505337153d+11	!NH3
     get_imass_sqrt(17) = 1.41152733144d+11	!NO
-    get_imass_sqrt(18) = 1.51622357573d+11	!CN
-    get_imass_sqrt(19) = 1.46106959624d+11	!CO
-    get_imass_sqrt(20) = 1.46106959624d+11	!N2
-    get_imass_sqrt(21) = 1.93277612428d+11	!NH2
-    get_imass_sqrt(22) = 1.99613949989d+11	!CH3
-    get_imass_sqrt(23) = 1.93273885081d+11	!CH4
-    get_imass_sqrt(24) = 2.06626443857d+11	!N
-    get_imass_sqrt(25) = 1.99618056318d+11	!NH
-    get_imass_sqrt(26) = 3.86562679981d+11	!HE
-    get_imass_sqrt(27) = 1.38856722679d+11	!HNO
-    get_imass_sqrt(28) = 1.36667910399d+11	!CH3OH
-    get_imass_sqrt(29) = 1.16553033405d+11	!CO2
-    get_imass_sqrt(30) = 1.46105349448d+11	!H2CN
-    get_imass_sqrt(31) = 1.17900089041d+11	!HNCO
-    get_imass_sqrt(32) = 1.13991115426d+11	!NO2
-    get_imass_sqrt(33) = 1.34583221186d+11	!O2H
-    get_imass_sqrt(34) = 1.19295832983d+11	!OCN
-    get_imass_sqrt(35) = 1.36667910399d+11	!CH3OH_DUST
-    get_imass_sqrt(36) = 1.17900089041d+11	!HNCO_DUST
-    get_imass_sqrt(37) = 1.4115128127d+11	!H2CO_DUST
-    get_imass_sqrt(38) = 1.93273885081d+11	!CH4_DUST
-    get_imass_sqrt(39) = 1.46106959624d+11	!CO_DUST
-    get_imass_sqrt(40) = 1.82224271009d+11	!H2O_DUST
-    get_imass_sqrt(41) = 1.41152733144d+11	!NO_DUST
-    get_imass_sqrt(42) = 1.16553033405d+11	!CO2_DUST
-    get_imass_sqrt(43) = 1.46106959624d+11	!N2_DUST
-    get_imass_sqrt(44) = 1.48787194664d+11	!HCN_DUST
-    get_imass_sqrt(45) = 1.87505337153d+11	!NH3_DUST
-    get_imass_sqrt(46) = 1.36670546184d+11	!O2_DUST
-    get_imass_sqrt(47) = 1.13991115426d+11	!NO2_DUST
-    get_imass_sqrt(48) = 1.38856722679d+11	!HNO_DUST
-    get_imass_sqrt(49) = 1.34583221186d+11	!O2H_DUST
-    get_imass_sqrt(50) = 1.46105349448d+11	!H2CN_DUST
-    get_imass_sqrt(51) = 1.57813553259d+11	!MG_DUST
-    get_imass_sqrt(52) = 1.48787194664d+11	!HNC_DUST
-    get_imass_sqrt(53) = 3.31326021505d+13	!E_DUST
-    get_imass_sqrt(54) = 1.43566359113d+11	!HCO+
-    get_imass_sqrt(55) = 7.732165696d+11	!H+
-    get_imass_sqrt(56) = 1.43566359113d+11	!HOC+
-    get_imass_sqrt(57) = 2.23187130855d+11	!C+
-    get_imass_sqrt(58) = 2.06625907582d+11	!CH2+
-    get_imass_sqrt(59) = 2.14428340044d+11	!CH+
-    get_imass_sqrt(60) = 1.41152562182d+11	!H2CO+
-    get_imass_sqrt(61) = 1.5781534345d+11	!MG+
-    get_imass_sqrt(62) = 1.87508339841d+11	!NH3+
-    get_imass_sqrt(63) = 1.41154014095d+11	!NO+
-    get_imass_sqrt(64) = 1.51623945226d+11	!CN+
-    get_imass_sqrt(65) = 1.46108380244d+11	!CO+
-    get_imass_sqrt(66) = 1.46108380244d+11	!N2+
-    get_imass_sqrt(67) = 1.36671708942d+11	!O2+
-    get_imass_sqrt(68) = 1.82227027061d+11	!H2O+
-    get_imass_sqrt(69) = 1.93280901055d+11	!NH2+
-    get_imass_sqrt(70) = 1.93284628808d+11	!O+
-    get_imass_sqrt(71) = 1.87511743463d+11	!OH+
-    get_imass_sqrt(72) = 1.99617572781d+11	!CH3+
-    get_imass_sqrt(73) = 1.93277173518d+11	!CH4+
-    get_imass_sqrt(74) = 2.06630462037d+11	!N+
-    get_imass_sqrt(75) = 1.48788694909d+11	!HCN+
-    get_imass_sqrt(76) = 1.99621679333d+11	!NH+
-    get_imass_sqrt(77) = 5.46672253003d+11	!H2+
-    get_imass_sqrt(78) = 3.86588992536d+11	!HE+
-    get_imass_sqrt(79) = 1.38857942133d+11	!HNO+
-    get_imass_sqrt(80) = 1.36670390997d+11	!H2NO+
-    get_imass_sqrt(81) = 4.463357746d+11	!H3+
-    get_imass_sqrt(82) = 1.38856559925d+11	!H3CO+
-    get_imass_sqrt(83) = 1.77365342346d+11	!H3O+
-    get_imass_sqrt(84) = 1.46106770022d+11	!HCNH+
-    get_imass_sqrt(85) = 1.15251026098d+11	!HCO2+
-    get_imass_sqrt(86) = 3.45760328884d+11	!HEH+
-    get_imass_sqrt(87) = 1.43566359113d+11	!N2H+
-    get_imass_sqrt(88) = 1.34584331478d+11	!O2H+
-    get_imass_sqrt(89) = 0.d0	!CR
-    get_imass_sqrt(90) = 0.d0	!g
-    get_imass_sqrt(91) = 0.d0	!Tgas
-    get_imass_sqrt(92) = 0.d0	!dummy
+    get_imass_sqrt(18) = 1.46106959624d+11	!SI
+    get_imass_sqrt(19) = 1.07213197219d+11	!SIC2
+    get_imass_sqrt(20) = 96640669995.3	!SIC3
+    get_imass_sqrt(21) = 1.22241852716d+11	!SIC
+    get_imass_sqrt(22) = 1.4115128127d+11	!SIH2
+    get_imass_sqrt(23) = 1.38855340508d+11	!SIH3
+    get_imass_sqrt(24) = 1.51622357573d+11	!CN
+    get_imass_sqrt(25) = 1.46106959624d+11	!CO
+    get_imass_sqrt(26) = 1.46106959624d+11	!N2
+    get_imass_sqrt(27) = 1.93277612428d+11	!NH2
+    get_imass_sqrt(28) = 1.99613949989d+11	!CH3
+    get_imass_sqrt(29) = 1.93273885081d+11	!CH4
+    get_imass_sqrt(30) = 2.06626443857d+11	!N
+    get_imass_sqrt(31) = 1.99618056318d+11	!NH
+    get_imass_sqrt(32) = 1.36667910399d+11	!SIH4
+    get_imass_sqrt(33) = 1.43565011358d+11	!SIH
+    get_imass_sqrt(34) = 1.16553033405d+11	!SIO
+    get_imass_sqrt(35) = 3.86562679981d+11	!HE
+    get_imass_sqrt(36) = 1.38856722679d+11	!HNO
+    get_imass_sqrt(37) = 1.36667910399d+11	!CH3OH
+    get_imass_sqrt(38) = 1.16553033405d+11	!CO2
+    get_imass_sqrt(39) = 1.46105349448d+11	!H2CN
+    get_imass_sqrt(40) = 1.13990350752d+11	!H2SIO
+    get_imass_sqrt(41) = 1.17900089041d+11	!HNCO
+    get_imass_sqrt(42) = 1.13991115426d+11	!NO2
+    get_imass_sqrt(43) = 1.34583221186d+11	!O2H
+    get_imass_sqrt(44) = 1.19295832983d+11	!OCN
+    get_imass_sqrt(45) = 1.36667910399d+11	!CH3OH_DUST
+    get_imass_sqrt(46) = 1.17900089041d+11	!HNCO_DUST
+    get_imass_sqrt(47) = 1.4115128127d+11	!H2CO_DUST
+    get_imass_sqrt(48) = 1.36667910399d+11	!SIH4_DUST
+    get_imass_sqrt(49) = 1.13990350752d+11	!H2SIO_DUST
+    get_imass_sqrt(50) = 1.22241852716d+11	!SIC_DUST
+    get_imass_sqrt(51) = 1.07213197219d+11	!SIC2_DUST
+    get_imass_sqrt(52) = 96640669995.3	!SIC3_DUST
+    get_imass_sqrt(53) = 1.93273885081d+11	!CH4_DUST
+    get_imass_sqrt(54) = 1.46106959624d+11	!CO_DUST
+    get_imass_sqrt(55) = 1.82224271009d+11	!H2O_DUST
+    get_imass_sqrt(56) = 1.41152733144d+11	!NO_DUST
+    get_imass_sqrt(57) = 1.16553033405d+11	!CO2_DUST
+    get_imass_sqrt(58) = 1.46106959624d+11	!N2_DUST
+    get_imass_sqrt(59) = 1.48787194664d+11	!HCN_DUST
+    get_imass_sqrt(60) = 1.87505337153d+11	!NH3_DUST
+    get_imass_sqrt(61) = 1.36670546184d+11	!O2_DUST
+    get_imass_sqrt(62) = 1.13991115426d+11	!NO2_DUST
+    get_imass_sqrt(63) = 1.38856722679d+11	!HNO_DUST
+    get_imass_sqrt(64) = 1.34583221186d+11	!O2H_DUST
+    get_imass_sqrt(65) = 1.46105349448d+11	!H2CN_DUST
+    get_imass_sqrt(66) = 1.57813553259d+11	!MG_DUST
+    get_imass_sqrt(67) = 1.48787194664d+11	!HNC_DUST
+    get_imass_sqrt(68) = 3.31326021505d+13	!E_DUST
+    get_imass_sqrt(69) = 1.16553033405d+11	!SIO_DUST
+    get_imass_sqrt(70) = 1.43566359113d+11	!HCO+
+    get_imass_sqrt(71) = 7.732165696d+11	!H+
+    get_imass_sqrt(72) = 1.43566359113d+11	!HOC+
+    get_imass_sqrt(73) = 2.23187130855d+11	!C+
+    get_imass_sqrt(74) = 2.06625907582d+11	!CH2+
+    get_imass_sqrt(75) = 2.14428340044d+11	!CH+
+    get_imass_sqrt(76) = 1.41152562182d+11	!H2CO+
+    get_imass_sqrt(77) = 1.5781534345d+11	!MG+
+    get_imass_sqrt(78) = 1.87508339841d+11	!NH3+
+    get_imass_sqrt(79) = 1.41154014095d+11	!NO+
+    get_imass_sqrt(80) = 1.46108380244d+11	!SI+
+    get_imass_sqrt(81) = 1.07213758535d+11	!SIC2+
+    get_imass_sqrt(82) = 96641081089.6	!SIC3+
+    get_imass_sqrt(83) = 1.22242684716d+11	!SIC+
+    get_imass_sqrt(84) = 1.41152562182d+11	!SIH2+
+    get_imass_sqrt(85) = 1.38856559925d+11	!SIH3+
+    get_imass_sqrt(86) = 1.51623945226d+11	!CN+
+    get_imass_sqrt(87) = 1.46108380244d+11	!CO+
+    get_imass_sqrt(88) = 1.46108380244d+11	!N2+
+    get_imass_sqrt(89) = 1.36671708942d+11	!O2+
+    get_imass_sqrt(90) = 1.82227027061d+11	!H2O+
+    get_imass_sqrt(91) = 1.93280901055d+11	!NH2+
+    get_imass_sqrt(92) = 1.93284628808d+11	!O+
+    get_imass_sqrt(93) = 1.87511743463d+11	!OH+
+    get_imass_sqrt(94) = 1.99617572781d+11	!CH3+
+    get_imass_sqrt(95) = 1.93277173518d+11	!CH4+
+    get_imass_sqrt(96) = 2.06630462037d+11	!N+
+    get_imass_sqrt(97) = 1.48788694909d+11	!HCN+
+    get_imass_sqrt(98) = 1.99621679333d+11	!NH+
+    get_imass_sqrt(99) = 1.3666907309d+11	!SIH4+
+    get_imass_sqrt(100) = 1.43566359113d+11	!SIH+
+    get_imass_sqrt(101) = 1.16553754568d+11	!SIO+
+    get_imass_sqrt(102) = 5.46672253003d+11	!H2+
+    get_imass_sqrt(103) = 3.86588992536d+11	!HE+
+    get_imass_sqrt(104) = 1.38857942133d+11	!HNO+
+    get_imass_sqrt(105) = 1.36670390997d+11	!H2NO+
+    get_imass_sqrt(106) = 4.463357746d+11	!H3+
+    get_imass_sqrt(107) = 1.38856559925d+11	!H3CO+
+    get_imass_sqrt(108) = 1.77365342346d+11	!H3O+
+    get_imass_sqrt(109) = 1.46106770022d+11	!HCNH+
+    get_imass_sqrt(110) = 1.15251026098d+11	!HCO2+
+    get_imass_sqrt(111) = 3.45760328884d+11	!HEH+
+    get_imass_sqrt(112) = 1.43566359113d+11	!N2H+
+    get_imass_sqrt(113) = 1.34584331478d+11	!O2H+
+    get_imass_sqrt(114) = 1.3458181456d+11	!SIH5+
+    get_imass_sqrt(115) = 1.15251026098d+11	!SIOH+
+    get_imass_sqrt(116) = 0.d0	!CR
+    get_imass_sqrt(117) = 0.d0	!g
+    get_imass_sqrt(118) = 0.d0	!Tgas
+    get_imass_sqrt(119) = 0.d0	!dummy
 
   end function get_imass_sqrt
 
@@ -262,81 +316,108 @@ contains
     get_imass(15) = 2.49051175924d+22	!MG
     get_imass(16) = 3.51582514608d+22	!NH3
     get_imass(17) = 1.99240940739d+22	!NO
-    get_imass(18) = 2.2989339316d+22	!CN
-    get_imass(19) = 2.13472436506d+22	!CO
-    get_imass(20) = 2.13472436506d+22	!N2
-    get_imass(21) = 3.73562354659d+22	!NH2
-    get_imass(22) = 3.984572903d+22	!CH3
-    get_imass(23) = 3.73547946544d+22	!CH4
-    get_imass(24) = 4.26944873012d+22	!N
-    get_imass(25) = 3.98473684081d+22	!NH
-    get_imass(26) = 1.49430705554d+23	!HE
-    get_imass(27) = 1.92811894332d+22	!HNO
-    get_imass(28) = 1.86781177329d+22	!CH3OH
-    get_imass(29) = 1.35846095958d+22	!CO2
-    get_imass(30) = 2.13467731375d+22	!H2CN
-    get_imass(31) = 1.39004309959d+22	!HNCO
-    get_imass(32) = 1.2993974396d+22	!NO2
-    get_imass(33) = 1.81126434248d+22	!O2H
-    get_imass(34) = 1.42314957671d+22	!OCN
-    get_imass(35) = 1.86781177329d+22	!CH3OH_DUST
-    get_imass(36) = 1.39004309959d+22	!HNCO_DUST
-    get_imass(37) = 1.99236842041d+22	!H2CO_DUST
-    get_imass(38) = 3.73547946544d+22	!CH4_DUST
-    get_imass(39) = 2.13472436506d+22	!CO_DUST
-    get_imass(40) = 3.32056849448d+22	!H2O_DUST
-    get_imass(41) = 1.99240940739d+22	!NO_DUST
-    get_imass(42) = 1.35846095958d+22	!CO2_DUST
-    get_imass(43) = 2.13472436506d+22	!N2_DUST
-    get_imass(44) = 2.21376292959d+22	!HCN_DUST
-    get_imass(45) = 3.51582514608d+22	!NH3_DUST
-    get_imass(46) = 1.86788381943d+22	!O2_DUST
-    get_imass(47) = 1.2993974396d+22	!NO2_DUST
-    get_imass(48) = 1.92811894332d+22	!HNO_DUST
-    get_imass(49) = 1.81126434248d+22	!O2H_DUST
-    get_imass(50) = 2.13467731375d+22	!H2CN_DUST
-    get_imass(51) = 2.49051175924d+22	!MG_DUST
-    get_imass(52) = 2.21376292959d+22	!HNC_DUST
-    get_imass(53) = 1.09776932527d+27	!E_DUST
-    get_imass(54) = 2.0611299469d+22	!HCO+
-    get_imass(55) = 5.97863863505d+23	!H+
-    get_imass(56) = 2.0611299469d+22	!HOC+
-    get_imass(57) = 4.98124953791d+22	!C+
-    get_imass(58) = 4.2694265684d+22	!CH2+
-    get_imass(59) = 4.59795130141d+22	!CH+
-    get_imass(60) = 1.99240458105d+22	!H2CO+
-    get_imass(61) = 2.49056826281d+22	!MG+
-    get_imass(62) = 3.515937751d+22	!NH3+
-    get_imass(63) = 1.99244556952d+22	!NO+
-    get_imass(64) = 2.29898207658d+22	!CN+
-    get_imass(65) = 2.13476587776d+22	!CO+
-    get_imass(66) = 2.13476587776d+22	!N2+
-    get_imass(67) = 1.86791560251d+22	!O2+
-    get_imass(68) = 3.32066893916d+22	!H2O+
-    get_imass(69) = 3.73575067128d+22	!NH2+
-    get_imass(70) = 3.73589477335d+22	!O+
-    get_imass(71) = 3.51606539365d+22	!OH+
-    get_imass(72) = 3.98471753628d+22	!CH3+
-    get_imass(73) = 3.73560658032d+22	!CH4+
-    get_imass(74) = 4.26961478414d+22	!N+
-    get_imass(75) = 2.21380757326d+22	!HCN+
-    get_imass(76) = 3.98488148599d+22	!NH+
-    get_imass(77) = 2.98850552203d+23	!H2+
-    get_imass(78) = 1.4945104915d+23	!HE+
-    get_imass(79) = 1.92815280934d+22	!HNO+
-    get_imass(80) = 1.86787957752d+22	!H2NO+
-    get_imass(81) = 1.99215623688d+23	!H3+
-    get_imass(82) = 1.92811442342d+22	!H3CO+
-    get_imass(83) = 3.14584646656d+22	!H3O+
-    get_imass(84) = 2.13471882461d+22	!HCNH+
-    get_imass(85) = 1.32827990165d+22	!HCO2+
-    get_imass(86) = 1.1955020503d+23	!HEH+
-    get_imass(87) = 2.0611299469d+22	!N2H+
-    get_imass(88) = 1.81129422793d+22	!O2H+
-    get_imass(89) = 0.d0	!CR
-    get_imass(90) = 0.d0	!g
-    get_imass(91) = 0.d0	!Tgas
-    get_imass(92) = 0.d0	!dummy
+    get_imass(18) = 2.13472436506d+22	!SI
+    get_imass(19) = 1.1494669658d+22	!SIC2
+    get_imass(20) = 9.33941909714d+21	!SIC3
+    get_imass(21) = 1.49430705554d+22	!SIC
+    get_imass(22) = 1.99236842041d+22	!SIH2
+    get_imass(23) = 1.92808055875d+22	!SIH3
+    get_imass(24) = 2.2989339316d+22	!CN
+    get_imass(25) = 2.13472436506d+22	!CO
+    get_imass(26) = 2.13472436506d+22	!N2
+    get_imass(27) = 3.73562354659d+22	!NH2
+    get_imass(28) = 3.984572903d+22	!CH3
+    get_imass(29) = 3.73547946544d+22	!CH4
+    get_imass(30) = 4.26944873012d+22	!N
+    get_imass(31) = 3.98473684081d+22	!NH
+    get_imass(32) = 1.86781177329d+22	!SIH4
+    get_imass(33) = 2.06109124864d+22	!SIH
+    get_imass(34) = 1.35846095958d+22	!SIO
+    get_imass(35) = 1.49430705554d+23	!HE
+    get_imass(36) = 1.92811894332d+22	!HNO
+    get_imass(37) = 1.86781177329d+22	!CH3OH
+    get_imass(38) = 1.35846095958d+22	!CO2
+    get_imass(39) = 2.13467731375d+22	!H2CN
+    get_imass(40) = 1.29938000645d+22	!H2SIO
+    get_imass(41) = 1.39004309959d+22	!HNCO
+    get_imass(42) = 1.2993974396d+22	!NO2
+    get_imass(43) = 1.81126434248d+22	!O2H
+    get_imass(44) = 1.42314957671d+22	!OCN
+    get_imass(45) = 1.86781177329d+22	!CH3OH_DUST
+    get_imass(46) = 1.39004309959d+22	!HNCO_DUST
+    get_imass(47) = 1.99236842041d+22	!H2CO_DUST
+    get_imass(48) = 1.86781177329d+22	!SIH4_DUST
+    get_imass(49) = 1.29938000645d+22	!H2SIO_DUST
+    get_imass(50) = 1.49430705554d+22	!SIC_DUST
+    get_imass(51) = 1.1494669658d+22	!SIC2_DUST
+    get_imass(52) = 9.33941909714d+21	!SIC3_DUST
+    get_imass(53) = 3.73547946544d+22	!CH4_DUST
+    get_imass(54) = 2.13472436506d+22	!CO_DUST
+    get_imass(55) = 3.32056849448d+22	!H2O_DUST
+    get_imass(56) = 1.99240940739d+22	!NO_DUST
+    get_imass(57) = 1.35846095958d+22	!CO2_DUST
+    get_imass(58) = 2.13472436506d+22	!N2_DUST
+    get_imass(59) = 2.21376292959d+22	!HCN_DUST
+    get_imass(60) = 3.51582514608d+22	!NH3_DUST
+    get_imass(61) = 1.86788381943d+22	!O2_DUST
+    get_imass(62) = 1.2993974396d+22	!NO2_DUST
+    get_imass(63) = 1.92811894332d+22	!HNO_DUST
+    get_imass(64) = 1.81126434248d+22	!O2H_DUST
+    get_imass(65) = 2.13467731375d+22	!H2CN_DUST
+    get_imass(66) = 2.49051175924d+22	!MG_DUST
+    get_imass(67) = 2.21376292959d+22	!HNC_DUST
+    get_imass(68) = 1.09776932527d+27	!E_DUST
+    get_imass(69) = 1.35846095958d+22	!SIO_DUST
+    get_imass(70) = 2.0611299469d+22	!HCO+
+    get_imass(71) = 5.97863863505d+23	!H+
+    get_imass(72) = 2.0611299469d+22	!HOC+
+    get_imass(73) = 4.98124953791d+22	!C+
+    get_imass(74) = 4.2694265684d+22	!CH2+
+    get_imass(75) = 4.59795130141d+22	!CH+
+    get_imass(76) = 1.99240458105d+22	!H2CO+
+    get_imass(77) = 2.49056826281d+22	!MG+
+    get_imass(78) = 3.515937751d+22	!NH3+
+    get_imass(79) = 1.99244556952d+22	!NO+
+    get_imass(80) = 2.13476587776d+22	!SI+
+    get_imass(81) = 1.14947900192d+22	!SIC2+
+    get_imass(82) = 9.33949855417d+21	!SIC3+
+    get_imass(83) = 1.49432739665d+22	!SIC+
+    get_imass(84) = 1.99240458105d+22	!SIH2+
+    get_imass(85) = 1.92811442342d+22	!SIH3+
+    get_imass(86) = 2.29898207658d+22	!CN+
+    get_imass(87) = 2.13476587776d+22	!CO+
+    get_imass(88) = 2.13476587776d+22	!N2+
+    get_imass(89) = 1.86791560251d+22	!O2+
+    get_imass(90) = 3.32066893916d+22	!H2O+
+    get_imass(91) = 3.73575067128d+22	!NH2+
+    get_imass(92) = 3.73589477335d+22	!O+
+    get_imass(93) = 3.51606539365d+22	!OH+
+    get_imass(94) = 3.98471753628d+22	!CH3+
+    get_imass(95) = 3.73560658032d+22	!CH4+
+    get_imass(96) = 4.26961478414d+22	!N+
+    get_imass(97) = 2.21380757326d+22	!HCN+
+    get_imass(98) = 3.98488148599d+22	!NH+
+    get_imass(99) = 1.86784355393d+22	!SIH4+
+    get_imass(100) = 2.0611299469d+22	!SIH+
+    get_imass(101) = 1.35847777039d+22	!SIO+
+    get_imass(102) = 2.98850552203d+23	!H2+
+    get_imass(103) = 1.4945104915d+23	!HE+
+    get_imass(104) = 1.92815280934d+22	!HNO+
+    get_imass(105) = 1.86787957752d+22	!H2NO+
+    get_imass(106) = 1.99215623688d+23	!H3+
+    get_imass(107) = 1.92811442342d+22	!H3CO+
+    get_imass(108) = 3.14584646656d+22	!H3O+
+    get_imass(109) = 2.13471882461d+22	!HCNH+
+    get_imass(110) = 1.32827990165d+22	!HCO2+
+    get_imass(111) = 1.1955020503d+23	!HEH+
+    get_imass(112) = 2.0611299469d+22	!N2H+
+    get_imass(113) = 1.81129422793d+22	!O2H+
+    get_imass(114) = 1.81122648102d+22	!SIH5+
+    get_imass(115) = 1.32827990165d+22	!SIOH+
+    get_imass(116) = 0.d0	!CR
+    get_imass(117) = 0.d0	!g
+    get_imass(118) = 0.d0	!Tgas
+    get_imass(119) = 0.d0	!dummy
 
   end function get_imass
 
@@ -409,6 +490,12 @@ contains
     get_kevap70(idx_MG) = 0d0
     get_kevap70(idx_NH3) = 0d0
     get_kevap70(idx_NO) = 0d0
+    get_kevap70(idx_SI) = 0d0
+    get_kevap70(idx_SIC2) = 0d0
+    get_kevap70(idx_SIC3) = 0d0
+    get_kevap70(idx_SIC) = 0d0
+    get_kevap70(idx_SIH2) = 0d0
+    get_kevap70(idx_SIH3) = 0d0
     get_kevap70(idx_CN) = 0d0
     get_kevap70(idx_CO) = 149751.929641
     get_kevap70(idx_N2) = 0d0
@@ -417,11 +504,15 @@ contains
     get_kevap70(idx_CH4) = 0d0
     get_kevap70(idx_N) = 0d0
     get_kevap70(idx_NH) = 0d0
+    get_kevap70(idx_SIH4) = 0d0
+    get_kevap70(idx_SIH) = 0d0
+    get_kevap70(idx_SIO) = 0d0
     get_kevap70(idx_HE) = 0d0
     get_kevap70(idx_HNO) = 0d0
     get_kevap70(idx_CH3OH) = 149751.929641
     get_kevap70(idx_CO2) = 0.00537432797219
     get_kevap70(idx_H2CN) = 0d0
+    get_kevap70(idx_H2SIO) = 0d0
     get_kevap70(idx_HNCO) = 0d0
     get_kevap70(idx_NO2) = 0d0
     get_kevap70(idx_O2H) = 0d0
@@ -429,6 +520,11 @@ contains
     get_kevap70(idx_CH3OH_DUST) = 0d0
     get_kevap70(idx_HNCO_DUST) = 0d0
     get_kevap70(idx_H2CO_DUST) = 0d0
+    get_kevap70(idx_SIH4_DUST) = 0d0
+    get_kevap70(idx_H2SIO_DUST) = 0d0
+    get_kevap70(idx_SIC_DUST) = 0d0
+    get_kevap70(idx_SIC2_DUST) = 0d0
+    get_kevap70(idx_SIC3_DUST) = 0d0
     get_kevap70(idx_CH4_DUST) = 0d0
     get_kevap70(idx_CO_DUST) = 0d0
     get_kevap70(idx_H2O_DUST) = 0d0
@@ -445,6 +541,7 @@ contains
     get_kevap70(idx_MG_DUST) = 0d0
     get_kevap70(idx_HNC_DUST) = 0d0
     get_kevap70(idx_E_DUST) = 0d0
+    get_kevap70(idx_SIO_DUST) = 0d0
     get_kevap70(idx_HCOj) = 0d0
     get_kevap70(idx_Hj) = 0d0
     get_kevap70(idx_HOCj) = 0d0
@@ -455,6 +552,12 @@ contains
     get_kevap70(idx_MGj) = 0d0
     get_kevap70(idx_NH3j) = 0d0
     get_kevap70(idx_NOj) = 0d0
+    get_kevap70(idx_SIj) = 0d0
+    get_kevap70(idx_SIC2j) = 0d0
+    get_kevap70(idx_SIC3j) = 0d0
+    get_kevap70(idx_SICj) = 0d0
+    get_kevap70(idx_SIH2j) = 0d0
+    get_kevap70(idx_SIH3j) = 0d0
     get_kevap70(idx_CNj) = 0d0
     get_kevap70(idx_COj) = 0d0
     get_kevap70(idx_N2j) = 0d0
@@ -468,6 +571,9 @@ contains
     get_kevap70(idx_Nj) = 0d0
     get_kevap70(idx_HCNj) = 0d0
     get_kevap70(idx_NHj) = 0d0
+    get_kevap70(idx_SIH4j) = 0d0
+    get_kevap70(idx_SIHj) = 0d0
+    get_kevap70(idx_SIOj) = 0d0
     get_kevap70(idx_H2j) = 0d0
     get_kevap70(idx_HEj) = 0d0
     get_kevap70(idx_HNOj) = 0d0
@@ -480,6 +586,8 @@ contains
     get_kevap70(idx_HEHj) = 0d0
     get_kevap70(idx_N2Hj) = 0d0
     get_kevap70(idx_O2Hj) = 0d0
+    get_kevap70(idx_SIH5j) = 0d0
+    get_kevap70(idx_SIOHj) = 0d0
     get_kevap70(idx_CR) = 0d0
     get_kevap70(idx_g) = 0d0
     get_kevap70(idx_Tgas) = 0d0
@@ -523,81 +631,108 @@ contains
     get_names(15) = "MG"
     get_names(16) = "NH3"
     get_names(17) = "NO"
-    get_names(18) = "CN"
-    get_names(19) = "CO"
-    get_names(20) = "N2"
-    get_names(21) = "NH2"
-    get_names(22) = "CH3"
-    get_names(23) = "CH4"
-    get_names(24) = "N"
-    get_names(25) = "NH"
-    get_names(26) = "HE"
-    get_names(27) = "HNO"
-    get_names(28) = "CH3OH"
-    get_names(29) = "CO2"
-    get_names(30) = "H2CN"
-    get_names(31) = "HNCO"
-    get_names(32) = "NO2"
-    get_names(33) = "O2H"
-    get_names(34) = "OCN"
-    get_names(35) = "CH3OH_DUST"
-    get_names(36) = "HNCO_DUST"
-    get_names(37) = "H2CO_DUST"
-    get_names(38) = "CH4_DUST"
-    get_names(39) = "CO_DUST"
-    get_names(40) = "H2O_DUST"
-    get_names(41) = "NO_DUST"
-    get_names(42) = "CO2_DUST"
-    get_names(43) = "N2_DUST"
-    get_names(44) = "HCN_DUST"
-    get_names(45) = "NH3_DUST"
-    get_names(46) = "O2_DUST"
-    get_names(47) = "NO2_DUST"
-    get_names(48) = "HNO_DUST"
-    get_names(49) = "O2H_DUST"
-    get_names(50) = "H2CN_DUST"
-    get_names(51) = "MG_DUST"
-    get_names(52) = "HNC_DUST"
-    get_names(53) = "E_DUST"
-    get_names(54) = "HCO+"
-    get_names(55) = "H+"
-    get_names(56) = "HOC+"
-    get_names(57) = "C+"
-    get_names(58) = "CH2+"
-    get_names(59) = "CH+"
-    get_names(60) = "H2CO+"
-    get_names(61) = "MG+"
-    get_names(62) = "NH3+"
-    get_names(63) = "NO+"
-    get_names(64) = "CN+"
-    get_names(65) = "CO+"
-    get_names(66) = "N2+"
-    get_names(67) = "O2+"
-    get_names(68) = "H2O+"
-    get_names(69) = "NH2+"
-    get_names(70) = "O+"
-    get_names(71) = "OH+"
-    get_names(72) = "CH3+"
-    get_names(73) = "CH4+"
-    get_names(74) = "N+"
-    get_names(75) = "HCN+"
-    get_names(76) = "NH+"
-    get_names(77) = "H2+"
-    get_names(78) = "HE+"
-    get_names(79) = "HNO+"
-    get_names(80) = "H2NO+"
-    get_names(81) = "H3+"
-    get_names(82) = "H3CO+"
-    get_names(83) = "H3O+"
-    get_names(84) = "HCNH+"
-    get_names(85) = "HCO2+"
-    get_names(86) = "HEH+"
-    get_names(87) = "N2H+"
-    get_names(88) = "O2H+"
-    get_names(89) = "CR"
-    get_names(90) = "g"
-    get_names(91) = "Tgas"
-    get_names(92) = "dummy"
+    get_names(18) = "SI"
+    get_names(19) = "SIC2"
+    get_names(20) = "SIC3"
+    get_names(21) = "SIC"
+    get_names(22) = "SIH2"
+    get_names(23) = "SIH3"
+    get_names(24) = "CN"
+    get_names(25) = "CO"
+    get_names(26) = "N2"
+    get_names(27) = "NH2"
+    get_names(28) = "CH3"
+    get_names(29) = "CH4"
+    get_names(30) = "N"
+    get_names(31) = "NH"
+    get_names(32) = "SIH4"
+    get_names(33) = "SIH"
+    get_names(34) = "SIO"
+    get_names(35) = "HE"
+    get_names(36) = "HNO"
+    get_names(37) = "CH3OH"
+    get_names(38) = "CO2"
+    get_names(39) = "H2CN"
+    get_names(40) = "H2SIO"
+    get_names(41) = "HNCO"
+    get_names(42) = "NO2"
+    get_names(43) = "O2H"
+    get_names(44) = "OCN"
+    get_names(45) = "CH3OH_DUST"
+    get_names(46) = "HNCO_DUST"
+    get_names(47) = "H2CO_DUST"
+    get_names(48) = "SIH4_DUST"
+    get_names(49) = "H2SIO_DUST"
+    get_names(50) = "SIC_DUST"
+    get_names(51) = "SIC2_DUST"
+    get_names(52) = "SIC3_DUST"
+    get_names(53) = "CH4_DUST"
+    get_names(54) = "CO_DUST"
+    get_names(55) = "H2O_DUST"
+    get_names(56) = "NO_DUST"
+    get_names(57) = "CO2_DUST"
+    get_names(58) = "N2_DUST"
+    get_names(59) = "HCN_DUST"
+    get_names(60) = "NH3_DUST"
+    get_names(61) = "O2_DUST"
+    get_names(62) = "NO2_DUST"
+    get_names(63) = "HNO_DUST"
+    get_names(64) = "O2H_DUST"
+    get_names(65) = "H2CN_DUST"
+    get_names(66) = "MG_DUST"
+    get_names(67) = "HNC_DUST"
+    get_names(68) = "E_DUST"
+    get_names(69) = "SIO_DUST"
+    get_names(70) = "HCO+"
+    get_names(71) = "H+"
+    get_names(72) = "HOC+"
+    get_names(73) = "C+"
+    get_names(74) = "CH2+"
+    get_names(75) = "CH+"
+    get_names(76) = "H2CO+"
+    get_names(77) = "MG+"
+    get_names(78) = "NH3+"
+    get_names(79) = "NO+"
+    get_names(80) = "SI+"
+    get_names(81) = "SIC2+"
+    get_names(82) = "SIC3+"
+    get_names(83) = "SIC+"
+    get_names(84) = "SIH2+"
+    get_names(85) = "SIH3+"
+    get_names(86) = "CN+"
+    get_names(87) = "CO+"
+    get_names(88) = "N2+"
+    get_names(89) = "O2+"
+    get_names(90) = "H2O+"
+    get_names(91) = "NH2+"
+    get_names(92) = "O+"
+    get_names(93) = "OH+"
+    get_names(94) = "CH3+"
+    get_names(95) = "CH4+"
+    get_names(96) = "N+"
+    get_names(97) = "HCN+"
+    get_names(98) = "NH+"
+    get_names(99) = "SIH4+"
+    get_names(100) = "SIH+"
+    get_names(101) = "SIO+"
+    get_names(102) = "H2+"
+    get_names(103) = "HE+"
+    get_names(104) = "HNO+"
+    get_names(105) = "H2NO+"
+    get_names(106) = "H3+"
+    get_names(107) = "H3CO+"
+    get_names(108) = "H3O+"
+    get_names(109) = "HCNH+"
+    get_names(110) = "HCO2+"
+    get_names(111) = "HEH+"
+    get_names(112) = "N2H+"
+    get_names(113) = "O2H+"
+    get_names(114) = "SIH5+"
+    get_names(115) = "SIOH+"
+    get_names(116) = "CR"
+    get_names(117) = "g"
+    get_names(118) = "Tgas"
+    get_names(119) = "dummy"
 
   end function get_names
 
@@ -681,18 +816,25 @@ contains
         n(idx_H2CO)*2d0 + &
         n(idx_HCO) + &
         n(idx_NH3)*3d0 + &
+        n(idx_SIH2)*2d0 + &
+        n(idx_SIH3)*3d0 + &
         n(idx_NH2)*2d0 + &
         n(idx_CH3)*3d0 + &
         n(idx_CH4)*4d0 + &
         n(idx_NH) + &
+        n(idx_SIH4)*4d0 + &
+        n(idx_SIH) + &
         n(idx_HNO) + &
         n(idx_CH3OH)*4d0 + &
         n(idx_H2CN)*2d0 + &
+        n(idx_H2SIO)*2d0 + &
         n(idx_HNCO) + &
         n(idx_O2H) + &
         n(idx_CH3OH_DUST)*4d0 + &
         n(idx_HNCO_DUST) + &
         n(idx_H2CO_DUST)*2d0 + &
+        n(idx_SIH4_DUST)*4d0 + &
+        n(idx_H2SIO_DUST)*2d0 + &
         n(idx_CH4_DUST)*4d0 + &
         n(idx_H2O_DUST)*2d0 + &
         n(idx_HCN_DUST) + &
@@ -708,6 +850,8 @@ contains
         n(idx_CHj) + &
         n(idx_H2COj)*2d0 + &
         n(idx_NH3j)*3d0 + &
+        n(idx_SIH2j)*2d0 + &
+        n(idx_SIH3j)*3d0 + &
         n(idx_H2Oj)*2d0 + &
         n(idx_NH2j)*2d0 + &
         n(idx_OHj) + &
@@ -715,6 +859,8 @@ contains
         n(idx_CH4j)*4d0 + &
         n(idx_HCNj) + &
         n(idx_NHj) + &
+        n(idx_SIH4j)*4d0 + &
+        n(idx_SIHj) + &
         n(idx_H2j)*2d0 + &
         n(idx_HNOj) + &
         n(idx_H2NOj)*2d0 + &
@@ -725,7 +871,9 @@ contains
         n(idx_HCO2j) + &
         n(idx_HEHj) + &
         n(idx_N2Hj) + &
-        n(idx_O2Hj)
+        n(idx_O2Hj) + &
+        n(idx_SIH5j)*5d0 + &
+        n(idx_SIOHj)
     get_Hnuclei = nH
 
   end function get_Hnuclei
@@ -739,6 +887,11 @@ contains
     mantle = n(idx_CH3OH_DUST) + &
         n(idx_HNCO_DUST) + &
         n(idx_H2CO_DUST) + &
+        n(idx_SIH4_DUST) + &
+        n(idx_H2SIO_DUST) + &
+        n(idx_SIC_DUST) + &
+        n(idx_SIC2_DUST) + &
+        n(idx_SIC3_DUST) + &
         n(idx_CH4_DUST) + &
         n(idx_CO_DUST) + &
         n(idx_H2O_DUST) + &
@@ -754,7 +907,8 @@ contains
         n(idx_H2CN_DUST) + &
         n(idx_MG_DUST) + &
         n(idx_HNC_DUST) + &
-        n(idx_E_DUST)
+        n(idx_E_DUST) + &
+        n(idx_SIO_DUST)
     get_mantle = mantle
 
   end function get_mantle
@@ -782,81 +936,108 @@ contains
     get_zatoms(15) = 12	!MG
     get_zatoms(16) = 10	!NH3
     get_zatoms(17) = 15	!NO
-    get_zatoms(18) = 13	!CN
-    get_zatoms(19) = 14	!CO
-    get_zatoms(20) = 14	!N2
-    get_zatoms(21) = 9	!NH2
-    get_zatoms(22) = 9	!CH3
-    get_zatoms(23) = 10	!CH4
-    get_zatoms(24) = 7	!N
-    get_zatoms(25) = 8	!NH
-    get_zatoms(26) = 2	!HE
-    get_zatoms(27) = 16	!HNO
-    get_zatoms(28) = 18	!CH3OH
-    get_zatoms(29) = 22	!CO2
-    get_zatoms(30) = 15	!H2CN
-    get_zatoms(31) = 22	!HNCO
-    get_zatoms(32) = 23	!NO2
-    get_zatoms(33) = 17	!O2H
-    get_zatoms(34) = 21	!OCN
-    get_zatoms(35) = 18	!CH3OH_DUST
-    get_zatoms(36) = 22	!HNCO_DUST
-    get_zatoms(37) = 16	!H2CO_DUST
-    get_zatoms(38) = 10	!CH4_DUST
-    get_zatoms(39) = 14	!CO_DUST
-    get_zatoms(40) = 10	!H2O_DUST
-    get_zatoms(41) = 15	!NO_DUST
-    get_zatoms(42) = 22	!CO2_DUST
-    get_zatoms(43) = 14	!N2_DUST
-    get_zatoms(44) = 14	!HCN_DUST
-    get_zatoms(45) = 10	!NH3_DUST
-    get_zatoms(46) = 16	!O2_DUST
-    get_zatoms(47) = 23	!NO2_DUST
-    get_zatoms(48) = 16	!HNO_DUST
-    get_zatoms(49) = 17	!O2H_DUST
-    get_zatoms(50) = 15	!H2CN_DUST
-    get_zatoms(51) = 12	!MG_DUST
-    get_zatoms(52) = 14	!HNC_DUST
-    get_zatoms(53) = 0	!E_DUST
-    get_zatoms(54) = 15	!HCO+
-    get_zatoms(55) = 1	!H+
-    get_zatoms(56) = 15	!HOC+
-    get_zatoms(57) = 6	!C+
-    get_zatoms(58) = 8	!CH2+
-    get_zatoms(59) = 7	!CH+
-    get_zatoms(60) = 16	!H2CO+
-    get_zatoms(61) = 12	!MG+
-    get_zatoms(62) = 10	!NH3+
-    get_zatoms(63) = 15	!NO+
-    get_zatoms(64) = 13	!CN+
-    get_zatoms(65) = 14	!CO+
-    get_zatoms(66) = 14	!N2+
-    get_zatoms(67) = 16	!O2+
-    get_zatoms(68) = 10	!H2O+
-    get_zatoms(69) = 9	!NH2+
-    get_zatoms(70) = 8	!O+
-    get_zatoms(71) = 9	!OH+
-    get_zatoms(72) = 9	!CH3+
-    get_zatoms(73) = 10	!CH4+
-    get_zatoms(74) = 7	!N+
-    get_zatoms(75) = 14	!HCN+
-    get_zatoms(76) = 8	!NH+
-    get_zatoms(77) = 2	!H2+
-    get_zatoms(78) = 2	!HE+
-    get_zatoms(79) = 16	!HNO+
-    get_zatoms(80) = 17	!H2NO+
-    get_zatoms(81) = 3	!H3+
-    get_zatoms(82) = 17	!H3CO+
-    get_zatoms(83) = 11	!H3O+
-    get_zatoms(84) = 15	!HCNH+
-    get_zatoms(85) = 23	!HCO2+
-    get_zatoms(86) = 3	!HEH+
-    get_zatoms(87) = 15	!N2H+
-    get_zatoms(88) = 17	!O2H+
-    get_zatoms(89) = 0	!CR
-    get_zatoms(90) = 0	!g
-    get_zatoms(91) = 0	!Tgas
-    get_zatoms(92) = 0	!dummy
+    get_zatoms(18) = 14	!SI
+    get_zatoms(19) = 26	!SIC2
+    get_zatoms(20) = 32	!SIC3
+    get_zatoms(21) = 20	!SIC
+    get_zatoms(22) = 16	!SIH2
+    get_zatoms(23) = 17	!SIH3
+    get_zatoms(24) = 13	!CN
+    get_zatoms(25) = 14	!CO
+    get_zatoms(26) = 14	!N2
+    get_zatoms(27) = 9	!NH2
+    get_zatoms(28) = 9	!CH3
+    get_zatoms(29) = 10	!CH4
+    get_zatoms(30) = 7	!N
+    get_zatoms(31) = 8	!NH
+    get_zatoms(32) = 18	!SIH4
+    get_zatoms(33) = 15	!SIH
+    get_zatoms(34) = 22	!SIO
+    get_zatoms(35) = 2	!HE
+    get_zatoms(36) = 16	!HNO
+    get_zatoms(37) = 18	!CH3OH
+    get_zatoms(38) = 22	!CO2
+    get_zatoms(39) = 15	!H2CN
+    get_zatoms(40) = 24	!H2SIO
+    get_zatoms(41) = 22	!HNCO
+    get_zatoms(42) = 23	!NO2
+    get_zatoms(43) = 17	!O2H
+    get_zatoms(44) = 21	!OCN
+    get_zatoms(45) = 18	!CH3OH_DUST
+    get_zatoms(46) = 22	!HNCO_DUST
+    get_zatoms(47) = 16	!H2CO_DUST
+    get_zatoms(48) = 18	!SIH4_DUST
+    get_zatoms(49) = 24	!H2SIO_DUST
+    get_zatoms(50) = 20	!SIC_DUST
+    get_zatoms(51) = 26	!SIC2_DUST
+    get_zatoms(52) = 32	!SIC3_DUST
+    get_zatoms(53) = 10	!CH4_DUST
+    get_zatoms(54) = 14	!CO_DUST
+    get_zatoms(55) = 10	!H2O_DUST
+    get_zatoms(56) = 15	!NO_DUST
+    get_zatoms(57) = 22	!CO2_DUST
+    get_zatoms(58) = 14	!N2_DUST
+    get_zatoms(59) = 14	!HCN_DUST
+    get_zatoms(60) = 10	!NH3_DUST
+    get_zatoms(61) = 16	!O2_DUST
+    get_zatoms(62) = 23	!NO2_DUST
+    get_zatoms(63) = 16	!HNO_DUST
+    get_zatoms(64) = 17	!O2H_DUST
+    get_zatoms(65) = 15	!H2CN_DUST
+    get_zatoms(66) = 12	!MG_DUST
+    get_zatoms(67) = 14	!HNC_DUST
+    get_zatoms(68) = 0	!E_DUST
+    get_zatoms(69) = 22	!SIO_DUST
+    get_zatoms(70) = 15	!HCO+
+    get_zatoms(71) = 1	!H+
+    get_zatoms(72) = 15	!HOC+
+    get_zatoms(73) = 6	!C+
+    get_zatoms(74) = 8	!CH2+
+    get_zatoms(75) = 7	!CH+
+    get_zatoms(76) = 16	!H2CO+
+    get_zatoms(77) = 12	!MG+
+    get_zatoms(78) = 10	!NH3+
+    get_zatoms(79) = 15	!NO+
+    get_zatoms(80) = 14	!SI+
+    get_zatoms(81) = 26	!SIC2+
+    get_zatoms(82) = 32	!SIC3+
+    get_zatoms(83) = 20	!SIC+
+    get_zatoms(84) = 16	!SIH2+
+    get_zatoms(85) = 17	!SIH3+
+    get_zatoms(86) = 13	!CN+
+    get_zatoms(87) = 14	!CO+
+    get_zatoms(88) = 14	!N2+
+    get_zatoms(89) = 16	!O2+
+    get_zatoms(90) = 10	!H2O+
+    get_zatoms(91) = 9	!NH2+
+    get_zatoms(92) = 8	!O+
+    get_zatoms(93) = 9	!OH+
+    get_zatoms(94) = 9	!CH3+
+    get_zatoms(95) = 10	!CH4+
+    get_zatoms(96) = 7	!N+
+    get_zatoms(97) = 14	!HCN+
+    get_zatoms(98) = 8	!NH+
+    get_zatoms(99) = 18	!SIH4+
+    get_zatoms(100) = 15	!SIH+
+    get_zatoms(101) = 22	!SIO+
+    get_zatoms(102) = 2	!H2+
+    get_zatoms(103) = 2	!HE+
+    get_zatoms(104) = 16	!HNO+
+    get_zatoms(105) = 17	!H2NO+
+    get_zatoms(106) = 3	!H3+
+    get_zatoms(107) = 17	!H3CO+
+    get_zatoms(108) = 11	!H3O+
+    get_zatoms(109) = 15	!HCNH+
+    get_zatoms(110) = 23	!HCO2+
+    get_zatoms(111) = 3	!HEH+
+    get_zatoms(112) = 15	!N2H+
+    get_zatoms(113) = 17	!O2H+
+    get_zatoms(114) = 19	!SIH5+
+    get_zatoms(115) = 23	!SIOH+
+    get_zatoms(116) = 0	!CR
+    get_zatoms(117) = 0	!g
+    get_zatoms(118) = 0	!Tgas
+    get_zatoms(119) = 0	!dummy
 
   end function get_zatoms
 
@@ -966,6 +1147,12 @@ contains
         + n(idx_MGj) &
         + n(idx_NH3j) &
         + n(idx_NOj) &
+        + n(idx_SIj) &
+        + n(idx_SIC2j) &
+        + n(idx_SIC3j) &
+        + n(idx_SICj) &
+        + n(idx_SIH2j) &
+        + n(idx_SIH3j) &
         + n(idx_CNj) &
         + n(idx_COj) &
         + n(idx_N2j) &
@@ -979,6 +1166,9 @@ contains
         + n(idx_Nj) &
         + n(idx_HCNj) &
         + n(idx_NHj) &
+        + n(idx_SIH4j) &
+        + n(idx_SIHj) &
+        + n(idx_SIOj) &
         + n(idx_H2j) &
         + n(idx_HEj) &
         + n(idx_HNOj) &
@@ -990,7 +1180,9 @@ contains
         + n(idx_HCO2j) &
         + n(idx_HEHj) &
         + n(idx_N2Hj) &
-        + n(idx_O2Hj)
+        + n(idx_O2Hj) &
+        + n(idx_SIH5j) &
+        + n(idx_SIOHj)
     get_electrons = max(get_electrons,0d0)
 
   end function get_electrons
@@ -1019,81 +1211,108 @@ contains
     get_charges(15) = 0.d0 	!MG
     get_charges(16) = 0.d0 	!NH3
     get_charges(17) = 0.d0 	!NO
-    get_charges(18) = 0.d0 	!CN
-    get_charges(19) = 0.d0 	!CO
-    get_charges(20) = 0.d0 	!N2
-    get_charges(21) = 0.d0 	!NH2
-    get_charges(22) = 0.d0 	!CH3
-    get_charges(23) = 0.d0 	!CH4
-    get_charges(24) = 0.d0 	!N
-    get_charges(25) = 0.d0 	!NH
-    get_charges(26) = 0.d0 	!HE
-    get_charges(27) = 0.d0 	!HNO
-    get_charges(28) = 0.d0 	!CH3OH
-    get_charges(29) = 0.d0 	!CO2
-    get_charges(30) = 0.d0 	!H2CN
-    get_charges(31) = 0.d0 	!HNCO
-    get_charges(32) = 0.d0 	!NO2
-    get_charges(33) = 0.d0 	!O2H
-    get_charges(34) = 0.d0 	!OCN
-    get_charges(35) = 0.d0 	!CH3OH_DUST
-    get_charges(36) = 0.d0 	!HNCO_DUST
-    get_charges(37) = 0.d0 	!H2CO_DUST
-    get_charges(38) = 0.d0 	!CH4_DUST
-    get_charges(39) = 0.d0 	!CO_DUST
-    get_charges(40) = 0.d0 	!H2O_DUST
-    get_charges(41) = 0.d0 	!NO_DUST
-    get_charges(42) = 0.d0 	!CO2_DUST
-    get_charges(43) = 0.d0 	!N2_DUST
-    get_charges(44) = 0.d0 	!HCN_DUST
-    get_charges(45) = 0.d0 	!NH3_DUST
-    get_charges(46) = 0.d0 	!O2_DUST
-    get_charges(47) = 0.d0 	!NO2_DUST
-    get_charges(48) = 0.d0 	!HNO_DUST
-    get_charges(49) = 0.d0 	!O2H_DUST
-    get_charges(50) = 0.d0 	!H2CN_DUST
-    get_charges(51) = 0.d0 	!MG_DUST
-    get_charges(52) = 0.d0 	!HNC_DUST
-    get_charges(53) = 0.d0 	!E_DUST
-    get_charges(54) = 1.d0 	!HCO+
-    get_charges(55) = 1.d0 	!H+
-    get_charges(56) = 1.d0 	!HOC+
-    get_charges(57) = 1.d0 	!C+
-    get_charges(58) = 1.d0 	!CH2+
-    get_charges(59) = 1.d0 	!CH+
-    get_charges(60) = 1.d0 	!H2CO+
-    get_charges(61) = 1.d0 	!MG+
-    get_charges(62) = 1.d0 	!NH3+
-    get_charges(63) = 1.d0 	!NO+
-    get_charges(64) = 1.d0 	!CN+
-    get_charges(65) = 1.d0 	!CO+
-    get_charges(66) = 1.d0 	!N2+
-    get_charges(67) = 1.d0 	!O2+
-    get_charges(68) = 1.d0 	!H2O+
-    get_charges(69) = 1.d0 	!NH2+
-    get_charges(70) = 1.d0 	!O+
-    get_charges(71) = 1.d0 	!OH+
-    get_charges(72) = 1.d0 	!CH3+
-    get_charges(73) = 1.d0 	!CH4+
-    get_charges(74) = 1.d0 	!N+
-    get_charges(75) = 1.d0 	!HCN+
-    get_charges(76) = 1.d0 	!NH+
-    get_charges(77) = 1.d0 	!H2+
-    get_charges(78) = 1.d0 	!HE+
-    get_charges(79) = 1.d0 	!HNO+
-    get_charges(80) = 1.d0 	!H2NO+
-    get_charges(81) = 1.d0 	!H3+
-    get_charges(82) = 1.d0 	!H3CO+
-    get_charges(83) = 1.d0 	!H3O+
-    get_charges(84) = 1.d0 	!HCNH+
-    get_charges(85) = 1.d0 	!HCO2+
-    get_charges(86) = 1.d0 	!HEH+
-    get_charges(87) = 1.d0 	!N2H+
-    get_charges(88) = 1.d0 	!O2H+
-    get_charges(89) = 0.d0 	!CR
-    get_charges(90) = 0.d0 	!g
-    get_charges(91) = 0.d0 	!Tgas
-    get_charges(92) = 0.d0 	!dummy
+    get_charges(18) = 0.d0 	!SI
+    get_charges(19) = 0.d0 	!SIC2
+    get_charges(20) = 0.d0 	!SIC3
+    get_charges(21) = 0.d0 	!SIC
+    get_charges(22) = 0.d0 	!SIH2
+    get_charges(23) = 0.d0 	!SIH3
+    get_charges(24) = 0.d0 	!CN
+    get_charges(25) = 0.d0 	!CO
+    get_charges(26) = 0.d0 	!N2
+    get_charges(27) = 0.d0 	!NH2
+    get_charges(28) = 0.d0 	!CH3
+    get_charges(29) = 0.d0 	!CH4
+    get_charges(30) = 0.d0 	!N
+    get_charges(31) = 0.d0 	!NH
+    get_charges(32) = 0.d0 	!SIH4
+    get_charges(33) = 0.d0 	!SIH
+    get_charges(34) = 0.d0 	!SIO
+    get_charges(35) = 0.d0 	!HE
+    get_charges(36) = 0.d0 	!HNO
+    get_charges(37) = 0.d0 	!CH3OH
+    get_charges(38) = 0.d0 	!CO2
+    get_charges(39) = 0.d0 	!H2CN
+    get_charges(40) = 0.d0 	!H2SIO
+    get_charges(41) = 0.d0 	!HNCO
+    get_charges(42) = 0.d0 	!NO2
+    get_charges(43) = 0.d0 	!O2H
+    get_charges(44) = 0.d0 	!OCN
+    get_charges(45) = 0.d0 	!CH3OH_DUST
+    get_charges(46) = 0.d0 	!HNCO_DUST
+    get_charges(47) = 0.d0 	!H2CO_DUST
+    get_charges(48) = 0.d0 	!SIH4_DUST
+    get_charges(49) = 0.d0 	!H2SIO_DUST
+    get_charges(50) = 0.d0 	!SIC_DUST
+    get_charges(51) = 0.d0 	!SIC2_DUST
+    get_charges(52) = 0.d0 	!SIC3_DUST
+    get_charges(53) = 0.d0 	!CH4_DUST
+    get_charges(54) = 0.d0 	!CO_DUST
+    get_charges(55) = 0.d0 	!H2O_DUST
+    get_charges(56) = 0.d0 	!NO_DUST
+    get_charges(57) = 0.d0 	!CO2_DUST
+    get_charges(58) = 0.d0 	!N2_DUST
+    get_charges(59) = 0.d0 	!HCN_DUST
+    get_charges(60) = 0.d0 	!NH3_DUST
+    get_charges(61) = 0.d0 	!O2_DUST
+    get_charges(62) = 0.d0 	!NO2_DUST
+    get_charges(63) = 0.d0 	!HNO_DUST
+    get_charges(64) = 0.d0 	!O2H_DUST
+    get_charges(65) = 0.d0 	!H2CN_DUST
+    get_charges(66) = 0.d0 	!MG_DUST
+    get_charges(67) = 0.d0 	!HNC_DUST
+    get_charges(68) = 0.d0 	!E_DUST
+    get_charges(69) = 0.d0 	!SIO_DUST
+    get_charges(70) = 1.d0 	!HCO+
+    get_charges(71) = 1.d0 	!H+
+    get_charges(72) = 1.d0 	!HOC+
+    get_charges(73) = 1.d0 	!C+
+    get_charges(74) = 1.d0 	!CH2+
+    get_charges(75) = 1.d0 	!CH+
+    get_charges(76) = 1.d0 	!H2CO+
+    get_charges(77) = 1.d0 	!MG+
+    get_charges(78) = 1.d0 	!NH3+
+    get_charges(79) = 1.d0 	!NO+
+    get_charges(80) = 1.d0 	!SI+
+    get_charges(81) = 1.d0 	!SIC2+
+    get_charges(82) = 1.d0 	!SIC3+
+    get_charges(83) = 1.d0 	!SIC+
+    get_charges(84) = 1.d0 	!SIH2+
+    get_charges(85) = 1.d0 	!SIH3+
+    get_charges(86) = 1.d0 	!CN+
+    get_charges(87) = 1.d0 	!CO+
+    get_charges(88) = 1.d0 	!N2+
+    get_charges(89) = 1.d0 	!O2+
+    get_charges(90) = 1.d0 	!H2O+
+    get_charges(91) = 1.d0 	!NH2+
+    get_charges(92) = 1.d0 	!O+
+    get_charges(93) = 1.d0 	!OH+
+    get_charges(94) = 1.d0 	!CH3+
+    get_charges(95) = 1.d0 	!CH4+
+    get_charges(96) = 1.d0 	!N+
+    get_charges(97) = 1.d0 	!HCN+
+    get_charges(98) = 1.d0 	!NH+
+    get_charges(99) = 1.d0 	!SIH4+
+    get_charges(100) = 1.d0 	!SIH+
+    get_charges(101) = 1.d0 	!SIO+
+    get_charges(102) = 1.d0 	!H2+
+    get_charges(103) = 1.d0 	!HE+
+    get_charges(104) = 1.d0 	!HNO+
+    get_charges(105) = 1.d0 	!H2NO+
+    get_charges(106) = 1.d0 	!H3+
+    get_charges(107) = 1.d0 	!H3CO+
+    get_charges(108) = 1.d0 	!H3O+
+    get_charges(109) = 1.d0 	!HCNH+
+    get_charges(110) = 1.d0 	!HCO2+
+    get_charges(111) = 1.d0 	!HEH+
+    get_charges(112) = 1.d0 	!N2H+
+    get_charges(113) = 1.d0 	!O2H+
+    get_charges(114) = 1.d0 	!SIH5+
+    get_charges(115) = 1.d0 	!SIOH+
+    get_charges(116) = 0.d0 	!CR
+    get_charges(117) = 0.d0 	!g
+    get_charges(118) = 0.d0 	!Tgas
+    get_charges(119) = 0.d0 	!dummy
 
   end function get_charges
 
@@ -1113,6 +1332,9 @@ contains
         + n(idx_CH2) &
         + n(idx_H2CO) &
         + n(idx_HCO) &
+        + 2d0*n(idx_SIC2) &
+        + 3d0*n(idx_SIC3) &
+        + n(idx_SIC) &
         + n(idx_CN) &
         + n(idx_CO) &
         + n(idx_CH3) &
@@ -1125,6 +1347,9 @@ contains
         + n(idx_CH3OH_DUST) &
         + n(idx_HNCO_DUST) &
         + n(idx_H2CO_DUST) &
+        + n(idx_SIC_DUST) &
+        + 2d0*n(idx_SIC2_DUST) &
+        + 3d0*n(idx_SIC3_DUST) &
         + n(idx_CH4_DUST) &
         + n(idx_CO_DUST) &
         + n(idx_CO2_DUST) &
@@ -1137,6 +1362,9 @@ contains
         + n(idx_CH2j) &
         + n(idx_CHj) &
         + n(idx_H2COj) &
+        + 2d0*n(idx_SIC2j) &
+        + 3d0*n(idx_SIC3j) &
+        + n(idx_SICj) &
         + n(idx_CNj) &
         + n(idx_COj) &
         + n(idx_CH3j) &
@@ -1192,9 +1420,11 @@ contains
         + n(idx_HCO) &
         + n(idx_NO) &
         + n(idx_CO) &
+        + n(idx_SIO) &
         + n(idx_HNO) &
         + n(idx_CH3OH) &
         + 2d0*n(idx_CO2) &
+        + n(idx_H2SIO) &
         + n(idx_HNCO) &
         + 2d0*n(idx_NO2) &
         + 2d0*n(idx_O2H) &
@@ -1202,6 +1432,7 @@ contains
         + n(idx_CH3OH_DUST) &
         + n(idx_HNCO_DUST) &
         + n(idx_H2CO_DUST) &
+        + n(idx_H2SIO_DUST) &
         + n(idx_CO_DUST) &
         + n(idx_H2O_DUST) &
         + n(idx_NO_DUST) &
@@ -1210,6 +1441,7 @@ contains
         + 2d0*n(idx_NO2_DUST) &
         + n(idx_HNO_DUST) &
         + 2d0*n(idx_O2H_DUST) &
+        + n(idx_SIO_DUST) &
         + n(idx_HCOj) &
         + n(idx_HOCj) &
         + n(idx_H2COj) &
@@ -1219,12 +1451,14 @@ contains
         + n(idx_H2Oj) &
         + n(idx_Oj) &
         + n(idx_OHj) &
+        + n(idx_SIOj) &
         + n(idx_HNOj) &
         + n(idx_H2NOj) &
         + n(idx_H3COj) &
         + n(idx_H3Oj) &
         + 2d0*n(idx_HCO2j) &
-        + 2d0*n(idx_O2Hj)
+        + 2d0*n(idx_O2Hj) &
+        + n(idx_SIOHj)
 
     zO = max(zO, 0d0)
 
@@ -1286,5 +1520,50 @@ contains
     phys_metallicity = get_metallicityN
 
   end function get_metallicityN
+
+  !*****************************
+  ! get metallicity using Si as reference
+  function get_metallicitySi(n)
+    use krome_commons
+    implicit none
+    real*8::n(:),get_metallicitySi,zSi,nH
+
+    nH = get_Hnuclei(n(:))
+
+    zSi = n(idx_SI) &
+        + n(idx_SIC2) &
+        + n(idx_SIC3) &
+        + n(idx_SIC) &
+        + n(idx_SIH2) &
+        + n(idx_SIH3) &
+        + n(idx_SIH4) &
+        + n(idx_SIH) &
+        + n(idx_SIO) &
+        + n(idx_H2SIO) &
+        + n(idx_SIH4_DUST) &
+        + n(idx_H2SIO_DUST) &
+        + n(idx_SIC_DUST) &
+        + n(idx_SIC2_DUST) &
+        + n(idx_SIC3_DUST) &
+        + n(idx_SIO_DUST) &
+        + n(idx_SIj) &
+        + n(idx_SIC2j) &
+        + n(idx_SIC3j) &
+        + n(idx_SICj) &
+        + n(idx_SIH2j) &
+        + n(idx_SIH3j) &
+        + n(idx_SIH4j) &
+        + n(idx_SIHj) &
+        + n(idx_SIOj) &
+        + n(idx_SIH5j) &
+        + n(idx_SIOHj)
+
+    zSi = max(zSi, 0d0)
+
+    get_metallicitySi = log10(zSi/nH+1d-40) - (-4.49)
+
+    phys_metallicity = get_metallicitySi
+
+  end function get_metallicitySi
 
 end module krome_getphys

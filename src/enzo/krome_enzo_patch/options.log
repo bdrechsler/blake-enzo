@@ -1,0 +1,7 @@
+-nochargeCheck 
+-nomassCheck 
+-enzo 
+-noSinkCheck 
+-iRHS 
+-n networks/walshreduced3_av.krome
+-conserveLin 

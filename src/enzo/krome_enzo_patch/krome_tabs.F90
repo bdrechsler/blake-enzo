@@ -22,7 +22,7 @@ contains
 
     coe_tab(:) = coe(n(:))
 
-    coe_tab(999)=knrco(n(:))
+    coe_tab(1134)=knrco(n(:))
 
   end function coe_tab
 

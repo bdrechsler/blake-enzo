@@ -58,48 +58,61 @@ int grid::AddAmbipolarDiffusion()
 
 #ifdef USE_KROME
   int DeNum, HINum, HIINum, HeINum, HeIINum, HeIIINum, HMNum, H2INum, H2IINum,
-      DINum, DIINum, HDINum, CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
+      DINum, DIINum, HDINum;
+  int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
       OHINum, O2INum, CH2INum, H2COINum, HCOINum,
-      MGINum, NH3INum, NOINum, CNINum, COINum,
-      N2INum, NH2INum, CH3INum, CH4INum, NINum,
-      NHINum, HNOINum, CH3OHINum, CO2INum, H2CNINum,
+      MGINum, NH3INum, NOINum, SIINum, SIC2INum,
+      SIC3INum, SICINum, SIH2INum, SIH3INum, CNINum,
+      COINum, N2INum, NH2INum, CH3INum, CH4INum,
+      NINum, NHINum, SIH4INum, SIHINum, SIOINum,
+      HNOINum, CH3OHINum, CO2INum, H2CNINum, H2SIOINum,
       HNCOINum, NO2INum, O2HINum, OCNINum, CH3OH_DUSTINum,
-      HNCO_DUSTINum, H2CO_DUSTINum, CH4_DUSTINum,
-      CO_DUSTINum, H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
+      HNCO_DUSTINum, H2CO_DUSTINum, SIH4_DUSTINum,
+      H2SIO_DUSTINum, SIC_DUSTINum, SIC2_DUSTINum,
+      SIC3_DUSTINum, CH4_DUSTINum, CO_DUSTINum,
+      H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
       N2_DUSTINum, HCN_DUSTINum, NH3_DUSTINum,
       O2_DUSTINum, NO2_DUSTINum, HNO_DUSTINum,
       O2H_DUSTINum, H2CN_DUSTINum, MG_DUSTINum,
-      HNC_DUSTINum, E_DUSTINum, HCOIINum, HOCIINum,
-      CIINum, CH2IINum, CHIINum, H2COIINum, MGIINum,
-      NH3IINum, NOIINum, CNIINum, COIINum, N2IINum,
-      O2IINum, H2OIINum, NH2IINum, OIINum, OHIINum,
-      CH3IINum, CH4IINum, NIINum, HCNIINum, NHIINum,
-      HNOIINum, H2NOIINum, H3IINum, H3COIINum,
+      HNC_DUSTINum, E_DUSTINum, SIO_DUSTINum, HCOIINum,
+      HOCIINum, CIINum, CH2IINum, CHIINum, H2COIINum,
+      MGIINum, NH3IINum, NOIINum, SIIINum, SIC2IINum,
+      SIC3IINum, SICIINum, SIH2IINum, SIH3IINum,
+      CNIINum, COIINum, N2IINum, O2IINum, H2OIINum,
+      NH2IINum, OIINum, OHIINum, CH3IINum, CH4IINum,
+      NIINum, HCNIINum, NHIINum, SIH4IINum, SIHIINum,
+      SIOIINum, HNOIINum, H2NOIINum, H3IINum, H3COIINum,
       H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
-      N2HIINum, O2HIINum;
+      N2HIINum, O2HIINum, SIH5IINum, SIOHIINum;
 
   if (MultiSpecies == KROMESPECIES)
     if (IdentifySpeciesFieldsKrome(
             DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
             CINum, HINum, H2OINum, OHINum, O2INum, CH2INum,
             H2COINum, HCOINum, MGINum, NH3INum, NOINum,
-            CNINum, COINum, N2INum, NH2INum, CH3INum,
-            CH4INum, NINum, NHINum, HeINum, HNOINum,
-            CH3OHINum, CO2INum, H2CNINum, HNCOINum, NO2INum,
+            SIINum, SIC2INum, SIC3INum, SICINum, SIH2INum,
+            SIH3INum, CNINum, COINum, N2INum, NH2INum,
+            CH3INum, CH4INum, NINum, NHINum, SIH4INum,
+            SIHINum, SIOINum, HeINum, HNOINum, CH3OHINum,
+            CO2INum, H2CNINum, H2SIOINum, HNCOINum, NO2INum,
             O2HINum, OCNINum, CH3OH_DUSTINum, HNCO_DUSTINum,
-            H2CO_DUSTINum, CH4_DUSTINum, CO_DUSTINum,
-            H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
-            N2_DUSTINum, HCN_DUSTINum, NH3_DUSTINum,
-            O2_DUSTINum, NO2_DUSTINum, HNO_DUSTINum,
-            O2H_DUSTINum, H2CN_DUSTINum, MG_DUSTINum,
-            HNC_DUSTINum, E_DUSTINum, HCOIINum, HIINum,
-            HOCIINum, CIINum, CH2IINum, CHIINum, H2COIINum,
-            MGIINum, NH3IINum, NOIINum, CNIINum, COIINum,
-            N2IINum, O2IINum, H2OIINum, NH2IINum, OIINum,
-            OHIINum, CH3IINum, CH4IINum, NIINum, HCNIINum,
-            NHIINum, H2IINum, HeIINum, HNOIINum, H2NOIINum,
-            H3IINum, H3COIINum, H3OIINum, HCNHIINum,
-            HCO2IINum, HeHIINum, N2HIINum, O2HIINum) == FAIL)
+            H2CO_DUSTINum, SIH4_DUSTINum, H2SIO_DUSTINum,
+            SIC_DUSTINum, SIC2_DUSTINum, SIC3_DUSTINum,
+            CH4_DUSTINum, CO_DUSTINum, H2O_DUSTINum,
+            NO_DUSTINum, CO2_DUSTINum, N2_DUSTINum, HCN_DUSTINum,
+            NH3_DUSTINum, O2_DUSTINum, NO2_DUSTINum,
+            HNO_DUSTINum, O2H_DUSTINum, H2CN_DUSTINum,
+            MG_DUSTINum, HNC_DUSTINum, E_DUSTINum, SIO_DUSTINum,
+            HCOIINum, HIINum, HOCIINum, CIINum, CH2IINum,
+            CHIINum, H2COIINum, MGIINum, NH3IINum, NOIINum,
+            SIIINum, SIC2IINum, SIC3IINum, SICIINum,
+            SIH2IINum, SIH3IINum, CNIINum, COIINum, N2IINum,
+            O2IINum, H2OIINum, NH2IINum, OIINum, OHIINum,
+            CH3IINum, CH4IINum, NIINum, HCNIINum, NHIINum,
+            SIH4IINum, SIHIINum, SIOIINum, H2IINum, HeIINum,
+            HNOIINum, H2NOIINum, H3IINum, H3COIINum,
+            H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
+            N2HIINum, O2HIINum, SIH5IINum, SIOHIINum) == FAIL)
     {
       ENZO_FAIL("Error in grid->IdentifySpeciesFields.");
     }
@@ -191,8 +204,8 @@ int grid::AddAmbipolarDiffusion()
         rho_HII = BaryonField[HIINum][igrid];
         rho_HeII = BaryonField[HeIINum][igrid];
         rho_H3II = BaryonField[H3IINum][igrid];
-        rho_MII = BaryonField[HCOIINum][igrid] + BaryonField[HOCIINum][igrid] + BaryonField[CH2IINum][igrid] + BaryonField[CHIINum][igrid] + BaryonField[H2COIINum][igrid] + BaryonField[NH3IINum][igrid] + BaryonField[NOIINum][igrid] + BaryonField[CNIINum][igrid] + BaryonField[COIINum][igrid] + BaryonField[N2IINum][igrid] + BaryonField[O2IINum][igrid] + BaryonField[H2OIINum][igrid] + BaryonField[NH2IINum][igrid] + BaryonField[OHIINum][igrid] + BaryonField[CH3IINum][igrid] + BaryonField[CH3IINum][igrid] + BaryonField[HCNIINum][igrid] + BaryonField[NHIINum][igrid] + BaryonField[HNOIINum][igrid] + BaryonField[H2NOIINum][igrid] + BaryonField[H3COIINum][igrid] + BaryonField[H3OIINum][igrid] + BaryonField[HCNHIINum][igrid] + BaryonField[HCO2IINum][igrid] + BaryonField[HeHIINum][igrid] + BaryonField[N2HIINum][igrid] + BaryonField[O2HIINum][igrid];
-        rho_AII = BaryonField[CIINum][igrid] + BaryonField[MGIINum][igrid] + BaryonField[OIINum][igrid] + BaryonField[NIINum][igrid];
+        rho_AII = BaryonField[CIINum][igrid] + BaryonField[MGIINum][igrid] + BaryonField[OIINum][igrid] + BaryonField[NIINum][igrid] + BaryonField[SIINum][igrid];
+        rho_MII = BaryonField[DensNum][igrid] - rho_HI - rho_H2I - rho_HeI - rho_HII - rho_HeII - rho_H3II - rho_AII;
 #endif
 
         A = GetResistivity(rho, Bmag, T, Time, rho_HI, rho_H2I, rho_HeI,

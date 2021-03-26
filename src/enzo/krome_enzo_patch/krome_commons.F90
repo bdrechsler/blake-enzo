@@ -5,7 +5,7 @@ module krome_commons
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2020-11-24 11:54:34
+  !  KROME 14.08.dev on 2021-03-24 02:55:08
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -34,85 +34,112 @@ module krome_commons
   integer,parameter::idx_MG=15
   integer,parameter::idx_NH3=16
   integer,parameter::idx_NO=17
-  integer,parameter::idx_CN=18
-  integer,parameter::idx_CO=19
-  integer,parameter::idx_N2=20
-  integer,parameter::idx_NH2=21
-  integer,parameter::idx_CH3=22
-  integer,parameter::idx_CH4=23
-  integer,parameter::idx_N=24
-  integer,parameter::idx_NH=25
-  integer,parameter::idx_HE=26
-  integer,parameter::idx_HNO=27
-  integer,parameter::idx_CH3OH=28
-  integer,parameter::idx_CO2=29
-  integer,parameter::idx_H2CN=30
-  integer,parameter::idx_HNCO=31
-  integer,parameter::idx_NO2=32
-  integer,parameter::idx_O2H=33
-  integer,parameter::idx_OCN=34
-  integer,parameter::idx_CH3OH_DUST=35
-  integer,parameter::idx_HNCO_DUST=36
-  integer,parameter::idx_H2CO_DUST=37
-  integer,parameter::idx_CH4_DUST=38
-  integer,parameter::idx_CO_DUST=39
-  integer,parameter::idx_H2O_DUST=40
-  integer,parameter::idx_NO_DUST=41
-  integer,parameter::idx_CO2_DUST=42
-  integer,parameter::idx_N2_DUST=43
-  integer,parameter::idx_HCN_DUST=44
-  integer,parameter::idx_NH3_DUST=45
-  integer,parameter::idx_O2_DUST=46
-  integer,parameter::idx_NO2_DUST=47
-  integer,parameter::idx_HNO_DUST=48
-  integer,parameter::idx_O2H_DUST=49
-  integer,parameter::idx_H2CN_DUST=50
-  integer,parameter::idx_MG_DUST=51
-  integer,parameter::idx_HNC_DUST=52
-  integer,parameter::idx_E_DUST=53
-  integer,parameter::idx_HCOj=54
-  integer,parameter::idx_Hj=55
-  integer,parameter::idx_HOCj=56
-  integer,parameter::idx_Cj=57
-  integer,parameter::idx_CH2j=58
-  integer,parameter::idx_CHj=59
-  integer,parameter::idx_H2COj=60
-  integer,parameter::idx_MGj=61
-  integer,parameter::idx_NH3j=62
-  integer,parameter::idx_NOj=63
-  integer,parameter::idx_CNj=64
-  integer,parameter::idx_COj=65
-  integer,parameter::idx_N2j=66
-  integer,parameter::idx_O2j=67
-  integer,parameter::idx_H2Oj=68
-  integer,parameter::idx_NH2j=69
-  integer,parameter::idx_Oj=70
-  integer,parameter::idx_OHj=71
-  integer,parameter::idx_CH3j=72
-  integer,parameter::idx_CH4j=73
-  integer,parameter::idx_Nj=74
-  integer,parameter::idx_HCNj=75
-  integer,parameter::idx_NHj=76
-  integer,parameter::idx_H2j=77
-  integer,parameter::idx_HEj=78
-  integer,parameter::idx_HNOj=79
-  integer,parameter::idx_H2NOj=80
-  integer,parameter::idx_H3j=81
-  integer,parameter::idx_H3COj=82
-  integer,parameter::idx_H3Oj=83
-  integer,parameter::idx_HCNHj=84
-  integer,parameter::idx_HCO2j=85
-  integer,parameter::idx_HEHj=86
-  integer,parameter::idx_N2Hj=87
-  integer,parameter::idx_O2Hj=88
-  integer,parameter::idx_CR=89
-  integer,parameter::idx_g=90
-  integer,parameter::idx_Tgas=91
-  integer,parameter::idx_dummy=92
-  integer,parameter::nrea=1144
-  integer,parameter::nmols=88
-  integer,parameter::nspec=92
-  integer,parameter::natoms=6
+  integer,parameter::idx_SI=18
+  integer,parameter::idx_SIC2=19
+  integer,parameter::idx_SIC3=20
+  integer,parameter::idx_SIC=21
+  integer,parameter::idx_SIH2=22
+  integer,parameter::idx_SIH3=23
+  integer,parameter::idx_CN=24
+  integer,parameter::idx_CO=25
+  integer,parameter::idx_N2=26
+  integer,parameter::idx_NH2=27
+  integer,parameter::idx_CH3=28
+  integer,parameter::idx_CH4=29
+  integer,parameter::idx_N=30
+  integer,parameter::idx_NH=31
+  integer,parameter::idx_SIH4=32
+  integer,parameter::idx_SIH=33
+  integer,parameter::idx_SIO=34
+  integer,parameter::idx_HE=35
+  integer,parameter::idx_HNO=36
+  integer,parameter::idx_CH3OH=37
+  integer,parameter::idx_CO2=38
+  integer,parameter::idx_H2CN=39
+  integer,parameter::idx_H2SIO=40
+  integer,parameter::idx_HNCO=41
+  integer,parameter::idx_NO2=42
+  integer,parameter::idx_O2H=43
+  integer,parameter::idx_OCN=44
+  integer,parameter::idx_CH3OH_DUST=45
+  integer,parameter::idx_HNCO_DUST=46
+  integer,parameter::idx_H2CO_DUST=47
+  integer,parameter::idx_SIH4_DUST=48
+  integer,parameter::idx_H2SIO_DUST=49
+  integer,parameter::idx_SIC_DUST=50
+  integer,parameter::idx_SIC2_DUST=51
+  integer,parameter::idx_SIC3_DUST=52
+  integer,parameter::idx_CH4_DUST=53
+  integer,parameter::idx_CO_DUST=54
+  integer,parameter::idx_H2O_DUST=55
+  integer,parameter::idx_NO_DUST=56
+  integer,parameter::idx_CO2_DUST=57
+  integer,parameter::idx_N2_DUST=58
+  integer,parameter::idx_HCN_DUST=59
+  integer,parameter::idx_NH3_DUST=60
+  integer,parameter::idx_O2_DUST=61
+  integer,parameter::idx_NO2_DUST=62
+  integer,parameter::idx_HNO_DUST=63
+  integer,parameter::idx_O2H_DUST=64
+  integer,parameter::idx_H2CN_DUST=65
+  integer,parameter::idx_MG_DUST=66
+  integer,parameter::idx_HNC_DUST=67
+  integer,parameter::idx_E_DUST=68
+  integer,parameter::idx_SIO_DUST=69
+  integer,parameter::idx_HCOj=70
+  integer,parameter::idx_Hj=71
+  integer,parameter::idx_HOCj=72
+  integer,parameter::idx_Cj=73
+  integer,parameter::idx_CH2j=74
+  integer,parameter::idx_CHj=75
+  integer,parameter::idx_H2COj=76
+  integer,parameter::idx_MGj=77
+  integer,parameter::idx_NH3j=78
+  integer,parameter::idx_NOj=79
+  integer,parameter::idx_SIj=80
+  integer,parameter::idx_SIC2j=81
+  integer,parameter::idx_SIC3j=82
+  integer,parameter::idx_SICj=83
+  integer,parameter::idx_SIH2j=84
+  integer,parameter::idx_SIH3j=85
+  integer,parameter::idx_CNj=86
+  integer,parameter::idx_COj=87
+  integer,parameter::idx_N2j=88
+  integer,parameter::idx_O2j=89
+  integer,parameter::idx_H2Oj=90
+  integer,parameter::idx_NH2j=91
+  integer,parameter::idx_Oj=92
+  integer,parameter::idx_OHj=93
+  integer,parameter::idx_CH3j=94
+  integer,parameter::idx_CH4j=95
+  integer,parameter::idx_Nj=96
+  integer,parameter::idx_HCNj=97
+  integer,parameter::idx_NHj=98
+  integer,parameter::idx_SIH4j=99
+  integer,parameter::idx_SIHj=100
+  integer,parameter::idx_SIOj=101
+  integer,parameter::idx_H2j=102
+  integer,parameter::idx_HEj=103
+  integer,parameter::idx_HNOj=104
+  integer,parameter::idx_H2NOj=105
+  integer,parameter::idx_H3j=106
+  integer,parameter::idx_H3COj=107
+  integer,parameter::idx_H3Oj=108
+  integer,parameter::idx_HCNHj=109
+  integer,parameter::idx_HCO2j=110
+  integer,parameter::idx_HEHj=111
+  integer,parameter::idx_N2Hj=112
+  integer,parameter::idx_O2Hj=113
+  integer,parameter::idx_SIH5j=114
+  integer,parameter::idx_SIOHj=115
+  integer,parameter::idx_CR=116
+  integer,parameter::idx_g=117
+  integer,parameter::idx_Tgas=118
+  integer,parameter::idx_dummy=119
+  integer,parameter::nrea=1331
+  integer,parameter::nmols=115
+  integer,parameter::nspec=119
+  integer,parameter::natoms=7
   integer,parameter::ndust=0
   integer,parameter::ndustTypes=0
   integer,parameter::nPhotoBins=0
@@ -123,7 +150,8 @@ module krome_commons
   integer,parameter::idx_atom_Mg=3
   integer,parameter::idx_atom_O=4
   integer,parameter::idx_atom_N=5
-  integer,parameter::idx_atom_He=6
+  integer,parameter::idx_atom_Si=6
+  integer,parameter::idx_atom_He=7
 
   !cooling index
   integer,parameter::idx_cool_h2 = 1
@@ -230,8 +258,8 @@ module krome_commons
   !$omp threadprivate(krome_omp_thread)
 
   !user-defined commons variables from the reaction file
-  real*8::user_Av,user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_therm,user_desorb,user_h2desorb,user_crdesorb,user_uvcr
-  !$omp threadprivate(user_Av,user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_therm,user_desorb,user_h2desorb,user_crdesorb,user_uvcr)
+  real*8::user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_therm,user_desorb,user_h2desorb,user_crdesorb,user_uvcr
+  !$omp threadprivate(user_crflux,user_dgomega,user_zeta,user_rad,user_gRad,user_gArea,user_fr,user_therm,user_desorb,user_h2desorb,user_crdesorb,user_uvcr)
 
   !commons for anytab
 

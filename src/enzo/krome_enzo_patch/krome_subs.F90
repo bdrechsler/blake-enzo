@@ -5,7 +5,7 @@ contains
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2021-02-02 01:45:04
+  !  KROME 14.08.dev on 2021-03-24 02:55:08
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -185,1179 +185,1317 @@ contains
           *(T32)**(-0.03)*exp(+16.7*invT))
     end if
 
+    !C+ + SI -> SI+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(22) = small + (2.1e-09)
+    end if
+
+    !C+ + SIC2 -> SIC2+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(23) = small + (2e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !C+ + SIC3 -> SIC3+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(24) = small + (2e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !C+ + SIC -> SIC+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(25) = small + (2.5e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !C+ + SIH2 -> SIH2+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(26) = small + (1e-09)
+    end if
+
+    !C+ + SIH3 -> SIH3+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(27) = small + (1e-09)
+    end if
+
     !C + CN+ -> CN + C+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(22) = small + (1.1e-10)
+      k(28) = small + (1.1e-10)
     end if
 
     !C + CO+ -> CO + C+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(23) = small + (1.1e-10)
+      k(29) = small + (1.1e-10)
     end if
 
     !C + N2+ -> N2 + C+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(24) = small + (1.1e-10)
+      k(30) = small + (1.1e-10)
     end if
 
     !C + O2+ -> O2 + C+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(25) = small + (5.2e-11)
+      k(31) = small + (5.2e-11)
     end if
 
     !CH+ + HCO -> HCO+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(26) = small + (4.6e-10&
+      k(32) = small + (4.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + MG -> MG+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(27) = small + (3.6e-10)
+      k(33) = small + (3.6e-10)
     end if
 
     !CH+ + NH3 -> NH3+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(28) = small + (4.59e-10&
+      k(34) = small + (4.59e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + NO -> NO+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(29) = small + (7.6e-10)
+      k(35) = small + (7.6e-10)
+    end if
+
+    !CH+ + SI -> SI+ + CH
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(36) = small + (2e-10)
     end if
 
     !CH2+ + NO -> NO+ + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(30) = small + (4.2e-10)
+      k(37) = small + (4.2e-10)
     end if
 
     !CH2 + CN+ -> CN + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(31) = small + (8.8e-10)
+      k(38) = small + (8.8e-10)
     end if
 
     !CH2 + CO+ -> CO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(32) = small + (4.3e-10)
+      k(39) = small + (4.3e-10)
     end if
 
     !CH2 + H2CO+ -> H2CO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(33) = small + (4.3e-10)
+      k(40) = small + (4.3e-10)
     end if
 
     !CH2 + H2O+ -> H2O + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(34) = small + (4.7e-10)
+      k(41) = small + (4.7e-10)
     end if
 
     !CH2 + N2+ -> N2 + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(35) = small + (8.7e-10)
+      k(42) = small + (8.7e-10)
     end if
 
     !CH2 + NH2+ -> NH2 + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(36) = small + (4.9e-10)
+      k(43) = small + (4.9e-10)
     end if
 
     !CH2 + O+ -> O + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(37) = small + (9.7e-10)
+      k(44) = small + (9.7e-10)
     end if
 
     !CH2 + O2+ -> O2 + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(38) = small + (4.3e-10)
+      k(45) = small + (4.3e-10)
     end if
 
     !CH2 + OH+ -> OH + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(39) = small + (4.8e-10)
+      k(46) = small + (4.8e-10)
     end if
 
     !CH3+ + HCO -> HCO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(40) = small + (4.4e-10&
+      k(47) = small + (4.4e-10&
           *(T32)**(-0.5))
     end if
 
     !CH3+ + MG -> MG+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(41) = small + (3.5e-09)
+      k(48) = small + (3.5e-09)
     end if
 
     !CH3+ + NO -> NO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(42) = small + (1e-09)
+      k(49) = small + (1e-09)
     end if
 
     !CH4+ + H2CO -> H2CO+ + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(43) = small + (1.62e-09&
+      k(50) = small + (1.62e-09&
           *(T32)**(-0.5))
     end if
 
     !CH4+ + NH3 -> NH3+ + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(44) = small + (1.65e-09&
+      k(51) = small + (1.65e-09&
           *(T32)**(-0.5))
     end if
 
     !CH4+ + O2 -> O2+ + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(45) = small + (3.9e-10)
+      k(52) = small + (3.9e-10)
     end if
 
     !CH4 + CO+ -> CO + CH4+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(46) = small + (7.93e-10)
+      k(53) = small + (7.93e-10)
     end if
 
     !CH + CN+ -> CN + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(47) = small + (6.4e-10&
+      k(54) = small + (6.4e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + CO+ -> CO + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(48) = small + (3.2e-10&
+      k(55) = small + (3.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + H2CO+ -> H2CO + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(49) = small + (3.1e-10&
+      k(56) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + H2O+ -> H2O + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(50) = small + (3.4e-10&
+      k(57) = small + (3.4e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + N+ -> N + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(51) = small + (3.6e-10&
+      k(58) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + N2+ -> N2 + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(52) = small + (6.3e-10&
+      k(59) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + NH2+ -> NH2 + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(53) = small + (3.5e-10&
+      k(60) = small + (3.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + O+ -> O + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(54) = small + (3.5e-10&
+      k(61) = small + (3.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + O2+ -> O2 + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(55) = small + (3.1e-10&
+      k(62) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + OH+ -> OH + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(56) = small + (3.5e-10&
+      k(63) = small + (3.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CN+ + CO -> CO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(57) = small + (6.3e-10)
+      k(64) = small + (6.3e-10)
     end if
 
     !CN+ + H2CO -> H2CO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(58) = small + (5.2e-10&
+      k(65) = small + (5.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CN+ + HCN -> HCN+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(59) = small + (1.79e-09&
+      k(66) = small + (1.79e-09&
           *(T32)**(-0.5))
     end if
 
     !CN+ + HCO -> HCO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(60) = small + (3.7e-10&
+      k(67) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !CN+ + NO -> NO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(61) = small + (5.7e-10)
+      k(68) = small + (5.7e-10)
     end if
 
     !CN+ + O2 -> O2+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(62) = small + (2.58e-10)
+      k(69) = small + (2.58e-10)
     end if
 
     !CN + N2+ -> N2 + CN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(63) = small + (1e-10&
+      k(70) = small + (1e-10&
           *(T32)**(-0.5))
     end if
 
     !CO+ + H2CO -> H2CO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(64) = small + (1.35e-09&
+      k(71) = small + (1.35e-09&
           *(T32)**(-0.5))
     end if
 
     !CO+ + HCO -> HCO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(65) = small + (7.4e-10&
+      k(72) = small + (7.4e-10&
           *(T32)**(-0.5))
     end if
 
     !CO+ + NO -> NO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(66) = small + (3.3e-10)
+      k(73) = small + (3.3e-10)
     end if
 
     !CO+ + O2 -> O2+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(67) = small + (1.2e-10)
+      k(74) = small + (1.2e-10)
     end if
 
     !CO + N2+ -> N2 + CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(68) = small + (7.4e-11)
+      k(75) = small + (7.4e-11)
     end if
 
     !H+ + CH2 -> CH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(69) = small + (1.4e-09)
+      k(76) = small + (1.4e-09)
     end if
 
     !H+ + CH3 -> CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(70) = small + (3.4e-09)
+      k(77) = small + (3.4e-09)
     end if
 
     !H+ + CH4 -> CH4+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(71) = small + (1.5e-09)
+      k(78) = small + (1.5e-09)
     end if
 
     !H+ + CH -> CH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(72) = small + (1.9e-09&
+      k(79) = small + (1.9e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + H2CO -> H2CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(73) = small + (2.96e-09&
+      k(80) = small + (2.96e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + H2O -> H2O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(74) = small + (6.9e-09&
+      k(81) = small + (6.9e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + HCN -> HCN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(75) = small + (1.05e-08&
+      k(82) = small + (1.05e-08&
           *(T32)**(-0.13))
     end if
 
     !H+ + HCO -> HCO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(76) = small + (9.4e-10&
+      k(83) = small + (9.4e-10&
           *(T32)**(-0.5))
     end if
 
     !H+ + MG -> MG+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(77) = small + (1.1e-09)
+      k(84) = small + (1.1e-09)
     end if
 
     !H+ + NH2 -> NH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(78) = small + (2.9e-09&
+      k(85) = small + (2.9e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + NH3 -> NH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(79) = small + (3.7e-09&
+      k(86) = small + (3.7e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + NH -> NH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(80) = small + (2.1e-09&
+      k(87) = small + (2.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + NO -> NO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(81) = small + (2.9e-09)
+      k(88) = small + (2.9e-09)
     end if
 
     !H+ + O2 -> O2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(82) = small + (2e-09)
+      k(89) = small + (2e-09)
     end if
 
     !H+ + O -> O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(83) = small + (6.86e-10&
+      k(90) = small + (6.86e-10&
           *(T32)**(0.26)*exp(-224.3*invT))
     end if
 
     !H+ + OH -> OH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(84) = small + (2.1e-09&
+      k(91) = small + (2.1e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H+ + SI -> SI+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(92) = small + (9.9e-10)
+    end if
+
+    !H+ + SIC2 -> SIC2+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(93) = small + (3e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H+ + SIC3 -> SIC3+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(94) = small + (3e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H+ + SIC -> SIC+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(95) = small + (3e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H+ + SIH2 -> SIH2+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(96) = small + (1.5e-09)
+    end if
+
+    !H+ + SIH3 -> SIH3+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(97) = small + (1.5e-09)
+    end if
+
+    !H+ + SIH4 -> SIH4+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(98) = small + (1.5e-09)
+    end if
+
+    !H+ + SIH -> SIH+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(99) = small + (1.7e-09)
+    end if
+
+    !H+ + SIO -> SIO+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(100) = small + (3.3e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + CH2 -> CH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(85) = small + (1e-09)
+      k(101) = small + (1e-09)
     end if
 
     !H2+ + CH4 -> CH4+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(86) = small + (1.4e-09)
+      k(102) = small + (1.4e-09)
     end if
 
     !H2+ + CH -> CH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(87) = small + (7.1e-10&
+      k(103) = small + (7.1e-10&
           *(T32)**(-0.5))
     end if
 
     !H2+ + CN -> CN+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(88) = small + (1.2e-09&
+      k(104) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + CO -> CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(89) = small + (6.44e-10)
+      k(105) = small + (6.44e-10)
     end if
 
     !H2+ + H2CO -> H2CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(90) = small + (1.4e-09&
+      k(106) = small + (1.4e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + H2O -> H2O+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(91) = small + (3.9e-09&
+      k(107) = small + (3.9e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + HCN -> HCN+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(92) = small + (2.7e-09&
+      k(108) = small + (2.7e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + HCO -> HCO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(93) = small + (1e-09&
+      k(109) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + NH2 -> NH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(94) = small + (2.1e-09&
+      k(110) = small + (2.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + NH3 -> NH3+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(95) = small + (5.7e-09&
+      k(111) = small + (5.7e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + NH -> NH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(96) = small + (7.6e-10&
+      k(112) = small + (7.6e-10&
           *(T32)**(-0.5))
     end if
 
     !H2+ + NO -> NO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(97) = small + (1.1e-09)
+      k(113) = small + (1.1e-09)
     end if
 
     !H2+ + O2 -> O2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(98) = small + (8e-10)
+      k(114) = small + (8e-10)
     end if
 
     !H2+ + OH -> OH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(99) = small + (7.6e-10&
+      k(115) = small + (7.6e-10&
           *(T32)**(-0.5))
     end if
 
     !H2 + HE+ -> HE + H2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(100) = small + (7.2e-15)
+      k(116) = small + (7.2e-15)
     end if
 
     !H2CO + O2+ -> O2 + H2CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(101) = small + (2.07e-09&
+      k(117) = small + (2.07e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + H2CO -> H2CO+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(102) = small + (1.41e-09&
+      k(118) = small + (1.41e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + HCO -> HCO+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(103) = small + (2.8e-10&
+      k(119) = small + (2.8e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + MG -> MG+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(104) = small + (2.2e-09)
+      k(120) = small + (2.2e-09)
     end if
 
     !H2O+ + NO -> NO+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(105) = small + (2.7e-10)
+      k(121) = small + (2.7e-10)
     end if
 
     !H2O+ + O2 -> O2+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(106) = small + (4.6e-10)
+      k(122) = small + (4.6e-10)
+    end if
+
+    !H2O+ + SI -> SI+ + H2O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(123) = small + (3e-09)
     end if
 
     !H2O + CO+ -> CO + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(107) = small + (1.72e-09&
+      k(124) = small + (1.72e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + HCN+ -> HCN + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(108) = small + (1.8e-09&
+      k(125) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + N2+ -> N2 + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(109) = small + (2.3e-09&
+      k(126) = small + (2.3e-09&
           *(T32)**(-0.5))
     end if
 
     !H + CN+ -> CN + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(110) = small + (6.4e-10)
+      k(127) = small + (6.4e-10)
     end if
 
     !H + CO+ -> CO + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(111) = small + (7.5e-10)
+      k(128) = small + (7.5e-10)
     end if
 
     !H + H2+ -> H2 + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(112) = small + (6.4e-10)
+      k(129) = small + (6.4e-10)
     end if
 
     !H + HCN+ -> HCN + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(113) = small + (3.7e-11)
+      k(130) = small + (3.7e-11)
     end if
 
     !H + HE+ -> HE + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(114) = small + (1.2e-15&
+      k(131) = small + (1.2e-15&
           *(T32)**(0.25))
     end if
 
     !H + O+ -> O + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(115) = small + (5.66e-10&
+      k(132) = small + (5.66e-10&
           *(T32)**(0.36)*exp(+8.6*invT))
     end if
 
     !HCN+ + NO -> NO+ + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(116) = small + (8.1e-10)
+      k(133) = small + (8.1e-10)
     end if
 
     !HCN+ + O2 -> O2+ + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(117) = small + (3.2e-10)
+      k(134) = small + (3.2e-10)
     end if
 
     !HCN + CO+ -> CO + HCN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(118) = small + (3.4e-09&
+      k(135) = small + (3.4e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN + N2+ -> N2 + HCN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(119) = small + (3.9e-10&
+      k(136) = small + (3.9e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + H2CO+ -> H2CO + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(120) = small + (3.6e-10&
+      k(137) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + O2+ -> O2 + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(121) = small + (3.6e-10&
+      k(138) = small + (3.6e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !HCO + SIO+ -> SIO + HCO+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(139) = small + (6.6e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + C -> C+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(122) = small + (6.3e-15&
+      k(140) = small + (6.3e-15&
           *(T32)**(0.75))
     end if
 
     !HE+ + CH4 -> CH4+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(123) = small + (5.1e-11)
+      k(141) = small + (5.1e-11)
     end if
 
     !HE+ + CH -> CH+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(124) = small + (5e-10&
+      k(142) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + H2CO -> H2CO+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(125) = small + (9.69e-10&
+      k(143) = small + (9.69e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + H2O -> H2O+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(126) = small + (6.05e-11&
+      k(144) = small + (6.05e-11&
           *(T32)**(-0.5))
     end if
 
     !HE+ + N2 -> N2+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(127) = small + (6.4e-10)
+      k(145) = small + (6.4e-10)
     end if
 
     !HE+ + NH3 -> NH3+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(128) = small + (2.64e-10&
+      k(146) = small + (2.64e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + O2 -> O2+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(129) = small + (3.3e-11)
+      k(147) = small + (3.3e-11)
+    end if
+
+    !HE+ + SI -> SI+ + HE
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(148) = small + (3.3e-09)
     end if
 
     !MG + H2CO+ -> H2CO + MG+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(130) = small + (2.9e-09)
+      k(149) = small + (2.9e-09)
     end if
 
     !MG + HCO+ -> HCO + MG+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(131) = small + (2.9e-09)
+      k(150) = small + (2.9e-09)
     end if
 
     !MG + N2+ -> N2 + MG+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(132) = small + (7e-10)
+      k(151) = small + (7e-10)
     end if
 
     !MG + NO+ -> NO + MG+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(133) = small + (8.1e-10)
+      k(152) = small + (8.1e-10)
     end if
 
     !MG + O2+ -> O2 + MG+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(134) = small + (1.2e-09)
+      k(153) = small + (1.2e-09)
+    end if
+
+    !MG + SI+ -> SI + MG+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(154) = small + (2.9e-09)
+    end if
+
+    !MG + SIO+ -> SIO + MG+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(155) = small + (1e-09)
     end if
 
     !N+ + CH2 -> CH2+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(135) = small + (1e-09)
+      k(156) = small + (1e-09)
     end if
 
     !N+ + CH4 -> CH4+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(136) = small + (2.8e-11)
+      k(157) = small + (2.8e-11)
     end if
 
     !N+ + CN -> CN+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(137) = small + (1.1e-09&
+      k(158) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !N+ + CO -> CO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(138) = small + (8.25e-10)
+      k(159) = small + (8.25e-10)
     end if
 
     !N+ + H2CO -> H2CO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(139) = small + (1.88e-09&
+      k(160) = small + (1.88e-09&
           *(T32)**(-0.5))
     end if
 
     !N+ + H2O -> H2O+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(140) = small + (2.8e-09&
+      k(161) = small + (2.8e-09&
           *(T32)**(-0.5))
     end if
 
     !N+ + HCN -> HCN+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(141) = small + (3.7e-09&
+      k(162) = small + (3.7e-09&
           *(T32)**(-0.5))
     end if
 
     !N+ + HCO -> HCO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(142) = small + (4.5e-10&
+      k(163) = small + (4.5e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + MG -> MG+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(143) = small + (1.2e-09)
+      k(164) = small + (1.2e-09)
     end if
 
     !N+ + NH2 -> NH2+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(144) = small + (1e-09&
+      k(165) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !N+ + NH3 -> NH3+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(145) = small + (1.97e-09&
+      k(166) = small + (1.97e-09&
           *(T32)**(-0.5))
     end if
 
     !N+ + NH -> NH+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(146) = small + (3.7e-10&
+      k(167) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + NO -> NO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(147) = small + (4.51e-10)
+      k(168) = small + (4.51e-10)
     end if
 
     !N+ + O2 -> O2+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(148) = small + (3.11e-10)
+      k(169) = small + (3.11e-10)
     end if
 
     !N+ + OH -> OH+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(149) = small + (3.7e-10&
+      k(170) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !N2+ + H2CO -> H2CO+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(150) = small + (3.77e-10&
+      k(171) = small + (3.77e-10&
           *(T32)**(-0.5))
     end if
 
     !N2+ + HCO -> HCO+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(151) = small + (3.7e-10&
+      k(172) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !N2+ + NO -> NO+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(152) = small + (4.4e-10)
+      k(173) = small + (4.4e-10)
     end if
 
     !N2+ + O2 -> O2+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(153) = small + (5e-11)
+      k(174) = small + (5e-11)
     end if
 
     !N + N2+ -> N2 + N+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(154) = small + (1e-11)
+      k(175) = small + (1e-11)
     end if
 
     !NH+ + H2CO -> H2CO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(155) = small + (9.9e-10&
+      k(176) = small + (9.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH+ + H2O -> H2O+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(156) = small + (1.05e-09&
+      k(177) = small + (1.05e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + NH3 -> NH3+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(157) = small + (1.8e-09&
+      k(178) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + NO -> NO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(158) = small + (7.12e-10)
+      k(179) = small + (7.12e-10)
     end if
 
     !NH+ + O2 -> O2+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(159) = small + (4.51e-10)
+      k(180) = small + (4.51e-10)
     end if
 
     !NH2+ + HCO -> HCO+ + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(160) = small + (4.3e-10&
+      k(181) = small + (4.3e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + NH3 -> NH3+ + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(161) = small + (6.9e-10&
+      k(182) = small + (6.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + NO -> NO+ + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(162) = small + (7e-10)
+      k(183) = small + (7e-10)
     end if
 
     !NH2 + CN+ -> CN + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(163) = small + (9.1e-10&
+      k(184) = small + (9.1e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + CO+ -> CO + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(164) = small + (4.5e-10&
+      k(185) = small + (4.5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + H2O+ -> H2O + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(165) = small + (4.9e-10&
+      k(186) = small + (4.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + N2+ -> N2 + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(166) = small + (8.9e-10&
+      k(187) = small + (8.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + O2+ -> O2 + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(167) = small + (8.7e-10&
+      k(188) = small + (8.7e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + OH+ -> OH + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(168) = small + (5e-10&
+      k(189) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH3+ + HCO -> HCO+ + NH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(169) = small + (4.2e-10&
+      k(190) = small + (4.2e-10&
           *(T32)**(-0.5))
     end if
 
     !NH3+ + MG -> MG+ + NH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(170) = small + (3.3e-09)
+      k(191) = small + (3.3e-09)
     end if
 
     !NH3+ + NO -> NO+ + NH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(171) = small + (7.2e-10)
+      k(192) = small + (7.2e-10)
+    end if
+
+    !NH3+ + SI -> SI+ + NH3
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(193) = small + (1.9e-09)
     end if
 
     !NH3 + CO+ -> CO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(172) = small + (2.02e-09&
+      k(194) = small + (2.02e-09&
           *(T32)**(-0.5))
     end if
 
     !NH3 + H2CO+ -> H2CO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(173) = small + (4.25e-10&
+      k(195) = small + (4.25e-10&
           *(T32)**(-0.5))
     end if
 
     !NH3 + H2O+ -> H2O + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(174) = small + (2.21e-09&
+      k(196) = small + (2.21e-09&
           *(T32)**(-0.5))
     end if
 
     !NH3 + HCN+ -> HCN + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(175) = small + (1.68e-09&
+      k(197) = small + (1.68e-09&
           *(T32)**(-0.5))
     end if
 
     !NH3 + N2+ -> N2 + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(176) = small + (1.9e-09&
+      k(198) = small + (1.9e-09&
           *(T32)**(-0.5))
     end if
 
     !NH3 + O2+ -> O2 + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(177) = small + (2e-09&
+      k(199) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !NH + CN+ -> CN + NH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(178) = small + (6.5e-10&
+      k(200) = small + (6.5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + CO+ -> CO + NH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(179) = small + (3.2e-10&
+      k(201) = small + (3.2e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + N2+ -> N2 + NH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(180) = small + (6.5e-10&
+      k(202) = small + (6.5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + O+ -> O + NH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(181) = small + (3.6e-10&
+      k(203) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !NO + H2CO+ -> H2CO + NO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(182) = small + (7.8e-10)
+      k(204) = small + (7.8e-10)
     end if
 
     !NO + HNO+ -> HNO + NO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(183) = small + (7e-10)
+      k(205) = small + (7e-10)
     end if
 
     !NO + O2+ -> O2 + NO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(184) = small + (4.6e-10)
+      k(206) = small + (4.6e-10)
+    end if
+
+    !NO + SIO+ -> SIO + NO+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(207) = small + (7.2e-10)
     end if
 
     !O+ + CH4 -> CH4+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(185) = small + (8.9e-10)
+      k(208) = small + (8.9e-10)
     end if
 
     !O+ + CO -> CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(186) = small + (4.9e-12&
+      k(209) = small + (4.9e-12&
           *(T32)**(0.5)*exp(-4580.0*invT))
     end if
 
     !O+ + H2CO -> H2CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(187) = small + (2.1e-09&
+      k(210) = small + (2.1e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + H2O -> H2O+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(188) = small + (3.2e-09&
+      k(211) = small + (3.2e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + HCO -> HCO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(189) = small + (4.3e-10&
+      k(212) = small + (4.3e-10&
           *(T32)**(-0.5))
     end if
 
     !O+ + NH2 -> NH2+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(190) = small + (1e-09&
+      k(213) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + NH3 -> NH3+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(191) = small + (1.2e-09&
+      k(214) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + O2 -> O2+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(192) = small + (1.9e-11)
+      k(215) = small + (1.9e-11)
     end if
 
     !O+ + OH -> OH+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(193) = small + (3.6e-10&
+      k(216) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !O + CN+ -> CN + O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(194) = small + (6.5e-11)
+      k(217) = small + (6.5e-11)
     end if
 
     !O + CO+ -> CO + O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(195) = small + (1.4e-10)
+      k(218) = small + (1.4e-10)
     end if
 
     !O + N2+ -> N2 + O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(196) = small + (1e-11)
+      k(219) = small + (1e-11)
     end if
 
     !OH+ + H2CO -> H2CO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(197) = small + (7.44e-10&
+      k(220) = small + (7.44e-10&
           *(T32)**(-0.5))
     end if
 
     !OH+ + H2O -> H2O+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(198) = small + (1.59e-09&
+      k(221) = small + (1.59e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + HCO -> HCO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(199) = small + (2.8e-10&
+      k(222) = small + (2.8e-10&
           *(T32)**(-0.5))
     end if
 
     !OH+ + NH3 -> NH3+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(200) = small + (1.2e-09&
+      k(223) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + NO -> NO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(201) = small + (3.59e-10)
+      k(224) = small + (3.59e-10)
     end if
 
     !OH+ + O2 -> O2+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(202) = small + (5.9e-10)
+      k(225) = small + (5.9e-10)
     end if
 
     !OH + CN+ -> CN + OH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(203) = small + (6.4e-10&
+      k(226) = small + (6.4e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + CO+ -> CO + OH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(204) = small + (3.1e-10&
+      k(227) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + N2+ -> N2 + OH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(205) = small + (6.3e-10&
+      k(228) = small + (6.3e-10&
           *(T32)**(-0.5))
+    end if
+
+    !SI + H2CO+ -> H2CO + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(229) = small + (2e-09)
+    end if
+
+    !SI + NO+ -> NO + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(230) = small + (1.6e-09)
+    end if
+
+    !SI + O2+ -> O2 + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(231) = small + (1.6e-09)
     end if
 
     !C -> C+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(206) = small + (2.3e-17&
+      k(232) = small + (2.3e-17&
           *user_zeta)
     end if
 
     !CO -> CO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(207) = small + (3.9e-17&
+      k(233) = small + (3.9e-17&
           *user_zeta)
     end if
 
     !H2 -> H+ + H + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(208) = small + (2.86e-19&
+      k(234) = small + (2.86e-19&
           *user_zeta)
     end if
 
     !H2 -> H2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(209) = small + (1.2e-17&
+      k(235) = small + (1.2e-17&
           *user_zeta)
     end if
 
     !H2 -> H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(210) = small + (1.3e-18&
+      k(236) = small + (1.3e-18&
           *user_zeta)
     end if
 
     !H -> H+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(211) = small + (5.98e-18&
+      k(237) = small + (5.98e-18&
           *user_zeta)
     end if
 
     !HE -> HE+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(212) = small + (6.5e-18&
+      k(238) = small + (6.5e-18&
           *user_zeta)
     end if
 
     !N -> N+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(213) = small + (2.7e-17&
+      k(239) = small + (2.7e-17&
           *user_zeta)
     end if
 
     !O -> O+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(214) = small + (3.4e-17&
+      k(240) = small + (3.4e-17&
           *user_zeta)
     end if
 
     !C -> C+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(215) = small + (1.3e-17&
+      k(241) = small + (1.3e-17&
           *255.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH+ -> C+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(216) = small + (1.3e-17&
+      k(242) = small + (1.3e-17&
           *88.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH2 -> CH2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(217) = small + (1.3e-17&
+      k(243) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH2 -> CH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(218) = small + (1.3e-17&
+      k(244) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH3 -> CH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(219) = small + (1.3e-17&
+      k(245) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH3 -> CH3+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(220) = small + (1.3e-17&
+      k(246) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH3 -> CH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(221) = small + (1.3e-17&
+      k(247) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH3OH -> H2CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(222) = small + (1.3e-17&
+      k(248) = small + (1.3e-17&
           *1584.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH3OH -> OH + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(223) = small + (1.3e-17&
+      k(249) = small + (1.3e-17&
           *752.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH4 -> CH2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(224) = small + (1.3e-17&
+      k(250) = small + (1.3e-17&
           *1169.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH -> C + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(225) = small + (1.3e-17&
+      k(251) = small + (1.3e-17&
           *365.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CN -> N + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(226) = small + (1.3e-17&
+      k(252) = small + (1.3e-17&
           *5290.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CO2 -> CO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(227) = small + (1.3e-17&
+      k(253) = small + (1.3e-17&
           *854.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CO -> O + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(228) = small + (1.3e-17&
+      k(254) = small + (1.3e-17&
           *(T32)**(1.17)*105.0*1.d0&
           /(1.d0-user_dgomega)&
           *user_zeta)
@@ -1365,4906 +1503,5680 @@ contains
 
     !H2CN -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(229) = small + (1.3e-17&
+      k(255) = small + (1.3e-17&
           *750.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !H2CO -> CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(230) = small + (1.3e-17&
+      k(256) = small + (1.3e-17&
           *1329.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !H2O -> OH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(231) = small + (1.3e-17&
+      k(257) = small + (1.3e-17&
           *485.5*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !H2SIO -> SIO + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(258) = small + (1.3e-17&
+          *750.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !H -> H+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(232) = small + (1.3e-17&
+      k(259) = small + (1.3e-17&
           *0.2*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HCN -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(233) = small + (1.3e-17&
+      k(260) = small + (1.3e-17&
           *1557.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HCO -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(234) = small + (1.3e-17&
+      k(261) = small + (1.3e-17&
           *210.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HCO -> HCO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(235) = small + (1.3e-17&
+      k(262) = small + (1.3e-17&
           *584.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HNC -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(236) = small + (1.3e-17&
+      k(263) = small + (1.3e-17&
           *1500.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HNCO -> NH + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(237) = small + (1.3e-17&
+      k(264) = small + (1.3e-17&
           *1500.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HNO -> NO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(238) = small + (1.3e-17&
+      k(265) = small + (1.3e-17&
           *500.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !HE -> HE+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(239) = small + (1.3e-17&
+      k(266) = small + (1.3e-17&
           *0.2*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !MG -> MG+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(240) = small + (1.3e-17&
+      k(267) = small + (1.3e-17&
           *66.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !N2 -> N + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(241) = small + (1.3e-17&
+      k(268) = small + (1.3e-17&
           *25.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !N -> N+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(242) = small + (1.3e-17&
+      k(269) = small + (1.3e-17&
           *1.1*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH2 -> NH2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(243) = small + (1.3e-17&
+      k(270) = small + (1.3e-17&
           *324.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH2 -> NH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(244) = small + (1.3e-17&
+      k(271) = small + (1.3e-17&
           *40.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH3 -> NH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(245) = small + (1.3e-17&
+      k(272) = small + (1.3e-17&
           *657.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH3 -> NH3+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(246) = small + (1.3e-17&
+      k(273) = small + (1.3e-17&
           *288.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH3 -> NH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(247) = small + (1.3e-17&
+      k(274) = small + (1.3e-17&
           *270.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH -> N + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(248) = small + (1.3e-17&
+      k(275) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NH -> NH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(249) = small + (1.3e-17&
+      k(276) = small + (1.3e-17&
           *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NO2 -> NO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(250) = small + (1.3e-17&
+      k(277) = small + (1.3e-17&
           *750.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NO -> NO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(251) = small + (1.3e-17&
+      k(278) = small + (1.3e-17&
           *247.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !NO -> O + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(252) = small + (1.3e-17&
+      k(279) = small + (1.3e-17&
           *231.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !O2 -> O2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(253) = small + (1.3e-17&
+      k(280) = small + (1.3e-17&
           *58.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !O2 -> O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(254) = small + (1.3e-17&
+      k(281) = small + (1.3e-17&
           *375.5*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !O2H -> O2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(255) = small + (1.3e-17&
+      k(282) = small + (1.3e-17&
           *375.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !O -> O+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(256) = small + (1.3e-17&
+      k(283) = small + (1.3e-17&
           *1.4*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !OCN -> CN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(257) = small + (1.3e-17&
+      k(284) = small + (1.3e-17&
           *750.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !OH -> O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(258) = small + (1.3e-17&
+      k(285) = small + (1.3e-17&
           *254.5*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SI -> SI+ + E
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(286) = small + (1.3e-17&
+          *2115.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIC2 -> SIC + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(287) = small + (1.3e-17&
+          *750.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIC3 -> SIC2 + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(288) = small + (1.3e-17&
+          *750.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIC -> SI + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(289) = small + (1.3e-17&
+          *250.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIH2 -> SIH + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(290) = small + (1.3e-17&
+          *750.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIH3 -> SIH2 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(291) = small + (1.3e-17&
+          *750.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIH4 -> SIH2 + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(292) = small + (1.3e-17&
+          *750.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIH -> SI + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(293) = small + (1.3e-17&
+          *250.0*1.d0&
+          /(1.d0-user_dgomega)*user_zeta)
+    end if
+
+    !SIO -> SI + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(294) = small + (1.3e-17&
+          *250.0*1.d0&
           /(1.d0-user_dgomega)*user_zeta)
     end if
 
     !CH+ + E -> C + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(259) = small + (1.5e-07&
+      k(295) = small + (1.5e-07&
           *(T32)**(-0.42))
     end if
 
     !CH2+ + E -> C + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(260) = small + (7.68e-08&
+      k(296) = small + (7.68e-08&
           *(T32)**(-0.6))
     end if
 
     !CH2+ + E -> C + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(261) = small + (4.03e-07&
+      k(297) = small + (4.03e-07&
           *(T32)**(-0.6))
     end if
 
     !CH2+ + E -> CH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(262) = small + (1.6e-07&
+      k(298) = small + (1.6e-07&
           *(T32)**(-0.6))
     end if
 
     !CH3+ + E -> CH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(263) = small + (7.75e-08&
+      k(299) = small + (7.75e-08&
           *(T32)**(-0.5))
     end if
 
     !CH3+ + E -> CH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(264) = small + (1.95e-07&
+      k(300) = small + (1.95e-07&
           *(T32)**(-0.5))
     end if
 
     !CH3+ + E -> CH + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(265) = small + (2e-07&
+      k(301) = small + (2e-07&
           *(T32)**(-0.4))
     end if
 
     !CH4+ + E -> CH2 + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(266) = small + (1.75e-07&
+      k(302) = small + (1.75e-07&
           *(T32)**(-0.5))
     end if
 
     !CH4+ + E -> CH3 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(267) = small + (1.75e-07&
+      k(303) = small + (1.75e-07&
           *(T32)**(-0.5))
     end if
 
     !CN+ + E -> N + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(268) = small + (1.8e-07&
+      k(304) = small + (1.8e-07&
           *(T32)**(-0.5))
     end if
 
     !CO+ + E -> O + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(269) = small + (2e-07&
+      k(305) = small + (2e-07&
           *(T32)**(-0.48))
     end if
 
     !H2+ + E -> H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(270) = small + (1.6e-08&
+      k(306) = small + (1.6e-08&
           *(T32)**(-0.43))
     end if
 
     !H2CO+ + E -> CH2 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(271) = small + (2.5e-08&
+      k(307) = small + (2.5e-08&
           *(T32)**(-0.7))
     end if
 
     !H2CO+ + E -> CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(272) = small + (7.5e-08&
+      k(308) = small + (7.5e-08&
           *(T32)**(-0.7))
     end if
 
     !H2CO+ + E -> CO + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(273) = small + (2.5e-07&
+      k(309) = small + (2.5e-07&
           *(T32)**(-0.7))
     end if
 
     !H2CO+ + E -> HCO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(274) = small + (1.6e-07&
+      k(310) = small + (1.6e-07&
           *(T32)**(-0.7))
     end if
 
     !H2NO+ + E -> HNO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(275) = small + (1.5e-07&
+      k(311) = small + (1.5e-07&
           *(T32)**(-0.5))
     end if
 
     !H2NO+ + E -> NO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(276) = small + (1.5e-07&
+      k(312) = small + (1.5e-07&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + E -> O + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(277) = small + (3.9e-08&
+      k(313) = small + (3.9e-08&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + E -> O + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(278) = small + (3.05e-07&
+      k(314) = small + (3.05e-07&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + E -> OH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(279) = small + (8.6e-08&
+      k(315) = small + (8.6e-08&
           *(T32)**(-0.5))
     end if
 
     !H3+ + E -> H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(280) = small + (2.34e-08&
+      k(316) = small + (2.34e-08&
           *(T32)**(-0.52))
     end if
 
     !H3+ + E -> H + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(281) = small + (4.36e-08&
+      k(317) = small + (4.36e-08&
           *(T32)**(-0.52))
     end if
 
     !H3CO+ + E -> CH2 + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(282) = small + (4.2e-08&
+      k(318) = small + (4.2e-08&
           *(T32)**(-0.78))
     end if
 
     !H3CO+ + E -> CH + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(283) = small + (1.4e-08&
+      k(319) = small + (1.4e-08&
           *(T32)**(-0.78))
     end if
 
     !H3CO+ + E -> CO + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(284) = small + (2.1e-07&
+      k(320) = small + (2.1e-07&
           *(T32)**(-0.78))
     end if
 
     !H3CO+ + E -> H2CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(285) = small + (2.17e-07&
+      k(321) = small + (2.17e-07&
           *(T32)**(-0.78))
     end if
 
     !H3CO+ + E -> HCO + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(286) = small + (2.17e-07&
+      k(322) = small + (2.17e-07&
           *(T32)**(-0.78))
     end if
 
     !H3O+ + E -> H2O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(287) = small + (7.09e-08&
+      k(323) = small + (7.09e-08&
           *(T32)**(-0.5))
     end if
 
     !H3O+ + E -> O + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(288) = small + (5.6e-09&
+      k(324) = small + (5.6e-09&
           *(T32)**(-0.5))
     end if
 
     !H3O+ + E -> OH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(289) = small + (5.37e-08&
+      k(325) = small + (5.37e-08&
           *(T32)**(-0.5))
     end if
 
     !H3O+ + E -> OH + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(290) = small + (3.05e-07&
+      k(326) = small + (3.05e-07&
           *(T32)**(-0.5))
     end if
 
     !HCN+ + E -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(291) = small + (2e-07&
+      k(327) = small + (2e-07&
           *(T32)**(-0.5))
     end if
 
     !HCNH+ + E -> CN + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(292) = small + (9.3e-08&
+      k(328) = small + (9.3e-08&
           *(T32)**(-0.65))
     end if
 
     !HCNH+ + E -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(293) = small + (9.5e-08&
+      k(329) = small + (9.5e-08&
           *(T32)**(-0.65))
     end if
 
     !HCNH+ + E -> HNC + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(294) = small + (9.5e-08&
+      k(330) = small + (9.5e-08&
           *(T32)**(-0.65))
     end if
 
     !HCO+ + E -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(295) = small + (2.4e-07&
+      k(331) = small + (2.4e-07&
           *(T32)**(-0.69))
     end if
 
     !HCO2+ + E -> CO2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(296) = small + (6e-08&
+      k(332) = small + (6e-08&
           *(T32)**(-0.64))
     end if
 
     !HCO2+ + E -> CO + O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(297) = small + (8.1e-07&
+      k(333) = small + (8.1e-07&
           *(T32)**(-0.64))
     end if
 
     !HCO2+ + E -> CO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(298) = small + (3.2e-07&
+      k(334) = small + (3.2e-07&
           *(T32)**(-0.64))
     end if
 
     !HNO+ + E -> NO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(299) = small + (3e-07&
+      k(335) = small + (3e-07&
           *(T32)**(-0.5))
     end if
 
     !HOC+ + E -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(300) = small + (1.1e-07&
+      k(336) = small + (1.1e-07&
           *(T32)**(-1.0))
     end if
 
     !HEH+ + E -> HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(301) = small + (1e-08&
+      k(337) = small + (1e-08&
           *(T32)**(-0.6))
     end if
 
     !N2+ + E -> N + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(302) = small + (1.7e-07&
+      k(338) = small + (1.7e-07&
           *(T32)**(-0.3))
     end if
 
     !N2H+ + E -> N2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(303) = small + (2.77e-07&
+      k(339) = small + (2.77e-07&
           *(T32)**(-0.74))
     end if
 
     !N2H+ + E -> N + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(304) = small + (2.09e-08&
+      k(340) = small + (2.09e-08&
           *(T32)**(-0.74))
     end if
 
     !NH+ + E -> N + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(305) = small + (4.3e-08&
+      k(341) = small + (4.3e-08&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + E -> N + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(306) = small + (1.78e-07&
+      k(342) = small + (1.78e-07&
           *(T32)**(-0.8)*exp(-17.1*invT))
     end if
 
     !NH2+ + E -> NH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(307) = small + (9.21e-08&
+      k(343) = small + (9.21e-08&
           *(T32)**(-0.79)*exp(-17.1*invT))
     end if
 
     !NH3+ + E -> NH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(308) = small + (1.55e-07&
+      k(344) = small + (1.55e-07&
           *(T32)**(-0.5))
     end if
 
     !NH3+ + E -> NH + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(309) = small + (1.55e-07&
+      k(345) = small + (1.55e-07&
           *(T32)**(-0.5))
     end if
 
     !NO+ + E -> O + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(310) = small + (4.3e-07&
+      k(346) = small + (4.3e-07&
           *(T32)**(-0.37))
     end if
 
     !O2+ + E -> O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(311) = small + (1.95e-07&
+      k(347) = small + (1.95e-07&
           *(T32)**(-0.7))
     end if
 
     !O2H+ + E -> O2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(312) = small + (3e-07&
+      k(348) = small + (3e-07&
           *(T32)**(-0.5))
     end if
 
     !OH+ + E -> O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(313) = small + (3.75e-08&
+      k(349) = small + (3.75e-08&
+          *(T32)**(-0.5))
+    end if
+
+    !SIC+ + E -> SI + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(350) = small + (2e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIC2+ + E -> SIC + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(351) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIC3+ + E -> SIC2 + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(352) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH+ + E -> SI + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(353) = small + (2e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH2+ + E -> SI + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(354) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH2+ + E -> SI + H + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(355) = small + (2e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH2+ + E -> SIH + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(356) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH3+ + E -> SIH2 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(357) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH3+ + E -> SIH + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(358) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH4+ + E -> SIH2 + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(359) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH4+ + E -> SIH3 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(360) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH5+ + E -> SIH3 + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(361) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIH5+ + E -> SIH4 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(362) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIO+ + E -> SI + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(363) = small + (2e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIOH+ + E -> SI + OH
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(364) = small + (1.5e-07&
+          *(T32)**(-0.5))
+    end if
+
+    !SIOH+ + E -> SIO + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(365) = small + (1.5e-07&
           *(T32)**(-0.5))
     end if
 
     !C+ + CH3OH -> H3CO+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(314) = small + (5.2e-10&
+      k(366) = small + (5.2e-10&
           *(T32)**(-0.5))
     end if
 
     !C+ + CH3OH -> HCO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(315) = small + (2.08e-09&
+      k(367) = small + (2.08e-09&
           *(T32)**(-0.5))
     end if
 
     !C+ + CO2 -> CO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(316) = small + (1.1e-09)
+      k(368) = small + (1.1e-09)
     end if
 
     !C+ + H2CO -> CO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(317) = small + (2.34e-09&
+      k(369) = small + (2.34e-09&
           *(T32)**(-0.5))
     end if
 
     !C+ + H2CO -> HCO+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(318) = small + (7.8e-10&
+      k(370) = small + (7.8e-10&
           *(T32)**(-0.5))
     end if
 
     !C+ + H2O -> HCO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(319) = small + (9e-10&
+      k(371) = small + (9e-10&
           *(T32)**(-0.5))
     end if
 
     !C+ + H2O -> HOC+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(320) = small + (2.09e-09&
+      k(372) = small + (2.09e-09&
           *(T32)**(-0.5))
     end if
 
     !C+ + HCO -> CO + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(321) = small + (4.8e-10&
+      k(373) = small + (4.8e-10&
           *(T32)**(-0.5))
     end if
 
     !C+ + NH2 -> HCN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(322) = small + (1.1e-09&
+      k(374) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !C+ + NH3 -> HCN+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(323) = small + (1.2e-10&
+      k(375) = small + (1.2e-10&
           *exp(+0.5*invT))
     end if
 
     !C+ + NH -> CN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(324) = small + (7.8e-10&
+      k(376) = small + (7.8e-10&
           *(T32)**(-0.5))
     end if
 
     !C+ + O2 -> CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(325) = small + (3.42e-10)
+      k(377) = small + (3.42e-10)
     end if
 
     !C+ + O2 -> CO + O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(326) = small + (4.54e-10)
+      k(378) = small + (4.54e-10)
     end if
 
     !C+ + OCN -> CO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(327) = small + (3.8e-09)
+      k(379) = small + (3.8e-09)
     end if
 
     !C+ + OH -> CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(328) = small + (7.7e-10&
+      k(380) = small + (7.7e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !C+ + SIH2 -> SIC+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(381) = small + (1e-09)
+    end if
+
+    !C+ + SIH -> SIC+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(382) = small + (1.1e-09)
+    end if
+
+    !C+ + SIO -> SI+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(383) = small + (5.4e-10&
           *(T32)**(-0.5))
     end if
 
     !C + H2O+ -> OH + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(329) = small + (1.1e-09)
+      k(384) = small + (1.1e-09)
     end if
 
     !C + H3O+ -> HCO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(330) = small + (1e-11)
+      k(385) = small + (1e-11)
     end if
 
     !C + HCN+ -> CN + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(331) = small + (1.1e-09)
+      k(386) = small + (1.1e-09)
     end if
 
     !C + HCO+ -> CO + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(332) = small + (1.1e-09)
+      k(387) = small + (1.1e-09)
     end if
 
     !C + HCO2+ -> CO2 + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(333) = small + (1e-09)
+      k(388) = small + (1e-09)
     end if
 
     !C + HNO+ -> NO + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(334) = small + (1e-09)
+      k(389) = small + (1e-09)
     end if
 
     !C + N2H+ -> N2 + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(335) = small + (1.1e-09)
+      k(390) = small + (1.1e-09)
     end if
 
     !C + NH+ -> N + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(336) = small + (1.6e-09)
+      k(391) = small + (1.6e-09)
     end if
 
     !C + O2+ -> CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(337) = small + (5.2e-11)
+      k(392) = small + (5.2e-11)
     end if
 
     !C + O2H+ -> O2 + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(338) = small + (1e-09)
+      k(393) = small + (1e-09)
     end if
 
     !C + OH+ -> O + CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(339) = small + (1.2e-09)
+      k(394) = small + (1.2e-09)
+    end if
+
+    !C + SIH+ -> SIC+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(395) = small + (2e-10)
+    end if
+
+    !C + SIO+ -> SI+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(396) = small + (1e-09)
     end if
 
     !CH+ + CH3OH -> H2CO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(340) = small + (1.45e-09&
+      k(397) = small + (1.45e-09&
           *(T32)**(-0.5))
     end if
 
     !CH+ + CH3OH -> H3CO+ + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(341) = small + (2.9e-10&
+      k(398) = small + (2.9e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + CO2 -> HCO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(342) = small + (1.6e-09)
+      k(399) = small + (1.6e-09)
     end if
 
     !CH+ + H2CO -> CO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(343) = small + (9.6e-10&
+      k(400) = small + (9.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + H2CO -> H3CO+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(344) = small + (9.6e-10&
+      k(401) = small + (9.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + H2CO -> HCO+ + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(345) = small + (9.6e-10&
+      k(402) = small + (9.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + H2O -> H2CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(346) = small + (5.8e-10&
+      k(403) = small + (5.8e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + H2O -> H3O+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(347) = small + (5.8e-10&
+      k(404) = small + (5.8e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + H2O -> HCO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(348) = small + (2.9e-09&
+      k(405) = small + (2.9e-09&
           *(T32)**(-0.5))
     end if
 
     !CH+ + HCN -> HCNH+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(349) = small + (1.8e-09&
+      k(406) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !CH+ + HCO -> CO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(350) = small + (4.6e-10&
+      k(407) = small + (4.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + HNC -> HCNH+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(351) = small + (1.8e-09&
+      k(408) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !CH+ + N -> CN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(352) = small + (1.9e-10)
+      k(409) = small + (1.9e-10)
     end if
 
     !CH+ + NH2 -> HCN+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(353) = small + (1.1e-09&
+      k(410) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !CH+ + NH -> CN+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(354) = small + (7.6e-10&
+      k(411) = small + (7.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH+ + O2 -> CO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(355) = small + (1e-11)
+      k(412) = small + (1e-11)
     end if
 
     !CH+ + O2 -> HCO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(356) = small + (9.7e-10)
+      k(413) = small + (9.7e-10)
     end if
 
     !CH+ + O2 -> HCO + O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(357) = small + (1e-11)
+      k(414) = small + (1e-11)
     end if
 
     !CH+ + O -> CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(358) = small + (3.5e-10)
+      k(415) = small + (3.5e-10)
     end if
 
     !CH+ + OH -> CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(359) = small + (7.5e-10&
+      k(416) = small + (7.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CH2+ + CO2 -> H2CO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(360) = small + (1.6e-09)
+      k(417) = small + (1.6e-09)
     end if
 
     !CH2+ + H2CO -> HCO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(361) = small + (2.81e-09&
+      k(418) = small + (2.81e-09&
           *(T32)**(-0.5))
     end if
 
     !CH2+ + H2O -> H3CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(362) = small + (1.2e-09&
+      k(419) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !CH2+ + HCO -> CO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(363) = small + (4.5e-10&
+      k(420) = small + (4.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CH2+ + O2 -> HCO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(364) = small + (9.1e-10)
+      k(421) = small + (9.1e-10)
     end if
 
     !CH2+ + O -> HCO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(365) = small + (7.5e-10)
+      k(422) = small + (7.5e-10)
     end if
 
     !CH2 + CO+ -> HCO+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(366) = small + (4.3e-10)
+      k(423) = small + (4.3e-10)
     end if
 
     !CH2 + H2CO+ -> HCO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(367) = small + (4.3e-10)
+      k(424) = small + (4.3e-10)
     end if
 
     !CH2 + H2O+ -> OH + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(368) = small + (4.7e-10)
+      k(425) = small + (4.7e-10)
     end if
 
     !CH2 + H3O+ -> H2O + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(369) = small + (9.4e-10)
+      k(426) = small + (9.4e-10)
     end if
 
     !CH2 + HCN+ -> CN + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(370) = small + (8.7e-10)
+      k(427) = small + (8.7e-10)
     end if
 
     !CH2 + HCNH+ -> HCN + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(371) = small + (4.35e-10)
+      k(428) = small + (4.35e-10)
     end if
 
     !CH2 + HCNH+ -> HNC + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(372) = small + (4.35e-10)
+      k(429) = small + (4.35e-10)
     end if
 
     !CH2 + HCO+ -> CO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(373) = small + (8.6e-10)
+      k(430) = small + (8.6e-10)
     end if
 
     !CH2 + HNO+ -> NO + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(374) = small + (8.6e-10)
+      k(431) = small + (8.6e-10)
     end if
 
     !CH2 + N2H+ -> N2 + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(375) = small + (8.6e-10)
+      k(432) = small + (8.6e-10)
     end if
 
     !CH2 + NH+ -> CH3+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(376) = small + (1.4e-09)
+      k(433) = small + (1.4e-09)
     end if
 
     !CH2 + NH2+ -> CH3+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(377) = small + (4.9e-10)
+      k(434) = small + (4.9e-10)
     end if
 
     !CH2 + NH3+ -> NH2 + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(378) = small + (9.6e-10)
+      k(435) = small + (9.6e-10)
     end if
 
     !CH2 + O2+ -> H2CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(379) = small + (4.3e-10)
+      k(436) = small + (4.3e-10)
     end if
 
     !CH2 + O2H+ -> O2 + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(380) = small + (8.5e-10)
+      k(437) = small + (8.5e-10)
     end if
 
     !CH2 + OH+ -> O + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(381) = small + (4.8e-10)
+      k(438) = small + (4.8e-10)
+    end if
+
+    !CH2 + SIO+ -> H2CO + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(439) = small + (8.2e-10)
     end if
 
     !CH3+ + CH3OH -> H3CO+ + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(382) = small + (2.3e-09&
+      k(440) = small + (2.3e-09&
           *(T32)**(-0.5))
     end if
 
     !CH3+ + H2CO -> HCO+ + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(383) = small + (1.6e-09&
+      k(441) = small + (1.6e-09&
           *(T32)**(-0.5))
     end if
 
     !CH3+ + HCO -> CO + CH4+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(384) = small + (4.4e-10&
+      k(442) = small + (4.4e-10&
           *(T32)**(-0.5))
     end if
 
     !CH3+ + O2 -> H3CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(385) = small + (5e-12)
+      k(443) = small + (5e-12)
     end if
 
     !CH3+ + O -> H2CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(386) = small + (4e-11)
+      k(444) = small + (4e-11)
     end if
 
     !CH3+ + O -> HCO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(387) = small + (4e-10)
+      k(445) = small + (4e-10)
     end if
 
     !CH3+ + OH -> H2CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(388) = small + (7.2e-10&
+      k(446) = small + (7.2e-10&
           *(T32)**(-0.5))
+    end if
+
+    !CH3+ + SIH4 -> SIH3+ + CH4
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(447) = small + (1.8e-09)
     end if
 
     !CH4+ + CO2 -> HCO2+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(389) = small + (1.2e-09)
+      k(448) = small + (1.2e-09)
     end if
 
     !CH4+ + CO -> HCO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(390) = small + (1.4e-09)
+      k(449) = small + (1.4e-09)
     end if
 
     !CH4+ + H2CO -> H3CO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(391) = small + (1.98e-09&
+      k(450) = small + (1.98e-09&
           *(T32)**(-0.5))
     end if
 
     !CH4+ + H2O -> H3O+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(392) = small + (2.6e-09&
+      k(451) = small + (2.6e-09&
           *(T32)**(-0.5))
     end if
 
     !CH4 + CO+ -> HCO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(393) = small + (4.55e-10)
+      k(452) = small + (4.55e-10)
     end if
 
     !CH4 + H2CO+ -> H3CO+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(394) = small + (9.35e-11)
+      k(453) = small + (9.35e-11)
     end if
 
     !CH4 + H2O+ -> H3O+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(395) = small + (1.4e-09)
+      k(454) = small + (1.4e-09)
     end if
 
     !CH4 + HCN+ -> HCNH+ + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(396) = small + (1.04e-09)
+      k(455) = small + (1.04e-09)
     end if
 
     !CH4 + N2+ -> N2 + CH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(397) = small + (7e-11)
+      k(456) = small + (7e-11)
     end if
 
     !CH4 + N2+ -> N2 + CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(398) = small + (9.3e-10)
+      k(457) = small + (9.3e-10)
     end if
 
     !CH4 + OH+ -> H3O+ + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(399) = small + (1.31e-09)
+      k(458) = small + (1.31e-09)
     end if
 
     !CH + CO+ -> HCO+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(400) = small + (3.2e-10&
+      k(459) = small + (3.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + H2CO+ -> HCO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(401) = small + (3.1e-10&
+      k(460) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + H2O+ -> OH + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(402) = small + (3.4e-10&
+      k(461) = small + (3.4e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + H3CO+ -> H2CO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(403) = small + (6.2e-10&
+      k(462) = small + (6.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + H3O+ -> H2O + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(404) = small + (6.8e-10&
+      k(463) = small + (6.8e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + HCN+ -> CN + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(405) = small + (6.3e-10&
+      k(464) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + HCNH+ -> HCN + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(406) = small + (3.15e-10&
+      k(465) = small + (3.15e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + HCNH+ -> HNC + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(407) = small + (3.15e-10&
+      k(466) = small + (3.15e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + HCO+ -> CO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(408) = small + (6.3e-10&
+      k(467) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + HNO+ -> NO + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(409) = small + (6.2e-10&
+      k(468) = small + (6.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + N+ -> CN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(410) = small + (3.6e-10&
+      k(469) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + N2H+ -> N2 + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(411) = small + (6.3e-10&
+      k(470) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + NH+ -> CH2+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(412) = small + (9.9e-10&
+      k(471) = small + (9.9e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + NH2+ -> NH + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(413) = small + (3.5e-10&
+      k(472) = small + (3.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + O+ -> CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(414) = small + (3.5e-10&
+      k(473) = small + (3.5e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + O2+ -> HCO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(415) = small + (3.1e-10&
+      k(474) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + O2H+ -> O2 + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(416) = small + (6.2e-10&
+      k(475) = small + (6.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CH + OH+ -> O + CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(417) = small + (3.5e-10&
+      k(476) = small + (3.5e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !CH + SI+ -> SIC+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(477) = small + (6.3e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !CH + SIH+ -> SI + CH2+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(478) = small + (6e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !CH + SIO+ -> HCO+ + SI
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(479) = small + (5.9e-10&
           *(T32)**(-0.5))
     end if
 
     !CN+ + H2CO -> HCO+ + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(418) = small + (5.2e-10&
+      k(480) = small + (5.2e-10&
           *(T32)**(-0.5))
     end if
 
     !CN+ + HCO -> CO + HCN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(419) = small + (3.7e-10&
+      k(481) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !CN+ + O2 -> NO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(420) = small + (8.6e-11)
+      k(482) = small + (8.6e-11)
     end if
 
     !CN + HNO+ -> NO + HCN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(421) = small + (8.7e-10&
+      k(483) = small + (8.7e-10&
           *(T32)**(-0.5))
     end if
 
     !CN + O2H+ -> O2 + HCN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(422) = small + (8.6e-10&
+      k(484) = small + (8.6e-10&
           *(T32)**(-0.5))
     end if
 
     !CO+ + H2CO -> HCO+ + HCO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(423) = small + (1.65e-09&
+      k(485) = small + (1.65e-09&
           *(T32)**(-0.5))
     end if
 
     !CO + HCO2+ -> CO2 + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(424) = small + (7.8e-10)
+      k(486) = small + (7.8e-10)
     end if
 
     !CO + HNO+ -> NO + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(425) = small + (1e-10)
+      k(487) = small + (1e-10)
     end if
 
     !CO + N2H+ -> HCO+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(426) = small + (8.8e-10)
+      k(488) = small + (8.8e-10)
     end if
 
     !CO + O2H+ -> O2 + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(427) = small + (8.4e-10)
+      k(489) = small + (8.4e-10)
+    end if
+
+    !CO + SIH4+ -> SIH3 + HCO+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(490) = small + (1e-09)
+    end if
+
+    !CO + SIO+ -> CO2 + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(491) = small + (7.9e-10)
     end if
 
     !H+ + CH2 -> CH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(428) = small + (1.4e-09)
+      k(492) = small + (1.4e-09)
     end if
 
     !H+ + CH3OH -> CH3+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(429) = small + (5.9e-10&
+      k(493) = small + (5.9e-10&
           *(T32)**(-0.5))
     end if
 
     !H+ + CH3OH -> H3CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(430) = small + (3.84e-09&
+      k(494) = small + (3.84e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + CH3OH -> HCO+ + H2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(431) = small + (8.85e-10&
+      k(495) = small + (8.85e-10&
           *(T32)**(-0.5))
     end if
 
     !H+ + CH4 -> CH3+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(432) = small + (2.3e-09)
+      k(496) = small + (2.3e-09)
     end if
 
     !H+ + CO2 -> HCO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(433) = small + (3.5e-09)
+      k(497) = small + (3.5e-09)
     end if
 
     !H+ + H2CO -> CO+ + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(434) = small + (1.06e-09&
+      k(498) = small + (1.06e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + H2CO -> HCO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(435) = small + (3.57e-09&
+      k(499) = small + (3.57e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H+ + H2SIO -> SIOH+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(500) = small + (1.5e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + HCO -> CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(436) = small + (9.4e-10&
+      k(501) = small + (9.4e-10&
           *(T32)**(-0.5))
     end if
 
     !H+ + HCO -> CO + H2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(437) = small + (9.4e-10&
+      k(502) = small + (9.4e-10&
           *(T32)**(-0.5))
     end if
 
     !H+ + HNCO -> NH2+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(438) = small + (7.94e-09&
+      k(503) = small + (7.94e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + HNO -> NO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(439) = small + (4e-09&
+      k(504) = small + (4e-09&
           *(T32)**(-0.5))
     end if
 
     !H+ + NO2 -> NO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(440) = small + (1.9e-09)
+      k(505) = small + (1.9e-09)
+    end if
+
+    !H+ + SIH2 -> SIH+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(506) = small + (1.5e-09)
+    end if
+
+    !H+ + SIH3 -> SIH2+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(507) = small + (1.5e-09)
+    end if
+
+    !H+ + SIH4 -> SIH3+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(508) = small + (1.5e-09)
+    end if
+
+    !H+ + SIH -> SI+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(509) = small + (1.7e-09)
     end if
 
     !H2+ + C -> CH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(441) = small + (2.4e-09)
+      k(510) = small + (2.4e-09)
     end if
 
     !H2+ + CH2 -> CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(442) = small + (1e-09)
+      k(511) = small + (1e-09)
     end if
 
     !H2+ + CH4 -> CH3+ + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(443) = small + (2.3e-09)
+      k(512) = small + (2.3e-09)
     end if
 
     !H2+ + CH -> CH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(444) = small + (7.1e-10&
+      k(513) = small + (7.1e-10&
           *(T32)**(-0.5))
     end if
 
     !H2+ + CN -> HCN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(445) = small + (1.2e-09&
+      k(514) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + CO2 -> HCO2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(446) = small + (2.35e-09)
+      k(515) = small + (2.35e-09)
     end if
 
     !H2+ + CO -> HCO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(447) = small + (2.16e-09)
+      k(516) = small + (2.16e-09)
     end if
 
     !H2+ + H2 -> H3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(448) = small + (2.08e-09)
+      k(517) = small + (2.08e-09)
     end if
 
     !H2+ + H2CO -> HCO+ + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(449) = small + (1.4e-09&
+      k(518) = small + (1.4e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + H2O -> H3O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(450) = small + (3.4e-09&
+      k(519) = small + (3.4e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + HCO -> CO + H3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(451) = small + (1e-09&
+      k(520) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2+ + HE -> HEH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(452) = small + (1.3e-10)
+      k(521) = small + (1.3e-10)
     end if
 
     !H2+ + N2 -> N2H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(453) = small + (2e-09)
+      k(522) = small + (2e-09)
     end if
 
     !H2+ + N -> NH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(454) = small + (1.9e-09)
+      k(523) = small + (1.9e-09)
     end if
 
     !H2+ + NH -> NH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(455) = small + (7.6e-10&
+      k(524) = small + (7.6e-10&
           *(T32)**(-0.5))
     end if
 
     !H2+ + NO -> HNO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(456) = small + (1.1e-09)
+      k(525) = small + (1.1e-09)
     end if
 
     !H2+ + O2 -> O2H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(457) = small + (1.9e-09)
+      k(526) = small + (1.9e-09)
     end if
 
     !H2+ + O -> OH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(458) = small + (1.5e-09)
+      k(527) = small + (1.5e-09)
     end if
 
     !H2+ + OH -> H2O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(459) = small + (7.6e-10&
+      k(528) = small + (7.6e-10&
           *(T32)**(-0.5))
     end if
 
     !H2 + C+ -> CH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(460) = small + (1e-10&
+      k(529) = small + (1e-10&
           *exp(-4640.0*invT))
     end if
 
     !H2 + CH+ -> CH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(461) = small + (1.2e-09)
+      k(530) = small + (1.2e-09)
     end if
 
     !H2 + CH2+ -> CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(462) = small + (1.6e-09)
+      k(531) = small + (1.6e-09)
     end if
 
     !H2 + CN+ -> HCN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(463) = small + (1e-09)
+      k(532) = small + (1e-09)
     end if
 
     !H2 + CO+ -> HCO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(464) = small + (7.5e-10)
+      k(533) = small + (7.5e-10)
     end if
 
     !H2 + CO+ -> HOC+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(465) = small + (7.5e-10)
+      k(534) = small + (7.5e-10)
     end if
 
     !H2 + H2O+ -> H3O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(466) = small + (6.4e-10)
+      k(535) = small + (6.4e-10)
     end if
 
     !H2 + HCN+ -> HCNH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(467) = small + (9e-10)
+      k(536) = small + (9e-10)
     end if
 
     !H2 + HE+ -> HE + H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(468) = small + (3.7e-14&
+      k(537) = small + (3.7e-14&
           *exp(-35.0*invT))
     end if
 
     !H2 + HEH+ -> HE + H3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(469) = small + (1.5e-09)
+      k(538) = small + (1.5e-09)
     end if
 
     !H2 + N+ -> NH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(470) = small + (1e-09&
+      k(539) = small + (1e-09&
           *exp(-85.0*invT))
     end if
 
     !H2 + N2+ -> N2H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(471) = small + (2e-09)
+      k(540) = small + (2e-09)
     end if
 
     !H2 + NH+ -> N + H3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(472) = small + (2.25e-10)
+      k(541) = small + (2.25e-10)
     end if
 
     !H2 + NH+ -> NH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(473) = small + (1.28e-09)
+      k(542) = small + (1.28e-09)
     end if
 
     !H2 + NH2+ -> NH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(474) = small + (2.7e-10)
+      k(543) = small + (2.7e-10)
     end if
 
     !H2 + O+ -> OH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(475) = small + (1.7e-09)
+      k(544) = small + (1.7e-09)
     end if
 
     !H2 + O2H+ -> O2 + H3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(476) = small + (6.4e-10)
+      k(545) = small + (6.4e-10)
     end if
 
     !H2 + OH+ -> H2O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(477) = small + (1.01e-09)
+      k(546) = small + (1.01e-09)
+    end if
+
+    !H2 + SIH4+ -> SIH5+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(547) = small + (1e-09)
+    end if
+
+    !H2 + SIO+ -> SIOH+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(548) = small + (3.2e-10)
     end if
 
     !H2CO+ + H2CO -> H3CO+ + HCO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(478) = small + (3.2e-09&
+      k(549) = small + (3.2e-09&
           *(T32)**(-0.5))
     end if
 
     !H2CO+ + O2 -> O2H + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(479) = small + (7.7e-11)
+      k(550) = small + (7.7e-11)
     end if
 
     !H2CO + HNO+ -> H3CO+ + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(480) = small + (1e-09&
+      k(551) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2CO + O2+ -> O2 + HCO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(481) = small + (2.3e-10&
+      k(552) = small + (2.3e-10&
           *(T32)**(-0.5))
     end if
 
     !H2CO + O2H+ -> O2 + H3CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(482) = small + (9.8e-10&
+      k(553) = small + (9.8e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + CO -> HCO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(483) = small + (5e-10)
+      k(554) = small + (5e-10)
     end if
 
     !H2O+ + H2CO -> H3CO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(484) = small + (6.62e-10&
+      k(555) = small + (6.62e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + H2O -> H3O+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(485) = small + (2.1e-09&
+      k(556) = small + (2.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + HCN -> HCNH+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(486) = small + (2.1e-09&
+      k(557) = small + (2.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + HCO -> CO + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(487) = small + (2.8e-10&
+      k(558) = small + (2.8e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + HCO -> H2CO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(488) = small + (2.8e-10&
+      k(559) = small + (2.8e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O+ + HNC -> HCNH+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(489) = small + (1.1e-09&
+      k(560) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + CN+ -> HCN+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(490) = small + (1.6e-09&
+      k(561) = small + (1.6e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + CN+ -> HCO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(491) = small + (1.6e-10&
+      k(562) = small + (1.6e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O + CO+ -> HCO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(492) = small + (8.84e-10&
+      k(563) = small + (8.84e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O + H2CO+ -> HCO + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(493) = small + (2.6e-09&
+      k(564) = small + (2.6e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + H3CO+ -> H2CO + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(494) = small + (2.3e-10&
+      k(565) = small + (2.3e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O + HCN+ -> CN + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(495) = small + (1.8e-09&
+      k(566) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + HCO+ -> CO + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(496) = small + (2.5e-09&
+      k(567) = small + (2.5e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + HCO2+ -> CO2 + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(497) = small + (2.3e-09&
+      k(568) = small + (2.3e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + HNO+ -> NO + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(498) = small + (2.3e-09&
+      k(569) = small + (2.3e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + N2+ -> N2H+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(499) = small + (5e-10&
+      k(570) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !H2O + N2H+ -> N2 + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(500) = small + (2.6e-09&
+      k(571) = small + (2.6e-09&
           *(T32)**(-0.5))
     end if
 
     !H2O + O2H+ -> O2 + H3O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(501) = small + (8.2e-10&
+      k(572) = small + (8.2e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !H2O + SI+ -> SIOH+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(573) = small + (2.3e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !H2O + SIH+ -> SI + H3O+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(574) = small + (8e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !H2O + SIH4+ -> SIH3 + H3O+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(575) = small + (2e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H2O + SIH5+ -> SIH4 + H3O+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(576) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + C -> CH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(502) = small + (2e-09)
+      k(577) = small + (2e-09)
     end if
 
     !H3+ + CH2 -> CH3+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(503) = small + (1.7e-09)
+      k(578) = small + (1.7e-09)
     end if
 
     !H3+ + CH3 -> CH4+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(504) = small + (2.1e-09)
+      k(579) = small + (2.1e-09)
     end if
 
     !H3+ + CH3OH -> CH3+ + H2O + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(505) = small + (3.71e-09&
+      k(580) = small + (3.71e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + CH -> CH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(506) = small + (1.2e-09&
+      k(581) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + CN -> HCN+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(507) = small + (2e-09&
+      k(582) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + CO2 -> HCO2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(508) = small + (2e-09)
+      k(583) = small + (2e-09)
     end if
 
     !H3+ + CO -> HCO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(509) = small + (1.36e-09&
+      k(584) = small + (1.36e-09&
           *(T32)**(-0.14)*exp(+3.4*invT))
     end if
 
     !H3+ + CO -> HOC+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(510) = small + (8.49e-10&
+      k(585) = small + (8.49e-10&
           *(T32)**(0.07)*exp(-5.2*invT))
     end if
 
     !H3+ + H2CO -> H3CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(511) = small + (6.3e-09&
+      k(586) = small + (6.3e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + H2O -> H3O+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(512) = small + (5.9e-09&
+      k(587) = small + (5.9e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + HCN -> HCNH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(513) = small + (8.1e-09&
+      k(588) = small + (8.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + HCO -> H2CO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(514) = small + (1.7e-09&
+      k(589) = small + (1.7e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + HNC -> HCNH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(515) = small + (8.1e-09&
+      k(590) = small + (8.1e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + HNO -> H2NO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(516) = small + (2e-09&
+      k(591) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + MG -> MG+ + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(517) = small + (1e-09)
+      k(592) = small + (1e-09)
     end if
 
     !H3+ + N2 -> N2H+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(518) = small + (1.8e-09)
+      k(593) = small + (1.8e-09)
     end if
 
     !H3+ + NH2 -> NH3+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(519) = small + (1.8e-09&
+      k(594) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + NH -> NH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(520) = small + (1.3e-09&
+      k(595) = small + (1.3e-09&
           *(T32)**(-0.5))
     end if
 
     !H3+ + NO2 -> NO+ + OH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(521) = small + (7e-10)
+      k(596) = small + (7e-10)
     end if
 
     !H3+ + NO -> HNO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(522) = small + (1.1e-09)
+      k(597) = small + (1.1e-09)
     end if
 
     !H3+ + O2 -> O2H+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(523) = small + (9.3e-10&
+      k(598) = small + (9.3e-10&
           *exp(-100.0*invT))
     end if
 
     !H3+ + O -> H2O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(524) = small + (3.42e-10&
+      k(599) = small + (3.42e-10&
           *(T32)**(-0.16)*exp(-1.4*invT))
     end if
 
     !H3+ + O -> OH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(525) = small + (7.98e-10&
+      k(600) = small + (7.98e-10&
           *(T32)**(-0.16)*exp(-1.4*invT))
     end if
 
     !H3+ + OH -> H2O+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(526) = small + (1.3e-09&
+      k(601) = small + (1.3e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H3+ + SI -> SIH+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(602) = small + (3.7e-09)
+    end if
+
+    !H3+ + SIH2 -> SIH3+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(603) = small + (2e-09)
+    end if
+
+    !H3+ + SIH3 -> SIH4+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(604) = small + (2e-09)
+    end if
+
+    !H3+ + SIH4 -> SIH5+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(605) = small + (2e-09)
+    end if
+
+    !H3+ + SIH -> SIH2+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(606) = small + (2e-09)
+    end if
+
+    !H3+ + SIO -> SIOH+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(607) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !H3O+ + H2CO -> H3CO+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(527) = small + (3.4e-09&
+      k(608) = small + (3.4e-09&
           *(T32)**(-0.5))
     end if
 
     !H3O+ + HCN -> HCNH+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(528) = small + (3.8e-09&
+      k(609) = small + (3.8e-09&
           *(T32)**(-0.5))
     end if
 
     !H3O+ + HNC -> HCNH+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(529) = small + (4e-09&
+      k(610) = small + (4e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !H3O+ + SI -> SIH+ + H2O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(611) = small + (1.8e-09)
+    end if
+
+    !H3O+ + SIH2 -> SIH3+ + H2O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(612) = small + (2e-09)
+    end if
+
+    !H3O+ + SIH -> SIH2+ + H2O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(613) = small + (9.7e-10)
+    end if
+
+    !H3O+ + SIO -> SIOH+ + H2O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(614) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !H + CH+ -> C+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(530) = small + (9.06e-10&
+      k(615) = small + (9.06e-10&
           *(T32)**(-0.37)*exp(-29.1*invT))
     end if
 
     !H + CH2+ -> CH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(531) = small + (1e-09&
+      k(616) = small + (1e-09&
           *exp(-7080.0*invT))
     end if
 
     !H + CH3+ -> CH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(532) = small + (7e-10&
+      k(617) = small + (7e-10&
           *exp(-10560.0*invT))
     end if
 
     !H + CH4+ -> CH3+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(533) = small + (1e-11)
+      k(618) = small + (1e-11)
     end if
 
     !H + HEH+ -> HE + H2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(534) = small + (9.1e-10)
+      k(619) = small + (9.1e-10)
+    end if
+
+    !H + SIH+ -> SI+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(620) = small + (1.9e-09)
     end if
 
     !HCN+ + CO2 -> HCO2+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(535) = small + (2.1e-10)
+      k(621) = small + (2.1e-10)
     end if
 
     !HCN+ + CO -> HCO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(536) = small + (1.4e-10)
+      k(622) = small + (1.4e-10)
     end if
 
     !HCN+ + H2CO -> H3CO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(537) = small + (1e-09&
+      k(623) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN+ + HCN -> HCNH+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(538) = small + (1.6e-09&
+      k(624) = small + (1.6e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN+ + HCO -> H2CO+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(539) = small + (3.7e-10&
+      k(625) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !HCN+ + HCO -> HCNH+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(540) = small + (3.7e-10&
+      k(626) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !HCN+ + HNC -> HCNH+ + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(541) = small + (1e-09&
+      k(627) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN + H2CO+ -> HCO + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(542) = small + (1.4e-09&
+      k(628) = small + (1.4e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN + H3CO+ -> H2CO + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(543) = small + (1.3e-09&
+      k(629) = small + (1.3e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN + HCO+ -> HCNH+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(544) = small + (3.1e-09&
+      k(630) = small + (3.1e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN + HNO+ -> NO + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(545) = small + (9.9e-10&
+      k(631) = small + (9.9e-10&
           *(T32)**(-0.5))
     end if
 
     !HCN + N2H+ -> HCNH+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(546) = small + (3.2e-09&
+      k(632) = small + (3.2e-09&
           *(T32)**(-0.5))
     end if
 
     !HCN + O2H+ -> O2 + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(547) = small + (9.7e-10&
+      k(633) = small + (9.7e-10&
           *(T32)**(-0.5))
     end if
 
     !HCNH+ + H2CO -> H3CO+ + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(548) = small + (1.05e-09&
+      k(634) = small + (1.05e-09&
           *(T32)**(-0.5))
     end if
 
     !HCNH+ + H2CO -> H3CO+ + HNC
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(549) = small + (1.05e-09&
+      k(635) = small + (1.05e-09&
           *(T32)**(-0.5))
     end if
 
     !HCO+ + H2CO -> H3CO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(550) = small + (3.3e-09&
+      k(636) = small + (3.3e-09&
           *(T32)**(-0.5))
     end if
 
     !HCO+ + HCO -> H2CO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(551) = small + (7.3e-10&
+      k(637) = small + (7.3e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !HCO+ + SIH2 -> SIH3+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(638) = small + (2e-09)
+    end if
+
+    !HCO+ + SIH4 -> SIH5+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(639) = small + (1.4e-09)
+    end if
+
+    !HCO+ + SIH -> SIH2+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(640) = small + (8.7e-10)
+    end if
+
+    !HCO+ + SIO -> SIOH+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(641) = small + (7.9e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + H2CO+ -> H3CO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(552) = small + (3.6e-10&
+      k(642) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + HNO+ -> H2CO+ + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(553) = small + (7.2e-10&
+      k(643) = small + (7.2e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + N2H+ -> H2CO+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(554) = small + (7.3e-10&
+      k(644) = small + (7.3e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + O2+ -> O2H+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(555) = small + (3.6e-10&
+      k(645) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !HCO + O2H+ -> O2 + H2CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(556) = small + (7.1e-10&
+      k(646) = small + (7.1e-10&
           *(T32)**(-0.5))
     end if
 
     !HNC + H2CO+ -> HCO + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(557) = small + (1.4e-09&
+      k(647) = small + (1.4e-09&
           *(T32)**(-0.5))
     end if
 
     !HNC + H3CO+ -> H2CO + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(558) = small + (1.3e-09&
+      k(648) = small + (1.3e-09&
           *(T32)**(-0.5))
     end if
 
     !HNC + HCO+ -> HCNH+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(559) = small + (3.1e-09&
+      k(649) = small + (3.1e-09&
           *(T32)**(-0.5))
     end if
 
     !HNC + HNO+ -> NO + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(560) = small + (9.9e-10&
+      k(650) = small + (9.9e-10&
           *(T32)**(-0.5))
     end if
 
     !HNC + N2H+ -> HCNH+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(561) = small + (3.2e-09&
+      k(651) = small + (3.2e-09&
           *(T32)**(-0.5))
     end if
 
     !HNC + O2H+ -> O2 + HCNH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(562) = small + (9.7e-10&
+      k(652) = small + (9.7e-10&
           *(T32)**(-0.5))
     end if
 
     !HNO+ + CO2 -> HCO2+ + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(563) = small + (1e-10)
+      k(653) = small + (1e-10)
     end if
 
     !HE+ + CH2 -> C+ + HE + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(564) = small + (7.5e-10)
+      k(654) = small + (7.5e-10)
     end if
 
     !HE+ + CH2 -> CH+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(565) = small + (7.5e-10)
+      k(655) = small + (7.5e-10)
     end if
 
     !HE+ + CH3 -> CH+ + HE + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(566) = small + (1.8e-09)
+      k(656) = small + (1.8e-09)
     end if
 
     !HE+ + CH3OH -> OH+ + CH3 + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(567) = small + (1.1e-09&
+      k(657) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + CH3OH -> OH + CH3+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(568) = small + (1.1e-09&
+      k(658) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + CH4 -> CH+ + HE + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(569) = small + (2.4e-10)
+      k(659) = small + (2.4e-10)
     end if
 
     !HE+ + CH4 -> CH2+ + HE + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(570) = small + (9.5e-10)
+      k(660) = small + (9.5e-10)
     end if
 
     !HE+ + CH4 -> CH3+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(571) = small + (8.5e-11)
+      k(661) = small + (8.5e-11)
     end if
 
     !HE+ + CH4 -> CH3 + HE + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(572) = small + (4.8e-10)
+      k(662) = small + (4.8e-10)
     end if
 
     !HE+ + CH -> C+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(573) = small + (1.1e-09&
+      k(663) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + CN -> N+ + C + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(574) = small + (8.8e-10&
+      k(664) = small + (8.8e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + CN -> N + C+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(575) = small + (8.8e-10&
+      k(665) = small + (8.8e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + CO2 -> CO+ + O + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(576) = small + (8.7e-10)
+      k(666) = small + (8.7e-10)
     end if
 
     !HE+ + CO2 -> CO + O+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(577) = small + (1e-10)
+      k(667) = small + (1e-10)
     end if
 
     !HE+ + CO2 -> O2+ + C + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(578) = small + (1.1e-11)
+      k(668) = small + (1.1e-11)
     end if
 
     !HE+ + CO2 -> O2 + C+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(579) = small + (4e-11)
+      k(669) = small + (4e-11)
     end if
 
     !HE+ + CO -> O + C+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(580) = small + (1.6e-09)
+      k(670) = small + (1.6e-09)
     end if
 
     !HE+ + H2CO -> CO+ + HE + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(581) = small + (1.88e-09&
+      k(671) = small + (1.88e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + H2CO -> HCO+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(582) = small + (1.14e-09&
+      k(672) = small + (1.14e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + H2CO -> O + CH2+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(583) = small + (1.71e-09&
+      k(673) = small + (1.71e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + H2O -> OH+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(584) = small + (2.86e-10&
+      k(674) = small + (2.86e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + H2O -> OH + HE + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(585) = small + (2.04e-10&
+      k(675) = small + (2.04e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !HE+ + H2SIO -> SIOH+ + HE + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(676) = small + (2e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCN -> CN+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(586) = small + (1.46e-09&
+      k(677) = small + (1.46e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCN -> N+ + CH + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(587) = small + (2.17e-10&
+      k(678) = small + (2.17e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCN -> N + C+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(588) = small + (7.75e-10&
+      k(679) = small + (7.75e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCN -> N + CH+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(589) = small + (6.51e-10&
+      k(680) = small + (6.51e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCO -> CO+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(590) = small + (4.9e-10&
+      k(681) = small + (4.9e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCO -> CO + HEH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(591) = small + (3e-10&
+      k(682) = small + (3e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HCO -> O + CH+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(592) = small + (4.9e-10&
+      k(683) = small + (4.9e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HNC -> CN+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(593) = small + (5e-10&
+      k(684) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HNC -> N + C+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(594) = small + (5e-10&
+      k(685) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HNC -> NH+ + C + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(595) = small + (5e-10&
+      k(686) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HNO -> NO+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(596) = small + (1e-09&
+      k(687) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + HNO -> NO + HE + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(597) = small + (1e-09&
+      k(688) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + N2 -> N+ + N + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(598) = small + (9.6e-10)
+      k(689) = small + (9.6e-10)
     end if
 
     !HE+ + NH2 -> N+ + HE + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(599) = small + (8e-10&
+      k(690) = small + (8e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + NH2 -> NH+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(600) = small + (8e-10&
+      k(691) = small + (8e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + NH3 -> NH+ + HE + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(601) = small + (1.76e-10&
+      k(692) = small + (1.76e-10&
           *(T32)**(-0.5))
     end if
 
     !HE+ + NH3 -> NH2+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(602) = small + (1.76e-09&
+      k(693) = small + (1.76e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + NH -> N+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(603) = small + (1.1e-09&
+      k(694) = small + (1.1e-09&
           *(T32)**(-0.5))
     end if
 
     !HE+ + NO -> O+ + N + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(604) = small + (2e-10)
+      k(695) = small + (2e-10)
     end if
 
     !HE+ + NO -> O + N+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(605) = small + (1.4e-09)
+      k(696) = small + (1.4e-09)
     end if
 
     !HE+ + O2 -> O+ + O + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(606) = small + (1.1e-09)
+      k(697) = small + (1.1e-09)
     end if
 
     !HE+ + OCN -> CN+ + O + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(607) = small + (3e-09)
+      k(698) = small + (3e-09)
     end if
 
     !HE+ + OCN -> CN + O+ + HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(608) = small + (3e-09)
+      k(699) = small + (3e-09)
     end if
 
     !HE+ + OH -> O+ + HE + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(609) = small + (1.1e-09&
+      k(700) = small + (1.1e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !HE+ + SIC3 -> SIC2+ + C + HE
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(701) = small + (2e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !HE+ + SIC -> SI+ + C + HE
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(702) = small + (2e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !HE+ + SIC -> SI + C+ + HE
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(703) = small + (2e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !HE+ + SIH2 -> SI+ + HE + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(704) = small + (1e-09)
+    end if
+
+    !HE+ + SIH2 -> SIH+ + HE + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(705) = small + (1e-09)
+    end if
+
+    !HE+ + SIH3 -> SIH+ + HE + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(706) = small + (1e-09)
+    end if
+
+    !HE+ + SIH3 -> SIH2+ + HE + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(707) = small + (1e-09)
+    end if
+
+    !HE+ + SIH4 -> SI+ + HE + H2 + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(708) = small + (1.41e-09)
+    end if
+
+    !HE+ + SIH4 -> SIH+ + HE + H2 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(709) = small + (9.4e-10)
+    end if
+
+    !HE+ + SIH -> SI+ + HE + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(710) = small + (1.8e-09)
+    end if
+
+    !HE+ + SIO -> SI+ + O + HE
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(711) = small + (8.6e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !HE+ + SIO -> SI + O+ + HE
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(712) = small + (8.6e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + CH3OH -> H2CO+ + NH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(610) = small + (9.3e-10&
+      k(713) = small + (9.3e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + CH3OH -> H3CO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(611) = small + (4.96e-10&
+      k(714) = small + (4.96e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + CH3OH -> NO+ + CH3 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(612) = small + (3.1e-10&
+      k(715) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + CH3OH -> NO + CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(613) = small + (1.24e-10&
+      k(716) = small + (1.24e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + CH4 -> CH3+ + N + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(614) = small + (4.7e-10)
+      k(717) = small + (4.7e-10)
     end if
 
     !N+ + CH4 -> HCN+ + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(615) = small + (5.6e-11)
+      k(718) = small + (5.6e-11)
     end if
 
     !N+ + CH4 -> HCNH+ + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(616) = small + (3.8e-10)
+      k(719) = small + (3.8e-10)
     end if
 
     !N+ + CO2 -> NO + CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(617) = small + (2.5e-10)
+      k(720) = small + (2.5e-10)
     end if
 
     !N+ + CO -> NO+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(618) = small + (1.45e-10)
+      k(721) = small + (1.45e-10)
     end if
 
     !N+ + H2CO -> HCO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(619) = small + (7.25e-10&
+      k(722) = small + (7.25e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + H2CO -> NO+ + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(620) = small + (2.9e-10&
+      k(723) = small + (2.9e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + HCO -> CO + NH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(621) = small + (4.5e-10&
+      k(724) = small + (4.5e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + NH3 -> N2H+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(622) = small + (2.16e-10&
+      k(725) = small + (2.16e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + NH3 -> NH2+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(623) = small + (2.16e-10&
+      k(726) = small + (2.16e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + NH -> N2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(624) = small + (3.7e-10&
+      k(727) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !N+ + NO -> N2+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(625) = small + (7.9e-11)
+      k(728) = small + (7.9e-11)
     end if
 
     !N+ + O2 -> NO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(626) = small + (2.63e-10)
+      k(729) = small + (2.63e-10)
     end if
 
     !N+ + O2 -> NO + O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(627) = small + (3.66e-11)
+      k(730) = small + (3.66e-11)
     end if
 
     !N2+ + H2CO -> HCO+ + N2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(628) = small + (2.52e-09&
+      k(731) = small + (2.52e-09&
           *(T32)**(-0.5))
     end if
 
     !N2+ + HCO -> N2H+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(629) = small + (3.7e-10&
+      k(732) = small + (3.7e-10&
           *(T32)**(-0.5))
     end if
 
     !N2 + HNO+ -> NO + N2H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(630) = small + (1e-11)
+      k(733) = small + (1e-11)
     end if
 
     !N2 + O2H+ -> O2 + N2H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(631) = small + (8e-10)
+      k(734) = small + (8e-10)
     end if
 
     !N2H+ + CO2 -> HCO2+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(632) = small + (9.8e-10)
+      k(735) = small + (9.8e-10)
     end if
 
     !N2H+ + H2CO -> H3CO+ + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(633) = small + (3.3e-09&
+      k(736) = small + (3.3e-09&
           *(T32)**(-0.5))
     end if
 
     !N + CH2+ -> HCN+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(634) = small + (2.2e-10)
+      k(737) = small + (2.2e-10)
     end if
 
     !N + CN+ -> N2+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(635) = small + (6.1e-10)
+      k(738) = small + (6.1e-10)
     end if
 
     !N + H2O+ -> HNO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(636) = small + (1.12e-10)
+      k(739) = small + (1.12e-10)
     end if
 
     !N + H2O+ -> NO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(637) = small + (2.8e-11)
+      k(740) = small + (2.8e-11)
     end if
 
     !N + NH+ -> N2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(638) = small + (1.3e-09)
+      k(741) = small + (1.3e-09)
     end if
 
     !N + NH2+ -> N2H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(639) = small + (9.1e-11)
+      k(742) = small + (9.1e-11)
     end if
 
     !N + O2+ -> NO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(640) = small + (1.8e-10)
+      k(743) = small + (1.8e-10)
     end if
 
     !N + OH+ -> NO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(641) = small + (8.9e-10)
+      k(744) = small + (8.9e-10)
+    end if
+
+    !N + SIC+ -> SI+ + CN
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(745) = small + (7.7e-10)
+    end if
+
+    !N + SIO+ -> NO+ + SI
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(746) = small + (9e-11)
+    end if
+
+    !N + SIO+ -> NO + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(747) = small + (2.1e-10)
     end if
 
     !NH+ + CN -> HCN+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(642) = small + (1.6e-09&
+      k(748) = small + (1.6e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + CO2 -> HCO2+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(643) = small + (3.85e-10)
+      k(749) = small + (3.85e-10)
     end if
 
     !NH+ + CO2 -> HNO+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(644) = small + (3.85e-10)
+      k(750) = small + (3.85e-10)
     end if
 
     !NH+ + CO2 -> NO+ + HCO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(645) = small + (3.3e-10)
+      k(751) = small + (3.3e-10)
     end if
 
     !NH+ + CO -> HCO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(646) = small + (4.41e-10)
+      k(752) = small + (4.41e-10)
     end if
 
     !NH+ + H2CO -> H3CO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(647) = small + (4.95e-10&
+      k(753) = small + (4.95e-10&
           *(T32)**(-0.5))
     end if
 
     !NH+ + H2CO -> HCO+ + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(648) = small + (1.82e-09&
+      k(754) = small + (1.82e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + H2O -> H3O+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(649) = small + (1.05e-09&
+      k(755) = small + (1.05e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + H2O -> HNO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(650) = small + (3.5e-10&
+      k(756) = small + (3.5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH+ + H2O -> NH3+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(651) = small + (1.75e-10&
+      k(757) = small + (1.75e-10&
           *(T32)**(-0.5))
     end if
 
     !NH+ + H2O -> OH + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(652) = small + (8.75e-10&
+      k(758) = small + (8.75e-10&
           *(T32)**(-0.5))
     end if
 
     !NH+ + HCN -> HCNH+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(653) = small + (1.8e-09&
+      k(759) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + HCO -> H2CO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(654) = small + (1.3e-09&
+      k(760) = small + (1.3e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + HNC -> HCNH+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(655) = small + (1.8e-09&
+      k(761) = small + (1.8e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + N2 -> N2H+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(656) = small + (6.5e-10)
+      k(762) = small + (6.5e-10)
     end if
 
     !NH+ + NH2 -> NH3+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(657) = small + (1.5e-09&
+      k(763) = small + (1.5e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + NH -> NH2+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(658) = small + (1e-09&
+      k(764) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !NH+ + NO -> N2H+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(659) = small + (1.78e-10)
+      k(765) = small + (1.78e-10)
     end if
 
     !NH+ + O2 -> NO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(660) = small + (2.05e-10)
+      k(766) = small + (2.05e-10)
     end if
 
     !NH+ + O2 -> O2H+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(661) = small + (1.64e-10)
+      k(767) = small + (1.64e-10)
     end if
 
     !NH+ + O -> OH+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(662) = small + (1e-09)
+      k(768) = small + (1e-09)
     end if
 
     !NH+ + OH -> H2O+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(663) = small + (1e-09&
+      k(769) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + H2CO -> H3CO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(664) = small + (2.24e-09&
+      k(770) = small + (2.24e-09&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + H2CO -> HCO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(665) = small + (5.6e-10&
+      k(771) = small + (5.6e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + H2O -> H3O+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(666) = small + (2.76e-09&
+      k(772) = small + (2.76e-09&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + H2O -> NH3+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(667) = small + (1e-10&
+      k(773) = small + (1e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + HCN -> HCNH+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(668) = small + (1.2e-09&
+      k(774) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + HCO -> H2CO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(669) = small + (4.3e-10&
+      k(775) = small + (4.3e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + HNC -> HCNH+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(670) = small + (1.2e-09&
+      k(776) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + NH2 -> NH3+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(671) = small + (1e-09&
+      k(777) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !NH2+ + O2 -> H2NO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(672) = small + (1.19e-10)
+      k(778) = small + (1.19e-10)
     end if
 
     !NH2+ + O2 -> HNO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(673) = small + (2.1e-11)
+      k(779) = small + (2.1e-11)
     end if
 
     !NH2 + CO+ -> HCO+ + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(674) = small + (4.5e-10&
+      k(780) = small + (4.5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + H2CO+ -> HCO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(675) = small + (8.8e-10&
+      k(781) = small + (8.8e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + H2O+ -> NH3+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(676) = small + (4.9e-10&
+      k(782) = small + (4.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + H3CO+ -> H2CO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(677) = small + (8.8e-10&
+      k(783) = small + (8.8e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + H3O+ -> H2O + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(678) = small + (9.7e-10&
+      k(784) = small + (9.7e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + HCN+ -> CN + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(679) = small + (9e-10&
+      k(785) = small + (9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + HCNH+ -> HCN + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(680) = small + (4.45e-10&
+      k(786) = small + (4.45e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + HCNH+ -> HNC + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(681) = small + (4.45e-10&
+      k(787) = small + (4.45e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + HCO+ -> CO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(682) = small + (8.9e-10&
+      k(788) = small + (8.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + HNO+ -> NO + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(683) = small + (8.8e-10&
+      k(789) = small + (8.8e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + N2H+ -> N2 + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(684) = small + (8.9e-10&
+      k(790) = small + (8.9e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + O2H+ -> O2 + NH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(685) = small + (8.7e-10&
+      k(791) = small + (8.7e-10&
           *(T32)**(-0.5))
     end if
 
     !NH2 + OH+ -> NH3+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(686) = small + (5e-10&
+      k(792) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH3 + CO+ -> HCO+ + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(687) = small + (4.08e-11&
+      k(793) = small + (4.08e-11&
           *(T32)**(-0.5))
     end if
 
     !NH3 + HCN+ -> HCNH+ + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(688) = small + (8.4e-10&
+      k(794) = small + (8.4e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + CH3+ -> HCNH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(689) = small + (7.4e-10&
+      k(795) = small + (7.4e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + CO+ -> HCO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(690) = small + (3.2e-10&
+      k(796) = small + (3.2e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + H2CO+ -> H3CO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(691) = small + (6.4e-10&
+      k(797) = small + (6.4e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + H2O+ -> H3O+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(692) = small + (7.1e-10&
+      k(798) = small + (7.1e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + HCN+ -> CN + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(693) = small + (6.5e-10&
+      k(799) = small + (6.5e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + HCO+ -> CO + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(694) = small + (6.4e-10&
+      k(800) = small + (6.4e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + HNO+ -> NO + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(695) = small + (6.3e-10&
+      k(801) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + N2H+ -> N2 + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(696) = small + (6.4e-10&
+      k(802) = small + (6.4e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + NH2+ -> NH3+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(697) = small + (7.3e-10&
+      k(803) = small + (7.3e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + O+ -> NO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(698) = small + (3.6e-10&
+      k(804) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + O2+ -> HNO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(699) = small + (3.2e-10&
+      k(805) = small + (3.2e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + O2H+ -> O2 + NH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(700) = small + (6.3e-10&
+      k(806) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !NH + OH+ -> NH2+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(701) = small + (3.6e-10&
+      k(807) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !NO + O2H+ -> O2 + HNO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(702) = small + (7.7e-10)
+      k(808) = small + (7.7e-10)
     end if
 
     !O+ + CH3OH -> H2CO+ + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(703) = small + (9.5e-11&
+      k(809) = small + (9.5e-11&
           *(T32)**(-0.5))
     end if
 
     !O+ + CH3OH -> H3CO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(704) = small + (1.33e-09&
+      k(810) = small + (1.33e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + CH4 -> OH + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(705) = small + (1.1e-10)
+      k(811) = small + (1.1e-10)
     end if
 
     !O+ + CN -> NO+ + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(706) = small + (1e-09&
+      k(812) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + CO2 -> O2+ + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(707) = small + (9.4e-10)
+      k(813) = small + (9.4e-10)
     end if
 
     !O+ + H2CO -> HCO+ + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(708) = small + (1.4e-09&
+      k(814) = small + (1.4e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + HCN -> HCO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(709) = small + (1.2e-09&
+      k(815) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + HCN -> NO+ + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(710) = small + (1.2e-09&
+      k(816) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !O+ + HCO -> CO + OH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(711) = small + (4.3e-10&
+      k(817) = small + (4.3e-10&
           *(T32)**(-0.5))
     end if
 
     !O+ + N2 -> NO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(712) = small + (2.42e-12&
+      k(818) = small + (2.42e-12&
           *(T32)**(-0.21)*exp(+44.0*invT))
     end if
 
     !O+ + NO2 -> O2 + NO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(713) = small + (8.3e-10)
+      k(819) = small + (8.3e-10)
     end if
 
     !O+ + OH -> O2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(714) = small + (3.6e-10&
+      k(820) = small + (3.6e-10&
           *(T32)**(-0.5))
     end if
 
     !O2+ + CH3OH -> O2 + H3CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(715) = small + (5e-10&
+      k(821) = small + (5e-10&
           *(T32)**(-0.5))
     end if
 
     !O2H+ + CO2 -> HCO2+ + O2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(716) = small + (1.1e-09)
+      k(822) = small + (1.1e-09)
     end if
 
     !O + CH4+ -> OH + CH3+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(717) = small + (1e-09)
+      k(823) = small + (1e-09)
     end if
 
     !O + H2O+ -> O2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(718) = small + (4e-11)
+      k(824) = small + (4e-11)
     end if
 
     !O + HCO2+ -> O2 + HCO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(719) = small + (1e-09)
+      k(825) = small + (1e-09)
     end if
 
     !O + N2+ -> NO+ + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(720) = small + (1.3e-10)
+      k(826) = small + (1.3e-10)
     end if
 
     !O + N2H+ -> N2 + OH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(721) = small + (1.4e-10)
+      k(827) = small + (1.4e-10)
     end if
 
     !O + NH2+ -> HNO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(722) = small + (7.2e-11)
+      k(828) = small + (7.2e-11)
     end if
 
     !O + NH3+ -> HNO+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(723) = small + (1e-11)
+      k(829) = small + (1e-11)
     end if
 
     !O + O2H+ -> O2 + OH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(724) = small + (6.2e-10)
+      k(830) = small + (6.2e-10)
     end if
 
     !O + OH+ -> O2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(725) = small + (7.1e-10)
+      k(831) = small + (7.1e-10)
+    end if
+
+    !O + SIC+ -> SIO+ + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(832) = small + (6e-10)
+    end if
+
+    !O + SIH+ -> SIO+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(833) = small + (4e-10)
+    end if
+
+    !O + SIH2+ -> SIOH+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(834) = small + (6.3e-10)
+    end if
+
+    !O + SIH3+ -> SIOH+ + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(835) = small + (2e-10)
+    end if
+
+    !O + SIO+ -> O2 + SI+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(836) = small + (2e-10)
     end if
 
     !OH+ + CN -> HCN+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(726) = small + (1e-09&
+      k(837) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + CO2 -> HCO2+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(727) = small + (1.44e-09)
+      k(838) = small + (1.44e-09)
     end if
 
     !OH+ + CO -> HCO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(728) = small + (1.05e-09)
+      k(839) = small + (1.05e-09)
     end if
 
     !OH+ + H2CO -> H3CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(729) = small + (1.12e-09&
+      k(840) = small + (1.12e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + H2O -> H3O+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(730) = small + (1.3e-09&
+      k(841) = small + (1.3e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + HCN -> HCNH+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(731) = small + (1.2e-09&
+      k(842) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + HCO -> CO + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(732) = small + (2.8e-10&
+      k(843) = small + (2.8e-10&
           *(T32)**(-0.5))
     end if
 
     !OH+ + HCO -> H2CO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(733) = small + (2.8e-10&
+      k(844) = small + (2.8e-10&
           *(T32)**(-0.5))
     end if
 
     !OH+ + HNC -> HCNH+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(734) = small + (1.2e-09&
+      k(845) = small + (1.2e-09&
           *(T32)**(-0.5))
     end if
 
     !OH+ + N2 -> N2H+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(735) = small + (3.6e-10)
+      k(846) = small + (3.6e-10)
     end if
 
     !OH+ + NO -> HNO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(736) = small + (6.11e-10)
+      k(847) = small + (6.11e-10)
     end if
 
     !OH+ + OH -> H2O+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(737) = small + (7e-10&
+      k(848) = small + (7e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !OH+ + SI -> SIH+ + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(849) = small + (1.9e-09)
+    end if
+
+    !OH+ + SIH -> SIH2+ + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(850) = small + (1e-09)
+    end if
+
+    !OH+ + SIO -> SIOH+ + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(851) = small + (9.4e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + CO+ -> HCO+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(738) = small + (3.1e-10&
+      k(852) = small + (3.1e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + H2O+ -> H3O+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(739) = small + (6.9e-10&
+      k(853) = small + (6.9e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + HCN+ -> CN + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(740) = small + (6.3e-10&
+      k(854) = small + (6.3e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + HCO+ -> CO + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(741) = small + (6.2e-10&
+      k(855) = small + (6.2e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + HCO+ -> HCO2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(742) = small + (1e-09&
+      k(856) = small + (1e-09&
           *(T32)**(-0.5))
     end if
 
     !OH + HNO+ -> NO + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(743) = small + (6.2e-10&
+      k(857) = small + (6.2e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + N2H+ -> N2 + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(744) = small + (6.2e-10&
+      k(858) = small + (6.2e-10&
           *(T32)**(-0.5))
     end if
 
     !OH + O2H+ -> O2 + H2O+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(745) = small + (6.1e-10&
+      k(859) = small + (6.1e-10&
           *(T32)**(-0.5))
+    end if
+
+    !OH + SI+ -> SIO+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(860) = small + (6.3e-10&
+          *(T32)**(-0.5))
+    end if
+
+    !SI+ + CH3OH -> SIOH+ + CH3
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(861) = small + (1.65e-09&
+          *(T32)**(-0.5))
+    end if
+
+    !SI + HCO+ -> SIH+ + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(862) = small + (1.6e-09)
+    end if
+
+    !SIH2+ + O2 -> SIOH+ + OH
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(863) = small + (2.4e-11)
     end if
 
     !C + CH2 -> CH + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(746) = small + (2.69e-12&
+      k(864) = small + (2.69e-12&
           *exp(-23550.0*invT))
     end if
 
     !C + HCO -> CO + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(747) = small + (1e-10)
+      k(865) = small + (1e-10)
     end if
 
     !C + N2 -> CN + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(748) = small + (8.69e-11&
+      k(866) = small + (8.69e-11&
           *exp(-22600.0*invT))
     end if
 
     !C + NH2 -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(749) = small + (3.26e-11&
+      k(867) = small + (3.26e-11&
           *(T32)**(-0.1)*exp(+9.0*invT))
     end if
 
     !C + NH2 -> HNC + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(750) = small + (3.26e-11&
+      k(868) = small + (3.26e-11&
           *(T32)**(-0.1)*exp(+9.0*invT))
     end if
 
     !C + NH2 -> NH + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(751) = small + (9.62e-13&
+      k(869) = small + (9.62e-13&
           *exp(-10517.0*invT))
     end if
 
     !C + NH -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(752) = small + (1.2e-10)
+      k(870) = small + (1.2e-10)
     end if
 
     !C + NH -> N + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(753) = small + (1.73e-11&
+      k(871) = small + (1.73e-11&
           *(T32)**(0.5)*exp(-4000.0*invT))
     end if
 
     !C + NO -> CN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(754) = small + (6e-11&
+      k(872) = small + (6e-11&
           *(T32)**(-0.16))
     end if
 
     !C + NO -> CO + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(755) = small + (9e-11&
+      k(873) = small + (9e-11&
           *(T32)**(-0.16))
     end if
 
     !C + O2 -> CO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(756) = small + (5.56e-11&
+      k(874) = small + (5.56e-11&
           *(T32)**(0.41)*exp(+26.9*invT))
     end if
 
     !C + OCN -> CO + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(757) = small + (1e-10)
+      k(875) = small + (1e-10)
     end if
 
     !C + OH -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(758) = small + (1e-10)
+      k(876) = small + (1e-10)
     end if
 
     !C + OH -> O + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(759) = small + (2.25e-11&
+      k(877) = small + (2.25e-11&
           *(T32)**(0.5)*exp(-14800.0*invT))
+    end if
+
+    !C + SIH -> SIC + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(878) = small + (6.59e-11)
     end if
 
     !CH2 + CH2 -> CH3 + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(760) = small + (4e-10&
+      k(879) = small + (4e-10&
           *exp(-5000.0*invT))
     end if
 
     !CH2 + CH4 -> CH3 + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(761) = small + (7.13e-12&
+      k(880) = small + (7.13e-12&
           *exp(-5050.0*invT))
     end if
 
     !CH2 + CN -> HCN + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(762) = small + (5.3e-12&
+      k(881) = small + (5.3e-12&
           *exp(-2500.0*invT))
     end if
 
     !CH2 + H2CO -> HCO + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(763) = small + (3.3e-13&
+      k(882) = small + (3.3e-13&
           *exp(-3270.0*invT))
     end if
 
     !CH2 + HCO -> CO + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(764) = small + (3e-11)
+      k(883) = small + (3e-11)
     end if
 
     !CH2 + HNO -> NO + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(765) = small + (1.7e-11)
+      k(884) = small + (1.7e-11)
     end if
 
     !CH2 + N2 -> HCN + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(766) = small + (8e-12&
+      k(885) = small + (8e-12&
           *exp(-18000.0*invT))
     end if
 
     !CH2 + NO2 -> H2CO + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(767) = small + (6.91e-11)
+      k(886) = small + (6.91e-11)
     end if
 
     !CH2 + NO -> H2CO + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(768) = small + (2.7e-12&
+      k(887) = small + (2.7e-12&
           *exp(-3500.0*invT))
     end if
 
     !CH2 + NO -> HCN + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(769) = small + (3.65e-12)
+      k(888) = small + (3.65e-12)
     end if
 
     !CH2 + NO -> HNCO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(770) = small + (3.65e-12)
+      k(889) = small + (3.65e-12)
     end if
 
     !CH2 + O2 -> CO2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(771) = small + (2.92e-11&
+      k(890) = small + (2.92e-11&
           *(T32)**(-3.3)*exp(-1443.0*invT))
     end if
 
     !CH2 + O2 -> CO2 + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(772) = small + (3.65e-11&
+      k(891) = small + (3.65e-11&
           *(T32)**(-3.3)*exp(-1443.0*invT))
     end if
 
     !CH2 + O2 -> CO + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(773) = small + (2.48e-10&
+      k(892) = small + (2.48e-10&
           *(T32)**(-3.3)*exp(-1443.0*invT))
     end if
 
     !CH2 + O2 -> H2CO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(774) = small + (3.65e-11&
+      k(893) = small + (3.65e-11&
           *(T32)**(-3.3)*exp(-1443.0*invT))
     end if
 
     !CH2 + O2 -> HCO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(775) = small + (4.1e-11&
+      k(894) = small + (4.1e-11&
           *exp(-750.0*invT))
     end if
 
     !CH2 + O -> CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(776) = small + (8e-11)
+      k(895) = small + (8e-11)
     end if
 
     !CH2 + O -> CO + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(777) = small + (1.33e-10)
+      k(896) = small + (1.33e-10)
     end if
 
     !CH2 + O -> HCO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(778) = small + (5.01e-11)
+      k(897) = small + (5.01e-11)
     end if
 
     !CH2 + O -> OH + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(779) = small + (4.98e-10&
+      k(898) = small + (4.98e-10&
           *exp(-6000.0*invT))
     end if
 
     !CH2 + OH -> H2CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(780) = small + (3e-11)
+      k(899) = small + (3e-11)
     end if
 
     !CH2 + OH -> H2O + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(781) = small + (1.44e-11&
+      k(900) = small + (1.44e-11&
           *(T32)**(0.5)*exp(-3000.0*invT))
     end if
 
     !CH2 + OH -> O + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(782) = small + (1.44e-11&
+      k(901) = small + (1.44e-11&
           *(T32)**(0.5)*exp(-3000.0*invT))
     end if
 
     !CH3 + CH3 -> CH4 + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(783) = small + (7.13e-12&
+      k(902) = small + (7.13e-12&
           *exp(-5052.0*invT))
     end if
 
     !CH3 + CN -> HCN + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(784) = small + (9.21e-12&
+      k(903) = small + (9.21e-12&
           *(T32)**(0.7)*exp(-1500.0*invT))
     end if
 
     !CH3 + H2CO -> HCO + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(785) = small + (1.34e-15&
+      k(904) = small + (1.34e-15&
           *(T32)**(5.05)*exp(-1636.0*invT))
     end if
 
     !CH3 + H2O -> OH + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(786) = small + (2.3e-15&
+      k(905) = small + (2.3e-15&
           *(T32)**(3.47)*exp(-6681.0*invT))
     end if
 
     !CH3 + HCO -> CO + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(787) = small + (2e-10)
+      k(906) = small + (2e-10)
     end if
 
     !CH3 + HNO -> NO + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(788) = small + (3.32e-12)
+      k(907) = small + (3.32e-12)
     end if
 
     !CH3 + NH2 -> CH4 + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(789) = small + (4.76e-17&
+      k(908) = small + (4.76e-17&
           *(T32)**(5.77)*exp(+151.0*invT))
     end if
 
     !CH3 + NH3 -> CH4 + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(790) = small + (9.55e-14&
+      k(909) = small + (9.55e-14&
           *exp(-4890.0*invT))
     end if
 
     !CH3 + NO2 -> H2CO + HNO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(791) = small + (5.41e-12)
+      k(910) = small + (5.41e-12)
     end if
 
     !CH3 + NO -> HCN + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(792) = small + (4e-12&
+      k(911) = small + (4e-12&
           *exp(-7900.0*invT))
     end if
 
     !CH3 + O2 -> H2CO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(793) = small + (5.64e-13&
+      k(912) = small + (5.64e-13&
           *exp(-4500.0*invT))
     end if
 
     !CH3 + O2 -> HCO + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(794) = small + (1.66e-12)
+      k(913) = small + (1.66e-12)
     end if
 
     !CH3 + O2 -> O2H + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(795) = small + (5.3e-12&
+      k(914) = small + (5.3e-12&
           *exp(-34975.0*invT))
     end if
 
     !CH3 + O2H -> O2 + CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(796) = small + (6e-12)
+      k(915) = small + (6e-12)
     end if
 
     !CH3 + O -> CO + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(797) = small + (3.6e-11&
+      k(916) = small + (3.6e-11&
           *exp(-202.0*invT))
     end if
 
     !CH3 + O -> H2CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(798) = small + (1.3e-10)
+      k(917) = small + (1.3e-10)
     end if
 
     !CH3 + OH -> CH4 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(799) = small + (3.27e-14&
+      k(918) = small + (3.27e-14&
           *(T32)**(2.2)*exp(-2240.0*invT))
     end if
 
     !CH3 + OH -> H2CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(800) = small + (1.7e-12)
+      k(919) = small + (1.7e-12)
     end if
 
     !CH3 + OH -> H2O + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(801) = small + (1.2e-10&
+      k(920) = small + (1.2e-10&
           *exp(-1400.0*invT))
     end if
 
     !CH4 + CN -> HCN + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(802) = small + (3.14e-12&
+      k(921) = small + (3.14e-12&
           *(T32)**(1.53)*exp(-504.0*invT))
     end if
 
     !CH4 + O2 -> O2H + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(803) = small + (6.7e-11&
+      k(922) = small + (6.7e-11&
           *exp(-28640.0*invT))
     end if
 
     !CH4 + OH -> H2O + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(804) = small + (3.77e-13&
+      k(923) = small + (3.77e-13&
           *(T32)**(2.42)*exp(-1162.0*invT))
     end if
 
     !CH + CO2 -> HCO + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(805) = small + (2.94e-13&
+      k(924) = small + (2.94e-13&
           *(T32)**(0.5)*exp(-3000.0*invT))
     end if
 
     !CH + H2CO -> HCO + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(806) = small + (9.21e-12&
+      k(925) = small + (9.21e-12&
           *(T32)**(0.7)*exp(-2000.0*invT))
     end if
 
     !CH + HCO -> CO + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(807) = small + (2.87e-12&
+      k(926) = small + (2.87e-12&
           *(T32)**(0.7)*exp(-500.0*invT))
     end if
 
     !CH + HNO -> NO + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(808) = small + (1.73e-11)
+      k(927) = small + (1.73e-11)
     end if
 
     !CH + N2 -> HCN + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(809) = small + (5.6e-13&
+      k(928) = small + (5.6e-13&
           *(T32)**(0.88)*exp(-10128.0*invT))
     end if
 
     !CH + N -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(810) = small + (1.66e-10&
+      k(929) = small + (1.66e-10&
           *(T32)**(-0.09))
     end if
 
     !CH + N -> NH + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(811) = small + (3.03e-11&
+      k(930) = small + (3.03e-11&
           *(T32)**(0.65)*exp(-1207.0*invT))
     end if
 
     !CH + NO -> HCN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(812) = small + (1.2e-10&
+      k(931) = small + (1.2e-10&
           *(T32)**(-0.13))
     end if
 
     !CH + NO -> HCO + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(813) = small + (1.16e-11&
+      k(932) = small + (1.16e-11&
           *(T32)**(-0.13))
     end if
 
     !CH + NO -> OCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(814) = small + (3.49e-11&
+      k(933) = small + (3.49e-11&
           *(T32)**(-0.13))
     end if
 
     !CH + O2 -> CO2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(815) = small + (1.14e-11&
+      k(934) = small + (1.14e-11&
           *(T32)**(-0.48))
     end if
 
     !CH + O2 -> CO + O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(816) = small + (1.14e-11&
+      k(935) = small + (1.14e-11&
           *(T32)**(-0.48))
     end if
 
     !CH + O2 -> CO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(817) = small + (7.6e-12&
+      k(936) = small + (7.6e-12&
           *(T32)**(-0.48))
     end if
 
     !CH + O2 -> HCO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(818) = small + (7.6e-12&
+      k(937) = small + (7.6e-12&
           *(T32)**(-0.48))
     end if
 
     !CH + O2H -> HCO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(819) = small + (1.44e-11&
+      k(938) = small + (1.44e-11&
           *(T32)**(0.5)*exp(-3000.0*invT))
     end if
 
     !CH + O2H -> O2 + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(820) = small + (2.94e-13&
+      k(939) = small + (2.94e-13&
           *(T32)**(0.5)*exp(-7550.0*invT))
     end if
 
     !CH + O -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(821) = small + (6.02e-11&
+      k(940) = small + (6.02e-11&
           *(T32)**(0.1)*exp(+4.5*invT))
     end if
 
     !CH + O -> OH + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(822) = small + (2.52e-11&
+      k(941) = small + (2.52e-11&
           *exp(-2381.0*invT))
     end if
 
     !CH + OH -> HCO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(823) = small + (1.44e-11&
+      k(942) = small + (1.44e-11&
           *(T32)**(0.5)*exp(-5000.0*invT))
     end if
 
     !CN + H2CO -> HCO + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(824) = small + (2.6e-10&
+      k(943) = small + (2.6e-10&
           *(T32)**(-0.47)*exp(-826.0*invT))
     end if
 
     !CN + HCO -> CO + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(825) = small + (1e-10)
+      k(944) = small + (1e-10)
     end if
 
     !CN + HNO -> NO + HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(826) = small + (3e-11)
+      k(945) = small + (3e-11)
     end if
 
     !CN + NO2 -> NO + OCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(827) = small + (7.02e-11&
+      k(946) = small + (7.02e-11&
           *(T32)**(-0.27)*exp(-8.3*invT))
     end if
 
     !CN + NO -> N2 + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(828) = small + (1.6e-13)
+      k(947) = small + (1.6e-13)
     end if
 
     !CN + NO -> OCN + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(829) = small + (1.62e-10&
+      k(948) = small + (1.62e-10&
           *exp(-21205.0*invT))
     end if
 
     !CN + O2 -> NO + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(830) = small + (5.12e-12&
+      k(949) = small + (5.12e-12&
           *(T32)**(-0.49)*exp(+5.2*invT))
     end if
 
     !CN + O2 -> OCN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(831) = small + (2.02e-11&
+      k(950) = small + (2.02e-11&
           *(T32)**(-0.19)*exp(+31.9*invT))
+    end if
+
+    !CN + SIH4 -> HCN + SIH3
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(951) = small + (2.2e-10)
     end if
 
     !CO + HNO -> CO2 + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(832) = small + (3.32e-12&
+      k(952) = small + (3.32e-12&
           *exp(-6170.0*invT))
     end if
 
     !CO + NO2 -> CO2 + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(833) = small + (1.48e-10&
+      k(953) = small + (1.48e-10&
           *exp(-17000.0*invT))
     end if
 
     !CO + O2 -> CO2 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(834) = small + (5.99e-12&
+      k(954) = small + (5.99e-12&
           *exp(-24075.0*invT))
     end if
 
     !CO + O2H -> CO2 + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(835) = small + (5.6e-10&
+      k(955) = small + (5.6e-10&
           *exp(-12160.0*invT))
     end if
 
     !H2 + C -> CH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(836) = small + (6.64e-10&
+      k(956) = small + (6.64e-10&
           *exp(-11700.0*invT))
     end if
 
     !H2 + CH2 -> CH3 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(837) = small + (5.18e-11&
+      k(957) = small + (5.18e-11&
           *(T32)**(0.17)*exp(-6400.0*invT))
     end if
 
     !H2 + CH3 -> CH4 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(838) = small + (6.86e-14&
+      k(958) = small + (6.86e-14&
           *(T32)**(2.74)*exp(-4740.0*invT))
     end if
 
     !H2 + CH -> CH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(839) = small + (5.46e-10&
+      k(959) = small + (5.46e-10&
           *exp(-1943.0*invT))
     end if
 
     !H2 + CN -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(840) = small + (4.04e-13&
+      k(960) = small + (4.04e-13&
           *(T32)**(2.87)*exp(-820.0*invT))
     end if
 
     !H2 + N -> NH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(841) = small + (1.69e-09&
+      k(961) = small + (1.69e-09&
           *exp(-18095.0*invT))
     end if
 
     !H2 + NH2 -> NH3 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(842) = small + (2.05e-15&
+      k(962) = small + (2.05e-15&
           *(T32)**(3.89)*exp(-1400.0*invT))
     end if
 
     !H2 + NH -> NH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(843) = small + (5.96e-11&
+      k(963) = small + (5.96e-11&
           *exp(-7782.0*invT))
     end if
 
     !H2 + O2 -> O2H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(844) = small + (2.4e-10&
+      k(964) = small + (2.4e-10&
           *exp(-28500.0*invT))
     end if
 
     !H2 + O2 -> OH + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(845) = small + (3.16e-10&
+      k(965) = small + (3.16e-10&
           *exp(-21890.0*invT))
     end if
 
     !H2 + O -> OH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(846) = small + (3.14e-13&
+      k(966) = small + (3.14e-13&
           *(T32)**(2.7)*exp(-3150.0*invT))
     end if
 
     !H2 + OH -> H2O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(847) = small + (2.05e-12&
+      k(967) = small + (2.05e-12&
           *(T32)**(1.52)*exp(-1736.0*invT))
     end if
 
     !H + CH2 -> CH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(848) = small + (2.2e-10)
+      k(968) = small + (2.2e-10)
     end if
 
     !H + CH3 -> CH2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(849) = small + (1e-10&
+      k(969) = small + (1e-10&
           *exp(-7600.0*invT))
     end if
 
     !H + CH4 -> CH3 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(850) = small + (5.94e-13&
+      k(970) = small + (5.94e-13&
           *(T32)**(3.0)*exp(-4045.0*invT))
     end if
 
     !H + CH -> C + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(851) = small + (1.31e-10&
+      k(971) = small + (1.31e-10&
           *exp(-80.0*invT))
     end if
 
     !H + CO2 -> CO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(852) = small + (3.38e-10&
+      k(972) = small + (3.38e-10&
           *exp(-13163.0*invT))
     end if
 
     !H + CO -> OH + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(853) = small + (1.1e-10&
+      k(973) = small + (1.1e-10&
           *(T32)**(0.5)*exp(-77700.0*invT))
     end if
 
     !H + H2CN -> HCN + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(854) = small + (1e-10)
+      k(974) = small + (1e-10)
     end if
 
     !H + H2CO -> HCO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(855) = small + (4.85e-12&
+      k(975) = small + (4.85e-12&
           *(T32)**(1.9)*exp(-1379.0*invT))
     end if
 
     !H + H2O -> OH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(856) = small + (1.59e-11&
+      k(976) = small + (1.59e-11&
           *(T32)**(1.2)*exp(-9610.0*invT))
     end if
 
     !H + HCN -> CN + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(857) = small + (6.2e-10&
+      k(977) = small + (6.2e-10&
           *exp(-12500.0*invT))
     end if
 
     !H + HCO -> CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(858) = small + (1.5e-10)
+      k(978) = small + (1.5e-10)
     end if
 
     !H + HCO -> O + CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(859) = small + (6.61e-11&
+      k(979) = small + (6.61e-11&
           *exp(-51598.0*invT))
     end if
 
     !H + HNC -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(860) = small + (1.14e-13&
+      k(980) = small + (1.14e-13&
           *(T32)**(4.23)*exp(+114.6*invT))
     end if
 
     !H + HNO -> NH2 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(861) = small + (1.05e-09&
+      k(981) = small + (1.05e-09&
           *(T32)**(-0.3)*exp(-14730.0*invT))
     end if
 
     !H + HNO -> NO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(862) = small + (4.5e-11&
+      k(982) = small + (4.5e-11&
           *(T32)**(0.72)*exp(-329.0*invT))
     end if
 
     !H + HNO -> OH + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(863) = small + (2.4e-09&
+      k(983) = small + (2.4e-09&
           *(T32)**(-0.5)*exp(-9010.0*invT))
     end if
 
     !H + NH2 -> NH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(864) = small + (4.56e-12&
+      k(984) = small + (4.56e-12&
           *(T32)**(1.02)*exp(-2161.0*invT))
     end if
 
     !H + NH3 -> NH2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(865) = small + (7.8e-13&
+      k(985) = small + (7.8e-13&
           *(T32)**(2.4)*exp(-4990.0*invT))
     end if
 
     !H + NH -> N + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(866) = small + (1.73e-11&
+      k(986) = small + (1.73e-11&
           *(T32)**(0.5)*exp(-2400.0*invT))
     end if
 
     !H + NO2 -> NO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(867) = small + (1.4e-10&
+      k(987) = small + (1.4e-10&
           *exp(-740.0*invT))
     end if
 
     !H + NO -> O + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(868) = small + (9.29e-10&
+      k(988) = small + (9.29e-10&
           *(T32)**(-0.1)*exp(-35220.0*invT))
     end if
 
     !H + NO -> OH + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(869) = small + (3.6e-10&
+      k(989) = small + (3.6e-10&
           *exp(-24910.0*invT))
     end if
 
     !H + O2 -> OH + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(870) = small + (2.61e-10&
+      k(990) = small + (2.61e-10&
           *exp(-8156.0*invT))
     end if
 
     !H + O2H -> H2O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(871) = small + (5e-11&
+      k(991) = small + (5e-11&
           *exp(-866.0*invT))
     end if
 
     !H + O2H -> O2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(872) = small + (2.06e-11&
+      k(992) = small + (2.06e-11&
           *(T32)**(0.84)*exp(-277.0*invT))
     end if
 
     !H + O2H -> OH + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(873) = small + (1.66e-10&
+      k(993) = small + (1.66e-10&
           *exp(-413.0*invT))
     end if
 
     !H + OCN -> HCN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(874) = small + (1.87e-11&
+      k(994) = small + (1.87e-11&
           *(T32)**(0.9)*exp(-2924.0*invT))
     end if
 
     !H + OCN -> NH + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(875) = small + (1.26e-10&
+      k(995) = small + (1.26e-10&
           *exp(-515.0*invT))
     end if
 
     !H + OCN -> OH + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(876) = small + (1e-10)
+      k(996) = small + (1e-10)
     end if
 
     !H + OH -> O + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(877) = small + (6.99e-14&
+      k(997) = small + (6.99e-14&
           *(T32)**(2.8)*exp(-1950.0*invT))
     end if
 
     !HCO + HCO -> CO + CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(878) = small + (3.6e-11)
+      k(998) = small + (3.6e-11)
     end if
 
     !HCO + HCO -> H2CO + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(879) = small + (3e-11)
+      k(999) = small + (3e-11)
     end if
 
     !HCO + HNO -> H2CO + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(880) = small + (1e-12&
+      k(1000) = small + (1e-12&
           *exp(-1000.0*invT))
     end if
 
     !HCO + NO -> HNO + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(881) = small + (1.2e-11)
+      k(1001) = small + (1.2e-11)
     end if
 
     !HCO + O2 -> CO2 + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(882) = small + (7.6e-13)
+      k(1002) = small + (7.6e-13)
     end if
 
     !HCO + O2 -> O2H + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(883) = small + (4.64e-12&
+      k(1003) = small + (4.64e-12&
           *(T32)**(0.7)*exp(+25.6*invT))
     end if
 
     !HCO + O2H -> O2 + H2CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(884) = small + (5e-11)
+      k(1004) = small + (5e-11)
     end if
 
     !HNCO + C -> CO + HNC
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(885) = small + (1e-12)
+      k(1005) = small + (1e-12)
     end if
 
     !N + CH2 -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(886) = small + (3.95e-11&
+      k(1006) = small + (3.95e-11&
           *(T32)**(0.17))
     end if
 
     !N + CH2 -> HNC + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(887) = small + (3.95e-11&
+      k(1007) = small + (3.95e-11&
           *(T32)**(0.17))
     end if
 
     !N + CH2 -> NH + CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(888) = small + (9.96e-13&
+      k(1008) = small + (9.96e-13&
           *exp(-20380.0*invT))
     end if
 
     !N + CH3 -> H2CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(889) = small + (7.4e-11&
+      k(1009) = small + (7.4e-11&
           *(T32)**(0.26)*exp(-8.4*invT))
     end if
 
     !N + CH3 -> HCN + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(890) = small + (1.3e-11&
+      k(1010) = small + (1.3e-11&
           *(T32)**(0.5))
     end if
 
     !N + CH3 -> HCN + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(891) = small + (3.32e-13)
+      k(1011) = small + (3.32e-13)
     end if
 
     !N + CN -> N2 + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(892) = small + (1e-10&
+      k(1012) = small + (1e-10&
           *(T32)**(0.18))
     end if
 
     !N + CO2 -> NO + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(893) = small + (3.2e-13&
+      k(1013) = small + (3.2e-13&
           *exp(-1710.0*invT))
     end if
 
     !N + H2CN -> HCN + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(894) = small + (1e-10&
+      k(1014) = small + (1e-10&
           *exp(-200.0*invT))
     end if
 
     !N + HCO -> CO + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(895) = small + (5.71e-12&
+      k(1015) = small + (5.71e-12&
           *(T32)**(0.5)*exp(-1000.0*invT))
     end if
 
     !N + HCO -> HCN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(896) = small + (1.7e-10)
+      k(1016) = small + (1.7e-10)
     end if
 
     !N + HCO -> OCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(897) = small + (1e-10)
+      k(1017) = small + (1e-10)
     end if
 
     !N + HNO -> NO + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(898) = small + (2.94e-12&
+      k(1018) = small + (2.94e-12&
           *(T32)**(0.5)*exp(-1000.0*invT))
     end if
 
     !N + NH -> N2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(899) = small + (4.98e-11)
+      k(1019) = small + (4.98e-11)
     end if
 
     !N + NO2 -> N2 + O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(900) = small + (2.41e-12)
+      k(1020) = small + (2.41e-12)
     end if
 
     !N + NO2 -> NO + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(901) = small + (1e-12)
+      k(1021) = small + (1e-12)
     end if
 
     !N + NO2 -> O2 + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(902) = small + (1e-12)
+      k(1022) = small + (1e-12)
     end if
 
     !N + NO -> N2 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(903) = small + (3.38e-11&
+      k(1023) = small + (3.38e-11&
           *(T32)**(-0.17)*exp(+2.8*invT))
     end if
 
     !N + O2 -> NO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(904) = small + (2.26e-12&
+      k(1024) = small + (2.26e-12&
           *(T32)**(0.86)*exp(-3134.0*invT))
     end if
 
     !N + O2H -> O2 + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(905) = small + (1.7e-13)
+      k(1025) = small + (1.7e-13)
     end if
 
     !N + OH -> NO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(906) = small + (6.05e-11&
+      k(1026) = small + (6.05e-11&
           *(T32)**(-0.23)*exp(-14.9*invT))
     end if
 
     !N + OH -> O + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(907) = small + (1.88e-11&
+      k(1027) = small + (1.88e-11&
           *(T32)**(0.1)*exp(-10700.0*invT))
+    end if
+
+    !N + SIC -> SI + CN
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1028) = small + (5e-11)
     end if
 
     !NH2 + CH4 -> CH3 + NH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(908) = small + (2.9e-13&
+      k(1029) = small + (2.9e-13&
           *(T32)**(2.87)*exp(-5380.0*invT))
     end if
 
     !NH2 + NO -> N2 + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(909) = small + (4.27e-11&
+      k(1030) = small + (4.27e-11&
           *(T32)**(-2.5)*exp(-331.0*invT))
     end if
 
     !NH2 + NO -> N2 + OH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(910) = small + (1.49e-12)
+      k(1031) = small + (1.49e-12)
     end if
 
     !NH2 + OH -> H2O + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(911) = small + (1.35e-12&
+      k(1032) = small + (1.35e-12&
           *(T32)**(1.25)*exp(+43.5*invT))
     end if
 
     !NH2 + OH -> NH3 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(912) = small + (2.08e-13&
+      k(1033) = small + (2.08e-13&
           *(T32)**(0.76)*exp(-262.0*invT))
     end if
 
     !NH3 + CN -> HCN + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(913) = small + (2.75e-11&
+      k(1034) = small + (2.75e-11&
           *(T32)**(-1.14))
     end if
 
     !NH + CH4 -> CH3 + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(914) = small + (6.63e-16&
+      k(1035) = small + (6.63e-16&
           *(T32)**(6.13)*exp(-5895.0*invT))
     end if
 
     !NH + CN -> HCN + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(915) = small + (2.94e-12&
+      k(1036) = small + (2.94e-12&
           *(T32)**(0.5)*exp(-1000.0*invT))
     end if
 
     !NH + H2O -> OH + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(916) = small + (1.83e-12&
+      k(1037) = small + (1.83e-12&
           *(T32)**(1.6)*exp(-14090.0*invT))
     end if
 
     !NH + NH3 -> NH2 + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(917) = small + (5.25e-10&
+      k(1038) = small + (5.25e-10&
           *exp(-13470.0*invT))
     end if
 
     !NH + NH -> N2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(918) = small + (1.7e-11)
+      k(1039) = small + (1.7e-11)
     end if
 
     !NH + NH -> N2 + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(919) = small + (1.16e-09)
+      k(1040) = small + (1.16e-09)
     end if
 
     !NH + NH -> NH2 + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(920) = small + (1.81e-13&
+      k(1041) = small + (1.81e-13&
           *(T32)**(1.8)*exp(+70.0*invT))
     end if
 
     !NH + NO2 -> HNO + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(921) = small + (2.44e-11&
+      k(1042) = small + (2.44e-11&
           *(T32)**(-1.94)*exp(-56.9*invT))
     end if
 
     !NH + NO -> N2 + O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(922) = small + (7.4e-10&
+      k(1043) = small + (7.4e-10&
           *exp(-10540.0*invT))
     end if
 
     !NH + NO -> N2 + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(923) = small + (1.33e-11&
+      k(1044) = small + (1.33e-11&
           *(T32)**(-0.78)*exp(-40.0*invT))
     end if
 
     !NH + O2 -> HNO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(924) = small + (6.88e-14&
+      k(1045) = small + (6.88e-14&
           *(T32)**(2.07)*exp(-3281.0*invT))
     end if
 
     !NH + O2 -> NO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(925) = small + (2.54e-14&
+      k(1046) = small + (2.54e-14&
           *(T32)**(1.18)*exp(-312.0*invT))
     end if
 
     !NH + O -> NO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(926) = small + (6.6e-11)
+      k(1047) = small + (6.6e-11)
     end if
 
     !NH + O -> OH + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(927) = small + (1.16e-11)
+      k(1048) = small + (1.16e-11)
     end if
 
     !NH + OH -> H2O + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(928) = small + (3.11e-12&
+      k(1049) = small + (3.11e-12&
           *(T32)**(1.2))
     end if
 
     !NH + OH -> HNO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(929) = small + (3.32e-11)
+      k(1050) = small + (3.32e-11)
     end if
 
     !NH + OH -> NH2 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(930) = small + (2.93e-12&
+      k(1051) = small + (2.93e-12&
           *(T32)**(0.1)*exp(-5800.0*invT))
     end if
 
     !NO + NO -> O2 + N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(931) = small + (2.51e-11&
+      k(1052) = small + (2.51e-11&
           *exp(-30653.0*invT))
     end if
 
     !NO + O2 -> NO2 + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(932) = small + (2.8e-12&
+      k(1053) = small + (2.8e-12&
           *exp(-23400.0*invT))
     end if
 
     !NO + OCN -> N2 + CO2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(933) = small + (4.55e-11&
+      k(1054) = small + (4.55e-11&
           *(T32)**(-1.33)*exp(-242.0*invT))
     end if
 
     !O2 + OCN -> CO2 + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(934) = small + (1.32e-12)
+      k(1055) = small + (1.32e-12)
     end if
 
     !O2 + OCN -> NO2 + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(935) = small + (8.1e-11&
+      k(1056) = small + (8.1e-11&
           *exp(-773.0*invT))
     end if
 
     !O + CH4 -> OH + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(936) = small + (2.29e-12&
+      k(1057) = small + (2.29e-12&
           *(T32)**(2.2)*exp(-3820.0*invT))
     end if
 
     !O + CN -> CO + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(937) = small + (2.54e-11)
+      k(1058) = small + (2.54e-11)
     end if
 
     !O + CN -> NO + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(938) = small + (5.37e-11&
+      k(1059) = small + (5.37e-11&
           *exp(-13800.0*invT))
     end if
 
     !O + CO2 -> O2 + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(939) = small + (2.46e-11&
+      k(1060) = small + (2.46e-11&
           *exp(-26567.0*invT))
     end if
 
     !O + H2CN -> OCN + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(940) = small + (1e-10)
+      k(1061) = small + (1e-10)
     end if
 
     !O + H2CO -> HCO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(941) = small + (1.07e-11&
+      k(1062) = small + (1.07e-11&
           *(T32)**(1.17)*exp(-1242.0*invT))
     end if
 
     !O + H2O -> OH + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(942) = small + (1.85e-11&
+      k(1063) = small + (1.85e-11&
           *(T32)**(0.95)*exp(-8571.0*invT))
     end if
 
     !O + HCN -> CN + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(943) = small + (6.21e-10&
+      k(1064) = small + (6.21e-10&
           *exp(-12439.0*invT))
     end if
 
     !O + HCN -> CO + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(944) = small + (7.3e-13&
+      k(1065) = small + (7.3e-13&
           *(T32)**(1.14)*exp(-3742.0*invT))
     end if
 
     !O + HCN -> OCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(945) = small + (1.36e-12&
+      k(1066) = small + (1.36e-12&
           *(T32)**(1.38)*exp(-3693.0*invT))
     end if
 
     !O + HCO -> CO2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(946) = small + (5e-11)
+      k(1067) = small + (5e-11)
     end if
 
     !O + HCO -> CO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(947) = small + (5e-11)
+      k(1068) = small + (5e-11)
     end if
 
     !O + HNO -> NO2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(948) = small + (1e-12)
+      k(1069) = small + (1e-12)
     end if
 
     !O + HNO -> NO + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(949) = small + (3.8e-11&
+      k(1070) = small + (3.8e-11&
           *(T32)**(-0.08))
     end if
 
     !O + HNO -> O2 + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(950) = small + (2.94e-12&
+      k(1071) = small + (2.94e-12&
           *(T32)**(0.5)*exp(-3500.0*invT))
     end if
 
     !O + N2 -> NO + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(951) = small + (2.51e-10&
+      k(1072) = small + (2.51e-10&
           *exp(-38602.0*invT))
     end if
 
     !O + NH2 -> HNO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(952) = small + (6.3e-11&
+      k(1073) = small + (6.3e-11&
           *(T32)**(-0.1))
     end if
 
     !O + NH2 -> OH + NH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(953) = small + (7e-12&
+      k(1074) = small + (7e-12&
           *(T32)**(-0.1))
     end if
 
     !O + NH3 -> OH + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(954) = small + (1.89e-11&
+      k(1075) = small + (1.89e-11&
           *exp(-4003.0*invT))
     end if
 
     !O + NO2 -> O2 + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(955) = small + (9.82e-12&
+      k(1076) = small + (9.82e-12&
           *(T32)**(-0.21)*exp(-5.2*invT))
     end if
 
     !O + NO -> O2 + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(956) = small + (1.18e-11&
+      k(1077) = small + (1.18e-11&
           *exp(-20413.0*invT))
     end if
 
     !O + O2H -> O2 + OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(957) = small + (5.76e-11&
+      k(1078) = small + (5.76e-11&
           *(T32)**(-0.3)*exp(-7.5*invT))
     end if
 
     !O + OCN -> CO + NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(958) = small + (1e-10)
+      k(1079) = small + (1e-10)
     end if
 
     !O + OCN -> O2 + CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(959) = small + (4.02e-10&
+      k(1080) = small + (4.02e-10&
           *(T32)**(-1.43)*exp(-3501.0*invT))
     end if
 
     !O + OH -> O2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(960) = small + (3.69e-11&
+      k(1081) = small + (3.69e-11&
           *(T32)**(-0.27)*exp(-12.9*invT))
+    end if
+
+    !O + SIC2 -> SIC + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1082) = small + (4e-11)
+    end if
+
+    !O + SIC3 -> SIC2 + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1083) = small + (4e-11)
+    end if
+
+    !O + SIC -> SI + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1084) = small + (5e-11)
+    end if
+
+    !O + SIC -> SIO + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1085) = small + (5e-11)
+    end if
+
+    !O + SIH2 -> SIO + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1086) = small + (8e-11)
+    end if
+
+    !O + SIH2 -> SIO + H + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1087) = small + (1.2e-10)
+    end if
+
+    !O + SIH3 -> H2SIO + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1088) = small + (1.4e-10)
+    end if
+
+    !O + SIH4 -> SIH3 + OH
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1089) = small + (1.98e-11&
+          *exp(-1183.0*invT))
+    end if
+
+    !O + SIH -> SIO + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1090) = small + (1e-10)
     end if
 
     !OH + CN -> HCN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(961) = small + (1e-11&
+      k(1091) = small + (1e-11&
           *exp(-1000.0*invT))
     end if
 
     !OH + CN -> OCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(962) = small + (7e-11)
+      k(1092) = small + (7e-11)
     end if
 
     !OH + CO -> CO2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(963) = small + (2.81e-13&
+      k(1093) = small + (2.81e-13&
           *exp(-176.0*invT))
     end if
 
     !OH + H2CO -> HCO + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(964) = small + (7.76e-12&
+      k(1094) = small + (7.76e-12&
           *(T32)**(0.82)*exp(+30.6*invT))
     end if
 
     !OH + HCN -> CN + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(965) = small + (1.87e-13&
+      k(1095) = small + (1.87e-13&
           *(T32)**(1.5)*exp(-3887.0*invT))
     end if
 
     !OH + HCN -> CO + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(966) = small + (1.07e-13&
+      k(1096) = small + (1.07e-13&
           *exp(-5892.0*invT))
     end if
 
     !OH + HCO -> CO + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(967) = small + (1.7e-10)
+      k(1097) = small + (1.7e-10)
     end if
 
     !OH + HNO -> NO + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(968) = small + (6.17e-12&
+      k(1098) = small + (6.17e-12&
           *(T32)**(1.23)*exp(+44.3*invT))
     end if
 
     !OH + NH3 -> H2O + NH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(969) = small + (1.47e-13&
+      k(1099) = small + (1.47e-13&
           *(T32)**(2.05)*exp(-7.0*invT))
     end if
 
     !OH + NO -> NO2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(970) = small + (5.2e-12&
+      k(1100) = small + (5.2e-12&
           *exp(-15100.0*invT))
     end if
 
     !OH + O2H -> O2 + H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(971) = small + (8.58e-11&
+      k(1101) = small + (8.58e-11&
           *(T32)**(-0.56)*exp(-14.8*invT))
     end if
 
     !OH + OH -> H2O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(972) = small + (1.65e-12&
+      k(1102) = small + (1.65e-12&
           *(T32)**(1.14)*exp(-50.0*invT))
+    end if
+
+    !OH + SI -> SIO + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1103) = small + (1e-10)
+    end if
+
+    !SI + CO2 -> SIO + CO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1104) = small + (2.72e-11&
+          *exp(-282.0*invT))
+    end if
+
+    !SI + CO -> SIO + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1105) = small + (1.3e-09&
+          *exp(-34513.0*invT))
+    end if
+
+    !SI + NO -> SIO + N
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1106) = small + (9e-11&
+          *(T32)**(-0.96)*exp(-28.0*invT))
+    end if
+
+    !SI + O2 -> SIO + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1107) = small + (1.72e-10&
+          *(T32)**(-0.53)*exp(-17.0*invT))
     end if
 
     !C -> C+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(973) = small + (3.1e-10&
+      k(1108) = small + (3.1e-10&
           *exp(-3.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH+ -> C + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(974) = small + (3.3e-10&
+      k(1109) = small + (3.3e-10&
           *exp(-2.9*Av)*user_rad&
           /1.7)
     end if
 
     !CH2+ -> C+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(975) = small + (4.67e-11&
+      k(1110) = small + (4.67e-11&
           *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !CH2+ -> CH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(976) = small + (4.67e-11&
+      k(1111) = small + (4.67e-11&
           *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !CH2+ -> CH + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(977) = small + (4.67e-11&
+      k(1112) = small + (4.67e-11&
           *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !CH2 -> CH2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(978) = small + (1e-09&
+      k(1113) = small + (1e-09&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH2 -> CH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(979) = small + (5.8e-10&
+      k(1114) = small + (5.8e-10&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !CH3+ -> CH+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(980) = small + (1e-09&
+      k(1115) = small + (1e-09&
           *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH3+ -> CH2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(981) = small + (1e-09&
+      k(1116) = small + (1e-09&
           *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH3 -> CH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(982) = small + (1.35e-10&
+      k(1117) = small + (1.35e-10&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH3 -> CH3+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(983) = small + (1e-10&
+      k(1118) = small + (1e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !CH3 -> CH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(984) = small + (1.35e-10&
+      k(1119) = small + (1.35e-10&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH3OH -> H2CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(985) = small + (7e-10&
+      k(1120) = small + (7e-10&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH3OH -> H3CO+ + H + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(986) = small + (1.3e-10&
+      k(1121) = small + (1.3e-10&
           *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH3OH -> OH + CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(987) = small + (7e-10&
+      k(1122) = small + (7e-10&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !CH4+ -> CH2+ + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(988) = small + (2.27e-10&
+      k(1123) = small + (2.27e-10&
           *exp(-2.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH4+ -> CH3+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(989) = small + (5.33e-11&
+      k(1124) = small + (5.33e-11&
           *exp(-2.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH2 + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(990) = small + (9.8e-10&
+      k(1125) = small + (9.8e-10&
           *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH3 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(991) = small + (2.2e-10&
+      k(1126) = small + (2.2e-10&
           *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH4+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(992) = small + (6.8e-12&
+      k(1127) = small + (6.8e-12&
           *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !CH4 -> CH + H2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(993) = small + (2.2e-10&
+      k(1128) = small + (2.2e-10&
           *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !CH -> C + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(994) = small + (9.2e-10&
+      k(1129) = small + (9.2e-10&
           *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !CH -> CH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(995) = small + (7.6e-10&
+      k(1130) = small + (7.6e-10&
           *exp(-3.3*Av)*user_rad&
           /1.7)
     end if
 
     !CN -> N + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(996) = small + (2.9e-10&
+      k(1131) = small + (2.9e-10&
           *exp(-3.5*Av)*user_rad&
           /1.7)
     end if
 
     !CO+ -> C+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(997) = small + (1e-10&
+      k(1132) = small + (1e-10&
           *exp(-2.5*Av)*user_rad&
           /1.7)
     end if
 
     !CO2 -> CO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(998) = small + (8.9e-10&
+      k(1133) = small + (8.9e-10&
           *exp(-3.0*Av)*user_rad&
           /1.7)
     end if
 
     !CO -> O + C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(999) = small + (2e-10&
+      k(1134) = small + (2e-10&
           *exp(-3.5*Av)*user_rad&
           /1.7)
     end if
 
     !H2+ -> H+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1000) = small + (5.7e-10&
+      k(1135) = small + (5.7e-10&
           *exp(-2.4*Av)*user_rad&
           /1.7)
     end if
 
     !H2CN -> HCN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1001) = small + (5.48e-10&
+      k(1136) = small + (5.48e-10&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> CO + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1002) = small + (1e-09&
+      k(1137) = small + (1e-09&
           *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> CO + H + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1003) = small + (7e-10&
+      k(1138) = small + (7e-10&
           *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> H2CO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1004) = small + (4.7e-10&
+      k(1139) = small + (4.7e-10&
           *exp(-2.8*Av)*user_rad&
           /1.7)
     end if
 
     !H2CO -> HCO+ + H + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1005) = small + (1.4e-11&
+      k(1140) = small + (1.4e-11&
           *exp(-3.1*Av)*user_rad&
           /1.7)
     end if
 
     !H2O+ -> OH+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1006) = small + (1e-12&
+      k(1141) = small + (1e-12&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !H2O -> H2O+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1007) = small + (3.1e-11&
+      k(1142) = small + (3.1e-11&
           *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !H2O -> OH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1008) = small + (8e-10&
+      k(1143) = small + (8e-10&
           *exp(-2.2*Av)*user_rad&
+          /1.7)
+    end if
+
+    !H2SIO -> SIO + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1144) = small + (4.4e-10&
+          *exp(-1.6*Av)*user_rad&
+          /1.7)
+    end if
+
+    !H2SIO -> SIO + H + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1145) = small + (4.4e-10&
+          *exp(-1.6*Av)*user_rad&
           /1.7)
     end if
 
     !H3+ -> H2+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1009) = small + (5e-15&
+      k(1146) = small + (5e-15&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !H3+ -> H2 + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1010) = small + (5e-15&
+      k(1147) = small + (5e-15&
           *exp(-1.8*Av)*user_rad&
           /1.7)
     end if
 
     !HCN -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1011) = small + (1.6e-09&
+      k(1148) = small + (1.6e-09&
           *exp(-2.7*Av)*user_rad&
           /1.7)
     end if
 
     !HCO+ -> CO+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1012) = small + (5.4e-12&
+      k(1149) = small + (5.4e-12&
           *exp(-3.3*Av)*user_rad&
           /1.7)
     end if
 
     !HCO -> CO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1013) = small + (1.1e-09&
+      k(1150) = small + (1.1e-09&
           *exp(-1.1*Av)*user_rad&
           /1.7)
     end if
 
     !HCO -> HCO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1014) = small + (5.6e-10&
+      k(1151) = small + (5.6e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !HNC -> CN + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1015) = small + (1.5e-09&
+      k(1152) = small + (1.5e-09&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !HNCO -> NH + CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1016) = small + (1e-09&
+      k(1153) = small + (1e-09&
           *exp(-1.7*Av)*user_rad&
           /1.7)
     end if
 
     !HNO -> NO + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1017) = small + (1.7e-10&
+      k(1154) = small + (1.7e-10&
           *exp(-0.5*Av)*user_rad&
           /1.7)
     end if
 
     !MG -> MG+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1018) = small + (7.9e-11&
+      k(1155) = small + (7.9e-11&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !N2 -> N + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1019) = small + (2.3e-10&
+      k(1156) = small + (2.3e-10&
           *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !NH+ -> N + H+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1020) = small + (5.4e-11&
+      k(1157) = small + (5.4e-11&
           *exp(-1.6*Av)*user_rad&
           /1.7)
     end if
 
     !NH2 -> NH2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1021) = small + (1.73e-10&
+      k(1158) = small + (1.73e-10&
           *exp(-2.6*Av)*user_rad&
           /1.7)
     end if
 
     !NH2 -> NH + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1022) = small + (7.5e-10&
+      k(1159) = small + (7.5e-10&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !NH3 -> NH2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1023) = small + (9.23e-10&
+      k(1160) = small + (9.23e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !NH3 -> NH3+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1024) = small + (2.8e-10&
+      k(1161) = small + (2.8e-10&
           *exp(-3.1*Av)*user_rad&
           /1.7)
     end if
 
     !NH3 -> NH + H2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1025) = small + (2.76e-10&
+      k(1162) = small + (2.76e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !NH -> N + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1026) = small + (5e-10&
+      k(1163) = small + (5e-10&
           *exp(-2.3*Av)*user_rad&
           /1.7)
     end if
 
     !NH -> NH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1027) = small + (1e-11&
+      k(1164) = small + (1e-11&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !NO2 -> NO + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1028) = small + (1.4e-09&
+      k(1165) = small + (1.4e-09&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !NO -> NO+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1029) = small + (2.6e-10&
+      k(1166) = small + (2.6e-10&
           *exp(-2.9*Av)*user_rad&
           /1.7)
     end if
 
     !NO -> O + N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1030) = small + (4.7e-10&
+      k(1167) = small + (4.7e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !O2+ -> O+ + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1031) = small + (3.5e-11&
+      k(1168) = small + (3.5e-11&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !O2 -> O2+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1032) = small + (7.6e-11&
+      k(1169) = small + (7.6e-11&
           *exp(-3.9*Av)*user_rad&
           /1.7)
     end if
 
     !O2 -> O + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1033) = small + (7.9e-10&
+      k(1170) = small + (7.9e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !O2H -> O2 + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1034) = small + (3.35e-10&
+      k(1171) = small + (3.35e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !O2H -> OH + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1035) = small + (3.35e-10&
+      k(1172) = small + (3.35e-10&
           *exp(-2.1*Av)*user_rad&
           /1.7)
     end if
 
     !OCN -> CN + O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1036) = small + (1e-11&
+      k(1173) = small + (1e-11&
           *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !OH+ -> O+ + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1037) = small + (1.1e-11&
+      k(1174) = small + (1.1e-11&
           *exp(-3.5*Av)*user_rad&
           /1.7)
     end if
 
     !OH -> O + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1038) = small + (3.9e-10&
+      k(1175) = small + (3.9e-10&
           *exp(-2.2*Av)*user_rad&
           /1.7)
     end if
 
     !OH -> OH+ + E
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1039) = small + (1.6e-12&
+      k(1176) = small + (1.6e-12&
           *exp(-3.1*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SI -> SI+ + E
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1177) = small + (3.1e-09&
+          *exp(-2.3*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIC3 -> SIC2 + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1178) = small + (2e-10&
+          *exp(-2.3*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIC -> SI + C
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1179) = small + (1e-10&
+          *exp(-2.3*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH+ -> SI+ + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1180) = small + (2.7e-09&
+          *exp(-1.2*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH2 -> SIH2+ + E
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1181) = small + (1e-09&
+          *exp(-2.3*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH2 -> SIH + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1182) = small + (5e-11&
+          *exp(-1.7*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH3 -> SIH2 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1183) = small + (3e-11&
+          *exp(-1.7*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH3 -> SIH3+ + E
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1184) = small + (1e-10&
+          *exp(-2.1*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH3 -> SIH + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1185) = small + (3e-11&
+          *exp(-1.7*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH4 -> SIH2 + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1186) = small + (4.8e-10&
+          *exp(-2.2*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH4 -> SIH3 + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1187) = small + (1.6e-10&
+          *exp(-2.2*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH4 -> SIH + H + H2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1188) = small + (1.6e-10&
+          *exp(-2.2*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIH -> SI + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1189) = small + (2.8e-09&
+          *exp(-1.6*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIO+ -> SI+ + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1190) = small + (1e-10&
+          *exp(-2.0*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIO -> SI + O
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1191) = small + (1.6e-09&
+          *exp(-2.3*Av)*user_rad&
+          /1.7)
+    end if
+
+    !SIO -> SIO+ + E
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1192) = small + (2.4e-10&
+          *exp(-2.0*Av)*user_rad&
           /1.7)
     end if
 
     !C+ + N -> CN+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1040) = small + (1.08e-18&
+      k(1193) = small + (1.08e-18&
           *(T32)**(0.07)*exp(-57.5*invT))
     end if
 
     !C+ + O -> CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1041) = small + (3.14e-18&
+      k(1194) = small + (3.14e-18&
           *(T32)**(-0.15)*exp(-68.0*invT))
     end if
 
     !C + N -> CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1042) = small + (5.72e-19&
+      k(1195) = small + (5.72e-19&
           *(T32)**(0.37)*exp(-51.0*invT))
     end if
 
     !C + O+ -> CO+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1043) = small + (5e-10&
+      k(1196) = small + (5e-10&
           *(T32)**(-3.7)*exp(-800.0*invT))
     end if
 
     !C + O -> CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1044) = small + (4.69e-19&
+      k(1197) = small + (4.69e-19&
           *(T32)**(1.52)*exp(+50.5*invT))
     end if
 
     !H+ + H -> H2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1045) = small + (1.15e-18&
+      k(1198) = small + (1.15e-18&
           *(T32)**(1.49)*exp(-228.0*invT))
     end if
 
     !H+ + HE -> HEH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1046) = small + (5.26e-20&
+      k(1199) = small + (5.26e-20&
           *(T32)**(-0.51))
     end if
 
     !H2 + C+ -> CH2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1047) = small + (2e-16&
+      k(1200) = small + (2e-16&
           *(T32)**(-1.3)*exp(-23.0*invT))
     end if
 
     !H2 + C -> CH2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1048) = small + (1e-17)
+      k(1201) = small + (1e-17)
     end if
 
     !H2 + CH -> CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1049) = small + (5.09e-18&
+      k(1202) = small + (5.09e-18&
           *(T32)**(-0.71)*exp(-11.6*invT))
+    end if
+
+    !H2 + SI+ -> SIH2+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1203) = small + (3e-18)
+    end if
+
+    !H2 + SIH+ -> SIH3+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1204) = small + (3e-17&
+          *(T32)**(-1.0))
+    end if
+
+    !H2 + SIH3+ -> SIH5+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1205) = small + (1e-18&
+          *(T32)**(-0.5))
     end if
 
     !H + C+ -> CH+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1050) = small + (1.7e-17)
+      k(1206) = small + (1.7e-17)
     end if
 
     !H + C -> CH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1051) = small + (1e-17)
+      k(1207) = small + (1e-17)
     end if
 
     !H + O -> OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1052) = small + (9.9e-19&
+      k(1208) = small + (9.9e-19&
           *(T32)**(-0.38))
     end if
 
     !H + OH -> H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1053) = small + (5.26e-18&
+      k(1209) = small + (5.26e-18&
           *(T32)**(-5.22)*exp(-90.0*invT))
+    end if
+
+    !H + SI+ -> SIH+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1210) = small + (1.17e-17&
+          *(T32)**(-0.14))
     end if
 
     !N+ + N -> N2+
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1054) = small + (3.71e-18&
+      k(1211) = small + (3.71e-18&
           *(T32)**(0.24)*exp(-26.1*invT))
     end if
 
     !O + O -> O2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1055) = small + (4.9e-20&
+      k(1212) = small + (4.9e-20&
           *(T32)**(1.58))
+    end if
+
+    !O + SI+ -> SIO+
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1213) = small + (9.22e-19&
+          *(T32)**(-0.08)*exp(+21.2*invT))
+    end if
+
+    !O + SI -> SIO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1214) = small + (3.23e-17&
+          *(T32)**(0.31))
     end if
 
     !C+ + E -> C
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1056) = small + (2.36e-12&
+      k(1215) = small + (2.36e-12&
           *(T32)**(-0.29)*exp(+17.6*invT))
     end if
 
     !CH3+ + E -> CH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1057) = small + (1.1e-10&
+      k(1216) = small + (1.1e-10&
           *(T32)**(-0.5))
     end if
 
     !H+ + E -> H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1058) = small + (3.5e-12&
+      k(1217) = small + (3.5e-12&
           *(T32)**(-0.75))
     end if
 
     !H2CO+ + E -> H2CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1059) = small + (1.1e-10&
+      k(1218) = small + (1.1e-10&
           *(T32)**(-0.7))
     end if
 
     !HE+ + E -> HE
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1060) = small + (5.36e-12&
+      k(1219) = small + (5.36e-12&
           *(T32)**(-0.5))
     end if
 
     !MG+ + E -> MG
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1061) = small + (2.78e-12&
+      k(1220) = small + (2.78e-12&
           *(T32)**(-0.68))
     end if
 
     !N+ + E -> N
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1062) = small + (3.5e-12&
+      k(1221) = small + (3.5e-12&
           *(T32)**(-0.53)*exp(+3.2*invT))
     end if
 
     !O+ + E -> O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1063) = small + (3.24e-12&
+      k(1222) = small + (3.24e-12&
           *(T32)**(-0.66))
+    end if
+
+    !SI+ + E -> SI
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1223) = small + (4.26e-12&
+          *(T32)**(-0.62))
     end if
 
     !CH3OH -> CH3OH_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1064) = small + (4.57d4&
+      k(1224) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /32.d0)*Hnuclei)
     end if
 
     !HNCO -> HNCO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1065) = small + (4.57d4&
+      k(1225) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /43.d0)*Hnuclei)
     end if
 
     !OCN -> HNCO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1066) = small + (4.57d4&
+      k(1226) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /42.d0)*Hnuclei)
     end if
 
     !HOC+ -> H2CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1067) = small + (4.57d4&
+      k(1227) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /29.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6272,14 +7184,173 @@ contains
 
     !CO -> H2CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1068) = small + (4.57d4&
+      k(1228) = small + (4.57d4&
           *0.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)*Hnuclei)
     end if
 
+    !SI -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1229) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /28.d0)*Hnuclei)
+    end if
+
+    !SIO -> H2SIO_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1230) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /44.d0)*Hnuclei)
+    end if
+
+    !SIH -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1231) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /29.d0)*Hnuclei)
+    end if
+
+    !SI+ -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1232) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /28.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIH+ -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1233) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /29.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIH2 -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1234) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /30.d0)*Hnuclei)
+    end if
+
+    !SIH2+ -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1235) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /30.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIH3 -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1236) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /31.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIH3+ -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1237) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /31.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIH4 -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1238) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /32.d0)*Hnuclei)
+    end if
+
+    !SIH4+ -> SIH4_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1239) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /32.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIC -> SIC_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1240) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /40.d0)*Hnuclei)
+    end if
+
+    !SIC2 -> SIC2_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1241) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /52.d0)*Hnuclei)
+    end if
+
+    !SIC+ -> SIC_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1242) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /40.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIC2+ -> SIC2_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1243) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /52.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIC3 -> SIC3_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1244) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /64.d0)*Hnuclei)
+    end if
+
+    !SIC3+ -> SIC3_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1245) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /64.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIO+ -> H2SIO_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1246) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /44.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !SIOH+ -> H2SIO_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1247) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /45.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
+    !H2SIO -> H2SIO_DUST
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1248) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /46.d0)*Hnuclei)
+    end if
+
+    !SIH5+ -> SIH4_DUST + H
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1249) = small + (4.57d4&
+          *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
+          /33.d0)&
+          *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
+    end if
+
     !H3CO+ -> CH3OH_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1069) = small + (4.57d4&
+      k(1250) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /31.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6287,105 +7358,105 @@ contains
 
     !C -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1070) = small + (4.57d4&
+      k(1251) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /12.d0)*Hnuclei)
     end if
 
     !CO -> CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1071) = small + (4.57d4&
+      k(1252) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)*Hnuclei)
     end if
 
     !H2CO -> H2CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1072) = small + (4.57d4&
+      k(1253) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /30.d0)*Hnuclei)
     end if
 
     !CH -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1073) = small + (4.57d4&
+      k(1254) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /13.d0)*Hnuclei)
     end if
 
     !OH -> H2O_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1074) = small + (4.57d4&
+      k(1255) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /17.d0)*Hnuclei)
     end if
 
     !NO -> NO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1075) = small + (4.57d4&
+      k(1256) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /30.d0)*Hnuclei)
     end if
 
     !CH2 -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1076) = small + (4.57d4&
+      k(1257) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /14.d0)*Hnuclei)
     end if
 
     !H2O -> H2O_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1077) = small + (4.57d4&
+      k(1258) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /18.d0)*Hnuclei)
     end if
 
     !CO2 -> CO2_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1078) = small + (4.57d4&
+      k(1259) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /44.d0)*Hnuclei)
     end if
 
     !CH3 -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1079) = small + (4.57d4&
+      k(1260) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /15.d0)*Hnuclei)
     end if
 
     !CH4 -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1080) = small + (4.57d4&
+      k(1261) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /16.d0)*Hnuclei)
     end if
 
     !HCO -> H2CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1081) = small + (4.57d4&
+      k(1262) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /29.d0)*Hnuclei)
     end if
 
     !N2 -> N2_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1082) = small + (4.57d4&
+      k(1263) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)*Hnuclei)
     end if
 
     !CN -> HCN_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1083) = small + (4.57d4&
+      k(1264) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /26.d0)*Hnuclei)
     end if
 
     !C+ -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1084) = small + (4.57d4&
+      k(1265) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /12.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6393,28 +7464,28 @@ contains
 
     !NH -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1085) = small + (4.57d4&
+      k(1266) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /15.d0)*Hnuclei)
     end if
 
     !HCN -> HCN_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1086) = small + (4.57d4&
+      k(1267) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /27.d0)*Hnuclei)
     end if
 
     !NH3 -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1087) = small + (4.57d4&
+      k(1268) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /17.d0)*Hnuclei)
     end if
 
     !N+ -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1088) = small + (4.57d4&
+      k(1269) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /14.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6422,7 +7493,7 @@ contains
 
     !O+ -> H2O_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1089) = small + (4.57d4&
+      k(1270) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /16.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6430,7 +7501,7 @@ contains
 
     !O2+ -> O2_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1090) = small + (4.57d4&
+      k(1271) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /32.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6438,7 +7509,7 @@ contains
 
     !N2+ -> N2_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1091) = small + (4.57d4&
+      k(1272) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6446,7 +7517,7 @@ contains
 
     !CH+ -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1092) = small + (4.57d4&
+      k(1273) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /13.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6454,7 +7525,7 @@ contains
 
     !NH+ -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1093) = small + (4.57d4&
+      k(1274) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /15.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6462,7 +7533,7 @@ contains
 
     !OH+ -> H2O_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1094) = small + (4.57d4&
+      k(1275) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /17.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6470,7 +7541,7 @@ contains
 
     !CO+ -> CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1095) = small + (4.57d4&
+      k(1276) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6478,7 +7549,7 @@ contains
 
     !CN+ -> HCN_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1096) = small + (4.57d4&
+      k(1277) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /26.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6486,7 +7557,7 @@ contains
 
     !NO+ -> NO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1097) = small + (4.57d4&
+      k(1278) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /30.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6494,7 +7565,7 @@ contains
 
     !CH2+ -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1098) = small + (4.57d4&
+      k(1279) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /14.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6502,7 +7573,7 @@ contains
 
     !NH2+ -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1099) = small + (4.57d4&
+      k(1280) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /16.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6510,7 +7581,7 @@ contains
 
     !H2O+ -> H2O_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1100) = small + (4.57d4&
+      k(1281) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /18.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6518,7 +7589,7 @@ contains
 
     !HCO+ -> H2CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1101) = small + (4.57d4&
+      k(1282) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /29.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6526,7 +7597,7 @@ contains
 
     !HCN+ -> HCN_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1102) = small + (4.57d4&
+      k(1283) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /27.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6534,7 +7605,7 @@ contains
 
     !NH3+ -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1103) = small + (4.57d4&
+      k(1284) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /17.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6542,7 +7613,7 @@ contains
 
     !H2CO+ -> H2CO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1104) = small + (4.57d4&
+      k(1285) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /30.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6550,7 +7621,7 @@ contains
 
     !CH3+ -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1105) = small + (4.57d4&
+      k(1286) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /15.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6558,7 +7629,7 @@ contains
 
     !H3O+ -> H2O_DUST + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1106) = small + (4.57d4&
+      k(1287) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /19.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6566,7 +7637,7 @@ contains
 
     !HCO2+ -> CO2_DUST + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1107) = small + (4.57d4&
+      k(1288) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /45.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6574,7 +7645,7 @@ contains
 
     !CH4+ -> CH4_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1108) = small + (4.57d4&
+      k(1289) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /16.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6582,49 +7653,49 @@ contains
 
     !NH2 -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1109) = small + (4.57d4&
+      k(1290) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /16.d0)*Hnuclei)
     end if
 
     !N -> NH3_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1110) = small + (4.57d4&
+      k(1291) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /14.d0)*Hnuclei)
     end if
 
     !O -> H2O_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1111) = small + (4.57d4&
+      k(1292) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /16.d0)*Hnuclei)
     end if
 
     !O2 -> O2_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1112) = small + (4.57d4&
+      k(1293) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /32.d0)*Hnuclei)
     end if
 
     !NO2 -> NO2_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1113) = small + (4.57d4&
+      k(1294) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /46.d0)*Hnuclei)
     end if
 
     !HNO -> HNO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1114) = small + (4.57d4&
+      k(1295) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /31.d0)*Hnuclei)
     end if
 
     !HNO+ -> HNO_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1115) = small + (4.57d4&
+      k(1296) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /31.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6632,7 +7703,7 @@ contains
 
     !H2NO+ -> HNO_DUST + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1116) = small + (4.57d4&
+      k(1297) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /32.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6640,7 +7711,7 @@ contains
 
     !O2H+ -> O2H_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1117) = small + (4.57d4&
+      k(1298) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /33.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6648,14 +7719,14 @@ contains
 
     !H2CN -> H2CN_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1118) = small + (4.57d4&
+      k(1299) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)*Hnuclei)
     end if
 
     !MG+ -> MG_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1119) = small + (4.57d4&
+      k(1300) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /24.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6663,14 +7734,14 @@ contains
 
     !MG -> MG_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1120) = small + (4.57d4&
+      k(1301) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /24.d0)*Hnuclei)
     end if
 
     !HCNH+ -> HCN_DUST + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1121) = small + (4.57d4&
+      k(1302) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6678,7 +7749,7 @@ contains
 
     !N2H+ -> N2_DUST + H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1122) = small + (4.57d4&
+      k(1303) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /29.d0)&
           *(1.0+16.71d-4/(user_gRad*Tgas))*Hnuclei)
@@ -6686,28 +7757,28 @@ contains
 
     !O2H -> O2H_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1123) = small + (4.57d4&
+      k(1304) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /33.d0)*Hnuclei)
     end if
 
     !CO -> CH3OH_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1124) = small + (4.57d4&
+      k(1305) = small + (4.57d4&
           *0.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /28.d0)*Hnuclei)
     end if
 
     !HNC -> HNC_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1125) = small + (4.57d4&
+      k(1306) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*sqrt(Tgas&
           /27.d0)*Hnuclei)
     end if
 
     !E -> E_DUST
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1126) = small + (4.57d4&
+      k(1307) = small + (4.57d4&
           *1.0*user_gArea*freeze(Tgas)*(1.0+16.71d-4&
           /(user_gRad*Tgas))&
           *Hnuclei)
@@ -6715,7 +7786,7 @@ contains
 
     !CH4_DUST -> CH4
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1127) = small + (dsqrt(vdiff_factor&
+      k(1308) = small + (dsqrt(vdiff_factor&
           *1090.0&
           /16)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-1090.0&
@@ -6730,7 +7801,7 @@ contains
 
     !NH3_DUST -> NH3
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1128) = small + (dsqrt(vdiff_factor&
+      k(1309) = small + (dsqrt(vdiff_factor&
           *3130.0&
           /17)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-3130.0&
@@ -6745,7 +7816,7 @@ contains
 
     !H2O_DUST -> H2O
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1129) = small + (dsqrt(vdiff_factor&
+      k(1310) = small + (dsqrt(vdiff_factor&
           *5770.0&
           /18)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-5770.0&
@@ -6760,7 +7831,7 @@ contains
 
     !MG_DUST -> MG
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1130) = small + (dsqrt(vdiff_factor&
+      k(1311) = small + (dsqrt(vdiff_factor&
           *5300.0&
           /24)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-5300.0&
@@ -6775,7 +7846,7 @@ contains
 
     !HCN_DUST -> HCN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1131) = small + (dsqrt(vdiff_factor&
+      k(1312) = small + (dsqrt(vdiff_factor&
           *3610.0&
           /27)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-3610.0&
@@ -6790,7 +7861,7 @@ contains
 
     !HNC_DUST -> HNC
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1132) = small + (dsqrt(vdiff_factor&
+      k(1313) = small + (dsqrt(vdiff_factor&
           *2050.0&
           /27)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2050.0&
@@ -6805,7 +7876,7 @@ contains
 
     !CO_DUST -> CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1133) = small + (dsqrt(vdiff_factor&
+      k(1314) = small + (dsqrt(vdiff_factor&
           *855.0&
           /28)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-855.0&
@@ -6820,7 +7891,7 @@ contains
 
     !N2_DUST -> N2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1134) = small + (dsqrt(vdiff_factor&
+      k(1315) = small + (dsqrt(vdiff_factor&
           *790.0&
           /28)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-790.0&
@@ -6835,7 +7906,7 @@ contains
 
     !H2CN_DUST -> H2CN
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1135) = small + (dsqrt(vdiff_factor&
+      k(1316) = small + (dsqrt(vdiff_factor&
           *2400.0&
           /28)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2400.0&
@@ -6850,7 +7921,7 @@ contains
 
     !NO_DUST -> NO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1136) = small + (dsqrt(vdiff_factor&
+      k(1317) = small + (dsqrt(vdiff_factor&
           *1600.0&
           /30)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-1600.0&
@@ -6865,7 +7936,7 @@ contains
 
     !H2CO_DUST -> H2CO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1137) = small + (dsqrt(vdiff_factor&
+      k(1318) = small + (dsqrt(vdiff_factor&
           *2050.0&
           /30)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2050.0&
@@ -6880,7 +7951,7 @@ contains
 
     !HNO_DUST -> HNO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1138) = small + (dsqrt(vdiff_factor&
+      k(1319) = small + (dsqrt(vdiff_factor&
           *2050.0&
           /31)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2050.0&
@@ -6895,7 +7966,7 @@ contains
 
     !O2_DUST -> O2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1139) = small + (dsqrt(vdiff_factor&
+      k(1320) = small + (dsqrt(vdiff_factor&
           *1000.0&
           /32)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-1000.0&
@@ -6910,7 +7981,7 @@ contains
 
     !CH3OH_DUST -> CH3OH
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1140) = small + (dsqrt(vdiff_factor&
+      k(1321) = small + (dsqrt(vdiff_factor&
           *4930.0&
           /32)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-4930.0&
@@ -6925,7 +7996,7 @@ contains
 
     !O2H_DUST -> O2H
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1141) = small + (dsqrt(vdiff_factor&
+      k(1322) = small + (dsqrt(vdiff_factor&
           *3650.0&
           /33)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-3650.0&
@@ -6940,7 +8011,7 @@ contains
 
     !HNCO_DUST -> HNCO
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1142) = small + (dsqrt(vdiff_factor&
+      k(1323) = small + (dsqrt(vdiff_factor&
           *2850.0&
           /43)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2850.0&
@@ -6955,7 +8026,7 @@ contains
 
     !CO2_DUST -> CO2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1143) = small + (dsqrt(vdiff_factor&
+      k(1324) = small + (dsqrt(vdiff_factor&
           *2990.0&
           /44)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2990.0&
@@ -6970,7 +8041,7 @@ contains
 
     !NO2_DUST -> NO2
     if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
-      k(1144) = small + (dsqrt(vdiff_factor&
+      k(1325) = small + (dsqrt(vdiff_factor&
           *2400.0&
           /46)*user_gArea*8.d0*pi*n_surface_sites&
           *exp(-2400.0&
@@ -6979,6 +8050,96 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2400.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2400.d0,mantleabund)*(4*pi&
+          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          / mantleabund)
+    end if
+
+    !SIH4_DUST -> SIH4
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1326) = small + (dsqrt(vdiff_factor&
+          *4500.0&
+          /32)*user_gArea*8.d0*pi*n_surface_sites&
+          *exp(-4500.0&
+          /Tgas)*user_therm&
+          *Hnuclei + deuvcr(4500.d0,mantleabund)*(1.d8*exp(-3.02&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Hnuclei + ( desoh2(4500.d0,mantleabund)*(epsilon*1.d-17&
+          *sqrTgas*n(idx_H)) + descr(4500.d0,mantleabund)*(4*pi&
+          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          / mantleabund)
+    end if
+
+    !SIC_DUST -> SIC
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1327) = small + (dsqrt(vdiff_factor&
+          *3500.0&
+          /40)*user_gArea*8.d0*pi*n_surface_sites&
+          *exp(-3500.0&
+          /Tgas)*user_therm&
+          *Hnuclei + deuvcr(3500.d0,mantleabund)*(1.d8*exp(-3.02&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Hnuclei + ( desoh2(3500.d0,mantleabund)*(epsilon*1.d-17&
+          *sqrTgas*n(idx_H)) + descr(3500.d0,mantleabund)*(4*pi&
+          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          / mantleabund)
+    end if
+
+    !SIO_DUST -> SIO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1328) = small + (dsqrt(vdiff_factor&
+          *3500.0&
+          /44)*user_gArea*8.d0*pi*n_surface_sites&
+          *exp(-3500.0&
+          /Tgas)*user_therm&
+          *Hnuclei + deuvcr(3500.d0,mantleabund)*(1.d8*exp(-3.02&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Hnuclei + ( desoh2(3500.d0,mantleabund)*(epsilon*1.d-17&
+          *sqrTgas*n(idx_H)) + descr(3500.d0,mantleabund)*(4*pi&
+          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          / mantleabund)
+    end if
+
+    !H2SIO_DUST -> H2SIO
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1329) = small + (dsqrt(vdiff_factor&
+          *1200.0&
+          /46)*user_gArea*8.d0*pi*n_surface_sites&
+          *exp(-1200.0&
+          /Tgas)*user_therm&
+          *Hnuclei + deuvcr(1200.d0,mantleabund)*(1.d8*exp(-3.02&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Hnuclei + ( desoh2(1200.d0,mantleabund)*(epsilon*1.d-17&
+          *sqrTgas*n(idx_H)) + descr(1200.d0,mantleabund)*(4*pi&
+          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          / mantleabund)
+    end if
+
+    !SIC2_DUST -> SIC2
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1330) = small + (dsqrt(vdiff_factor&
+          *1300.0&
+          /52)*user_gArea*8.d0*pi*n_surface_sites&
+          *exp(-1300.0&
+          /Tgas)*user_therm&
+          *Hnuclei + deuvcr(1300.d0,mantleabund)*(1.d8*exp(-3.02&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Hnuclei + ( desoh2(1300.d0,mantleabund)*(epsilon*1.d-17&
+          *sqrTgas*n(idx_H)) + descr(1300.d0,mantleabund)*(4*pi&
+          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          / mantleabund)
+    end if
+
+    !SIC3_DUST -> SIC3
+    if(Tgas.GE.0d0 .and. Tgas.LT.10000d0) then
+      k(1331) = small + (dsqrt(vdiff_factor&
+          *1600.0&
+          /64)*user_gArea*8.d0*pi*n_surface_sites&
+          *exp(-1600.0&
+          /Tgas)*user_therm&
+          *Hnuclei + deuvcr(1600.d0,mantleabund)*(1.d8*exp(-3.02&
+          *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
+          *Hnuclei + ( desoh2(1600.d0,mantleabund)*(epsilon*1.d-17&
+          *sqrTgas*n(idx_H)) + descr(1600.d0,mantleabund)*(4*pi&
           *user_zeta*1.64d-4*user_gArea*phi) )  &
           / mantleabund)
     end if
@@ -7202,6 +8363,12 @@ contains
         +n(idx_MGj) &
         +n(idx_NH3j) &
         +n(idx_NOj) &
+        +n(idx_SIj) &
+        +n(idx_SIC2j) &
+        +n(idx_SIC3j) &
+        +n(idx_SICj) &
+        +n(idx_SIH2j) &
+        +n(idx_SIH3j) &
         +n(idx_CNj) &
         +n(idx_COj) &
         +n(idx_N2j) &
@@ -7215,6 +8382,9 @@ contains
         +n(idx_Nj) &
         +n(idx_HCNj) &
         +n(idx_NHj) &
+        +n(idx_SIH4j) &
+        +n(idx_SIHj) &
+        +n(idx_SIOj) &
         +n(idx_H2j) &
         +n(idx_HEj) &
         +n(idx_HNOj) &
@@ -7226,7 +8396,9 @@ contains
         +n(idx_HCO2j) &
         +n(idx_HEHj) &
         +n(idx_N2Hj) &
-        +n(idx_O2Hj), 1d-40)
+        +n(idx_O2Hj) &
+        +n(idx_SIH5j) &
+        +n(idx_SIOHj), 1d-40)
 
     conserve(:) = 0d0
     conserve(:) = no(:)
@@ -7252,6 +8424,9 @@ contains
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH2) * m(idx_C) * m(idx_C) / m(idx_CH2)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2CO) * m(idx_C) * m(idx_C) / m(idx_H2CO)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HCO) * m(idx_C) * m(idx_C) / m(idx_HCO)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) + 4d0 * x(idx_SIC2) * m(idx_C) * m(idx_C) / m(idx_SIC2)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) + 9d0 * x(idx_SIC3) * m(idx_C) * m(idx_C) / m(idx_SIC3)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_SIC) * m(idx_C) * m(idx_C) / m(idx_SIC)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CN) * m(idx_C) * m(idx_C) / m(idx_CN)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO) * m(idx_C) * m(idx_C) / m(idx_CO)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3) * m(idx_C) * m(idx_C) / m(idx_CH3)**2
@@ -7264,6 +8439,9 @@ contains
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3OH_DUST) * m(idx_C) * m(idx_C) / m(idx_CH3OH_DUST)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_HNCO_DUST) * m(idx_C) * m(idx_C) / m(idx_HNCO_DUST)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2CO_DUST) * m(idx_C) * m(idx_C) / m(idx_H2CO_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_SIC_DUST) * m(idx_C) * m(idx_C) / m(idx_SIC_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) + 4d0 * x(idx_SIC2_DUST) * m(idx_C) * m(idx_C) / m(idx_SIC2_DUST)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) + 9d0 * x(idx_SIC3_DUST) * m(idx_C) * m(idx_C) / m(idx_SIC3_DUST)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH4_DUST) * m(idx_C) * m(idx_C) / m(idx_CH4_DUST)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO_DUST) * m(idx_C) * m(idx_C) / m(idx_CO_DUST)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CO2_DUST) * m(idx_C) * m(idx_C) / m(idx_CO2_DUST)**2
@@ -7276,6 +8454,9 @@ contains
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH2j) * m(idx_C) * m(idx_C) / m(idx_CH2j)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CHj) * m(idx_C) * m(idx_C) / m(idx_CHj)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_H2COj) * m(idx_C) * m(idx_C) / m(idx_H2COj)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) + 4d0 * x(idx_SIC2j) * m(idx_C) * m(idx_C) / m(idx_SIC2j)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) + 9d0 * x(idx_SIC3j) * m(idx_C) * m(idx_C) / m(idx_SIC3j)**2
+    A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_SICj) * m(idx_C) * m(idx_C) / m(idx_SICj)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CNj) * m(idx_C) * m(idx_C) / m(idx_CNj)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_COj) * m(idx_C) * m(idx_C) / m(idx_COj)**2
     A(idx_atom_C, idx_atom_C) = A(idx_atom_C, idx_atom_C) +  x(idx_CH3j) * m(idx_C) * m(idx_C) / m(idx_CH3j)**2
@@ -7344,6 +8525,15 @@ contains
     A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_CNj) * m(idx_C) * m(idx_N) / m(idx_CNj)**2
     A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCNj) * m(idx_C) * m(idx_N) / m(idx_HCNj)**2
     A(idx_atom_C, idx_atom_N) = A(idx_atom_C, idx_atom_N) +  x(idx_HCNHj) * m(idx_C) * m(idx_N) / m(idx_HCNHj)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) + 2d0 * x(idx_SIC2) * m(idx_C) * m(idx_Si) / m(idx_SIC2)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) + 3d0 * x(idx_SIC3) * m(idx_C) * m(idx_Si) / m(idx_SIC3)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) +  x(idx_SIC) * m(idx_C) * m(idx_Si) / m(idx_SIC)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) +  x(idx_SIC_DUST) * m(idx_C) * m(idx_Si) / m(idx_SIC_DUST)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) + 2d0 * x(idx_SIC2_DUST) * m(idx_C) * m(idx_Si) / m(idx_SIC2_DUST)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) + 3d0 * x(idx_SIC3_DUST) * m(idx_C) * m(idx_Si) / m(idx_SIC3_DUST)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) + 2d0 * x(idx_SIC2j) * m(idx_C) * m(idx_Si) / m(idx_SIC2j)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) + 3d0 * x(idx_SIC3j) * m(idx_C) * m(idx_Si) / m(idx_SIC3j)**2
+    A(idx_atom_C, idx_atom_Si) = A(idx_atom_C, idx_atom_Si) +  x(idx_SICj) * m(idx_C) * m(idx_Si) / m(idx_SICj)**2
     A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_CH) * m(idx_H) * m(idx_C) / m(idx_CH)**2
     A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HNC) * m(idx_H) * m(idx_C) / m(idx_HNC)**2
     A(idx_atom_H, idx_atom_C) = A(idx_atom_H, idx_atom_C) +  x(idx_HCN) * m(idx_H) * m(idx_C) / m(idx_HCN)**2
@@ -7384,18 +8574,25 @@ contains
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CO) * m(idx_H) * m(idx_H) / m(idx_H2CO)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCO) * m(idx_H) * m(idx_H) / m(idx_HCO)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_NH3) * m(idx_H) * m(idx_H) / m(idx_NH3)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_SIH2) * m(idx_H) * m(idx_H) / m(idx_SIH2)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_SIH3) * m(idx_H) * m(idx_H) / m(idx_SIH3)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_NH2) * m(idx_H) * m(idx_H) / m(idx_NH2)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_CH3) * m(idx_H) * m(idx_H) / m(idx_CH3)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH4) * m(idx_H) * m(idx_H) / m(idx_CH4)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_NH) * m(idx_H) * m(idx_H) / m(idx_NH)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_SIH4) * m(idx_H) * m(idx_H) / m(idx_SIH4)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_SIH) * m(idx_H) * m(idx_H) / m(idx_SIH)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNO) * m(idx_H) * m(idx_H) / m(idx_HNO)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH3OH) * m(idx_H) * m(idx_H) / m(idx_CH3OH)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CN) * m(idx_H) * m(idx_H) / m(idx_H2CN)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2SIO) * m(idx_H) * m(idx_H) / m(idx_H2SIO)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNCO) * m(idx_H) * m(idx_H) / m(idx_HNCO)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_O2H) * m(idx_H) * m(idx_H) / m(idx_O2H)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH3OH_DUST) * m(idx_H) * m(idx_H) / m(idx_CH3OH_DUST)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNCO_DUST) * m(idx_H) * m(idx_H) / m(idx_HNCO_DUST)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2CO_DUST) * m(idx_H) * m(idx_H) / m(idx_H2CO_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_SIH4_DUST) * m(idx_H) * m(idx_H) / m(idx_SIH4_DUST)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2SIO_DUST) * m(idx_H) * m(idx_H) / m(idx_H2SIO_DUST)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH4_DUST) * m(idx_H) * m(idx_H) / m(idx_CH4_DUST)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2O_DUST) * m(idx_H) * m(idx_H) / m(idx_H2O_DUST)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCN_DUST) * m(idx_H) * m(idx_H) / m(idx_HCN_DUST)**2
@@ -7411,6 +8608,8 @@ contains
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_CHj) * m(idx_H) * m(idx_H) / m(idx_CHj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2COj) * m(idx_H) * m(idx_H) / m(idx_H2COj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_NH3j) * m(idx_H) * m(idx_H) / m(idx_NH3j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_SIH2j) * m(idx_H) * m(idx_H) / m(idx_SIH2j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 9d0 * x(idx_SIH3j) * m(idx_H) * m(idx_H) / m(idx_SIH3j)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2Oj) * m(idx_H) * m(idx_H) / m(idx_H2Oj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_NH2j) * m(idx_H) * m(idx_H) / m(idx_NH2j)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_OHj) * m(idx_H) * m(idx_H) / m(idx_OHj)**2
@@ -7418,6 +8617,8 @@ contains
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_CH4j) * m(idx_H) * m(idx_H) / m(idx_CH4j)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HCNj) * m(idx_H) * m(idx_H) / m(idx_HCNj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_NHj) * m(idx_H) * m(idx_H) / m(idx_NHj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 16d0 * x(idx_SIH4j) * m(idx_H) * m(idx_H) / m(idx_SIH4j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_SIHj) * m(idx_H) * m(idx_H) / m(idx_SIHj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2j) * m(idx_H) * m(idx_H) / m(idx_H2j)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HNOj) * m(idx_H) * m(idx_H) / m(idx_HNOj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 4d0 * x(idx_H2NOj) * m(idx_H) * m(idx_H) / m(idx_H2NOj)**2
@@ -7429,17 +8630,21 @@ contains
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_HEHj) * m(idx_H) * m(idx_H) / m(idx_HEHj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_N2Hj) * m(idx_H) * m(idx_H) / m(idx_N2Hj)**2
     A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_O2Hj) * m(idx_H) * m(idx_H) / m(idx_O2Hj)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) + 25d0 * x(idx_SIH5j) * m(idx_H) * m(idx_H) / m(idx_SIH5j)**2
+    A(idx_atom_H, idx_atom_H) = A(idx_atom_H, idx_atom_H) +  x(idx_SIOHj) * m(idx_H) * m(idx_H) / m(idx_SIOHj)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2O) * m(idx_H) * m(idx_O) / m(idx_H2O)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_OH) * m(idx_H) * m(idx_O) / m(idx_OH)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2CO) * m(idx_H) * m(idx_O) / m(idx_H2CO)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HCO) * m(idx_H) * m(idx_O) / m(idx_HCO)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNO) * m(idx_H) * m(idx_O) / m(idx_HNO)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 4d0 * x(idx_CH3OH) * m(idx_H) * m(idx_O) / m(idx_CH3OH)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2SIO) * m(idx_H) * m(idx_O) / m(idx_H2SIO)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNCO) * m(idx_H) * m(idx_O) / m(idx_HNCO)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_O2H) * m(idx_H) * m(idx_O) / m(idx_O2H)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 4d0 * x(idx_CH3OH_DUST) * m(idx_H) * m(idx_O) / m(idx_CH3OH_DUST)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNCO_DUST) * m(idx_H) * m(idx_O) / m(idx_HNCO_DUST)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2CO_DUST) * m(idx_H) * m(idx_O) / m(idx_H2CO_DUST)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2SIO_DUST) * m(idx_H) * m(idx_O) / m(idx_H2SIO_DUST)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_H2O_DUST) * m(idx_H) * m(idx_O) / m(idx_H2O_DUST)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_HNO_DUST) * m(idx_H) * m(idx_O) / m(idx_HNO_DUST)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_O2H_DUST) * m(idx_H) * m(idx_O) / m(idx_O2H_DUST)**2
@@ -7454,6 +8659,7 @@ contains
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 3d0 * x(idx_H3Oj) * m(idx_H) * m(idx_O) / m(idx_H3Oj)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_HCO2j) * m(idx_H) * m(idx_O) / m(idx_HCO2j)**2
     A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) + 2d0 * x(idx_O2Hj) * m(idx_H) * m(idx_O) / m(idx_O2Hj)**2
+    A(idx_atom_H, idx_atom_O) = A(idx_atom_H, idx_atom_O) +  x(idx_SIOHj) * m(idx_H) * m(idx_O) / m(idx_SIOHj)**2
     A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HNC) * m(idx_H) * m(idx_N) / m(idx_HNC)**2
     A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) +  x(idx_HCN) * m(idx_H) * m(idx_N) / m(idx_HCN)**2
     A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 3d0 * x(idx_NH3) * m(idx_H) * m(idx_N) / m(idx_NH3)**2
@@ -7476,6 +8682,19 @@ contains
     A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_H2NOj) * m(idx_H) * m(idx_N) / m(idx_H2NOj)**2
     A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_HCNHj) * m(idx_H) * m(idx_N) / m(idx_HCNHj)**2
     A(idx_atom_H, idx_atom_N) = A(idx_atom_H, idx_atom_N) + 2d0 * x(idx_N2Hj) * m(idx_H) * m(idx_N) / m(idx_N2Hj)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 2d0 * x(idx_SIH2) * m(idx_H) * m(idx_Si) / m(idx_SIH2)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 3d0 * x(idx_SIH3) * m(idx_H) * m(idx_Si) / m(idx_SIH3)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 4d0 * x(idx_SIH4) * m(idx_H) * m(idx_Si) / m(idx_SIH4)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) +  x(idx_SIH) * m(idx_H) * m(idx_Si) / m(idx_SIH)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 2d0 * x(idx_H2SIO) * m(idx_H) * m(idx_Si) / m(idx_H2SIO)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 4d0 * x(idx_SIH4_DUST) * m(idx_H) * m(idx_Si) / m(idx_SIH4_DUST)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 2d0 * x(idx_H2SIO_DUST) * m(idx_H) * m(idx_Si) / m(idx_H2SIO_DUST)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 2d0 * x(idx_SIH2j) * m(idx_H) * m(idx_Si) / m(idx_SIH2j)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 3d0 * x(idx_SIH3j) * m(idx_H) * m(idx_Si) / m(idx_SIH3j)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 4d0 * x(idx_SIH4j) * m(idx_H) * m(idx_Si) / m(idx_SIH4j)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) +  x(idx_SIHj) * m(idx_H) * m(idx_Si) / m(idx_SIHj)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) + 5d0 * x(idx_SIH5j) * m(idx_H) * m(idx_Si) / m(idx_SIH5j)**2
+    A(idx_atom_H, idx_atom_Si) = A(idx_atom_H, idx_atom_Si) +  x(idx_SIOHj) * m(idx_H) * m(idx_Si) / m(idx_SIOHj)**2
     A(idx_atom_H, idx_atom_He) = A(idx_atom_H, idx_atom_He) +  x(idx_HEHj) * m(idx_H) * m(idx_He) / m(idx_HEHj)**2
     A(idx_atom_Mg, idx_atom_Mg) = A(idx_atom_Mg, idx_atom_Mg) +  x(idx_MG) * m(idx_Mg) * m(idx_Mg) / m(idx_MG)**2
     A(idx_atom_Mg, idx_atom_Mg) = A(idx_atom_Mg, idx_atom_Mg) +  x(idx_MG_DUST) * m(idx_Mg) * m(idx_Mg) / m(idx_MG_DUST)**2
@@ -7504,11 +8723,13 @@ contains
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HCO) * m(idx_O) * m(idx_H) / m(idx_HCO)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNO) * m(idx_O) * m(idx_H) / m(idx_HNO)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 4d0 * x(idx_CH3OH) * m(idx_O) * m(idx_H) / m(idx_CH3OH)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2SIO) * m(idx_O) * m(idx_H) / m(idx_H2SIO)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNCO) * m(idx_O) * m(idx_H) / m(idx_HNCO)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_O2H) * m(idx_O) * m(idx_H) / m(idx_O2H)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 4d0 * x(idx_CH3OH_DUST) * m(idx_O) * m(idx_H) / m(idx_CH3OH_DUST)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNCO_DUST) * m(idx_O) * m(idx_H) / m(idx_HNCO_DUST)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2CO_DUST) * m(idx_O) * m(idx_H) / m(idx_H2CO_DUST)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2SIO_DUST) * m(idx_O) * m(idx_H) / m(idx_H2SIO_DUST)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_H2O_DUST) * m(idx_O) * m(idx_H) / m(idx_H2O_DUST)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_HNO_DUST) * m(idx_O) * m(idx_H) / m(idx_HNO_DUST)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_O2H_DUST) * m(idx_O) * m(idx_H) / m(idx_O2H_DUST)**2
@@ -7523,6 +8744,7 @@ contains
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 3d0 * x(idx_H3Oj) * m(idx_O) * m(idx_H) / m(idx_H3Oj)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_HCO2j) * m(idx_O) * m(idx_H) / m(idx_HCO2j)**2
     A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) + 2d0 * x(idx_O2Hj) * m(idx_O) * m(idx_H) / m(idx_O2Hj)**2
+    A(idx_atom_O, idx_atom_H) = A(idx_atom_O, idx_atom_H) +  x(idx_SIOHj) * m(idx_O) * m(idx_H) / m(idx_SIOHj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_O) * m(idx_O) * m(idx_O) / m(idx_O)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2O) * m(idx_O) * m(idx_O) / m(idx_H2O)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_OH) * m(idx_O) * m(idx_O) / m(idx_OH)**2
@@ -7531,9 +8753,11 @@ contains
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HCO) * m(idx_O) * m(idx_O) / m(idx_HCO)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_NO) * m(idx_O) * m(idx_O) / m(idx_NO)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CO) * m(idx_O) * m(idx_O) / m(idx_CO)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_SIO) * m(idx_O) * m(idx_O) / m(idx_SIO)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNO) * m(idx_O) * m(idx_O) / m(idx_HNO)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CH3OH) * m(idx_O) * m(idx_O) / m(idx_CH3OH)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_CO2) * m(idx_O) * m(idx_O) / m(idx_CO2)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2SIO) * m(idx_O) * m(idx_O) / m(idx_H2SIO)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNCO) * m(idx_O) * m(idx_O) / m(idx_HNCO)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_NO2) * m(idx_O) * m(idx_O) / m(idx_NO2)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2H) * m(idx_O) * m(idx_O) / m(idx_O2H)**2
@@ -7541,6 +8765,7 @@ contains
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CH3OH_DUST) * m(idx_O) * m(idx_O) / m(idx_CH3OH_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNCO_DUST) * m(idx_O) * m(idx_O) / m(idx_HNCO_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2CO_DUST) * m(idx_O) * m(idx_O) / m(idx_H2CO_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2SIO_DUST) * m(idx_O) * m(idx_O) / m(idx_H2SIO_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_CO_DUST) * m(idx_O) * m(idx_O) / m(idx_CO_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2O_DUST) * m(idx_O) * m(idx_O) / m(idx_H2O_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_NO_DUST) * m(idx_O) * m(idx_O) / m(idx_NO_DUST)**2
@@ -7549,6 +8774,7 @@ contains
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_NO2_DUST) * m(idx_O) * m(idx_O) / m(idx_NO2_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNO_DUST) * m(idx_O) * m(idx_O) / m(idx_HNO_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2H_DUST) * m(idx_O) * m(idx_O) / m(idx_O2H_DUST)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_SIO_DUST) * m(idx_O) * m(idx_O) / m(idx_SIO_DUST)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HCOj) * m(idx_O) * m(idx_O) / m(idx_HCOj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HOCj) * m(idx_O) * m(idx_O) / m(idx_HOCj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2COj) * m(idx_O) * m(idx_O) / m(idx_H2COj)**2
@@ -7558,12 +8784,14 @@ contains
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2Oj) * m(idx_O) * m(idx_O) / m(idx_H2Oj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_Oj) * m(idx_O) * m(idx_O) / m(idx_Oj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_OHj) * m(idx_O) * m(idx_O) / m(idx_OHj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_SIOj) * m(idx_O) * m(idx_O) / m(idx_SIOj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_HNOj) * m(idx_O) * m(idx_O) / m(idx_HNOj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H2NOj) * m(idx_O) * m(idx_O) / m(idx_H2NOj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H3COj) * m(idx_O) * m(idx_O) / m(idx_H3COj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_H3Oj) * m(idx_O) * m(idx_O) / m(idx_H3Oj)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_HCO2j) * m(idx_O) * m(idx_O) / m(idx_HCO2j)**2
     A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) + 4d0 * x(idx_O2Hj) * m(idx_O) * m(idx_O) / m(idx_O2Hj)**2
+    A(idx_atom_O, idx_atom_O) = A(idx_atom_O, idx_atom_O) +  x(idx_SIOHj) * m(idx_O) * m(idx_O) / m(idx_SIOHj)**2
     A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_NO) * m(idx_O) * m(idx_N) / m(idx_NO)**2
     A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNO) * m(idx_O) * m(idx_N) / m(idx_HNO)**2
     A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNCO) * m(idx_O) * m(idx_N) / m(idx_HNCO)**2
@@ -7576,6 +8804,12 @@ contains
     A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_NOj) * m(idx_O) * m(idx_N) / m(idx_NOj)**2
     A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_HNOj) * m(idx_O) * m(idx_N) / m(idx_HNOj)**2
     A(idx_atom_O, idx_atom_N) = A(idx_atom_O, idx_atom_N) +  x(idx_H2NOj) * m(idx_O) * m(idx_N) / m(idx_H2NOj)**2
+    A(idx_atom_O, idx_atom_Si) = A(idx_atom_O, idx_atom_Si) +  x(idx_SIO) * m(idx_O) * m(idx_Si) / m(idx_SIO)**2
+    A(idx_atom_O, idx_atom_Si) = A(idx_atom_O, idx_atom_Si) +  x(idx_H2SIO) * m(idx_O) * m(idx_Si) / m(idx_H2SIO)**2
+    A(idx_atom_O, idx_atom_Si) = A(idx_atom_O, idx_atom_Si) +  x(idx_H2SIO_DUST) * m(idx_O) * m(idx_Si) / m(idx_H2SIO_DUST)**2
+    A(idx_atom_O, idx_atom_Si) = A(idx_atom_O, idx_atom_Si) +  x(idx_SIO_DUST) * m(idx_O) * m(idx_Si) / m(idx_SIO_DUST)**2
+    A(idx_atom_O, idx_atom_Si) = A(idx_atom_O, idx_atom_Si) +  x(idx_SIOj) * m(idx_O) * m(idx_Si) / m(idx_SIOj)**2
+    A(idx_atom_O, idx_atom_Si) = A(idx_atom_O, idx_atom_Si) +  x(idx_SIOHj) * m(idx_O) * m(idx_Si) / m(idx_SIOHj)**2
     A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HNC) * m(idx_N) * m(idx_C) / m(idx_HNC)**2
     A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_HCN) * m(idx_N) * m(idx_C) / m(idx_HCN)**2
     A(idx_atom_N, idx_atom_C) = A(idx_atom_N, idx_atom_C) +  x(idx_CN) * m(idx_N) * m(idx_C) / m(idx_CN)**2
@@ -7658,6 +8892,61 @@ contains
     A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_H2NOj) * m(idx_N) * m(idx_N) / m(idx_H2NOj)**2
     A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) +  x(idx_HCNHj) * m(idx_N) * m(idx_N) / m(idx_HCNHj)**2
     A(idx_atom_N, idx_atom_N) = A(idx_atom_N, idx_atom_N) + 4d0 * x(idx_N2Hj) * m(idx_N) * m(idx_N) / m(idx_N2Hj)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) + 2d0 * x(idx_SIC2) * m(idx_Si) * m(idx_C) / m(idx_SIC2)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) + 3d0 * x(idx_SIC3) * m(idx_Si) * m(idx_C) / m(idx_SIC3)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) +  x(idx_SIC) * m(idx_Si) * m(idx_C) / m(idx_SIC)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) +  x(idx_SIC_DUST) * m(idx_Si) * m(idx_C) / m(idx_SIC_DUST)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) + 2d0 * x(idx_SIC2_DUST) * m(idx_Si) * m(idx_C) / m(idx_SIC2_DUST)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) + 3d0 * x(idx_SIC3_DUST) * m(idx_Si) * m(idx_C) / m(idx_SIC3_DUST)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) + 2d0 * x(idx_SIC2j) * m(idx_Si) * m(idx_C) / m(idx_SIC2j)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) + 3d0 * x(idx_SIC3j) * m(idx_Si) * m(idx_C) / m(idx_SIC3j)**2
+    A(idx_atom_Si, idx_atom_C) = A(idx_atom_Si, idx_atom_C) +  x(idx_SICj) * m(idx_Si) * m(idx_C) / m(idx_SICj)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 2d0 * x(idx_SIH2) * m(idx_Si) * m(idx_H) / m(idx_SIH2)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 3d0 * x(idx_SIH3) * m(idx_Si) * m(idx_H) / m(idx_SIH3)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 4d0 * x(idx_SIH4) * m(idx_Si) * m(idx_H) / m(idx_SIH4)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) +  x(idx_SIH) * m(idx_Si) * m(idx_H) / m(idx_SIH)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 2d0 * x(idx_H2SIO) * m(idx_Si) * m(idx_H) / m(idx_H2SIO)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 4d0 * x(idx_SIH4_DUST) * m(idx_Si) * m(idx_H) / m(idx_SIH4_DUST)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 2d0 * x(idx_H2SIO_DUST) * m(idx_Si) * m(idx_H) / m(idx_H2SIO_DUST)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 2d0 * x(idx_SIH2j) * m(idx_Si) * m(idx_H) / m(idx_SIH2j)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 3d0 * x(idx_SIH3j) * m(idx_Si) * m(idx_H) / m(idx_SIH3j)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 4d0 * x(idx_SIH4j) * m(idx_Si) * m(idx_H) / m(idx_SIH4j)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) +  x(idx_SIHj) * m(idx_Si) * m(idx_H) / m(idx_SIHj)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) + 5d0 * x(idx_SIH5j) * m(idx_Si) * m(idx_H) / m(idx_SIH5j)**2
+    A(idx_atom_Si, idx_atom_H) = A(idx_atom_Si, idx_atom_H) +  x(idx_SIOHj) * m(idx_Si) * m(idx_H) / m(idx_SIOHj)**2
+    A(idx_atom_Si, idx_atom_O) = A(idx_atom_Si, idx_atom_O) +  x(idx_SIO) * m(idx_Si) * m(idx_O) / m(idx_SIO)**2
+    A(idx_atom_Si, idx_atom_O) = A(idx_atom_Si, idx_atom_O) +  x(idx_H2SIO) * m(idx_Si) * m(idx_O) / m(idx_H2SIO)**2
+    A(idx_atom_Si, idx_atom_O) = A(idx_atom_Si, idx_atom_O) +  x(idx_H2SIO_DUST) * m(idx_Si) * m(idx_O) / m(idx_H2SIO_DUST)**2
+    A(idx_atom_Si, idx_atom_O) = A(idx_atom_Si, idx_atom_O) +  x(idx_SIO_DUST) * m(idx_Si) * m(idx_O) / m(idx_SIO_DUST)**2
+    A(idx_atom_Si, idx_atom_O) = A(idx_atom_Si, idx_atom_O) +  x(idx_SIOj) * m(idx_Si) * m(idx_O) / m(idx_SIOj)**2
+    A(idx_atom_Si, idx_atom_O) = A(idx_atom_Si, idx_atom_O) +  x(idx_SIOHj) * m(idx_Si) * m(idx_O) / m(idx_SIOHj)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SI) * m(idx_Si) * m(idx_Si) / m(idx_SI)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC2) * m(idx_Si) * m(idx_Si) / m(idx_SIC2)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC3) * m(idx_Si) * m(idx_Si) / m(idx_SIC3)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC) * m(idx_Si) * m(idx_Si) / m(idx_SIC)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH2) * m(idx_Si) * m(idx_Si) / m(idx_SIH2)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH3) * m(idx_Si) * m(idx_Si) / m(idx_SIH3)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH4) * m(idx_Si) * m(idx_Si) / m(idx_SIH4)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH) * m(idx_Si) * m(idx_Si) / m(idx_SIH)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIO) * m(idx_Si) * m(idx_Si) / m(idx_SIO)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_H2SIO) * m(idx_Si) * m(idx_Si) / m(idx_H2SIO)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH4_DUST) * m(idx_Si) * m(idx_Si) / m(idx_SIH4_DUST)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_H2SIO_DUST) * m(idx_Si) * m(idx_Si) / m(idx_H2SIO_DUST)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC_DUST) * m(idx_Si) * m(idx_Si) / m(idx_SIC_DUST)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC2_DUST) * m(idx_Si) * m(idx_Si) / m(idx_SIC2_DUST)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC3_DUST) * m(idx_Si) * m(idx_Si) / m(idx_SIC3_DUST)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIO_DUST) * m(idx_Si) * m(idx_Si) / m(idx_SIO_DUST)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIj) * m(idx_Si) * m(idx_Si) / m(idx_SIj)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC2j) * m(idx_Si) * m(idx_Si) / m(idx_SIC2j)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIC3j) * m(idx_Si) * m(idx_Si) / m(idx_SIC3j)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SICj) * m(idx_Si) * m(idx_Si) / m(idx_SICj)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH2j) * m(idx_Si) * m(idx_Si) / m(idx_SIH2j)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH3j) * m(idx_Si) * m(idx_Si) / m(idx_SIH3j)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH4j) * m(idx_Si) * m(idx_Si) / m(idx_SIH4j)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIHj) * m(idx_Si) * m(idx_Si) / m(idx_SIHj)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIOj) * m(idx_Si) * m(idx_Si) / m(idx_SIOj)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIH5j) * m(idx_Si) * m(idx_Si) / m(idx_SIH5j)**2
+    A(idx_atom_Si, idx_atom_Si) = A(idx_atom_Si, idx_atom_Si) +  x(idx_SIOHj) * m(idx_Si) * m(idx_Si) / m(idx_SIOHj)**2
     A(idx_atom_He, idx_atom_H) = A(idx_atom_He, idx_atom_H) +  x(idx_HEHj) * m(idx_He) * m(idx_H) / m(idx_HEHj)**2
     A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HE) * m(idx_He) * m(idx_He) / m(idx_HE)**2
     A(idx_atom_He, idx_atom_He) = A(idx_atom_He, idx_atom_He) +  x(idx_HEj) * m(idx_He) * m(idx_He) / m(idx_HEj)**2
@@ -7697,6 +8986,17 @@ contains
         m(idx_N) * B(idx_atom_N))/m(idx_NH3)
     x(idx_NO) = x(idx_NO) * (m(idx_O) * B(idx_atom_O) + &
         m(idx_N) * B(idx_atom_N))/m(idx_NO)
+    x(idx_SI) = x(idx_SI) * (m(idx_Si) * B(idx_atom_Si))/m(idx_SI)
+    x(idx_SIC2) = x(idx_SIC2) * (m(idx_Si) * B(idx_atom_Si) + &
+        2d0*m(idx_C) * B(idx_atom_C))/m(idx_SIC2)
+    x(idx_SIC3) = x(idx_SIC3) * (m(idx_Si) * B(idx_atom_Si) + &
+        3d0*m(idx_C) * B(idx_atom_C))/m(idx_SIC3)
+    x(idx_SIC) = x(idx_SIC) * (m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_C) * B(idx_atom_C))/m(idx_SIC)
+    x(idx_SIH2) = x(idx_SIH2) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH2)
+    x(idx_SIH3) = x(idx_SIH3) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH3)
     x(idx_CN) = x(idx_CN) * (m(idx_C) * B(idx_atom_C) + &
         m(idx_N) * B(idx_atom_N))/m(idx_CN)
     x(idx_CO) = x(idx_CO) * (m(idx_C) * B(idx_atom_C) + &
@@ -7711,6 +9011,12 @@ contains
     x(idx_N) = x(idx_N) * (m(idx_N) * B(idx_atom_N))/m(idx_N)
     x(idx_NH) = x(idx_NH) * (m(idx_H) * B(idx_atom_H) + &
         m(idx_N) * B(idx_atom_N))/m(idx_NH)
+    x(idx_SIH4) = x(idx_SIH4) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH4)
+    x(idx_SIH) = x(idx_SIH) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH)
+    x(idx_SIO) = x(idx_SIO) * (m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_SIO)
     x(idx_HE) = x(idx_HE) * (m(idx_He) * B(idx_atom_He))/m(idx_HE)
     x(idx_HNO) = x(idx_HNO) * (m(idx_H) * B(idx_atom_H) + &
         m(idx_O) * B(idx_atom_O) + &
@@ -7723,6 +9029,9 @@ contains
     x(idx_H2CN) = x(idx_H2CN) * (2d0*m(idx_H) * B(idx_atom_H) + &
         m(idx_C) * B(idx_atom_C) + &
         m(idx_N) * B(idx_atom_N))/m(idx_H2CN)
+    x(idx_H2SIO) = x(idx_H2SIO) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2SIO)
     x(idx_HNCO) = x(idx_HNCO) * (m(idx_H) * B(idx_atom_H) + &
         m(idx_C) * B(idx_atom_C) + &
         m(idx_O) * B(idx_atom_O) + &
@@ -7744,6 +9053,17 @@ contains
     x(idx_H2CO_DUST) = x(idx_H2CO_DUST) * (2d0*m(idx_H) * B(idx_atom_H) + &
         m(idx_C) * B(idx_atom_C) + &
         m(idx_O) * B(idx_atom_O))/m(idx_H2CO_DUST)
+    x(idx_SIH4_DUST) = x(idx_SIH4_DUST) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH4_DUST)
+    x(idx_H2SIO_DUST) = x(idx_H2SIO_DUST) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_H2SIO_DUST)
+    x(idx_SIC_DUST) = x(idx_SIC_DUST) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIC_DUST)
+    x(idx_SIC2_DUST) = x(idx_SIC2_DUST) * (2d0*m(idx_C) * B(idx_atom_C) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIC2_DUST)
+    x(idx_SIC3_DUST) = x(idx_SIC3_DUST) * (3d0*m(idx_C) * B(idx_atom_C) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIC3_DUST)
     x(idx_CH4_DUST) = x(idx_CH4_DUST) * (4d0*m(idx_H) * B(idx_atom_H) + &
         m(idx_C) * B(idx_atom_C))/m(idx_CH4_DUST)
     x(idx_CO_DUST) = x(idx_CO_DUST) * (m(idx_C) * B(idx_atom_C) + &
@@ -7775,6 +9095,8 @@ contains
     x(idx_HNC_DUST) = x(idx_HNC_DUST) * (m(idx_H) * B(idx_atom_H) + &
         m(idx_C) * B(idx_atom_C) + &
         m(idx_N) * B(idx_atom_N))/m(idx_HNC_DUST)
+    x(idx_SIO_DUST) = x(idx_SIO_DUST) * (m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_SIO_DUST)
     x(idx_HCOj) = x(idx_HCOj) * (m(idx_H) * B(idx_atom_H) + &
         m(idx_C) * B(idx_atom_C) + &
         m(idx_O) * B(idx_atom_O))/m(idx_HCOj)
@@ -7795,6 +9117,17 @@ contains
         m(idx_N) * B(idx_atom_N))/m(idx_NH3j)
     x(idx_NOj) = x(idx_NOj) * (m(idx_O) * B(idx_atom_O) + &
         m(idx_N) * B(idx_atom_N))/m(idx_NOj)
+    x(idx_SIj) = x(idx_SIj) * (m(idx_Si) * B(idx_atom_Si))/m(idx_SIj)
+    x(idx_SIC2j) = x(idx_SIC2j) * (2d0*m(idx_C) * B(idx_atom_C) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIC2j)
+    x(idx_SIC3j) = x(idx_SIC3j) * (3d0*m(idx_C) * B(idx_atom_C) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIC3j)
+    x(idx_SICj) = x(idx_SICj) * (m(idx_C) * B(idx_atom_C) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SICj)
+    x(idx_SIH2j) = x(idx_SIH2j) * (2d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH2j)
+    x(idx_SIH3j) = x(idx_SIH3j) * (3d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH3j)
     x(idx_CNj) = x(idx_CNj) * (m(idx_C) * B(idx_atom_C) + &
         m(idx_N) * B(idx_atom_N))/m(idx_CNj)
     x(idx_COj) = x(idx_COj) * (m(idx_C) * B(idx_atom_C) + &
@@ -7818,6 +9151,12 @@ contains
         m(idx_N) * B(idx_atom_N))/m(idx_HCNj)
     x(idx_NHj) = x(idx_NHj) * (m(idx_H) * B(idx_atom_H) + &
         m(idx_N) * B(idx_atom_N))/m(idx_NHj)
+    x(idx_SIH4j) = x(idx_SIH4j) * (4d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH4j)
+    x(idx_SIHj) = x(idx_SIHj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIHj)
+    x(idx_SIOj) = x(idx_SIOj) * (m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_SIOj)
     x(idx_H2j) = x(idx_H2j) * (2d0*m(idx_H) * B(idx_atom_H))/m(idx_H2j)
     x(idx_HEj) = x(idx_HEj) * (m(idx_He) * B(idx_atom_He))/m(idx_HEj)
     x(idx_HNOj) = x(idx_HNOj) * (m(idx_H) * B(idx_atom_H) + &
@@ -7844,6 +9183,11 @@ contains
         2d0*m(idx_N) * B(idx_atom_N))/m(idx_N2Hj)
     x(idx_O2Hj) = x(idx_O2Hj) * (m(idx_H) * B(idx_atom_H) + &
         2d0*m(idx_O) * B(idx_atom_O))/m(idx_O2Hj)
+    x(idx_SIH5j) = x(idx_SIH5j) * (5d0*m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si))/m(idx_SIH5j)
+    x(idx_SIOHj) = x(idx_SIOHj) * (m(idx_H) * B(idx_atom_H) + &
+        m(idx_Si) * B(idx_atom_Si) + &
+        m(idx_O) * B(idx_atom_O))/m(idx_SIOHj)
 
     !charge conservation
     x(idx_E) = m(idx_E)*(+ 1d0*x(idx_HCOj) / m(idx_HCOj) &
@@ -7856,6 +9200,12 @@ contains
         + 1d0*x(idx_MGj) / m(idx_MGj) &
         + 1d0*x(idx_NH3j) / m(idx_NH3j) &
         + 1d0*x(idx_NOj) / m(idx_NOj) &
+        + 1d0*x(idx_SIj) / m(idx_SIj) &
+        + 1d0*x(idx_SIC2j) / m(idx_SIC2j) &
+        + 1d0*x(idx_SIC3j) / m(idx_SIC3j) &
+        + 1d0*x(idx_SICj) / m(idx_SICj) &
+        + 1d0*x(idx_SIH2j) / m(idx_SIH2j) &
+        + 1d0*x(idx_SIH3j) / m(idx_SIH3j) &
         + 1d0*x(idx_CNj) / m(idx_CNj) &
         + 1d0*x(idx_COj) / m(idx_COj) &
         + 1d0*x(idx_N2j) / m(idx_N2j) &
@@ -7869,6 +9219,9 @@ contains
         + 1d0*x(idx_Nj) / m(idx_Nj) &
         + 1d0*x(idx_HCNj) / m(idx_HCNj) &
         + 1d0*x(idx_NHj) / m(idx_NHj) &
+        + 1d0*x(idx_SIH4j) / m(idx_SIH4j) &
+        + 1d0*x(idx_SIHj) / m(idx_SIHj) &
+        + 1d0*x(idx_SIOj) / m(idx_SIOj) &
         + 1d0*x(idx_H2j) / m(idx_H2j) &
         + 1d0*x(idx_HEj) / m(idx_HEj) &
         + 1d0*x(idx_HNOj) / m(idx_HNOj) &
@@ -7880,7 +9233,9 @@ contains
         + 1d0*x(idx_HCO2j) / m(idx_HCO2j) &
         + 1d0*x(idx_HEHj) / m(idx_HEHj) &
         + 1d0*x(idx_N2Hj) / m(idx_N2Hj) &
-        + 1d0*x(idx_O2Hj) / m(idx_O2Hj))
+        + 1d0*x(idx_O2Hj) / m(idx_O2Hj) &
+        + 1d0*x(idx_SIH5j) / m(idx_SIH5j) &
+        + 1d0*x(idx_SIOHj) / m(idx_SIOHj))
     !check if charge conservation goes wrong
     if(x(idx_E)<0d0) then
       print *,"ERROR in conserveLin, electrons < 0"
@@ -7931,6 +9286,17 @@ contains
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH3)/m(idx_NH3)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_NO)/m(idx_NO)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NO)/m(idx_NO)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SI)/m(idx_SI)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC2)/m(idx_SIC2)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + 2d0*m(idx_C)*x(idx_SIC2)/m(idx_SIC2)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC3)/m(idx_SIC3)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + 3d0*m(idx_C)*x(idx_SIC3)/m(idx_SIC3)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC)/m(idx_SIC)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_SIC)/m(idx_SIC)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_SIH2)/m(idx_SIH2)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH2)/m(idx_SIH2)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_SIH3)/m(idx_SIH3)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH3)/m(idx_SIH3)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CN)/m(idx_CN)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_CN)/m(idx_CN)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CO)/m(idx_CO)
@@ -7945,6 +9311,12 @@ contains
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_N)/m(idx_N)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_NH)/m(idx_NH)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH)/m(idx_NH)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_SIH4)/m(idx_SIH4)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH4)/m(idx_SIH4)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_SIH)/m(idx_SIH)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH)/m(idx_SIH)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIO)/m(idx_SIO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_SIO)/m(idx_SIO)
     conserveLinGetRef_x(idx_atom_He) = conserveLinGetRef_x(idx_atom_He) + m(idx_He)*x(idx_HE)/m(idx_HE)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNO)/m(idx_HNO)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNO)/m(idx_HNO)
@@ -7957,6 +9329,9 @@ contains
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2CN)/m(idx_H2CN)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2CN)/m(idx_H2CN)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_H2CN)/m(idx_H2CN)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2SIO)/m(idx_H2SIO)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_H2SIO)/m(idx_H2SIO)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2SIO)/m(idx_H2SIO)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNCO)/m(idx_HNCO)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HNCO)/m(idx_HNCO)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HNCO)/m(idx_HNCO)
@@ -7978,6 +9353,17 @@ contains
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2CO_DUST)/m(idx_H2CO_DUST)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_H2CO_DUST)/m(idx_H2CO_DUST)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2CO_DUST)/m(idx_H2CO_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_SIH4_DUST)/m(idx_SIH4_DUST)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH4_DUST)/m(idx_SIH4_DUST)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2SIO_DUST)/m(idx_H2SIO_DUST)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_H2SIO_DUST)/m(idx_H2SIO_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_H2SIO_DUST)/m(idx_H2SIO_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_SIC_DUST)/m(idx_SIC_DUST)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC_DUST)/m(idx_SIC_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + 2d0*m(idx_C)*x(idx_SIC2_DUST)/m(idx_SIC2_DUST)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC2_DUST)/m(idx_SIC2_DUST)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + 3d0*m(idx_C)*x(idx_SIC3_DUST)/m(idx_SIC3_DUST)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC3_DUST)/m(idx_SIC3_DUST)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_CH4_DUST)/m(idx_CH4_DUST)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CH4_DUST)/m(idx_CH4_DUST)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CO_DUST)/m(idx_CO_DUST)
@@ -8009,6 +9395,8 @@ contains
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNC_DUST)/m(idx_HNC_DUST)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HNC_DUST)/m(idx_HNC_DUST)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HNC_DUST)/m(idx_HNC_DUST)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIO_DUST)/m(idx_SIO_DUST)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_SIO_DUST)/m(idx_SIO_DUST)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HCOj)/m(idx_HCOj)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_HCOj)/m(idx_HCOj)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_HCOj)/m(idx_HCOj)
@@ -8029,6 +9417,17 @@ contains
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NH3j)/m(idx_NH3j)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_NOj)/m(idx_NOj)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NOj)/m(idx_NOj)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIj)/m(idx_SIj)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + 2d0*m(idx_C)*x(idx_SIC2j)/m(idx_SIC2j)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC2j)/m(idx_SIC2j)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + 3d0*m(idx_C)*x(idx_SIC3j)/m(idx_SIC3j)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIC3j)/m(idx_SIC3j)
+    conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_SICj)/m(idx_SICj)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SICj)/m(idx_SICj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_SIH2j)/m(idx_SIH2j)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH2j)/m(idx_SIH2j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 3d0*m(idx_H)*x(idx_SIH3j)/m(idx_SIH3j)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH3j)/m(idx_SIH3j)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_CNj)/m(idx_CNj)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_CNj)/m(idx_CNj)
     conserveLinGetRef_x(idx_atom_C) = conserveLinGetRef_x(idx_atom_C) + m(idx_C)*x(idx_COj)/m(idx_COj)
@@ -8052,6 +9451,12 @@ contains
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_HCNj)/m(idx_HCNj)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_NHj)/m(idx_NHj)
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + m(idx_N)*x(idx_NHj)/m(idx_NHj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 4d0*m(idx_H)*x(idx_SIH4j)/m(idx_SIH4j)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH4j)/m(idx_SIH4j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_SIHj)/m(idx_SIHj)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIHj)/m(idx_SIHj)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIOj)/m(idx_SIOj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_SIOj)/m(idx_SIOj)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 2d0*m(idx_H)*x(idx_H2j)/m(idx_H2j)
     conserveLinGetRef_x(idx_atom_He) = conserveLinGetRef_x(idx_atom_He) + m(idx_He)*x(idx_HEj)/m(idx_HEj)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_HNOj)/m(idx_HNOj)
@@ -8078,6 +9483,11 @@ contains
     conserveLinGetRef_x(idx_atom_N) = conserveLinGetRef_x(idx_atom_N) + 2d0*m(idx_N)*x(idx_N2Hj)/m(idx_N2Hj)
     conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_O2Hj)/m(idx_O2Hj)
     conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + 2d0*m(idx_O)*x(idx_O2Hj)/m(idx_O2Hj)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + 5d0*m(idx_H)*x(idx_SIH5j)/m(idx_SIH5j)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIH5j)/m(idx_SIH5j)
+    conserveLinGetRef_x(idx_atom_H) = conserveLinGetRef_x(idx_atom_H) + m(idx_H)*x(idx_SIOHj)/m(idx_SIOHj)
+    conserveLinGetRef_x(idx_atom_Si) = conserveLinGetRef_x(idx_atom_Si) + m(idx_Si)*x(idx_SIOHj)/m(idx_SIOHj)
+    conserveLinGetRef_x(idx_atom_O) = conserveLinGetRef_x(idx_atom_O) + m(idx_O)*x(idx_SIOHj)/m(idx_SIOHj)
 
   end function conserveLinGetRef_x
 
@@ -8374,6 +9784,126 @@ contains
 
   end function dissH2_Martin96
 
+  !**********************
+  ! Cluster growth rate based on kinetic nucleation theory (KNT)
+  ! Theory is explained in chapter 13 of Gail and Sedlmayr 2013
+  ! (https://doi.org/10.1017/CBO9780511985607)
+  function cluster_growth_rate(monomer_idx, cluster_size, temperature, stick) result(rate)
+    ! k_N = v_thermal * cross_section_N * stick_N
+    ! with N the cluster size of the reactant
+    use krome_constants
+    use krome_commons
+    use krome_getphys
+    implicit none
+    integer, parameter :: dp=kind(0.d0) ! double precision
+
+    integer, intent(in) :: monomer_idx
+    integer, intent(in) :: cluster_size
+    real(dp), intent(in) :: temperature
+    real(dp), intent(in), optional :: stick
+    real(dp) :: rate
+
+    real(dp) :: v_thermal
+    real(dp) :: cross_section
+    real(dp) :: stick_coefficient
+    real(dp) :: monomer_radius
+    real(dp) :: cluster_radius
+    real(dp) :: inverse_monomer_mass
+    real(dp) :: inverse_cluster_mass
+    real(dp) :: inverse_reduced_mass
+    real(dp) :: inverse_mass(nspec)
+
+    inverse_mass(:) = get_imass()
+
+    ! References in kromelib.py
+    monomer_radius = 7.5765e-09_dp ! SIO in cm
+
+    inverse_monomer_mass = inverse_mass(monomer_idx)
+    inverse_cluster_mass = 1._dp/cluster_size * inverse_monomer_mass
+    inverse_reduced_mass = inverse_monomer_mass + inverse_cluster_mass
+
+    v_thermal = sqrt(8._dp * boltzmann_erg * temperature &
+        * inverse_reduced_mass / pi )
+
+    ! Assuming cluster volume is proportional to monomer volume
+    ! V_N = N * V_1, and both are considered as a hypothetical sphere
+    cluster_radius = monomer_radius * cluster_size**(1._dp/3._dp)
+
+    ! Geometrical cross section
+    cross_section = pi * (monomer_radius + cluster_radius)**2._dp
+
+    ! Sticking coefficiet is set to one for simplicity
+    if(present(stick)) then
+      stick_coefficient = stick
+    else
+      stick_coefficient = 1._dp
+    end if
+
+    rate = v_thermal * cross_section * stick_coefficient
+
+  end function cluster_growth_rate
+
+  function general_cluster_growth_rate(monomer_idx, cluster1_size, cluster2_size,&
+        temperature, stick) result(rate)
+    ! k_N = v_thermal * cross_section_N * stick_N
+    ! with N the cluster size of the reactant
+    use krome_constants
+    use krome_commons
+    use krome_getphys
+    implicit none
+    integer, parameter :: dp=kind(0.d0) ! double precision
+
+    integer, intent(in) :: monomer_idx
+    integer, intent(in) :: cluster1_size
+    integer, intent(in) :: cluster2_size
+    real(dp), intent(in) :: temperature
+    real(dp), intent(in), optional :: stick
+    real(dp) :: rate
+
+    real(dp) :: v_thermal
+    real(dp) :: cross_section
+    real(dp) :: stick_coefficient
+    real(dp) :: monomer_radius
+    real(dp) :: cluster1_radius
+    real(dp) :: cluster2_radius
+    real(dp) :: inverse_monomer_mass
+    real(dp) :: inverse_cluster1_mass
+    real(dp) :: inverse_cluster2_mass
+    real(dp) :: inverse_reduced_mass
+    real(dp) :: inverse_mass(nspec)
+
+    inverse_mass(:) = get_imass()
+
+    ! References in kromelib.py
+    monomer_radius = 7.5765e-09_dp ! SIO in cm
+
+    inverse_monomer_mass = inverse_mass(monomer_idx)
+    inverse_cluster1_mass = 1._dp/cluster1_size * inverse_monomer_mass
+    inverse_cluster2_mass = 1._dp/cluster2_size * inverse_monomer_mass
+    inverse_reduced_mass = inverse_cluster1_mass + inverse_cluster2_mass
+
+    v_thermal = sqrt(8._dp * boltzmann_erg * temperature &
+        * inverse_reduced_mass / pi )
+
+    ! Assuming cluster volume is proportional to monomer volume
+    ! V_N = N * V_1, and both are considered as a hypothetical sphere
+    cluster1_radius = monomer_radius * cluster1_size**(1._dp/3._dp)
+    cluster2_radius = monomer_radius * cluster2_size**(1._dp/3._dp)
+
+    ! Geometrical cross section
+    cross_section = pi * (cluster1_radius + cluster2_radius)**2._dp
+
+    ! Sticking coefficiet is set to one for simplicity
+    if(present(stick)) then
+      stick_coefficient = stick
+    else
+      stick_coefficient = 1._dp
+    end if
+
+    rate = v_thermal * cross_section * stick_coefficient
+
+  end function general_cluster_growth_rate
+
   !***********************************
   subroutine init_exp_table()
     use krome_commons
@@ -8466,8 +9996,8 @@ contains
     use krome_fit
     real*8::revHS,Tgas,Tgas2,Tgas3,Tgas4,invT,lnT,H,S
     real*8::Tnist,Tnist2,Tnist3,Tnist4,invTnist,invTnist2,lnTnist
-    real*8::p1_nasa(92,7), p2_nasa(92,7), Tlim_nasa(92,3), p(7)
-    real*8::p1_nist(92,7), p2_nist(92,7), Tlim_nist(92,3)
+    real*8::p1_nasa(119,7), p2_nasa(119,7), Tlim_nasa(119,3), p(7)
+    real*8::p1_nist(119,7), p2_nist(119,7), Tlim_nist(119,3)
     integer::idx
 
     p(:) = 0.d0
@@ -9241,337 +10771,449 @@ contains
     ! and product index
     use krome_commons
 
-    arr_r1(1:1144) = (/2,55,6,6,6,6,6,6,6,8,8,8,8,8,57,57,57,57&
-        ,57,57,57,7,7,7,7,59,59,59,59,58,12,12,12,12,12,12,12,12,12&
-        ,72,72,72,73,73,73,23,2,2,2,2,2,2,2,2,2,2,64,64,64,64,64,64&
-        ,18,65,65,65,65,19,55,55,55,55,55,55,55,55,55,55,55,55,55,55&
-        ,55,55,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,6,13,68&
-        ,68,68,68,68,9,9,9,8,8,8,8,8,8,75,75,5,5,14,14,78,78,78,78,78&
-        ,78,78,78,15,15,15,15,15,74,74,74,74,74,74,74,74,74,74,74,74&
-        ,74,74,74,66,66,66,66,24,76,76,76,76,76,69,69,69,21,21,21,21&
-        ,21,21,62,62,62,16,16,16,16,16,16,25,25,25,25,17,17,17,70,70&
-        ,70,70,70,70,70,70,70,3,3,3,71,71,71,71,71,71,10,10,10,7,19,6&
-        ,6,6,8,26,24,3,7,59,12,12,22,22,22,28,28,23,2,18,29,19,30,13&
-        ,9,8,5,14,14,4,31,27,26,15,20,24,21,21,16,16,16,25,25,32,17&
-        ,17,11,11,33,3,34,10,59,58,58,58,72,72,72,73,73,64,65,77,60&
-        ,60,60,60,80,80,68,68,68,81,81,82,82,82,82,82,83,83,83,83,75&
-        ,84,84,84,54,85,85,85,79,56,86,66,87,87,76,69,69,62,62,63,67&
-        ,88,71,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,7,7,7,7,7&
-        ,7,7,7,7,7,7,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59&
-        ,59,59,59,59,58,58,58,58,58,58,12,12,12,12,12,12,12,12,12,12&
-        ,12,12,12,12,12,12,72,72,72,72,72,72,72,73,73,73,73,23,23,23&
-        ,23,23,23,23,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,64,64,64,18&
-        ,18,65,19,19,19,19,55,55,55,55,55,55,55,55,55,55,55,55,55,77&
-        ,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,6,6,6&
-        ,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,60,60,13,13,13,68,68,68,68,68&
-        ,68,68,9,9,9,9,9,9,9,9,9,9,9,9,81,81,81,81,81,81,81,81,81,81&
-        ,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,83,83,83,8,8,8&
-        ,8,8,75,75,75,75,75,75,75,5,5,5,5,5,5,84,84,54,54,14,14,14,14&
-        ,14,4,4,4,4,4,4,79,78,78,78,78,78,78,78,78,78,78,78,78,78,78&
-        ,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,78&
-        ,78,78,78,78,78,78,78,78,78,78,78,78,74,74,74,74,74,74,74,74&
-        ,74,74,74,74,74,74,74,74,74,74,66,66,20,20,87,87,24,24,24,24&
-        ,24,24,24,24,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,76&
-        ,76,76,76,76,76,76,69,69,69,69,69,69,69,69,69,69,21,21,21,21&
-        ,21,21,21,21,21,21,21,21,21,16,16,25,25,25,25,25,25,25,25,25&
-        ,25,25,25,25,17,70,70,70,70,70,70,70,70,70,70,70,70,67,88,3,3&
-        ,3,3,3,3,3,3,3,71,71,71,71,71,71,71,71,71,71,71,71,10,10,10&
-        ,10,10,10,10,10,7,7,7,7,7,7,7,7,7,7,7,7,7,7,12,12,12,12,12,12&
-        ,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,22,22,22&
-        ,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,23,23,23,2,2&
-        ,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,18,18,18,18,18,18,18,18,19&
-        ,19,19,19,6,6,6,6,6,6,6,6,6,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8&
-        ,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,14,14,14,14,14,14,14,31,24&
-        ,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24&
-        ,24,21,21,21,21,21,16,25,25,25,25,25,25,25,25,25,25,25,25,25&
-        ,25,25,25,25,17,17,17,11,11,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3&
-        ,3,3,3,3,3,3,3,3,10,10,10,10,10,10,10,10,10,10,10,10,7,59,58&
-        ,58,58,12,12,72,72,22,22,22,28,28,28,73,73,23,23,23,23,2,2,18&
-        ,65,29,19,77,30,13,13,13,13,68,9,9,81,81,5,54,14,14,4,31,27&
-        ,15,20,76,21,21,16,16,16,25,25,32,17,17,67,11,11,33,33,34,71&
-        ,10,10,57,57,7,7,7,55,55,6,6,6,8,8,8,8,74,3,57,72,55,60,78,61&
-        ,74,70,28,31,34,56,19,82,7,19,13,2,10,17,12,9,29,22,23,14,20&
-        ,18,57,25,5,16,74,70,67,66,59,76,71,65,64,63,58,69,68,54,75&
-        ,62,60,72,83,85,73,21,24,3,11,32,27,79,80,88,30,61,15,84,87&
-        ,33,19,4,1,38,45,40,51,44,52,39,43,50,41,37,48,46,35,49,36,42&
-        ,47/)
-    arr_r2(1:1144) = (/3,4,2,6,9,56,11,10,1,2,6,9,11,10&
-        ,12,2,13,14,15,16,17,64,65,66,67,14,15,16,17,17,64,65,60,68&
-        ,66,69,70,67,71,14,15,17,13,16,11,65,64,65,60,68,74,66,69,70&
-        ,67,71,19,13,5,14,17,11,66,13,14,17,11,66,12,22,23,2,13,9,5&
-        ,14,15,21,16,25,17,11,3,10,12,23,2,18,19,13,9,5,14,21,16,25&
-        ,17,11,10,78,67,13,14,15,17,11,65,75,66,64,65,77,75,78,70,17&
-        ,11,65,66,60,67,7,23,2,13,9,20,16,11,60,54,66,63,67,12,23,18&
-        ,19,13,9,5,14,15,21,16,25,17,11,10,13,14,17,11,66,13,9,16,17&
-        ,11,14,16,17,64,65,68,66,67,71,14,15,17,65,60,68,75,66,67,64&
-        ,65,66,70,60,79,67,23,19,13,9,14,21,16,11,10,64,65,66,13,9,14&
-        ,16,17,11,64,65,66,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,1,1&
+    arr_r1(1:1331) = (/2,71,6,6,6,6,6,6,6,8,8,8,8,8,73,73,73,73&
+        ,73,73,73,73,73,73,73,73,73,7,7,7,7,75,75,75,75,75,74,12,12&
+        ,12,12,12,12,12,12,12,94,94,94,95,95,95,29,2,2,2,2,2,2,2,2,2&
+        ,2,86,86,86,86,86,86,24,87,87,87,87,25,71,71,71,71,71,71,71&
+        ,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,102&
+        ,102,102,102,102,102,102,102,102,102,102,102,102,102,102,6,13&
+        ,90,90,90,90,90,90,9,9,9,8,8,8,8,8,8,97,97,5,5,14,14,14,103&
+        ,103,103,103,103,103,103,103,103,15,15,15,15,15,15,15,96,96&
+        ,96,96,96,96,96,96,96,96,96,96,96,96,96,88,88,88,88,30,98,98&
+        ,98,98,98,91,91,91,27,27,27,27,27,27,78,78,78,78,16,16,16,16&
+        ,16,16,31,31,31,31,17,17,17,17,92,92,92,92,92,92,92,92,92,3,3&
+        ,3,93,93,93,93,93,93,10,10,10,18,18,18,7,25,6,6,6,8,35,30,3,7&
+        ,75,12,12,28,28,28,37,37,29,2,24,38,25,39,13,9,40,8,5,14,14,4&
+        ,41,36,35,15,26,30,27,27,16,16,16,31,31,42,17,17,11,11,43,3&
+        ,44,10,18,19,20,21,22,23,32,33,34,75,74,74,74,94,94,94,95,95&
+        ,86,87,102,76,76,76,76,105,105,90,90,90,106,106,107,107,107&
+        ,107,107,108,108,108,108,97,109,109,109,70,110,110,110,104,72&
+        ,111,88,112,112,98,91,91,78,78,79,89,113,93,83,81,82,100,84&
+        ,84,84,85,85,99,99,114,114,101,115,115,73,73,73,73,73,73,73&
+        ,73,73,73,73,73,73,73,73,73,73,73,7,7,7,7,7,7,7,7,7,7,7,7,7&
+        ,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,75&
+        ,74,74,74,74,74,74,12,12,12,12,12,12,12,12,12,12,12,12,12,12&
+        ,12,12,12,94,94,94,94,94,94,94,94,95,95,95,95,29,29,29,29,29&
+        ,29,29,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,86,86,86,24&
+        ,24,87,25,25,25,25,25,25,71,71,71,71,71,71,71,71,71,71,71,71&
+        ,71,71,71,71,71,71,102,102,102,102,102,102,102,102,102,102&
+        ,102,102,102,102,102,102,102,102,102,6,6,6,6,6,6,6,6,6,6,6,6&
+        ,6,6,6,6,6,6,6,6,76,76,13,13,13,90,90,90,90,90,90,90,9,9,9,9&
+        ,9,9,9,9,9,9,9,9,9,9,9,9,106,106,106,106,106,106,106,106,106&
+        ,106,106,106,106,106,106,106,106,106,106,106,106,106,106,106&
+        ,106,106,106,106,106,106,106,108,108,108,108,108,108,108,8,8&
+        ,8,8,8,8,97,97,97,97,97,97,97,5,5,5,5,5,5,109,109,70,70,70,70&
+        ,70,70,14,14,14,14,14,4,4,4,4,4,4,104,103,103,103,103,103,103&
+        ,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103&
+        ,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103&
+        ,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103&
+        ,103,103,103,103,103,103,103,103,96,96,96,96,96,96,96,96,96&
+        ,96,96,96,96,96,96,96,96,96,88,88,26,26,112,112,30,30,30,30&
+        ,30,30,30,30,30,30,30,98,98,98,98,98,98,98,98,98,98,98,98,98&
+        ,98,98,98,98,98,98,98,98,98,91,91,91,91,91,91,91,91,91,91,27&
+        ,27,27,27,27,27,27,27,27,27,27,27,27,16,16,31,31,31,31,31,31&
+        ,31,31,31,31,31,31,31,17,92,92,92,92,92,92,92,92,92,92,92,92&
+        ,89,113,3,3,3,3,3,3,3,3,3,3,3,3,3,3,93,93,93,93,93,93,93,93&
+        ,93,93,93,93,93,93,93,10,10,10,10,10,10,10,10,10,80,18,84,7,7&
+        ,7,7,7,7,7,7,7,7,7,7,7,7,7,12,12,12,12,12,12,12,12,12,12,12&
+        ,12,12,12,12,12,12,12,12,12,12,12,12,28,28,28,28,28,28,28,28&
+        ,28,28,28,28,28,28,28,28,28,28,28,29,29,29,2,2,2,2,2,2,2,2,2&
+        ,2,2,2,2,2,2,2,2,2,2,24,24,24,24,24,24,24,24,24,25,25,25,25,6&
+        ,6,6,6,6,6,6,6,6,6,6,6,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8&
+        ,8,8,8,8,8,8,8,8,8,8,8,14,14,14,14,14,14,14,41,30,30,30,30,30&
+        ,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,27,27&
+        ,27,27,27,16,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31&
+        ,31,17,17,17,11,11,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3&
+        ,3,3,3,3,3,3,3,3,3,3,3,3,3,10,10,10,10,10,10,10,10,10,10,10&
+        ,10,10,18,18,18,18,7,75,74,74,74,12,12,94,94,28,28,28,37,37&
+        ,37,95,95,29,29,29,29,2,2,24,87,38,25,102,39,13,13,13,13,90,9&
+        ,9,40,40,106,106,5,70,14,14,4,41,36,15,26,98,27,27,16,16,16&
+        ,31,31,42,17,17,89,11,11,43,43,44,93,10,10,18,20,21,100,22,22&
+        ,23,23,23,32,32,32,33,101,34,34,73,73,7,7,7,71,71,6,6,6,6,6,6&
+        ,8,8,8,8,8,96,3,3,3,73,94,71,76,103,77,96,92,80,37,41,44,72&
+        ,25,18,34,33,80,100,22,84,23,85,32,99,21,19,83,81,20,82,101&
+        ,115,40,114,107,7,25,13,2,10,17,12,9,38,28,29,14,26,24,73,31&
+        ,5,16,96,92,89,88,75,98,93,87,86,79,74,91,90,70,97,78,76,94&
+        ,108,110,95,27,30,3,11,42,36,104,105,113,39,77,15,109,112,43&
+        ,25,4,1,53,60,55,66,59,67,54,58,65,56,47,63,61,45,64,46,57,62&
+        ,48,50,69,49,51,52/)
+    arr_r2(1:1331) = (/3,4,2,6,9,72,11,10&
+        ,1,2,6,9,11,10,12,2,13,14,15,16,17,18,19,20,21,22,23,86,87,88&
+        ,89,14,15,16,17,18,17,86,87,76,90,88,91,92,89,93,14,15,17,13&
+        ,16,11,87,86,87,76,90,96,88,91,92,89,93,25,13,5,14,17,11,88&
+        ,13,14,17,11,88,12,28,29,2,13,9,5,14,15,27,16,31,17,11,3,10&
+        ,18,19,20,21,22,23,32,33,34,12,29,2,24,25,13,9,5,14,27,16,31&
+        ,17,11,10,103,89,13,14,15,17,11,18,87,97,88,86,87,102,97,103&
+        ,92,17,11,87,88,76,89,101,7,29,2,13,9,26,16,11,18,76,70,88,79&
+        ,89,80,101,12,29,24,25,13,9,5,14,15,27,16,31,17,11,10,13,14&
+        ,17,11,88,13,9,16,17,11,14,16,17,86,87,90,88,89,93,14,15,17&
+        ,18,87,76,90,97,88,89,86,87,88,92,76,104,89,101,29,25,13,9,14&
+        ,27,16,11,10,86,87,88,13,9,14,16,17,11,86,87,88,76,79,89,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1&
         ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1&
-        ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,28,28,29,13,13&
-        ,9,9,14,21,16,25,11,11,34,10,68,83,75,54,85,79,87,76,67,88,71&
-        ,28,28,29,13,13,13,9,9,9,5,14,4,24,21,25,11,11,11,3,10,29,13&
-        ,9,14,11,3,65,60,68,83,75,84,84,54,79,87,76,69,62,67,88,71,28&
-        ,13,14,11,3,3,10,29,19,13,9,65,60,68,75,66,66,71,65,60,68,82&
-        ,83,75,84,84,54,79,74,87,76,69,70,67,88,71,13,14,11,79,88,13&
-        ,85,79,87,88,12,28,28,28,23,29,13,13,14,14,31,27,32,7,12,23,2&
-        ,18,29,19,6,13,9,14,26,20,24,25,17,11,3,10,57,59,58,64,65,65&
-        ,68,75,78,86,74,66,76,76,69,70,88,71,13,11,79,67,88,19,13,9,5&
-        ,14,14,4,64,64,65,60,82,75,54,85,79,66,87,88,7,12,22,28,2,18&
-        ,29,19,19,13,9,5,14,4,27,15,20,21,25,32,17,11,3,3,10,13,5,4&
-        ,59,58,72,73,86,29,19,13,5,14,14,4,60,82,54,79,87,88,13,13,13&
-        ,14,60,79,87,67,88,60,82,54,79,87,88,29,12,12,22,28,28,23,23&
-        ,23,23,2,18,18,29,29,29,29,19,13,13,13,9,9,5,5,5,5,14,14,14,4&
-        ,4,4,27,27,20,21,21,16,16,25,17,17,11,34,34,10,28,28,28,28,23&
-        ,23,23,29,19,13,13,14,16,16,25,17,11,11,13,14,79,88,29,13,58&
-        ,64,68,68,76,69,67,71,18,29,29,29,19,13,13,9,9,9,9,5,14,4,20&
-        ,21,25,17,11,11,3,10,13,13,9,9,5,14,4,21,11,11,65,60,68,82,83&
-        ,75,84,84,54,79,87,88,71,65,75,72,65,60,68,75,54,79,87,69,70&
-        ,67,88,71,88,28,28,23,18,29,13,5,5,14,20,32,10,28,29,73,68,85&
-        ,66,87,69,62,88,71,18,29,19,13,9,5,14,14,4,20,17,10,65,68,75&
-        ,54,54,79,87,88,12,14,20,21,21,21,25,25,17,17,11,34,10,10,12&
-        ,23,18,13,14,27,20,32,17,17,17,11,11,11,11,11,3,3,3,3,10,10&
-        ,10,22,18,13,9,14,27,21,16,32,17,11,11,11,33,3,3,10,10,10,18&
-        ,11,10,29,13,14,27,20,24,24,17,17,17,11,11,11,11,33,33,3,3,10&
-        ,13,14,27,32,17,17,11,11,27,32,11,33,7,12,22,2,18,24,21,25,11&
-        ,11,3,10,12,22,23,2,29,19,30,13,9,5,14,14,4,27,27,27,21,16,25&
-        ,32,17,17,11,33,33,33,34,34,34,10,14,14,27,17,11,11,33,7,12&
-        ,12,12,22,22,22,18,29,30,14,14,14,27,25,32,32,32,17,11,33,10&
-        ,10,23,17,17,10,10,18,23,18,9,16,25,25,25,32,17,17,11,11,3,3&
-        ,10,10,10,17,11,34,34,34,23,18,18,29,30,13,9,5,5,5,14,14,27&
-        ,27,27,20,21,21,16,32,17,33,34,34,10,18,18,19,13,5,5,14,27,16&
-        ,17,33,10,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,24,3,24,70,3,8,26,57,7,2,57,7&
-        ,3,10,24,3,1,1,1,1,1,1,1,1,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92/)
-    arr_p1(1:1144) = (/54,5,7&
-        ,6,10,54,3,3,8,7,8,10,3,3,58,59,60,54,61,62,63,18,19,20,11,54&
-        ,61,62,63,63,18,19,13,9,20,21,3,11,10,54,61,63,60,62,67,19,18&
-        ,19,13,9,24,20,21,3,11,10,65,60,75,54,63,67,20,60,54,63,67,20&
-        ,58,72,73,59,60,68,75,54,61,69,62,76,63,67,70,71,58,73,59,64&
-        ,65,60,68,75,54,69,62,76,63,67,71,26,11,60,54,61,63,67,19,5&
-        ,20,18,19,6,5,26,3,63,67,19,20,13,11,57,73,59,60,68,66,62,67&
-        ,13,14,20,17,11,58,73,64,65,60,68,75,54,61,69,62,76,63,67,71&
-        ,60,54,63,67,20,60,68,62,63,67,54,62,63,18,19,9,20,11,10,54&
-        ,61,63,19,13,9,5,20,11,18,19,20,3,13,27,11,73,65,60,68,54,69&
-        ,62,67,71,18,19,20,60,68,54,62,63,67,18,19,20,57,65,55,77,8&
-        ,55,78,74,70,57,57,58,2,12,72,2,13,10,12,7,24,19,3,5,19,10,55&
-        ,18,19,54,18,25,17,78,61,24,74,69,25,21,62,25,24,76,17,63,3&
-        ,67,3,11,70,18,3,7,7,7,2,12,2,2,12,22,24,3,8,12,19,19,14,27&
-        ,17,3,3,10,6,8,12,2,19,13,14,9,3,10,10,18,18,5,4,19,29,19,19&
-        ,17,19,26,24,20,24,24,24,25,21,25,3,3,11,3,82,14,65,19,54,54&
-        ,56,19,75,75,64,65,19,65,65,10,54,18,19,29,17,20,24,65,11,3&
-        ,13,82,54,19,82,54,60,83,54,84,19,84,64,75,64,65,54,14,65,65&
-        ,60,54,82,19,54,54,54,14,10,9,18,5,4,19,17,20,72,72,21,60,11&
-        ,3,82,54,19,82,60,54,60,85,54,82,83,54,82,83,84,20,20,83,54&
-        ,14,10,13,9,18,5,4,19,17,64,20,58,25,65,54,11,3,54,19,63,17&
-        ,11,54,29,17,54,11,59,72,82,54,72,54,65,54,65,19,69,63,63,59&
-        ,72,72,58,75,85,54,81,54,83,19,86,87,76,69,79,88,71,68,59,58&
-        ,72,75,54,56,83,84,26,26,76,87,24,69,62,71,11,68,82,33,82,11&
-        ,11,54,82,83,84,19,60,84,75,54,54,14,13,18,19,29,17,87,20,11&
-        ,59,72,73,72,58,75,85,54,56,82,83,84,60,84,80,61,87,62,69,63&
-        ,79,88,68,71,68,82,84,84,57,59,58,72,26,85,54,82,84,60,84,84&
-        ,14,13,84,17,84,11,82,82,82,60,82,60,60,88,11,14,13,84,17,84&
-        ,11,85,57,59,59,71,10,59,58,72,22,57,74,24,65,19,67,11,3,65&
-        ,54,3,71,10,64,74,24,24,65,19,3,64,24,76,63,17,74,74,76,76,69&
-        ,74,70,3,70,64,18,70,60,82,63,17,72,75,84,17,63,54,63,19,87&
-        ,69,66,66,63,17,54,87,17,11,85,82,75,66,79,63,66,87,63,63,75&
-        ,85,79,63,54,82,54,83,79,62,10,84,60,84,87,62,69,87,63,88,71&
-        ,68,82,14,83,62,84,60,84,62,80,79,54,14,62,13,9,18,5,4,19,17&
-        ,20,11,62,54,84,84,54,82,83,18,19,17,20,62,63,79,11,69,11,60&
-        ,82,10,63,67,54,54,63,19,63,11,67,11,85,10,67,11,63,20,79,79&
-        ,11,67,75,85,54,82,83,84,19,60,84,87,79,68,54,83,18,19,85,17&
-        ,20,11,2,19,18,5,4,25,18,24,18,19,19,19,19,3,22,22,5,14,19,17&
-        ,5,13,13,5,31,29,29,19,13,14,19,19,14,10,13,9,3,23,5,14,10,19&
-        ,17,23,23,13,5,13,14,33,11,19,13,23,13,9,5,33,9,14,14,19,17,5&
-        ,18,25,5,14,34,29,19,19,14,14,11,19,10,14,14,19,17,17,20,34&
-        ,17,34,29,29,29,29,2,22,23,12,5,25,16,21,33,10,10,9,2,12,22,7&
-        ,19,10,5,14,10,18,19,3,5,21,17,10,25,21,24,17,3,10,10,9,11,10&
-        ,5,25,10,3,19,13,13,27,29,33,11,19,5,4,25,30,5,5,20,17,5,19,5&
-        ,34,17,20,20,17,11,20,17,11,17,3,22,20,20,9,16,5,22,5,10,21&
-        ,20,20,21,27,20,20,27,17,17,10,9,27,21,11,32,20,29,32,10,19&
-        ,17,11,34,14,10,18,19,34,29,19,32,17,11,17,27,10,10,11,11,11&
-        ,19,11,11,5,34,29,14,18,19,19,17,9,32,11,9,57,7,57,59,2,58,2&
-        ,59,58,12,72,2,13,82,10,58,72,12,22,73,2,7,59,24,57,19,3,55,5&
-        ,19,19,60,54,71,68,10,77,6,18,65,19,54,18,25,17,61,24,24,69&
-        ,25,21,62,25,24,76,17,63,3,70,67,3,11,10,18,70,3,71,64,65,18&
-        ,65,19,77,86,58,12,22,59,2,10,9,66,11,7,22,8,13,26,15,24,3,35&
-        ,36,36,37,37,35,38,39,37,38,40,41,38,40,42,38,38,37,43,44,38&
-        ,45,44,45,45,40,46,43,38,45,40,39,44,41,38,45,40,37,44,45,37&
-        ,38,40,42,38,45,45,40,46,47,48,48,48,49,50,51,51,44,43,49,35&
-        ,52,53,23,16,9,15,5,4,19,20,30,17,13,27,11,28,33,31,29&
-        ,32/)
-    arr_p2(1:1144) = (/1,55,6,8,6,6,3,6,8,8,8,8,3,8,7,7&
-        ,7,7,7,7,7,57,57,57,57,2,2,2,2,12,58,58,58,58,58,58,58,58,58&
-        ,22,22,22,23,23,23,73,59,59,59,59,59,59,59,59,59,59,18,18,18&
-        ,18,18,18,64,19,19,19,19,65,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,6&
-        ,6,6,6,6,6,6,6,6,6,6,6,6,6,6,77,60,9,9,9,9,9,68,68,68,55,55&
-        ,55,55,55,55,5,5,75,75,54,54,26,26,26,26,26,26,26,26,61,61,61&
-        ,61,61,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,20,20,20&
-        ,20,74,25,25,25,25,25,21,21,21,69,69,69,69,69,69,16,16,16,62&
-        ,62,62,62,62,62,76,76,76,76,63,63,63,3,3,3,3,3,3,3,3,3,70,70&
-        ,70,10,10,10,10,10,10,71,71,71,1,1,8,1,8,1,1,1,1,1,8,1,8,8,1&
-        ,6,6,22,6,8,7,3,7,8,6,8,1,8,8,1,8,19,8,1,1,24,1,1,8,8,1,6,8,1&
-        ,3,1,24,1,3,8,1,3,8,8,6,8,8,8,6,8,8,8,7,7,8,3,6,8,8,8,6,6,8,8&
-        ,8,8,10,9,6,8,8,8,6,6,8,8,8,8,8,8,8,3,10,8,8,8,24,8,25,8,8,8&
-        ,8,8,24,3,8,8,2,72,19,58,2,8,8,59,8,6,8,3,70,18,8,59,6,59,59&
-        ,59,59,59,59,3,59,59,72,12,19,72,7,12,8,7,6,7,58,7,8,6,6,10,3&
-        ,70,8,6,19,22,8,72,10,8,2,72,72,72,72,72,72,72,72,72,24,25,72&
-        ,3,72,72,23,23,73,3,8,6,6,22,22,22,22,22,22,22,22,58,72,12,7&
-        ,58,58,58,58,58,58,58,58,58,8,58,24,58,8,3,58,58,5,75,19,75&
-        ,75,14,54,54,20,54,6,9,6,6,6,3,6,6,6,77,19,6,10,8,8,6,8,8,8,8&
-        ,8,6,8,81,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,55,81,8,8,81,8,8,8&
-        ,81,8,14,54,17,54,82,10,10,10,10,83,10,10,10,25,10,83,83,83&
-        ,83,83,83,10,83,83,6,6,6,9,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,10,6&
-        ,6,8,6,6,9,9,9,6,6,6,6,77,18,18,18,18,18,19,18,84,84,19,84,20&
-        ,84,5,4,19,19,19,17,20,19,60,84,84,19,84,20,84,17,26,26,26,22&
-        ,72,26,26,26,26,26,7,57,3,70,7,57,57,26,26,58,26,26,26,2,57&
-        ,59,26,86,59,26,57,7,26,26,24,26,26,26,26,26,24,74,3,3,70,26&
-        ,25,25,22,72,24,6,8,65,7,25,12,76,6,25,8,3,3,70,20,19,87,87&
-        ,20,20,8,7,8,6,8,8,3,8,24,24,19,14,24,24,21,24,6,3,69,24,24&
-        ,24,24,24,24,3,10,24,24,24,25,62,25,10,25,25,25,25,3,10,25,62&
-        ,10,62,62,62,62,62,62,62,62,62,3,21,21,6,24,24,24,69,69,69,69&
-        ,24,8,3,69,3,79,9,10,72,7,19,10,24,2,71,24,63,8,82,11,72,6,54&
-        ,24,71,8,6,71,8,3,3,3,3,3,3,68,3,3,3,3,3,3,3,68,68,8,68,68,68&
-        ,2,2,24,8,8,2,8,2,3,24,3,18,8,2,2,22,2,22,22,22,25,17,24,10,8&
-        ,6,8,9,3,10,6,8,8,2,8,2,22,12,12,23,23,23,23,25,21,27,9,10,9&
-        ,12,23,6,8,3,6,12,22,22,22,19,12,12,12,24,8,7,3,24,8,8,3,10,3&
-        ,10,12,8,7,8,5,5,5,34,19,24,19,3,25,17,3,10,8,8,8,8,8,8,8,8,8&
-        ,10,8,8,6,6,6,6,10,7,6,6,6,6,6,12,8,3,6,25,6,6,6,10,25,24,3,3&
-        ,6,10,3,19,18,6,19,19,17,19,10,19,13,4,8,8,2,8,6,8,7,19,25,25&
-        ,3,8,25,8,3,17,20,3,3,25,8,25,16,9,10,25,3,21,21,24,21,21,6,8&
-        ,24,17,3,10,3,10,8,24,24,8,3,20,3,29,17,19,22,24,7,19,6,10,10&
-        ,10,25,8,8,10,8,10,25,24,8,25,21,17,24,10,17,18,8,3,8,8,9,9&
-        ,21,9,9,21,8,9,3,1,55,6,8,55,1,8,6,8,8,1,6,6,8,22,6,8,6,8,1,6&
-        ,8,1,7,3,3,7,8,8,6,8,1,8,8,1,8,8,55,8,8,8,1,8,19,8,1,24,55,1&
-        ,8,8,1,6,8,1,3,1,24,3,1,3,8,3,3,8,8,1,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,8,8,92&
-        ,92,92,92,92,92,92,92,8,92,92,92,92,8,8,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92/)
-    arr_p3(1:1144) = (/92,92,8,8,8,92,6,8,1,8,8,8,8,8,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,1,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,8,92,92,92,8,8,92,92,92,92,92,92,8,92,92,92&
-        ,92,8,92,92,8,92,92,8,92,8,92,8,92,8,92,8,92,92,92,92,8,92,92&
-        ,92,92,92,92,92,92,8,92,92,8,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,6,8,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,6,92,92,8,92,92,92,92,92,92,92,92&
-        ,8,92,92,92,92,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,8,92,92,92,92,92,92,92,92,92,92,92,92,8,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,6,92,92,92,92,92,92,92,92,92,92,92,8,92,92,92,6,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,6,8,6&
-        ,26,26,6,6,8,55,8,26,26,26,26,26,26,26,6,8,26,8,55,8,26,26,26&
-        ,8,92,26,8,26,26,8,55,26,6,8,6,8,8,26,26,26,26,26,8,8,92,8,8&
-        ,8,8,8,92,92,92,92,92,92,92,92,92,92,92,8,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,8,92,92&
-        ,92,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,6,92,92,92,92,92,92,92,92,92,92,92,92,8,92,92,92,92&
-        ,92,92,92,92,3,92,92,92,92,92,92,92,92,92,8,92,92,92,92,92,92&
-        ,92,92,8,92,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,1,92,92,92,92,92,92,8,92,92,92,92,92&
-        ,92,92,92,92,8,92,1,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92/)
-    arr_p4(1:1144) = (/92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,8&
-        ,92,92,92,92,92,8,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92&
-        ,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92,92/)
+        ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,37,37,38,13,13,9,9,14,27,16,31&
+        ,11,11,44,10,22,33,34,90,108,97,70,110,104,112,98,89,113,93&
+        ,100,101,37,37,38,13,13,13,9,9,9,5,14,4,30,27,31,11,11,11,3&
+        ,10,38,13,9,14,11,3,87,76,90,108,97,109,109,70,104,112,98,91&
+        ,78,89,113,93,101,37,13,14,11,3,3,10,32,38,25,13,9,87,76,90&
+        ,97,88,88,93,87,76,90,107,108,97,109,109,70,104,96,112,98,91&
+        ,92,89,113,93,80,100,101,13,14,11,104,113,13,110,104,112,113&
+        ,99,101,12,37,37,37,29,38,13,13,40,14,14,41,36,42,22,23,32,33&
+        ,7,12,29,2,24,38,25,6,13,9,14,35,26,30,31,17,11,3,10,73,75,74&
+        ,86,87,87,90,97,103,111,96,88,98,98,91,92,113,93,99,101,13,11&
+        ,104,89,113,25,13,9,5,14,14,4,86,86,87,76,107,97,70,110,104&
+        ,88,112,113,80,100,99,114,7,12,28,37,2,24,38,25,25,13,9,5,14&
+        ,4,36,15,26,27,31,42,17,11,3,3,10,18,22,23,32,33,34,13,5,4,18&
+        ,22,33,34,75,74,94,95,111,100,38,25,13,5,14,14,4,76,107,70&
+        ,104,112,113,13,13,13,14,22,32,33,34,76,104,112,89,113,76,107&
+        ,70,104,112,113,38,12,12,28,37,37,29,29,29,29,2,24,24,38,38&
+        ,38,38,25,13,13,13,9,9,40,5,5,5,5,14,14,14,4,4,4,36,36,26,27&
+        ,27,16,16,31,17,17,11,44,44,10,20,21,21,22,22,23,23,32,32,33&
+        ,34,34,37,37,37,37,29,29,29,38,25,13,13,14,16,16,31,17,11,11&
+        ,13,14,104,113,38,13,74,86,90,90,98,91,89,93,83,101,101,24,38&
+        ,38,38,25,13,13,9,9,9,9,5,14,4,26,27,31,17,11,11,3,10,13,13,9&
+        ,9,5,14,4,27,11,11,87,76,90,107,108,97,109,109,70,104,112,113&
+        ,93,87,97,94,87,76,90,97,70,104,112,91,92,89,113,93,113,37,37&
+        ,29,24,38,13,5,5,14,26,42,10,37,38,95,90,110,88,112,91,78,113&
+        ,93,83,100,84,85,101,24,38,25,13,9,5,14,14,4,26,17,10,18,33&
+        ,34,87,90,97,70,70,104,112,113,80,37,70,11,12,14,26,27,27,27&
+        ,31,31,17,17,11,44,10,10,33,12,29,24,13,14,36,26,42,17,17,17&
+        ,11,11,11,11,11,3,3,3,3,10,10,10,28,24,13,9,14,36,27,16,42,17&
+        ,11,11,11,43,3,3,10,10,10,24,11,10,38,13,14,36,26,30,30,17,17&
+        ,17,11,11,11,11,43,43,3,3,10,13,14,36,42,17,17,11,11,32,36,42&
+        ,11,43,7,12,28,2,24,30,27,31,11,11,3,10,12,28,29,2,38,25,39&
+        ,13,9,5,14,14,4,36,36,36,27,16,31,42,17,17,11,43,43,43,44,44&
+        ,44,10,14,14,36,17,11,11,43,7,12,12,12,28,28,28,24,38,39,14&
+        ,14,14,36,31,42,42,42,17,11,43,10,10,21,29,17,17,10,10,24,29&
+        ,24,9,16,31,31,31,42,17,17,11,11,3,3,10,10,10,17,11,44,44,44&
+        ,29,24,24,38,39,13,9,5,5,5,14,14,36,36,36,26,27,27,16,42,17&
+        ,43,44,44,10,19,20,21,21,22,22,23,32,33,24,24,25,13,5,5,14,36&
+        ,16,17,43,10,18,38,25,17,11,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,30,3,30,92,3,8,35,73,7,2,80,100,85,73,7,3,10,80,30,3&
+        ,80,18,1,1,1,1,1,1,1,1,1,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119&
+        ,119/)
+    arr_p1(1:1331) = (/70,5,7,6,10,70,3,3,8,7,8,10,3,3&
+        ,74,75,76,70,77,78,79,80,81,82,83,84,85,24,25,26,11,70,77,78&
+        ,79,80,79,24,25,13,9,26,27,3,11,10,70,77,79,76,78,89,25,24,25&
+        ,13,9,30,26,27,3,11,10,87,76,97,70,79,89,26,76,70,79,89,26,74&
+        ,94,95,75,76,90,97,70,77,91,78,98,79,89,92,93,80,81,82,83,84&
+        ,85,99,100,101,74,95,75,86,87,76,90,97,70,91,78,98,79,89,93&
+        ,35,11,76,70,77,79,89,80,25,5,26,24,25,6,5,35,3,79,89,25,26&
+        ,13,11,34,73,95,75,76,90,88,78,89,80,13,14,26,17,11,18,34,74&
+        ,95,86,87,76,90,97,70,77,91,78,98,79,89,93,76,70,79,89,26,76&
+        ,90,78,79,89,70,78,79,24,25,9,26,11,10,70,77,79,80,25,13,9,5&
+        ,26,11,24,25,26,3,13,36,11,34,95,87,76,90,70,91,78,89,93,24&
+        ,25,26,76,90,70,78,79,89,24,25,26,13,17,11,73,87,71,102,8,71&
+        ,103,96,92,73,73,74,2,12,94,2,13,10,12,7,30,25,3,5,25,10,34&
+        ,71,24,25,70,24,31,17,103,77,30,96,91,31,27,78,31,30,98,17,79&
+        ,3,89,3,11,92,24,3,80,21,19,18,33,22,22,18,18,7,7,7,2,12,2,2&
+        ,12,28,30,3,8,12,25,25,14,36,17,3,3,10,6,8,12,2,25,13,14,9,3&
+        ,10,10,24,24,5,4,25,38,25,25,17,25,35,30,26,30,30,30,31,27,31&
+        ,3,3,11,3,18,21,19,18,18,18,33,22,33,22,23,23,32,18,18,34,107&
+        ,14,87,25,70,70,72,25,97,97,86,87,25,87,87,83,83,80,10,70,24&
+        ,25,38,17,26,30,87,11,3,83,80,13,107,70,25,107,70,76,108,70&
+        ,109,25,109,86,97,86,87,70,14,87,87,76,70,107,25,70,70,70,14&
+        ,10,9,24,5,4,25,17,26,94,94,27,76,11,3,13,107,70,25,107,76,70&
+        ,76,85,110,70,107,108,70,107,108,109,26,26,108,70,14,10,13,9&
+        ,24,5,4,25,17,86,26,74,31,87,70,11,3,83,18,70,70,25,79,17,11&
+        ,70,38,17,70,11,23,38,75,94,107,70,94,70,87,70,115,87,25,91&
+        ,79,79,100,84,85,80,75,94,94,74,97,110,70,106,70,108,25,111&
+        ,112,98,91,104,113,93,90,75,74,94,97,70,72,108,109,35,35,98&
+        ,112,30,91,78,93,11,90,114,115,107,43,107,11,11,70,107,108&
+        ,109,25,76,109,97,70,70,14,13,24,25,38,17,112,26,11,115,18,23&
+        ,32,75,94,95,94,74,97,110,70,72,107,108,109,76,109,105,77,112&
+        ,78,91,79,104,113,90,93,90,100,85,99,114,84,115,107,109,109&
+        ,100,85,84,115,73,75,74,94,35,80,110,70,107,109,76,109,109,14&
+        ,13,109,17,109,11,107,107,107,76,85,114,84,115,107,76,76,113&
+        ,11,14,13,109,17,109,11,110,73,75,75,93,10,75,74,94,28,73,96&
+        ,30,87,25,89,11,3,87,70,3,93,10,115,86,96,30,30,87,25,3,86,30&
+        ,98,79,17,96,96,98,98,91,96,92,3,92,86,24,92,81,80,18,80,100&
+        ,100,84,80,100,80,80,18,76,107,79,17,94,97,109,17,79,70,79,25&
+        ,112,91,88,88,79,17,70,112,17,11,110,107,97,88,104,79,88,112&
+        ,79,79,80,79,17,97,110,104,79,70,107,70,108,104,78,10,109,76&
+        ,109,112,78,91,112,79,113,93,90,107,14,108,78,109,76,109,78&
+        ,105,104,70,14,78,13,9,24,5,4,25,17,26,11,78,70,109,109,70&
+        ,107,108,24,25,17,26,78,79,104,11,91,11,76,107,10,79,89,70,70&
+        ,79,25,79,11,89,11,110,10,89,11,79,26,104,104,11,89,101,101&
+        ,115,115,11,97,110,70,107,108,109,25,76,109,112,104,90,100,84&
+        ,115,70,108,24,25,110,17,26,11,101,115,100,115,2,25,24,5,4,31&
+        ,24,30,24,25,25,25,25,3,21,28,28,5,14,25,17,5,13,13,5,41,38&
+        ,38,25,13,14,25,25,14,10,13,9,3,29,5,14,10,25,17,29,29,13,5&
+        ,13,14,43,11,25,13,29,13,9,5,43,9,14,14,25,17,5,24,31,5,14,44&
+        ,38,25,25,14,14,11,25,10,14,14,25,17,17,26,44,17,44,5,38,38&
+        ,38,38,2,28,29,12,5,31,16,27,43,10,10,9,2,12,28,7,25,10,5,14&
+        ,10,24,25,3,5,27,17,10,31,27,30,17,3,10,10,9,11,10,5,31,10,3&
+        ,25,13,13,36,38,43,11,25,5,4,31,39,5,5,26,17,5,25,5,44,17,26&
+        ,26,17,11,26,17,11,17,3,18,28,26,26,9,16,5,28,5,10,27,26,26&
+        ,27,36,26,26,36,17,17,10,9,36,27,11,42,26,38,42,10,25,17,11&
+        ,44,14,10,24,25,44,38,25,42,17,11,17,36,10,10,11,11,11,25,11&
+        ,11,21,19,18,34,34,34,40,23,34,5,44,38,14,24,25,25,17,9,42,11&
+        ,9,34,34,34,34,34,73,7,73,75,2,74,2,75,74,12,94,2,13,107,10&
+        ,74,94,12,28,95,2,7,75,30,73,25,3,71,5,25,25,76,70,93,90,10&
+        ,34,34,102,6,24,87,25,70,24,31,17,77,30,30,91,31,27,78,31,30&
+        ,98,17,79,3,92,89,3,11,10,24,92,3,93,80,19,18,80,84,33,22,85&
+        ,33,22,23,33,18,80,18,101,86,87,24,87,25,102,111,74,12,28,84&
+        ,85,114,75,2,10,9,100,88,11,101,34,7,28,8,13,35,15,30,3,18,45&
+        ,46,46,47,47,48,49,48,48,48,48,48,48,48,48,48,50,51,50,51,52&
+        ,52,49,49,49,48,45,53,54,47,53,55,56,53,55,57,53,53,47,58,59&
+        ,53,60,59,60,60,55,61,58,53,60,55,54,59,56,53,60,55,47,59,60&
+        ,47,53,55,57,53,60,60,55,61,62,63,63,63,64,65,66,66,59,58,64&
+        ,45,67,68,29,16,9,15,5,4,25,26,39,17,13,36,11,37,43,41,38,42&
+        ,32,21,34,40,19,20/)
+    arr_p2(1:1331) = (/1,71,6,8,6,6,3,6,8&
+        ,8,8,8,3,8,7,7,7,7,7,7,7,7,7,7,7,7,7,73,73,73,73,2,2,2,2,2,12&
+        ,74,74,74,74,74,74,74,74,74,28,28,28,29,29,29,95,75,75,75,75&
+        ,75,75,75,75,75,75,24,24,24,24,24,24,86,25,25,25,25,87,8,8,8&
+        ,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,6,6,6,6,6,6,6,6&
+        ,6,6,6,6,6,6,6,102,76,9,9,9,9,9,9,90,90,90,71,71,71,71,71,71&
+        ,5,5,97,97,70,70,70,35,35,35,35,35,35,35,35,35,77,77,77,77,77&
+        ,77,77,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,26,26,26&
+        ,26,96,31,31,31,31,31,27,27,27,91,91,91,91,91,91,16,16,16,16&
+        ,78,78,78,78,78,78,98,98,98,98,79,79,79,79,3,3,3,3,3,3,3,3,3&
+        ,92,92,92,10,10,10,10,10,10,93,93,93,80,80,80,1,1,8,1,8,1,1,1&
+        ,1,1,8,1,8,8,1,6,6,28,6,8,7,3,7,8,6,8,6,1,8,8,1,8,25,8,1,1,30&
+        ,1,1,8,8,1,6,8,1,3,1,30,1,3,8,1,3,8,1,7,7,7,8,8,6,8,3,8,6,8,8&
+        ,8,6,8,8,8,7,7,8,3,6,8,8,8,6,6,8,8,8,8,10,9,6,8,8,8,6,6,8,8,8&
+        ,8,8,8,8,3,10,8,8,8,30,8,31,8,8,8,8,8,30,3,8,8,7,7,7,8,6,8,8&
+        ,8,6,6,8,6,8,3,10,8,2,94,25,74,2,8,8,75,8,6,8,3,92,24,8,6,8&
+        ,25,75,6,75,75,75,75,75,75,3,75,75,8,25,94,12,25,94,7,12,8,7&
+        ,6,7,74,7,8,6,6,10,3,92,8,6,25,28,8,94,10,8,2,94,94,94,94,94&
+        ,94,94,94,94,30,31,94,3,94,94,80,29,29,95,3,8,6,6,29,28,28,28&
+        ,28,28,28,28,28,74,94,12,7,74,74,74,74,74,74,74,74,74,8,74,30&
+        ,74,8,3,74,74,8,74,18,5,97,25,97,97,14,70,70,26,70,70,80,6,9&
+        ,6,6,6,3,6,6,6,6,102,25,6,10,6,6,6,6,8,8,6,8,8,8,8,8,6,8,106&
+        ,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,71,106,8,8,106,8,8,8,106,8,8&
+        ,8,14,70,17,70,107,10,10,10,10,108,10,10,10,31,10,108,108,108&
+        ,108,108,108,10,108,108,8,108,108,108,6,6,6,9,6,6,6,6,6,6,6,6&
+        ,6,6,6,6,6,6,6,10,6,6,8,6,6,6,6,6,6,6,6,9,9,9,9,9,9,9,6,6,6,6&
+        ,102,6,24,24,24,24,24,25,24,109,109,25,109,26,109,5,4,25,25&
+        ,25,25,25,25,25,17,26,25,76,109,109,25,109,26,109,17,35,35,35&
+        ,28,94,35,35,35,35,35,7,73,3,92,7,73,73,35,35,74,35,35,35,35&
+        ,2,73,75,35,111,75,35,73,7,35,35,30,35,35,35,35,35,30,96,3,3&
+        ,92,35,7,7,73,35,35,35,35,35,35,35,3,92,31,31,28,94,30,6,8,87&
+        ,7,31,12,98,6,31,8,3,3,92,26,25,112,112,26,26,8,7,8,6,8,8,3,8&
+        ,24,18,80,30,30,25,14,30,30,27,30,6,3,91,30,30,30,30,30,30,3&
+        ,10,30,30,30,31,78,31,10,31,31,31,31,3,10,31,78,10,78,78,78&
+        ,78,78,78,78,78,78,3,27,27,6,30,30,30,91,91,91,91,30,8,3,91,3&
+        ,104,9,10,94,7,25,10,30,2,93,30,79,8,107,11,94,6,70,30,93,8,6&
+        ,93,8,7,8,8,6,80,3,3,3,3,3,3,90,3,3,3,3,3,3,3,3,3,3,90,90,8&
+        ,90,90,90,8,28,25,10,2,2,30,8,8,2,8,2,3,30,3,24,8,2,8,2,28,2&
+        ,28,28,28,31,17,30,10,8,6,8,9,3,10,6,8,8,2,8,2,28,12,12,29,29&
+        ,29,29,31,27,36,9,10,9,12,29,6,8,3,6,12,28,28,28,25,12,12,12&
+        ,30,8,7,3,30,8,8,3,10,3,10,12,8,7,8,5,5,5,44,25,30,25,3,23,31&
+        ,17,3,10,8,8,8,8,8,8,8,8,8,10,8,8,6,6,6,6,10,7,6,6,6,6,6,12,8&
+        ,3,6,31,6,6,6,10,31,30,3,3,6,10,3,25,24,6,25,25,17,25,10,25&
+        ,13,4,8,8,2,8,6,8,7,25,31,31,3,8,31,8,3,17,26,3,3,31,8,31,24&
+        ,16,9,10,31,3,27,27,30,27,27,6,8,30,17,3,10,3,10,8,30,30,8,3&
+        ,26,3,38,17,25,28,30,7,25,6,10,10,10,31,8,8,10,8,10,31,30,8&
+        ,31,27,17,30,10,17,24,8,25,25,25,7,6,8,8,10,8,3,8,8,9,9,27,9&
+        ,9,27,8,9,3,8,25,7,30,3,1,71,6,8,71,1,8,6,8,8,1,6,6,8,28,6,8&
+        ,6,8,1,6,8,1,7,3,3,7,8,8,6,8,1,8,8,1,8,6,8,8,71,8,8,8,1,8,25&
+        ,8,1,30,71,1,8,8,1,6,8,1,3,1,30,3,1,3,8,3,3,8,8,1,1,7,7,8,1,8&
+        ,8,1,6,6,8,8,8,3,3,1,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,8,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,8,8,119,119,119,119,119&
+        ,119,119,119,8,119,119,119,119,8,8,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119/)
+    arr_p3(1:1331) = (/119,119&
+        ,8,8,8,119,6,8,1,8,8,8,8,8,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,1,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,8,119,119,119,8,8,119,119,119,119,119,119,8&
+        ,119,119,119,119,8,119,119,8,119,119,8,119,8,119,8,119,8,119&
+        ,8,119,119,119,119,8,119,119,119,119,119,119,119,119,8,119&
+        ,119,8,119,119,119,119,119,119,119,119,119,8,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,6,8,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,6&
+        ,119,119,8,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,8,119,119,119,119,119,8,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,8,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,8,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,6,119,119,119,119,119,119&
+        ,119,119,119,119,119,8,119,119,119,6,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,6,8,6,35,35,6,6,8,71,8,35,35,35,35&
+        ,35,35,35,6,8,35,8,71,8,8,35,35,35,8,119,35,8,35,35,8,71,35,6&
+        ,8,6,8,8,35,35,35,35,35,8,35,35,35,6,8,6,8,6,6,8,35,35,8,119&
+        ,8,8,8,8,8,119,119,119,119,119,119,119,119,119,119,119,8,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,8,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,8,119,119,119,119,8,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,8,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,8,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,6,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,8,119,119,119,119,119,119,119&
+        ,119,3,119,119,119,119,119,119,119,119,119,119,8,119,119,119&
+        ,119,119,119,119,119,8,119,119,8,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,8,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,1,119,119,119,119&
+        ,119,119,8,119,119,119,119,119,119,119,119,119,8,119,1,119&
+        ,119,119,119,8,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,6,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119&
+        ,119/)
+    arr_p4(1:1331) = (/119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,8,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,8,119,119,119,119&
+        ,119,8,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,6,8,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119,119,119,119,119,119,119,119,119,119,119,119,119,119&
+        ,119,119/)
 
   end subroutine load_arrays
 

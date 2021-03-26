@@ -41,23 +41,29 @@ int grid::ReturnHydroRKPointers(float **Prim, bool ReturnMassFractions)
 #ifdef USE_KROME
 int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
  OHINum, O2INum, CH2INum, H2COINum, HCOINum,
- MGINum, NH3INum, NOINum, CNINum, COINum,
- N2INum, NH2INum, CH3INum, CH4INum, NINum,
- NHINum, HNOINum, CH3OHINum, CO2INum, H2CNINum,
+ MGINum, NH3INum, NOINum, SIINum, SIC2INum,
+ SIC3INum, SICINum, SIH2INum, SIH3INum, CNINum,
+ COINum, N2INum, NH2INum, CH3INum, CH4INum,
+ NINum, NHINum, SIH4INum, SIHINum, SIOINum,
+ HNOINum, CH3OHINum, CO2INum, H2CNINum, H2SIOINum,
  HNCOINum, NO2INum, O2HINum, OCNINum, CH3OH_DUSTINum,
- HNCO_DUSTINum, H2CO_DUSTINum, CH4_DUSTINum,
- CO_DUSTINum, H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
+ HNCO_DUSTINum, H2CO_DUSTINum, SIH4_DUSTINum,
+ H2SIO_DUSTINum, SIC_DUSTINum, SIC2_DUSTINum,
+ SIC3_DUSTINum, CH4_DUSTINum, CO_DUSTINum,
+ H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
  N2_DUSTINum, HCN_DUSTINum, NH3_DUSTINum,
  O2_DUSTINum, NO2_DUSTINum, HNO_DUSTINum,
  O2H_DUSTINum, H2CN_DUSTINum, MG_DUSTINum,
- HNC_DUSTINum, E_DUSTINum, HCOIINum, HOCIINum,
- CIINum, CH2IINum, CHIINum, H2COIINum, MGIINum,
- NH3IINum, NOIINum, CNIINum, COIINum, N2IINum,
- O2IINum, H2OIINum, NH2IINum, OIINum, OHIINum,
- CH3IINum, CH4IINum, NIINum, HCNIINum, NHIINum,
- HNOIINum, H2NOIINum, H3IINum, H3COIINum,
+ HNC_DUSTINum, E_DUSTINum, SIO_DUSTINum, HCOIINum,
+ HOCIINum, CIINum, CH2IINum, CHIINum, H2COIINum,
+ MGIINum, NH3IINum, NOIINum, SIIINum, SIC2IINum,
+ SIC3IINum, SICIINum, SIH2IINum, SIH3IINum,
+ CNIINum, COIINum, N2IINum, O2IINum, H2OIINum,
+ NH2IINum, OIINum, OHIINum, CH3IINum, CH4IINum,
+ NIINum, HCNIINum, NHIINum, SIH4IINum, SIHIINum,
+ SIOIINum, HNOIINum, H2NOIINum, H3IINum, H3COIINum,
  H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
- N2HIINum, O2HIINum;
+ N2HIINum, O2HIINum, SIH5IINum, SIOHIINum;
 #endif
 
   /* Add the physical quantities */
@@ -107,23 +113,29 @@ int CHINum, OINum, HNCINum, HCNINum, CINum, H2OINum,
 DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
  CINum, HINum, H2OINum, OHINum, O2INum, CH2INum,
  H2COINum, HCOINum, MGINum, NH3INum, NOINum,
- CNINum, COINum, N2INum, NH2INum, CH3INum,
- CH4INum, NINum, NHINum, HeINum, HNOINum,
- CH3OHINum, CO2INum, H2CNINum, HNCOINum, NO2INum,
+ SIINum, SIC2INum, SIC3INum, SICINum, SIH2INum,
+ SIH3INum, CNINum, COINum, N2INum, NH2INum,
+ CH3INum, CH4INum, NINum, NHINum, SIH4INum,
+ SIHINum, SIOINum, HeINum, HNOINum, CH3OHINum,
+ CO2INum, H2CNINum, H2SIOINum, HNCOINum, NO2INum,
  O2HINum, OCNINum, CH3OH_DUSTINum, HNCO_DUSTINum,
- H2CO_DUSTINum, CH4_DUSTINum, CO_DUSTINum,
- H2O_DUSTINum, NO_DUSTINum, CO2_DUSTINum,
- N2_DUSTINum, HCN_DUSTINum, NH3_DUSTINum,
- O2_DUSTINum, NO2_DUSTINum, HNO_DUSTINum,
- O2H_DUSTINum, H2CN_DUSTINum, MG_DUSTINum,
- HNC_DUSTINum, E_DUSTINum, HCOIINum, HIINum,
- HOCIINum, CIINum, CH2IINum, CHIINum, H2COIINum,
- MGIINum, NH3IINum, NOIINum, CNIINum, COIINum,
- N2IINum, O2IINum, H2OIINum, NH2IINum, OIINum,
- OHIINum, CH3IINum, CH4IINum, NIINum, HCNIINum,
- NHIINum, H2IINum, HeIINum, HNOIINum, H2NOIINum,
- H3IINum, H3COIINum, H3OIINum, HCNHIINum,
- HCO2IINum, HeHIINum, N2HIINum, O2HIINum
+ H2CO_DUSTINum, SIH4_DUSTINum, H2SIO_DUSTINum,
+ SIC_DUSTINum, SIC2_DUSTINum, SIC3_DUSTINum,
+ CH4_DUSTINum, CO_DUSTINum, H2O_DUSTINum,
+ NO_DUSTINum, CO2_DUSTINum, N2_DUSTINum, HCN_DUSTINum,
+ NH3_DUSTINum, O2_DUSTINum, NO2_DUSTINum,
+ HNO_DUSTINum, O2H_DUSTINum, H2CN_DUSTINum,
+ MG_DUSTINum, HNC_DUSTINum, E_DUSTINum, SIO_DUSTINum,
+ HCOIINum, HIINum, HOCIINum, CIINum, CH2IINum,
+ CHIINum, H2COIINum, MGIINum, NH3IINum, NOIINum,
+ SIIINum, SIC2IINum, SIC3IINum, SICIINum,
+ SIH2IINum, SIH3IINum, CNIINum, COIINum, N2IINum,
+ O2IINum, H2OIINum, NH2IINum, OIINum, OHIINum,
+ CH3IINum, CH4IINum, NIINum, HCNIINum, NHIINum,
+ SIH4IINum, SIHIINum, SIOIINum, H2IINum, HeIINum,
+ HNOIINum, H2NOIINum, H3IINum, H3COIINum,
+ H3OIINum, HCNHIINum, HCO2IINum, HeHIINum,
+ N2HIINum, O2HIINum, SIH5IINum, SIOHIINum
           ) == FAIL) {
         ENZO_FAIL("Error in grid->IdentifySpeciesFields.");
       }
@@ -164,6 +176,12 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[MGINum];
       Prim[nfield++] =  BaryonField[NH3INum];
       Prim[nfield++] =  BaryonField[NOINum];
+      Prim[nfield++] =  BaryonField[SIINum];
+      Prim[nfield++] =  BaryonField[SIC2INum];
+      Prim[nfield++] =  BaryonField[SIC3INum];
+      Prim[nfield++] =  BaryonField[SICINum];
+      Prim[nfield++] =  BaryonField[SIH2INum];
+      Prim[nfield++] =  BaryonField[SIH3INum];
       Prim[nfield++] =  BaryonField[CNINum];
       Prim[nfield++] =  BaryonField[COINum];
       Prim[nfield++] =  BaryonField[N2INum];
@@ -172,10 +190,14 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[CH4INum];
       Prim[nfield++] =  BaryonField[NINum];
       Prim[nfield++] =  BaryonField[NHINum];
+      Prim[nfield++] =  BaryonField[SIH4INum];
+      Prim[nfield++] =  BaryonField[SIHINum];
+      Prim[nfield++] =  BaryonField[SIOINum];
       Prim[nfield++] =  BaryonField[HNOINum];
       Prim[nfield++] =  BaryonField[CH3OHINum];
       Prim[nfield++] =  BaryonField[CO2INum];
       Prim[nfield++] =  BaryonField[H2CNINum];
+      Prim[nfield++] =  BaryonField[H2SIOINum];
       Prim[nfield++] =  BaryonField[HNCOINum];
       Prim[nfield++] =  BaryonField[NO2INum];
       Prim[nfield++] =  BaryonField[O2HINum];
@@ -183,6 +205,11 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[CH3OH_DUSTINum];
       Prim[nfield++] =  BaryonField[HNCO_DUSTINum];
       Prim[nfield++] =  BaryonField[H2CO_DUSTINum];
+      Prim[nfield++] =  BaryonField[SIH4_DUSTINum];
+      Prim[nfield++] =  BaryonField[H2SIO_DUSTINum];
+      Prim[nfield++] =  BaryonField[SIC_DUSTINum];
+      Prim[nfield++] =  BaryonField[SIC2_DUSTINum];
+      Prim[nfield++] =  BaryonField[SIC3_DUSTINum];
       Prim[nfield++] =  BaryonField[CH4_DUSTINum];
       Prim[nfield++] =  BaryonField[CO_DUSTINum];
       Prim[nfield++] =  BaryonField[H2O_DUSTINum];
@@ -199,6 +226,7 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[MG_DUSTINum];
       Prim[nfield++] =  BaryonField[HNC_DUSTINum];
       Prim[nfield++] =  BaryonField[E_DUSTINum];
+      Prim[nfield++] =  BaryonField[SIO_DUSTINum];
       Prim[nfield++] =  BaryonField[HCOIINum];
       Prim[nfield++] =  BaryonField[HOCIINum];
       Prim[nfield++] =  BaryonField[CIINum];
@@ -208,6 +236,12 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[MGIINum];
       Prim[nfield++] =  BaryonField[NH3IINum];
       Prim[nfield++] =  BaryonField[NOIINum];
+      Prim[nfield++] =  BaryonField[SIIINum];
+      Prim[nfield++] =  BaryonField[SIC2IINum];
+      Prim[nfield++] =  BaryonField[SIC3IINum];
+      Prim[nfield++] =  BaryonField[SICIINum];
+      Prim[nfield++] =  BaryonField[SIH2IINum];
+      Prim[nfield++] =  BaryonField[SIH3IINum];
       Prim[nfield++] =  BaryonField[CNIINum];
       Prim[nfield++] =  BaryonField[COIINum];
       Prim[nfield++] =  BaryonField[N2IINum];
@@ -221,6 +255,9 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[NIINum];
       Prim[nfield++] =  BaryonField[HCNIINum];
       Prim[nfield++] =  BaryonField[NHIINum];
+      Prim[nfield++] =  BaryonField[SIH4IINum];
+      Prim[nfield++] =  BaryonField[SIHIINum];
+      Prim[nfield++] =  BaryonField[SIOIINum];
       Prim[nfield++] =  BaryonField[HNOIINum];
       Prim[nfield++] =  BaryonField[H2NOIINum];
       Prim[nfield++] =  BaryonField[H3IINum];
@@ -231,6 +268,8 @@ DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
       Prim[nfield++] =  BaryonField[HeHIINum];
       Prim[nfield++] =  BaryonField[N2HIINum];
       Prim[nfield++] =  BaryonField[O2HIINum];
+      Prim[nfield++] =  BaryonField[SIH5IINum];
+      Prim[nfield++] =  BaryonField[SIOHIINum];
 
     }
 #endif
