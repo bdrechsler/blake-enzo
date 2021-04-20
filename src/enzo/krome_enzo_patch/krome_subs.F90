@@ -5,7 +5,7 @@ contains
 
   ! *************************************************************
   !  This file has been generated with:
-  !  KROME 14.08.dev on 2021-03-24 02:55:08
+  !  KROME 14.08.dev on 2021-04-20 18:16:05
   !  Changeset xxxxxxx
   !  see http://kromepackage.org
   !
@@ -39,6 +39,7 @@ contains
     real*8::mantleabund  !preproc from coevar
     real*8::vdiff_factor  !preproc from coevar
     real*8::Hnuclei  !preproc from coevar
+    real*8::sputter  !preproc from coevar
     real*8::n_surface_sites !preproc from coevar
     real*8::Av  !preproc from coevar
     !Tgas is in K
@@ -57,6 +58,7 @@ contains
     Hnuclei = get_Hnuclei(n(:))
     mantle = get_mantle(n(:))
     mantleabund = mantle/Hnuclei
+    sputter = sputterrate(n(:))
     Av = get_Av(Hnuclei)
     n_surface_sites = 1.5d15
     vdiff_factor = 2.0*boltzmann_erg*n_surface_sites/pi/pi/p_mass
@@ -7795,7 +7797,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1090.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1090.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7810,7 +7813,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3130.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3130.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7825,7 +7829,8 @@ contains
           *Av)+1.d4*user_zeta)*1.3e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(5770.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(5770.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7840,7 +7845,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(5300.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(5300.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7855,7 +7861,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3610.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3610.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7870,7 +7877,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2050.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2050.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7885,7 +7893,8 @@ contains
           *Av)+1.d4*user_zeta)*2.7e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(855.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(855.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7900,7 +7909,8 @@ contains
           *Av)+1.d4*user_zeta)*1.8e-04*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(790.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(790.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7915,7 +7925,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2400.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2400.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7930,7 +7941,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1600.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1600.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7945,7 +7957,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2050.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2050.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7960,7 +7973,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2050.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2050.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7975,7 +7989,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1000.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1000.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -7990,7 +8005,8 @@ contains
           *Av)+1.d4*user_zeta)*2.1e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(4930.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(4930.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8005,7 +8021,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3650.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3650.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8020,7 +8037,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2850.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2850.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8035,7 +8053,8 @@ contains
           *Av)+1.d4*user_zeta)*2.3e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2990.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2990.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8050,7 +8069,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(2400.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(2400.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8065,7 +8085,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(4500.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(4500.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8080,7 +8101,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3500.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3500.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8095,7 +8117,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(3500.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(3500.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8110,7 +8133,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1200.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1200.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8125,7 +8149,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1300.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1300.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 
@@ -8140,7 +8165,8 @@ contains
           *Av)+1.d4*user_zeta)*1.0e-03*8.d0*pi*user_gArea&
           *Hnuclei + ( desoh2(1600.d0,mantleabund)*(epsilon*1.d-17&
           *sqrTgas*n(idx_H)) + descr(1600.d0,mantleabund)*(4*pi&
-          *user_zeta*1.64d-4*user_gArea*phi) )  &
+          *user_zeta*1.64d-4*user_gArea&
+          *phi) + sputter )  &
           / mantleabund)
     end if
 

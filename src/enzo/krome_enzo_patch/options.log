@@ -3,5 +3,5 @@
 -enzo 
 -noSinkCheck 
 -iRHS 
--n networks/walshreduced3_av.krome
+-n networks/walshreduced3_av_sputter.krome
 -conserveLin 

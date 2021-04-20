@@ -86,7 +86,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
   real*8::d(in,jn,kn),e(in,jn,kn),ge(in,jn,kn)
   real*8::u(in,jn,kn),v(in,jn,kn),w(in,jn,kn)
   real*8::aye,utem,uxyz,uaye,urho,utim,gamma,fh,dtoh
-  real*8::cellsize
+  real*8::cellsize,vel,uvel
   integer::in,jn,kn,imethod,idual,is,js,ks,ie,je,ke,idim
   integer::i,j,k
 
@@ -210,6 +210,7 @@ subroutine krome_driver(d, e, ge, u, v, w, &
 
   !set units
   dom = urho*(aye**3)/mh
+  uvel = uxyz/utim
 
   !scaling factor for comoving->proper
   factor = aye**(-3)
@@ -592,8 +593,9 @@ subroutine krome_driver(d, e, ge, u, v, w, &
 
         dt_hydro = utim*dt !dt*time_conversion
 
+        vel = uvel * (u(i,j,k)**2 + v(i,j,k)**2 + w(i,j,k)**2)**0.5
         !call KROME solver
-        call krome(krome_x(:),tgas,dt_hydro,cellsize*uxyz)
+        call krome(krome_x(:),tgas,dt_hydro,cellsize*uxyz,vel)
 
         idom = 1.d0/dom
         !convert back to code units

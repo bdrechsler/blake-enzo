@@ -19,7 +19,7 @@ module krome_user_commons
   ! *************************************************************
 
   ! mock parameters, only for single grid model, change it!!
-  real*8 :: gridsize
+  real*8 :: gridsize, gasvel
   logical :: startr = .true.
   real*8 :: ebmaxh2=1.21d3,epsilon=0.01,ebmaxcrf=1.21d3,uvcreff=1.0d-3, &
       &  ebmaxcr=1.21d3,phi=1.0d5,ebmaxuvcr=1.0d4,uvy=0.1,h2form=0.0
@@ -100,6 +100,18 @@ contains
     real*8 :: get_gridsize
     get_gridsize = gridsize
   end function get_gridsize
+
+  subroutine set_gasvel(vel)
+    implicit none
+    real*8, intent(in) :: vel
+    gasvel = vel
+  end subroutine
+
+  function get_gasvel()
+    implicit none
+    real*8 :: get_gasvel
+    get_gasvel = gasvel
+  end function
 
   !**********************
   !user can add here the functions he/she needs for
@@ -557,6 +569,177 @@ contains
     freeze = 0.0
     if (user_fr == 1.d0 .and. Tgas .le. 30.0) freeze = 1.0
   end function
+
+
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! Mock subroutine for cshock that will sputter the ices based on Jimenez-Serra!
+  ! 2008 paper.                                                                 !
+  !
+  ! Modified from UCLCEHM
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  function sputterrate(n)
+
+    use krome_commons
+    use krome_constants
+    use krome_getphys
+    implicit none
+    real*8 :: sputterrate, n(:), mass(nspec), nh, s, coeff, mass_p, n_p, mantles, grainNumberDensity
+    real*8, parameter :: GAS_DUST_NUMBER_RATIO=1.14d-12
+    real*8, parameter :: grainRadius = 1.0d-5
+    integer :: ispec
+    integer :: projectiles(6)=(/idx_H2, idx_HE, idx_C, idx_O, idx_SI, idx_CO/)
+
+    mass = get_mass()
+    mantles = get_mantle(n(:))
+    nh = get_Hnuclei(n(:))
+
+    ! loop over projectile species and get rates of change of mantle for each, summing them
+    sputterrate = 0.0
+    do ispec = 1, size(projectiles) !!!! Make projectiles array in initialize
+      ! projectile mass and number density
+      mass_p = mass(projectiles(ispec))
+      n_p = n(projectiles(ispec)) !* n_h
+      ! leading coefficient
+      coeff = dsqrt(8.0 * pi * boltzmann_erg * n(idx_Tgas) / mass_p) * grainRadius**2
+      ! Variable relating mass and speed of projectile to energy, used in integration
+      s = dsqrt(mass_p * gasvel**2 / (2.0*n(idx_Tgas)*boltzmann_erg))
+      sputterrate = sputterrate + coeff * n_p * iceYieldRate(mass_p, n(idx_Tgas), s)
+    end do
+
+    grainNumberDensity = nh * GAS_DUST_NUMBER_RATIO
+    ! Total rate/cm3 (ie released particles /cm3/s) is sputterRate (per grain) multiplied by grain number density
+    sputterrate = sputterrate * grainNumberDensity
+    ! sputterrate = min(sputterrate, mantles)
+
+
+  end function
+
+
+
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !Function calculates rate of change of ice mantle abundance of a species!
+  !due to the impact of molecules of a given mass. actual rate is         !
+  !proportional to projectile abundance                                   !
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  function iceYieldRate(projectileMass, temp, s)
+    use krome_constants
+    implicit none
+    real*8 :: iceYieldRate, projectileMass
+    real*8 :: lowerLimit, upperLimit, temp, s, eps0, eta
+
+    real*8, parameter :: iceBindingEnergy = 0.53*1.6d-12
+    real*8, parameter :: targetMass = 18.0*1.67353251819d-24
+    real*8, parameter :: iceYieldEfficiency = 0.8
+
+    ! eta is effectively reduced mass of the collision
+    eta = 4.0 * iceYieldEfficiency * projectileMass * targetMass * (projectileMass+targetMass)**(-2.0)
+    eps0 = max(1.0, 4.0*eta)
+
+    !Lower limit is xth in Jimenez-Serra et al. 2008
+    lowerLimit = dsqrt(eps0 * iceBindingEnergy / (eta*boltzmann_erg*temp) )
+
+    !Upper limit is just where the integrand goes to zero
+    upperLimit = iceYieldIntegralLimit(lowerLimit, projectileMass, temp, s, eta)
+
+    !calculate eq B.1 from Jimenez-Serra et al. 2008
+    if ((upperlimit-lowerLimit) .gt. 1d-4) then
+      !first get integral from Eq B.1 including 1/s factor
+      iceYieldRate=trapezoidIntegrate(iceYieldIntegrand, lowerLimit, upperLimit, projectileMass, temp, s, eta)/s
+    else
+      iceYieldRate=0.0
+    end if
+  end function
+
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !Function calculates integrand from Eq B.1 of Jimenez-Serra et al. 2008 !
+  !                                                                       !
+  !Inputs are mass of projectile and x. Returns value of integrand at x   !
+  !allowing trapezium rule to integrate from xth to infinity              !
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  function iceYieldIntegrand(x, mass_p, temp, s, eta)
+    use krome_constants
+    implicit none
+    real*8 :: iceYieldIntegrand, x, mass_p, temp, s, eta, eps0, eps, yield
+
+    real*8, parameter :: yieldConst = 8.3d-4
+    real*8, parameter :: iceBindingEnergy = 0.53*1.6d-12
+
+    ! epsilon is calculated from inmpact energy (Ep)
+    eps0 = max(1.0, 4.0*eta)
+    eps = (x**2) * boltzmann_erg * temp * eta / iceBindingEnergy
+
+    ! this yield is for ice averaged over all angles. There's a different one for cores
+    ! (Appendix B Jimenez-Serra 2008)
+    ! it's 2 times the normal incidence yield, but there's a factor of 0.5 in integrand so we drop both
+    yield = yieldConst * (eps-eps0)**2 / (1.0 + (eps/30.0)**(1.3333) )
+    iceYieldIntegrand = yield * (x**2) * ( dexp(-(x-s)**2) - DEXP(-(x+s)**2) )
+  end function iceYieldIntegrand
+
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !Function to calculate the upper limit beyond which there's no point   !
+  !evaluating the ice yield integrand. Ie trapezoids from upper limit to !
+  !upperlimit+dx will have an area~0                                     !
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  function iceYieldIntegralLimit(xth, mass_p, temp, s, eta)
+    implicit none
+    real*8 :: iceYieldIntegralLimit, xth, mass_p, temp, s, eta
+    integer :: i
+    i=1
+    ! Take upperlimit to be half way between lowerLimit and 1000.
+    iceYieldIntegralLimit = xth + (1d3-xth) * (0.5**i)
+    ! decrease upper limit for as long as f(upperlimit) is <1.0e-20 and
+    ! difference between lower and upper limit is not zero.
+    do while ( &
+          iceYieldIntegralLimit-xth .gt. 1.0d-3 .and. &
+          iceYieldIntegrand(iceYieldIntegralLimit, mass_p, temp, s, eta) .lt. 1d-20 &
+          )
+      i = i+1
+      iceYieldIntegralLimit = xth + (1d3-xth) * (0.5**i)
+    end do
+  end function iceYieldIntegralLimit
+
+  ! Subroutine that calculates an integral using the trapezoidal method.
+  function trapezoidIntegrate(func, xl, xu, mass_p, temp, s, eta)
+    implicit none
+    real*8 :: trapezoidIntegrate, func, xl, xu, mass_p, temp, s, eta, olds
+    real*8, parameter :: tol = 1.0e-3
+    integer :: j
+    integer, parameter :: JMAX = 25
+    external :: func
+
+    olds = -1.0e30
+    do j = 1, JMAX
+      call trapzd(func, xl, xu, trapezoidIntegrate, j, mass_p, temp, s, eta)
+
+      if (abs(trapezoidIntegrate-olds) .le. tol*abs(olds)) then
+        return
+      end if
+
+      olds=trapezoidIntegrate
+    end do
+  end function
+
+  subroutine trapzd(func, xl, xu, ret, iter, mass_p, temp, s, eta)
+    real*8 :: func, xl, xu, ret, mass_p, temp, s, eta
+    integer :: iter, it, j
+    DOUBLE PRECISION del,sum,tnm,x
+    external func
+    if (iter .eq. 1) then
+      ret = 0.5 * (xu-xl) * (func(xl, mass_p, temp, s, eta) + func(xu, mass_p, temp, s, eta))
+    else
+      it = 2**(iter-2)
+      tnm = it
+      del = (xu-xl)/tnm
+      x = xl + 0.5*del
+      sum = 0.0
+      do j = 1, it
+        sum = sum + func(x, mass_p, temp, s, eta)
+        x = x+del
+      end do
+      ret = 0.5*(ret + (xu-xl) * sum / tnm)
+    end if
+    return
+  end subroutine
 
 end module krome_user_commons
 

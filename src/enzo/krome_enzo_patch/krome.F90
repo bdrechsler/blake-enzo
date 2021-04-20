@@ -25,7 +25,7 @@ contains
   !********************************
   !KROME main (interface to the solver library)
 
-  subroutine krome(x,Tgas,dt,cellsize)
+  subroutine krome(x,Tgas,dt,cellsize,vel)
     use krome_commons
     use krome_user_commons
     use krome_subs
@@ -38,7 +38,7 @@ contains
     real*8 :: Tgas,dt
     real*8 :: x(nmols)
     real*8 :: rhogas
-    real*8 :: cellsize
+    real*8 :: cellsize,vel
 
     real*8::mass(nspec),n(nspec),tloc,xin
     real*8::rrmax,totmass,n_old(nspec),ni(nspec),invTdust(ndust)
