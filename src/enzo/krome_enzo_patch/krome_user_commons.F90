@@ -609,7 +609,7 @@ contains
     grainNumberDensity = nh * GAS_DUST_NUMBER_RATIO
     ! Total rate/cm3 (ie released particles /cm3/s) is sputterRate (per grain) multiplied by grain number density
     sputterrate = sputterrate * grainNumberDensity
-    ! sputterrate = min(sputterrate, mantles)
+    sputterrate = min(sputterrate, mantles)
 
 
   end function
