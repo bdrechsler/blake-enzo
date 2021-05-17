@@ -137,8 +137,11 @@ int grid::ComputeTemperatureField(float *temperature,int IncludeCRs)
     min_temperature = tiny_number;
   }
 
+#ifdef USE_KROME
   if (MultiSpecies == FALSE || (use_krome && p_chemistry==0))
- 
+#else
+  if (MultiSpecies == FALSE)
+#endif
     /* If the multi-species flag is not set,
        Compute temperature T = p/d and assume mu = Mu (global data). */
  
