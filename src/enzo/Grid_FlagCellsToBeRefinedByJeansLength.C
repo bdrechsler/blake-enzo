@@ -46,9 +46,6 @@ int grid::FlagCellsToBeRefinedByJeansLength()
     return -1;
   }
  
-  /* Temperature Floor for Refinement*/
-  float temp_floor = 8.0;
-
   /* compute size */
  
   int size = 1;
@@ -136,10 +133,9 @@ int grid::FlagCellsToBeRefinedByJeansLength()
   for (i = 0; i < size; i++)
     {
       if (EOSType == 0) {
-        // if (CellWidthSquared > JLSquared*temperature[i]/BaryonField[DensNum][i]){
-        if (CellWidthSquared > JLSquared*max(temperature[i],temp_floor)/BaryonField[DensNum][i]){
-          FlaggingField[i]++; 
-        }
+    if (CellWidthSquared > JLSquared*temperature[i]/BaryonField[DensNum][i]){
+      FlaggingField[i]++; 
+    }
       }
       else // isothermal and ploytropic sound speed version
     if (CellWidthSquared > JLSquared/BaryonField[DensNum][i])
