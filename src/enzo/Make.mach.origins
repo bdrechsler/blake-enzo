@@ -1,0 +1,110 @@
+#=======================================================================
+#
+# FILE:        Make.mach.origins
+#
+# DESCRIPTION: Makefile settings on Origins
+#
+# AUTHOR:      Chia-Jung Hsu
+#
+# DATE:        2021-07-11
+#
+# Update from Make.mach.linux-gnu
+#
+#=======================================================================
+
+MACH_VALID = 1
+MACH_FILE  = Make.mach.origins
+
+#-----------------------------------------------------------------------
+# Install paths (local variables)
+#-----------------------------------------------------------------------
+
+LOCAL_MPI_INSTALL         = /opt/intel/oneapi/mpi/latest
+LOCAL_HDF5_INSTALL        = /usr/local/hdf5
+# Uncomment the next line if you are using grackle. For enzo > 2.5
+# LOCAL_GRACKLE_INSTALL     = /usr/local/grackle3.2
+# LOCAL_GRACKLE_INSTALL     = /usr/local/grackle2.2 # For older version enzo
+LOCAL_HYPRE_INSTALL       = 
+
+#-----------------------------------------------------------------------
+# Compiler settings
+#-----------------------------------------------------------------------
+
+MACH_CPP       = cpp # C preprocessor command
+
+# With MPI
+
+MACH_CC_MPI    = mpiicc # C compiler when using MPI
+MACH_CXX_MPI   = mpiicpc # C++ compiler when using MPI
+MACH_FC_MPI    = mpiifort # Fortran 77 compiler when using MPI
+MACH_F90_MPI   = mpiifort # Fortran 90 compiler when using MPI
+MACH_LD_MPI    = mpiicpc # Linker when using MPI
+
+# Without MPI
+
+MACH_CC_NOMPI  = gcc # C compiler when not using MPI
+MACH_CXX_NOMPI = g++ # C++ compiler when not using MPI
+MACH_FC_NOMPI  = gfortran # Fortran 77 compiler when not using MPI
+MACH_F90_NOMPI = gfortran # Fortran 90 compiler when not using MPI
+MACH_LD_NOMPI  = g++ # Linker when not using MPI
+
+#-----------------------------------------------------------------------
+# Machine-dependent defines
+#-----------------------------------------------------------------------
+
+MACH_DEFINES   = -DLINUX -DH5_USE_16_API 
+
+#-----------------------------------------------------------------------
+# Compiler flag settings
+#-----------------------------------------------------------------------
+
+
+MACH_CPPFLAGS = -P -traditional 
+MACH_CFLAGS   = 
+MACH_CXXFLAGS =
+MACH_FFLAGS   = -nofor-main
+MACH_F90FLAGS = -nofor-main
+MACH_LDFLAGS  = -lifcore
+
+#-----------------------------------------------------------------------
+# Optimization flags
+#-----------------------------------------------------------------------
+
+MACH_OPT_WARN        = -Wall -g
+MACH_OPT_DEBUG       = -g
+MACH_OPT_HIGH        = -O2
+MACH_OPT_AGGRESSIVE  = -O3 -g
+
+#-----------------------------------------------------------------------
+# Includes
+#-----------------------------------------------------------------------
+
+LOCAL_INCLUDES_MPI         = -I$(LOCAL_MPI_INSTALL)/include 
+LOCAL_INCLUDES_HDF5        = -I$(LOCAL_HDF5_INSTALL)/include # HDF5 includes
+LOCAL_INCLUDES_HYPRE       = -I$(LOCAL_HYPRE_INSTALL)/include
+LOCAL_INCLUDES_PAPI        = # PAPI includes
+LOCAL_INCLUDES_GRACKLE     = -I$(LOCAL_GRACKLE_INSTALL)/include
+
+MACH_INCLUDES             = $(LOCAL_INCLUDES_HDF5)
+MACH_INCLUDES_MPI         = $(LOCAL_INCLUDES_MPI)
+MACH_INCLUDES_HYPRE       = $(LOCAL_INCLUDES_HYPRE)
+MACH_INCLUDES_PAPI        = $(LOCAL_INCLUDES_PAPI)
+MACH_INCLUDES_GRACKLE     = $(LOCAL_INCLUDES_GRACKLE)
+
+#-----------------------------------------------------------------------
+# Libraries
+#-----------------------------------------------------------------------
+
+LOCAL_LIBS_MPI        = -L$(LOCAL_MPI_INSTALL)/lib -L$(LOCAL_MPI_INSTALL)/lib/debug
+LOCAL_LIBS_HDF5       = -L$(LOCAL_HDF5_INSTALL)/lib -lhdf5 -lz
+LOCAL_LIBS_HYPRE      = -L$(LOCAL_HYPRE_INSTALL)/lib -lHYPRE
+LOCAL_LIBS_PAPI       = # PAPI libraries
+LOCAL_LIBS_MACH       = -lgfortran # Machine-dependent libraries
+LOCAL_LIBS_GRACKLE    = -L$(LOCAL_GRACKLE_INSTALL)/lib -lgrackle
+
+MACH_LIBS             = $(LOCAL_LIBS_HDF5) $(LOCAL_LIBS_MACH)
+MACH_LIBS_MPI         = $(LOCAL_LIBS_MPI)
+MACH_LIBS_HYPRE       = $(LOCAL_LIBS_HYPRE)
+MACH_LIBS_PAPI        = $(LOCAL_LIBS_PAPI)
+MACH_LIBS_GRACKLE     = $(LOCAL_LIBS_GRACKLE)
+
