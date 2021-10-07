@@ -88,6 +88,7 @@ extern "C" void FORTRAN_NAME(solve_rate_cool)(
     float *clPar1, float *clPar2, float *clPar3, float *clPar4, float *clPar5,
     int *clDataSize, float *clCooling, float *clHeating);
 
+#ifdef USE_KROME
 extern "C" void FORTRAN_NAME(krome_driver)(
     float *d, float *e, float *ge, float *u, float *v, float *w,
     float *De, float *CHI, float *OI, float *HNCI,
@@ -130,6 +131,7 @@ extern "C" void FORTRAN_NAME(krome_driver)(
     float *dt, float *aye,
     float *utem, float *uxyz, float *uaye, float *urho, float *utim,
     float *gamma, float *fh, float *dtoh, float *gridsize);
+#endif
 
 int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
 {
@@ -222,6 +224,7 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
       ENZO_FAIL("Error in grid->IdentifySpeciesFields.");
     }
 
+#ifdef USE_KROME
   if (MultiSpecies)
     if (IdentifySpeciesFieldsKrome(
             DeNum, CHINum, OINum, HNCINum, HCNINum, H2INum,
@@ -253,6 +256,7 @@ int grid::SolveRateAndCoolEquations(int RTCoupledSolverIntermediateStep)
     {
       ENZO_FAIL("Error in grid->IdentifySpeciesFields.");
     }
+#endif
 
   /* Find photo-ionization fields */
 

@@ -13,7 +13,9 @@
 /
 ************************************************************************/
 #include <iostream>
+#ifdef USE_FFTW
 #include <fftw3.h>
+#endif
 #include <cstdlib>
 #include <cmath>
 #include "phys_constants.h"
@@ -130,6 +132,8 @@ void TurbulenceGenerator_FFTW
   const float power_turb,             ///< [in] Power spectrum index
   float *vfield)                      ///< [out] Array containing velocity field grid
 {
+
+#ifdef USE_FFTW
 
   XorshiftRand *randnumb = new XorshiftRand(randomSeed);
 
@@ -357,6 +361,8 @@ void TurbulenceGenerator_FFTW
 
   }
   //-----------------------------------------------------------------------------------------------
+
+#endif
 
   return;
 }

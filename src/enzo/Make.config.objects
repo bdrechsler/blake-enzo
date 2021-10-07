@@ -1251,7 +1251,7 @@ OBJS_MY_PROBLEM = \
     myProblem/Grid_SetBulkVelocities.o \
     myProblem/TurbulenceGenerator.o
 
-OBJS_KROME = \
+OBJS_KROME_ALL = \
     Grid_IdentifySpeciesFieldsKrome.o\
     krome_enzo_patch/opkda2.o\
     krome_enzo_patch/opkda1.o\

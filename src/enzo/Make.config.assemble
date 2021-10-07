@@ -955,6 +955,7 @@
     ifeq ($(CONFIG_KROME),yes)
         ERROR_KROME = 0
         ASSEMBLE_KROME_DEFINES     = -DUSE_KROME
+        OBJS_KROME_LIB             = $(OBJS_KROME_ALL)
         #ASSEMBLE_KROME_INCLUDES    = $(MACH_INCLUDES_KROME)
         #ASSEMBLE_KROME_LIBS        = $(MACH_LIBS_KROME)
     endif
@@ -964,6 +965,7 @@
     ifeq ($(CONFIG_KROME),no)
         ERROR_KROME = 0
         ASSEMBLE_KROME_DEFINES =
+        OBJS_KROME_LIB         =
     endif
 
     # error if CONFIG_KROME is incorrect
@@ -1012,6 +1014,7 @@
 
     ifeq ($(CONFIG_FFTW),yes)
         ERROR_FFTW = 0
+        ASSEMBLE_FFTW_DEFINES     = -DUSE_FFTW
         ASSEMBLE_FFTW_INCLUDES    = $(MACH_INCLUDES_FFTW)
         ASSEMBLE_FFTW_LIBS        = $(MACH_LIBS_FFTW)
     endif
@@ -1089,6 +1092,7 @@
               $(ASSEMBLE_ENZO_PERFORMANCE_DEFINES) \
               $(ASSEMBLE_GRACKLE_DEFINES) \
               $(ASSEMBLE_KROME_DEFINES) \
+              $(ASSEMBLE_FFTW_DEFINES) \
               $(ASSEMBLE_LOG2ALLOC_DEFINES) \
               $(ASSEMBLE_ACCELERATION_BOUNDARY_DEFINES)
 
@@ -1109,7 +1113,7 @@
                $(OBJS_LCAPERF_LIB) \
                $(OBJS_HYDRO_RK) \
                $(OBJS_ECUDA_LIB) \
-               $(OBJS_KROME) \
+               $(OBJS_KROME_LIB) \
                $(OBJS_MY_PROBLEM) \
                $(OBJS_PYTHON) 
 

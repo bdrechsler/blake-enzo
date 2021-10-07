@@ -341,5 +341,5 @@
 #    no            Compile without Grackle support
 #----------------------------------------------------------------------- 
  
-     CONFIG_FFTW = yes
+     CONFIG_FFTW = no
 
