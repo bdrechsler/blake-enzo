@@ -1,14 +1,27 @@
 #=======================================================================
 #
-# FILE:        Make.mach.origins
+# FILE:        Make.mach.linux-gnu
 #
-# DESCRIPTION: Makefile settings on Origins
+# DESCRIPTION: Makefile settings for a linux machine
 #
-# AUTHOR:      Chia-Jung Hsu
+# AUTHOR:      Rick Wagner (rick@ucsd.edu)
 #
-# DATE:        2021-07-11
+# DATE:        2008-09-16 (updated 2019-09-11)
 #
-# Update from Make.mach.linux-gnu
+# Depending on your linux distribution several packages need to be installed
+# to satisfy the minimum Enzo requirements (GNU compiler suite with
+# gfortran/gcc/g++, an MPI library for parallel runs, and HDF5 for data outputs).
+#
+# Sample environments
+#
+# Ubuntu/Debian (see also Make.mach.ubuntu): 
+# $ apt-get install build-essentials gfortran libhdf5-10 libopenmpi-dev openmpi-bin
+#
+# Fedora/Redhat:
+# $ yum install make automake gcc gcc-c++ gcc-gfortran kernel-devel openmpi openmpi-devel
+#
+# Arch Linux:
+# $ pacman -S base-devel gcc-fortran openmpi hdf5
 #
 #=======================================================================
 
@@ -21,9 +34,7 @@ MACH_FILE  = Make.mach.origins
 
 LOCAL_MPI_INSTALL         = /opt/intel/oneapi/mpi/latest
 LOCAL_HDF5_INSTALL        = /usr/local/hdf5
-# Uncomment the next line if you are using grackle. For enzo > 2.5
-# LOCAL_GRACKLE_INSTALL     = /usr/local/grackle3.2
-# LOCAL_GRACKLE_INSTALL     = /usr/local/grackle2.2 # For older version enzo
+LOCAL_GRACKLE_INSTALL     = /usr/local/grackle3.2
 LOCAL_HYPRE_INSTALL       = 
 
 #-----------------------------------------------------------------------
@@ -62,8 +73,8 @@ MACH_DEFINES   = -DLINUX -DH5_USE_16_API
 MACH_CPPFLAGS = -P -traditional 
 MACH_CFLAGS   = 
 MACH_CXXFLAGS =
-MACH_FFLAGS   = -nofor-main
-MACH_F90FLAGS = -nofor-main
+MACH_FFLAGS   = -nofor_main -fno-second-underscore -ffixed-line-length-132
+MACH_F90FLAGS = -nofor_main -fno-second-underscore
 MACH_LDFLAGS  = -lifcore
 
 #-----------------------------------------------------------------------
@@ -107,4 +118,3 @@ MACH_LIBS_MPI         = $(LOCAL_LIBS_MPI)
 MACH_LIBS_HYPRE       = $(LOCAL_LIBS_HYPRE)
 MACH_LIBS_PAPI        = $(LOCAL_LIBS_PAPI)
 MACH_LIBS_GRACKLE     = $(LOCAL_LIBS_GRACKLE)
-

@@ -929,6 +929,7 @@ OBJS_CONFIG_LIB = \
 	star_maker8.o \
 	star_maker9.o \
 	star_maker10.o \
+	star_maker11.o \
 	star_maker_h2reg.o \
     star_maker_ssn.o \
 	StratifiedMediumExplosionInitialize.o \
